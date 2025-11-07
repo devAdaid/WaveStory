@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WaveControlUI : MonoBehaviour
+public class WaveControlUI : UIBase
 {
     [SerializeField]
     private WaveRenderer waveRenderer;
@@ -22,9 +22,7 @@ public class WaveControlUI : MonoBehaviour
 
     void Start()
     {
-        waveParameter = new WaveParameter(WaveType.Sin, WaveLogic.MinAmplitudeStep, WaveLogic.MinFrequencyStep);
         waveController = new WaveController(waveRenderer, waveParameter);
-        waveController.SetParamter(waveParameter);
         amplitudeStepButton.Initialize(WaveLogic.MinAmplitudeStep, WaveLogic.MaxAmplitudeStep, waveParameter.AmplitudeStep, OnAmplitudeStepChanged);
         frequencyStepButton.Initialize(WaveLogic.MinFrequencyStep, WaveLogic.MaxFrequencyStep, waveParameter.FrequencyStep, OnFrequencyStepChanged);
     }
