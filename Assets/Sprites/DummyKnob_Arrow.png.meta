@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf8ca295e20bded4eb3e2b7993d75c28
+guid: 319edeb1ceaf2b0408c066128c76bf95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4284657584836731453
-    second: DummyKnob_0
+      213: -4418754255631848515
+    second: DummyKnob_Arrow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DummyKnob_0
+      name: DummyKnob_Arrow_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 60
+        x: 2
+        y: 53
+        width: 76
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3cd9f9fa0a6d984c0800000000000000
-      internalID: -4284657584836731453
+      spriteID: dbb61538a6e6da2c0800000000000000
+      internalID: -4418754255631848515
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DummyKnob_0: -4284657584836731453
+      DummyKnob_Arrow_0: -4418754255631848515
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -20,9 +20,9 @@ public static class WaveLogic
         return 0;
     }
 
-    public static int MinAmplitudeStep => StaticDataHolder.I.WaveConstant.MinAmplitudeStep;
+    public static int MinAmplitudeStep => 0;
     public static int MaxAmplitudeStep => StaticDataHolder.I.WaveConstant.MaxAmplitudeStep;
-    public static int MinFrequencyStep => StaticDataHolder.I.WaveConstant.MinFrequencyStep;
+    public static int MinFrequencyStep => 1;
     public static int MaxFrequencyStep => StaticDataHolder.I.WaveConstant.MaxFrequencyStep;
 
     public static int GetClampedAmplitudeStep(int amplitudeStep)

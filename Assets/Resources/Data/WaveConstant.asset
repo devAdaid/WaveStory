@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WaveConstant
   m_EditorClassIdentifier: 
   MaxAmplitude: 3
-  MaxAmplitudeStep: 15
+  MaxAmplitudeStep: 10
   MinAmplitudeStep: 1
   MaxFrequency: 5
-  MaxFrequencyStep: 15
+  MaxFrequencyStep: 10
   MinFrequencyStep: 1

@@ -13,6 +13,9 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     [SerializeField]
     private bool invertDrag = false;
 
+    [SerializeField]
+    private GameObject arrow;
+
     private int minStep;
     private int maxStep;
     private int step;
@@ -36,6 +39,14 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         UpdateKnobRotation();
     }
 
+    public void SetArrowActive(bool active)
+    {
+        if (arrow)
+        {
+            arrow.SetActive(active);
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         isDragging = true;
@@ -47,6 +58,8 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         startAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         startStep = step;
         accumulatedAngle = 0f;
+
+        SetArrowActive(false);
     }
 
     public void OnDrag(PointerEventData eventData)

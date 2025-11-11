@@ -11,8 +11,8 @@ public class WaveControlUI : UIBase
     [SerializeField]
     private float inputDelay = 0.5f; // 입력 딜레이 (초 단위)
 
-    private WaveController waveController;
-    private WaveParameter waveParameter;
+    private WaveController waveController => waveRenderer.WaveController;
+    private WaveParameter waveParameter => waveController.WaveParameter;
 
     // 각 키별 마지막 입력 시간 추적
     private float lastInputTimeA;
@@ -20,9 +20,8 @@ public class WaveControlUI : UIBase
     private float lastInputTimeS;
     private float lastInputTimeW;
 
-    void Start()
+    public override void Initialize()
     {
-        waveController = new WaveController(waveRenderer, waveParameter);
         amplitudeStepButton.Initialize(WaveLogic.MinAmplitudeStep, WaveLogic.MaxAmplitudeStep, waveParameter.AmplitudeStep, OnAmplitudeStepChanged);
         frequencyStepButton.Initialize(WaveLogic.MinFrequencyStep, WaveLogic.MaxFrequencyStep, waveParameter.FrequencyStep, OnFrequencyStepChanged);
     }
@@ -37,7 +36,6 @@ public class WaveControlUI : UIBase
             var newParam = waveParameter;
             newParam.FrequencyStep = WaveLogic.GetClampedFrequenctStep(waveParameter.FrequencyStep - 1);
             ApplyNewWaveParameter(newParam);
-            frequencyStepButton.SetStep(newParam.FrequencyStep);
             lastInputTimeA = currentTime;
         }
         // D 키: 주파수 증가
@@ -46,7 +44,6 @@ public class WaveControlUI : UIBase
             var newParam = waveParameter;
             newParam.FrequencyStep = WaveLogic.GetClampedFrequenctStep(waveParameter.FrequencyStep + 1);
             ApplyNewWaveParameter(newParam);
-            frequencyStepButton.SetStep(newParam.FrequencyStep);
             lastInputTimeD = currentTime;
         }
         // S 키: 진폭 감소
@@ -55,7 +52,6 @@ public class WaveControlUI : UIBase
             var newParam = waveParameter;
             newParam.AmplitudeStep = WaveLogic.GetClampedAmplitudeStep(waveParameter.AmplitudeStep - 1);
             ApplyNewWaveParameter(newParam);
-            amplitudeStepButton.SetStep(newParam.AmplitudeStep);
             lastInputTimeS = currentTime;
         }
         // W 키: 진폭 증가
@@ -64,7 +60,6 @@ public class WaveControlUI : UIBase
             var newParam = waveParameter;
             newParam.AmplitudeStep = WaveLogic.GetClampedAmplitudeStep(waveParameter.AmplitudeStep + 1);
             ApplyNewWaveParameter(newParam);
-            amplitudeStepButton.SetStep(newParam.AmplitudeStep);
             lastInputTimeW = currentTime;
         }
 
@@ -92,7 +87,8 @@ public class WaveControlUI : UIBase
 
     private void ApplyNewWaveParameter(WaveParameter waveParameter)
     {
-        this.waveParameter = waveParameter;
         waveController.SetParamter(waveParameter);
+        amplitudeStepButton.SetStep(waveParameter.AmplitudeStep);
+        frequencyStepButton.SetStep(waveParameter.FrequencyStep);
     }
 }

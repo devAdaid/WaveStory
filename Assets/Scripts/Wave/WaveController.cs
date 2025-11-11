@@ -4,12 +4,19 @@ public class WaveController
 {
     private WaveRenderer waveRenderer;
 
+    public WaveParameter WaveParameter => waveParameter;
     private WaveParameter waveParameter;
 
-    public WaveController(WaveRenderer waveRenderer, WaveParameter waveParameter)
+    private bool isChangeBlock;
+
+    public WaveController(WaveRenderer waveRenderer)
     {
         this.waveRenderer = waveRenderer;
-        SetParamter(waveParameter);
+    }
+
+    public void SetChangeBlock(bool isChangeBlock)
+    {
+        this.isChangeBlock = isChangeBlock;
     }
 
     public void SetAmplitudeStep(int amplitudeStep)
@@ -40,13 +47,18 @@ public class WaveController
 
     public void SetParamter(WaveParameter param)
     {
+        if (isChangeBlock)
+        {
+            return;
+        }
+
         waveParameter = param;
 
-        var ampStep = Mathf.Max(StaticDataHolder.I.WaveConstant.MinAmplitudeStep, param.AmplitudeStep);
-        var amplitudeT = (float)Mathf.Max(0f, ((float)ampStep / StaticDataHolder.I.WaveConstant.MaxAmplitudeStep));
+        var ampStep = Mathf.Max(WaveLogic.MinAmplitudeStep, param.AmplitudeStep);
+        var amplitudeT = (float)Mathf.Max(0f, ((float)ampStep / WaveLogic.MaxAmplitudeStep));
         var amplitude = Mathf.Lerp(0f, StaticDataHolder.I.WaveConstant.MaxAmplitude, amplitudeT);
-        var freqStep = Mathf.Max(StaticDataHolder.I.WaveConstant.MinFrequencyStep, param.FrequencyStep);
-        var frequencyT = (float)Mathf.Max(0f, ((float)freqStep / StaticDataHolder.I.WaveConstant.MaxFrequencyStep));
+        var freqStep = Mathf.Max(WaveLogic.MinFrequencyStep, param.FrequencyStep);
+        var frequencyT = (float)Mathf.Max(0f, ((float)freqStep / WaveLogic.MaxFrequencyStep));
         var frequency = Mathf.Lerp(0f, StaticDataHolder.I.WaveConstant.MaxFrequency, frequencyT);
         waveRenderer.SetParameter(param.WaveType, amplitude, frequency);
     }

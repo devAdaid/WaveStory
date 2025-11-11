@@ -29,10 +29,12 @@ public class WaveRenderer : MonoBehaviour
     [SerializeField]
     [Tooltip("파형의 진폭 (높이)")]
     private float amplitude = 1f;
+    public float Amplitude => amplitude;
 
     [SerializeField]
     [Tooltip("파형의 주파수 (파동의 개수)")]
     private float frequency = 1f;
+    public float Frequency => frequency;
 
     [SerializeField]
     [Tooltip("파형의 이동 속도 배율 (frequency와 곱해져서 실제 속도가 됨)")]
@@ -40,8 +42,8 @@ public class WaveRenderer : MonoBehaviour
 
     [SerializeField]
     private WaveType waveType = WaveType.Sin;
+    public WaveType WaveType => waveType;
 
-    [SerializeField]
     private int pointCount;
     private List<Vector3> linePoints = new List<Vector3>();
 
@@ -54,6 +56,19 @@ public class WaveRenderer : MonoBehaviour
 
     // 현재 시간 (일시정지 상태 고려)
     private float CurrentTime => isPause ? pausedTime : (Time.timeSinceLevelLoad - timeOffset);
+
+    public WaveController WaveController => waveController;
+    private WaveController waveController;
+
+    private void Awake()
+    {
+        waveController = new WaveController(this);
+    }
+
+    private void Update()
+    {
+        DrawWave();
+    }
 
     public void SetPause(bool pause)
     {
@@ -79,20 +94,12 @@ public class WaveRenderer : MonoBehaviour
         waveType = type;
         amplitude = amp;
         frequency = freq;
-    }
 
-    private void Awake()
-    {
         var totalWaves = (width / (2f * Mathf.PI)) * frequency;
         var calculatedPoints = Mathf.CeilToInt(totalWaves * pointsPerWave);
         pointCount = Mathf.Max(calculatedPoints, 2);
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
-    }
-
-    private void Update()
-    {
-        DrawWave();
     }
 
     private void DrawWave()

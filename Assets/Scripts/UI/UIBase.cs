@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class UIBase : MonoBehaviour
+public abstract class UIBase : MonoBehaviour
 {
     [SerializeField]
     private GameObject root;
 
     public bool IsActive => root.activeSelf;
+
+    protected void Start()
+    {
+        Initialize();
+    }
+
+    public abstract void Initialize();
 
     public void Show()
     {
