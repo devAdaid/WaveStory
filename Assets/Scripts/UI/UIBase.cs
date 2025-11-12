@@ -7,11 +7,6 @@ public abstract class UIBase : MonoBehaviour
 
     public bool IsActive => root.activeSelf;
 
-    protected void Start()
-    {
-        Initialize();
-    }
-
     public abstract void Initialize();
 
     public void Show()

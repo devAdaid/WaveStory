@@ -7,6 +7,7 @@ public struct WaveParameter : IEquatable<WaveParameter>
     public int AmplitudeStep;
     public int FrequencyStep;
 
+    public static WaveParameter Invalid => new WaveParameter(WaveType.Sin, -1, -1);
     public static WaveParameter Min => new WaveParameter(WaveType.Sin, WaveLogic.MinAmplitudeStep, WaveLogic.MinFrequencyStep);
 
     public WaveParameter(WaveType waveType, int amplitudeStep, int frequencyStep)

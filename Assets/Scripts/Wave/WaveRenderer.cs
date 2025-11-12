@@ -10,10 +10,14 @@ public enum WaveType
     Count,
 }
 
-public class WaveRenderer : MonoBehaviour
+public class WaveRenderer : UIBase, IWaveUI
 {
     [SerializeField]
+    private bool isPausePossible;
+
+    [SerializeField]
     private LineRenderer lineRenderer;
+    public LineRenderer LineRenderer => lineRenderer;
 
     [SerializeField]
     private float lineWidth = 0.05f;
@@ -57,21 +61,43 @@ public class WaveRenderer : MonoBehaviour
     // 현재 시간 (일시정지 상태 고려)
     private float CurrentTime => isPause ? pausedTime : (Time.timeSinceLevelLoad - timeOffset);
 
-    public WaveController WaveController => waveController;
-    private WaveController waveController;
+    private WavePresenter presenter;
 
-    private void Awake()
+    public void SetPresenter(WavePresenter presenter)
     {
-        waveController = new WaveController(this);
+        this.presenter = presenter;
+        Initialize();
+    }
+
+    public override void Initialize()
+    {
+        Apply(presenter.WaveParameter);
+        DrawWave();
     }
 
     private void Update()
     {
+        if (speedMultiplier == 0f)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetPause(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            SetPause(false);
+        }
+
         DrawWave();
     }
 
     public void SetPause(bool pause)
     {
+        if (!isPausePossible) return;
+
         // 같은 상태면 무시
         if (isPause == pause) return;
 
@@ -89,13 +115,28 @@ public class WaveRenderer : MonoBehaviour
         }
     }
 
-    public void SetParameter(WaveType type, float amp, float freq)
+    public void Apply(WaveParameter param)
     {
-        waveType = type;
+        if (param == WaveParameter.Invalid)
+        {
+            Hide();
+            return;
+        }
+
+        Show();
+
+        var ampStep = Mathf.Max(WaveLogic.MinAmplitudeStep, param.AmplitudeStep);
+        var ampT = (float)Mathf.Max(0f, ((float)ampStep / WaveLogic.MaxAmplitudeStep));
+        var amp = Mathf.Lerp(0f, StaticDataHolder.I.WaveConstant.MaxAmplitude, ampT);
+        var freqStep = Mathf.Max(WaveLogic.MinFrequencyStep, param.FrequencyStep);
+        var freqT = (float)Mathf.Max(0f, ((float)freqStep / WaveLogic.MaxFrequencyStep));
+        var freq = Mathf.Lerp(0f, StaticDataHolder.I.WaveConstant.MaxFrequency, freqT);
+
+        waveType = param.WaveType;
         amplitude = amp;
         frequency = freq;
 
-        var totalWaves = (width / (2f * Mathf.PI)) * frequency;
+        var totalWaves = (width / (2f * Mathf.PI)) * freq;
         var calculatedPoints = Mathf.CeilToInt(totalWaves * pointsPerWave);
         pointCount = Mathf.Max(calculatedPoints, 2);
         lineRenderer.startWidth = lineWidth;
