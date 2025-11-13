@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleUI : MonoBehaviour
+public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 {
     [SerializeField]
     private Image dimmed;
@@ -23,10 +23,22 @@ public class TitleUI : MonoBehaviour
     private KnobButton[] buttons;
 
     [SerializeField]
+    private WordInputButton wordInputButton;
+
+    [SerializeField]
     private WordInventoryUI wordInventoryUI;
 
     [SerializeField]
+    private WordInputUI_Title wordInputUI;
+
+    [SerializeField]
     private CanvasGroup frame;
+
+    [SerializeField]
+    private CanvasGroup wordUIRoot;
+
+    [SerializeField]
+    private CanvasGroup wordInventoryRoot;
 
     [SerializeField]
     private CanvasGroup ui;
@@ -34,6 +46,8 @@ public class TitleUI : MonoBehaviour
     private WaveContext inputContext;
     private WaveContext previewContext;
     private WordInventoryContext wordInventoryContext;
+
+    private bool isWordCorrect;
 
     IEnumerator Start()
     {
@@ -55,8 +69,11 @@ public class TitleUI : MonoBehaviour
         previewRenderer.Initialize();
         inputRenderer.Initialize();
         wordInventoryUI.Initialize();
+        wordInputUI.Initialize();
+        wordInputButton.Initialize();
 
         wordInventoryUI.Hide();
+        wordInputButton.Hide();
 
         dimmed.gameObject.SetActive(true);
         ui.gameObject.SetActive(false);
@@ -93,17 +110,39 @@ public class TitleUI : MonoBehaviour
             yield return null;
         }
 
-        wordInventoryUI.Show();
-
-
+        AudioManager.I.PlaySfxOneShot("Correct");
 
         waveControlUI.SetChangeBlock(true);
+        wordInputButton.Show();
+
+        while (!isWordCorrect)
+        {
+            yield return null;
+        }
+
+        AudioManager.I.PlaySfxOneShot("Correct");
 
         dimmed.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
 
-        var frameFadeTime = 1f;
+        var wordFadeTime = 1f;
+        var wordStep = Time.deltaTime / wordFadeTime;
+        t = 0f;
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(1f, 0f, t);
+            wordUIRoot.alpha = alpha;
+            wordInventoryRoot.alpha = alpha;
+            yield return null;
+            t += wordStep;
+        }
+        wordUIRoot.alpha = 0f;
+        wordInventoryRoot.alpha = 0f;
+
+        yield return new WaitForSeconds(1f);
+
+        var frameFadeTime = 1.5f;
         var frameStep = Time.deltaTime / frameFadeTime;
         t = 0f;
         while (t < 1f)
@@ -144,28 +183,18 @@ public class TitleUI : MonoBehaviour
         ui.alpha = 1f;
     }
 
-    IEnumerator FadeLineRenderer(LineRenderer lineRenderer)
+    public void Initialize()
     {
-        var fadeTime = 1f;
-        var step = Time.deltaTime / fadeTime;
-        var t = 0f;
-        while (t < 1f)
-        {
-            var alpha = Mathf.Lerp(1f, 0f, t);
-            var c = lineRenderer.material.color;
-            c.a = alpha;
-            lineRenderer.material.SetColor("_Color", c);
+    }
 
-            t += step;
-            yield return null;
-        }
+    public void OnInput(string wordId1, string wordId2)
+    {
+        isWordCorrect = (wordId1 == "Title_Last" && wordId2 == "Title_Wave");
+
+        if (!isWordCorrect)
         {
-            Color c = lineRenderer.startColor;
-            c.a = 1f;
-            lineRenderer.startColor = c;
-            c = lineRenderer.endColor;
-            c.a = 1f;
-            lineRenderer.endColor = c;
+            wordInputUI.ClearAllWords();
+            AudioManager.I.PlaySfxOneShot("Wrong");
         }
     }
 }

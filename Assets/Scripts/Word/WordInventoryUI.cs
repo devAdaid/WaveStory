@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
 
     private WordInventoryPresenter presenter;
     private List<WordButton> buttonPool = new List<WordButton>();
+    private Action<string> onClickWordButton;
 
     public void SetPresenter(WordInventoryPresenter presenter)
     {
@@ -32,6 +34,11 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
         buttonTemplate.gameObject.SetActive(false);
 
         Apply(presenter.GetWordIds());
+    }
+
+    public void SetCallback(Action<string> wordButtonCallback)
+    {
+        onClickWordButton = wordButtonCallback;
     }
 
     public void Apply(List<string> wordIds)
@@ -61,6 +68,6 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
 
     private void OnClickButton(string wordId)
     {
-        // 아직 구현하지 말것
+        onClickWordButton.Invoke(wordId);
     }
 }

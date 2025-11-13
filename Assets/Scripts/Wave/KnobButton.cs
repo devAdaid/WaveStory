@@ -29,6 +29,10 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     private Action<int> onStepChanged;
 
+    private bool isChangeBlock;
+
+    private bool soundFlag;
+
     public void Initialize(int minStep, int maxStep, int initialStep, Action<int> onStepChanged)
     {
         this.minStep = minStep;
@@ -37,6 +41,12 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         this.onStepChanged = onStepChanged;
 
         UpdateKnobRotation();
+    }
+
+    public void SetChangeBlock(bool isChangeBlock)
+    {
+        this.isChangeBlock = isChangeBlock;
+        isDragging = false;
     }
 
     public void SetArrowActive(bool active)
@@ -49,6 +59,8 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isChangeBlock) return;
+
         isDragging = true;
 
         Vector2 localPointerPosition = GetLocalPointerPosition(eventData);
@@ -65,6 +77,7 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDragging) return;
+        if (isChangeBlock) return;
 
         Vector2 localPointerPosition = GetLocalPointerPosition(eventData);
         Vector2 knobCenter = knobRectTransform.localPosition;
@@ -128,10 +141,22 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
         return localPosition;
     }
 
-    public void SetStep(int newStep)
+    public void SetStep(int newStep, bool withSound = false)
     {
-        step = Mathf.Clamp(newStep, minStep, maxStep);
+        newStep = Mathf.Clamp(newStep, minStep, maxStep);
+
+        if (step == newStep) return;
+
+        step = newStep;
+
         UpdateKnobRotation();
+
+
+        if (withSound)
+        {
+            AudioManager.I.PlaySfxOneShot(soundFlag ? "Knob_1" : "Knob_2");
+            soundFlag = !soundFlag;
+        }
     }
 
     public void AddStep(int delta)

@@ -30,13 +30,15 @@ public class WaveControlUI : UIBase, IWaveUI
         var waveParameter = presenter.WaveParameter;
         amplitudeStepButton.Initialize(WaveLogic.MinAmplitudeStep, WaveLogic.MaxAmplitudeStep, waveParameter.AmplitudeStep, OnAmplitudeStepChanged);
         frequencyStepButton.Initialize(WaveLogic.MinFrequencyStep, WaveLogic.MaxFrequencyStep, waveParameter.FrequencyStep, OnFrequencyStepChanged);
-        Apply(waveParameter);
+
+
+        amplitudeStepButton.SetStep(presenter.WaveParameter.AmplitudeStep);
+        frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep);
     }
 
     void Update()
     {
         float currentTime = Time.time;
-
 
         var newParam = presenter.WaveParameter;
 
@@ -74,6 +76,8 @@ public class WaveControlUI : UIBase, IWaveUI
     public void SetChangeBlock(bool isChangeBlock)
     {
         this.isChangeBlock = isChangeBlock;
+        amplitudeStepButton.SetChangeBlock(isChangeBlock);
+        frequencyStepButton.SetChangeBlock(isChangeBlock);
     }
 
     private void OnAmplitudeStepChanged(int amplitudeStep)
@@ -102,7 +106,7 @@ public class WaveControlUI : UIBase, IWaveUI
 
     public void Apply(WaveParameter param)
     {
-        amplitudeStepButton.SetStep(presenter.WaveParameter.AmplitudeStep);
-        frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep);
+        amplitudeStepButton.SetStep(presenter.WaveParameter.AmplitudeStep, true);
+        frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep, true);
     }
 }
