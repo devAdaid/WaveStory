@@ -3,8 +3,6 @@ using UnityEngine;
 public class WaveControlUI : UIBase, IWaveUI
 {
     [SerializeField]
-    private WaveRenderer waveRenderer;
-    [SerializeField]
     private KnobButton amplitudeStepButton;
     [SerializeField]
     private KnobButton frequencyStepButton;

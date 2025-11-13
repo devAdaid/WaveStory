@@ -23,6 +23,9 @@ public class TitleUI : MonoBehaviour
     private KnobButton[] buttons;
 
     [SerializeField]
+    private WordInventoryUI wordInventoryUI;
+
+    [SerializeField]
     private CanvasGroup frame;
 
     [SerializeField]
@@ -30,21 +33,30 @@ public class TitleUI : MonoBehaviour
 
     private WaveContext inputContext;
     private WaveContext previewContext;
+    private WordInventoryContext wordInventoryContext;
 
     IEnumerator Start()
     {
         inputContext = new WaveContext(WaveParameter.Min);
         previewContext = new WaveContext(answerParameter);
+        wordInventoryContext = new WordInventoryContext();
+
+        wordInventoryContext.Add("Title_Wave");
+        wordInventoryContext.Add("Title_Last");
 
         AudioManager.I.PlayBgm("Noise");
 
         waveControlUI.SetPresenter(new WavePresenter(inputContext, waveControlUI));
         previewRenderer.SetPresenter(new WavePresenter(previewContext, previewRenderer));
         inputRenderer.SetPresenter(new WavePresenter(inputContext, inputRenderer));
+        wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext));
 
         waveControlUI.Initialize();
         previewRenderer.Initialize();
         inputRenderer.Initialize();
+        wordInventoryUI.Initialize();
+
+        wordInventoryUI.Hide();
 
         dimmed.gameObject.SetActive(true);
         ui.gameObject.SetActive(false);
@@ -80,6 +92,10 @@ public class TitleUI : MonoBehaviour
         {
             yield return null;
         }
+
+        wordInventoryUI.Show();
+
+
 
         waveControlUI.SetChangeBlock(true);
 

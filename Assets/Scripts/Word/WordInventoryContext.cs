@@ -2,10 +2,16 @@ using System.Collections.Generic;
 
 public class WordInventoryContext
 {
-    private readonly HashSet<string> wordIds = new();
+    public readonly List<string> WordIds = new();
 
     public bool Add(string wordId)
     {
-        return wordIds.Add(wordId);
+        if (WordIds.Contains(wordId))
+        {
+            return false;
+        }
+
+        WordIds.Add(wordId);
+        return true;
     }
 }
