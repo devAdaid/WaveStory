@@ -20,7 +20,7 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
         this.presenter = presenter;
     }
 
-    public override void Initialize()
+    protected override void InitializeInternal()
     {
         // buttonRoot에 buttonInitialCount만큼 추가하고 setactive false한다
         for (int i = 0; i < buttonInitialCount; i++)

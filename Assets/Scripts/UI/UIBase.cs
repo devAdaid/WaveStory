@@ -12,7 +12,18 @@ public abstract class UIBase : MonoBehaviour
 
     public bool IsActive => root.activeSelf;
 
-    public abstract void Initialize();
+    protected bool isInitialized;
+
+    public void Initialize()
+    {
+        if (isInitialized) return;
+
+        InitializeInternal();
+
+        isInitialized = true;
+    }
+
+    protected abstract void InitializeInternal();
 
     private void Awake()
     {

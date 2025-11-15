@@ -21,7 +21,7 @@ public class WordInputUI_Title : UIBase
 
     private static string EMPTY_TEXT = "_________";
 
-    public override void Initialize()
+    protected override void InitializeInternal()
     {
         confirmButton.onClick.AddListener(OnClick);
         inventoryUI.SetCallback(OnWordClicked);

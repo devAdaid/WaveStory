@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class GameContextHolder : MonoSingleton<GameContextHolder>, IMonoSingleton
+public class GM : MonoSingleton<GM>, IMonoSingleton
 {
-    public WaveContext InputWave;
-    public RoomContext Room;
-    public WordInventoryContext WordInventory;
-    public FlagStateContext FlagStateContext;
+    public WaveContext InputWave { get; private set; }
+    public RoomContext Room { get; private set; }
+    public WordInventoryContext WordInventory { get; private set; }
+    public FlagStateContext FlagStateContext { get; private set; }
 
     [SerializeField]
     private GameUIHolder uiHolder;
+    public GameUIHolder UIHolder => this.uiHolder;
 
     public void Initialize()
     {

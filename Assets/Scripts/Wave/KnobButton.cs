@@ -105,6 +105,8 @@ public class KnobButton : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoi
             step = newStep;
             UpdateKnobRotation();
             onStepChanged?.Invoke(step);
+            AudioManager.I.PlaySfxOneShot(soundFlag ? "Knob_1" : "Knob_2");
+            soundFlag = !soundFlag;
         }
     }
 

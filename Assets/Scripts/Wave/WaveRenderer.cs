@@ -1,16 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WaveType
-{
-    Sin,
-    Square,
-    PingPong,
-
-    Count,
-}
-
-public class WaveRenderer : UIBase, IWaveUI
+public class WaveRenderer : MonoBehaviour
 {
     [SerializeField]
     private bool isPausePossible;
@@ -23,30 +14,21 @@ public class WaveRenderer : UIBase, IWaveUI
     private float lineWidth = 0.05f;
 
     [SerializeField]
-    private float width = 2 * Mathf.PI;
+    private float width = 25;
 
     [SerializeField]
     [Tooltip("파동 하나당 포인트 수 (높을수록 부드러움)")]
-    private int pointsPerWave = 50;
-
-    [Header("Wave Parameters")]
-    [SerializeField]
-    [Tooltip("파형의 진폭 (높이)")]
-    private float amplitude = 1f;
-    public float Amplitude => amplitude;
-
-    [SerializeField]
-    [Tooltip("파형의 주파수 (파동의 개수)")]
-    private float frequency = 1f;
-    public float Frequency => frequency;
+    private int pointsPerWave = 20;
 
     [SerializeField]
     [Tooltip("파형의 이동 속도 배율 (frequency와 곱해져서 실제 속도가 됨)")]
     private float speedMultiplier = 1f;
 
-    [SerializeField]
+    private float amplitude = 1f;
+
+    private float frequency = 1f;
+
     private WaveType waveType = WaveType.Sin;
-    public WaveType WaveType => waveType;
 
     private int pointCount;
     private List<Vector3> linePoints = new List<Vector3>();
@@ -60,20 +42,6 @@ public class WaveRenderer : UIBase, IWaveUI
 
     // 현재 시간 (일시정지 상태 고려)
     private float CurrentTime => isPause ? pausedTime : (Time.timeSinceLevelLoad - timeOffset);
-
-    private WavePresenter presenter;
-
-    public void SetPresenter(WavePresenter presenter)
-    {
-        this.presenter = presenter;
-        Initialize();
-    }
-
-    public override void Initialize()
-    {
-        Apply(presenter.WaveParameter);
-        DrawWave();
-    }
 
     private void Update()
     {
@@ -119,11 +87,11 @@ public class WaveRenderer : UIBase, IWaveUI
     {
         if (param == WaveParameter.Invalid)
         {
-            Hide();
+            gameObject.SetActive(false);
             return;
         }
 
-        Show();
+        gameObject.SetActive(true);
 
         var ampStep = Mathf.Max(WaveLogic.MinAmplitudeStep, param.AmplitudeStep);
         var ampT = (float)Mathf.Max(0f, ((float)ampStep / WaveLogic.MaxAmplitudeStep));
@@ -141,6 +109,8 @@ public class WaveRenderer : UIBase, IWaveUI
         pointCount = Mathf.Max(calculatedPoints, 2);
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
+
+        DrawWave();
     }
 
     private void DrawWave()

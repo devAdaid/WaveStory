@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 1913516478371052755}
   - component: {fileID: 8957319188266026737}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -756,7 +756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2317950934359025822}
-  - component: {fileID: 2206200618313296345}
+  - component: {fileID: 1865264751576016135}
   m_Layer: 5
   m_Name: WaveControlUI
   m_TagString: Untagged
@@ -784,7 +784,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2206200618313296345
+--- !u!114 &1865264751576016135
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4189663664826264763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc2dcaf140e04be42be0efe2cf9aba05, type: 3}
+  m_Script: {fileID: 11500000, guid: 888bf2805be302b44a172209d2e4baec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 413339116549289037}
@@ -801,7 +801,11 @@ MonoBehaviour:
   - {fileID: 8957319188266026737}
   amplitudeStepButton: {fileID: 3384090230855970888}
   frequencyStepButton: {fileID: 1391689810672436789}
-  inputDelay: 0.3
+  inputDelay: 0.5
+  inputWaveRenderer: {fileID: 0}
+  previewInitialCount: 3
+  previewRoot: {fileID: 0}
+  previewTemplate: {fileID: 0}
 --- !u!1 &5265203705382127528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,9 +1204,10 @@ MonoBehaviour:
   root: {fileID: 1444646612357063853}
   closeButtons:
   - {fileID: 845440591943682750}
-  firstWordText: {fileID: 6687584038824981535}
-  secondWordText: {fileID: 2513095027619525509}
+  wordText1: {fileID: 6687584038824981535}
+  wordText2: {fileID: 2513095027619525509}
   confirmButton: {fileID: 6534814095010082851}
+  inventoryUI: {fileID: 0}
 --- !u!1 &7492482528542624565
 GameObject:
   m_ObjectHideFlags: 0

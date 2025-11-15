@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5470993444706394616}
+  - component: {fileID: 5477983167032327079}
   m_Layer: 5
   m_Name: SoulModeUI
   m_TagString: Untagged
@@ -36,6 +37,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5477983167032327079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561876887899737552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad972dd2fca08484cb121165af683fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 7466545657304124441}
+  closeButtons: []
+  waveButton: {fileID: 7209091577868185889}
+  waveControlUI: {fileID: 0}
 --- !u!1 &7466545657304124441
 GameObject:
   m_ObjectHideFlags: 0

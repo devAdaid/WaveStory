@@ -11,13 +11,13 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     private WaveParameter answerParameter;
 
     [SerializeField]
-    private WaveRenderer previewRenderer;
+    private WaveRenderer_Title previewRenderer;
 
     [SerializeField]
-    private WaveRenderer inputRenderer;
+    private WaveRenderer_Title inputRenderer;
 
     [SerializeField]
-    private WaveControlUI waveControlUI;
+    private WaveControlUI_Title waveControlUI;
 
     [SerializeField]
     private KnobButton[] buttons;
@@ -43,11 +43,22 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     [SerializeField]
     private CanvasGroup ui;
 
+    [SerializeField]
+    private Button startButton;
+
+    [SerializeField]
+    private Button quitButton;
+
     private WaveContext inputContext;
     private WaveContext previewContext;
     private WordInventoryContext wordInventoryContext;
 
     private bool isWordCorrect;
+
+    public void Initialize()
+    {
+        quitButton.onClick.AddListener(QuitGame);
+    }
 
     IEnumerator Start()
     {
@@ -58,11 +69,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         wordInventoryContext.Add("Title_Wave");
         wordInventoryContext.Add("Title_Last");
 
-        AudioManager.I.PlayBgm("Noise");
-
-        waveControlUI.SetPresenter(new WavePresenter(inputContext, waveControlUI));
-        previewRenderer.SetPresenter(new WavePresenter(previewContext, previewRenderer));
-        inputRenderer.SetPresenter(new WavePresenter(inputContext, inputRenderer));
+        waveControlUI.SetPresenter(new WavePresenter_Title(inputContext, waveControlUI));
+        previewRenderer.SetPresenter(new WavePresenter_Title(previewContext, previewRenderer));
+        inputRenderer.SetPresenter(new WavePresenter_Title(inputContext, inputRenderer));
         wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext));
 
         waveControlUI.Initialize();
@@ -83,6 +92,8 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         {
             button.SetArrowActive(false);
         }
+
+        AudioManager.I.PlayBgm("Noise");
 
         var dimmedFadeTime = 1f;
         var dimmedStep = Time.deltaTime / dimmedFadeTime;
@@ -183,10 +194,6 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         ui.alpha = 1f;
     }
 
-    public void Initialize()
-    {
-    }
-
     public void OnInput(string wordId1, string wordId2)
     {
         isWordCorrect = (wordId1 == "Title_Last" && wordId2 == "Title_Wave");
@@ -196,5 +203,13 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
             wordInputUI.ClearAllWords();
             AudioManager.I.PlaySfxOneShot("Wrong");
         }
+    }
+    private void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }

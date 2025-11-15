@@ -9,8 +9,9 @@ public class WordInputButton : UIBase
     [SerializeField]
     private UIBase wordInputUI;
 
-    public override void Initialize()
+    protected override void InitializeInternal()
     {
         button.onClick.AddListener(wordInputUI.Show);
+        button.onClick.AddListener(() => AudioManager.I.PlaySfxOneShot("Select"));
     }
 }

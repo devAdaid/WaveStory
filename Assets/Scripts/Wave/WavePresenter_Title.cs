@@ -1,11 +1,11 @@
-public class WavePresenter : IPresenter
+public class WavePresenter_Title : IPresenter
 {
     public WaveParameter WaveParameter => context.WaveParameter;
 
     private readonly WaveContext context;
     private readonly IWaveUI waveUI;
 
-    public WavePresenter(WaveContext context, IWaveUI waveUI)
+    public WavePresenter_Title(WaveContext context, IWaveUI waveUI)
     {
         this.context = context;
         this.waveUI = waveUI;
