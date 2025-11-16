@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 380b0702bf7b846409a5ce6523638f54, type: 3}
-  m_Name: Seoyoon
+  m_Name: Kim
   m_EditorClassIdentifier: 
-  Type: 1
-  DisplayText: Seoyoon
+  Type: 0
+  DisplayText: Kim

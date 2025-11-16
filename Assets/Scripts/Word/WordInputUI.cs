@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WordInputUI : UIBase
+public class WordInputUI : UIBase, IView<WordInputPresenter>
 {
     [SerializeField]
     private TMP_Text wordText1;
@@ -19,11 +19,18 @@ public class WordInputUI : UIBase
     private string wordId1;
     private string wordId2;
 
+    private WordInputPresenter presenter;
+
     private static string EMPTY_TEXT = "_________";
+
+    public void SetPresenter(WordInputPresenter presenter)
+    {
+        this.presenter = presenter;
+    }
 
     protected override void InitializeInternal()
     {
-        confirmButton.onClick.AddListener(OnClick);
+        confirmButton.onClick.AddListener(OnConfirm);
         inventoryUI.SetCallback(OnWordClicked);
     }
 
@@ -50,9 +57,19 @@ public class WordInputUI : UIBase
         }
     }
 
-    private void OnClick()
+    private void OnConfirm()
     {
+        if (presenter.ProcessInput(wordId1, wordId2))
+        {
+            AudioManager.I.PlaySfxOneShot("Correct");
+        }
+        else
+        {
+            AudioManager.I.PlaySfxOneShot("Wrong");
+        }
 
+        ClearAllWords();
+        Hide();
     }
 
     private void OnWordClicked(string wordId)

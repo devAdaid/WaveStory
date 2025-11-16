@@ -17,13 +17,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     {
     }
 
-    public void OpenClue(string clueId)
+    public void OpenClue(ClueData clueData)
     {
-        if (!StaticDataHolder.I.TryGetClue(clueId, out var clueData))
-        {
-            return;
-        }
-
         clueText.text = clueData.Text;
         Show();
 

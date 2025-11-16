@@ -6,7 +6,7 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
     public RoomContext Room { get; private set; }
     public WordInventoryContext WordInventory { get; private set; }
     public SoulModeContext SoulMode { get; private set; }
-    public FlagStateContext FlagStateContext { get; private set; }
+    public UnlockContext Unlock { get; private set; }
 
     [SerializeField]
     private GameUIHolder uiHolder;
@@ -18,7 +18,7 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
         Room = new RoomContext();
         WordInventory = new WordInventoryContext();
         SoulMode = new SoulModeContext();
-        FlagStateContext = new FlagStateContext();
+        Unlock = new UnlockContext();
 
         uiHolder.Initialize(this);
     }

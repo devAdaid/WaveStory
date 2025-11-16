@@ -17,12 +17,16 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     private string currentRoomId => currentRoomData.Id;
     private RoomData currentRoomData;
     private bool isSoulMode;
+    private HashSet<string> unlockedSouls;
+    private HashSet<string> flags;
 
     public void SetPresenter(RoomPresenter presenter)
     {
         this.presenter = presenter;
         currentRoomData = presenter.GetCurrentRoomData();
         isSoulMode = presenter.GetIsSoulMode();
+        unlockedSouls = presenter.GetUnlockedSouls();
+        flags = presenter.GetFlagIds();
     }
 
     protected override void InitializeInternal()
@@ -36,8 +40,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].SetSoulMode(isSoulMode);
 
-        //TODO
-        roomNameText.text = currentRoomId;
+        roomNameText.text = roomMap[currentRoomId].RoomData.DisplayName;
 
         soulModeButton.Button.onClick.AddListener(() =>
         {
@@ -59,9 +62,18 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     {
         roomMap[currentRoomId].gameObject.SetActive(false);
         currentRoomData = roomData;
+
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].SetSoulMode(isSoulMode);
+        roomMap[currentRoomId].ApplyUnlocks(unlockedSouls, flags);
+
         roomNameText.text = roomData.DisplayName;
+    }
+
+    public void ApplyUnlocks(HashSet<string> unlockedSouls, HashSet<string> flags)
+    {
+        this.unlockedSouls = unlockedSouls;
+        roomMap[currentRoomId].ApplyUnlocks(unlockedSouls, flags);
     }
 
     public void ChangeRoom(RoomData roomData)

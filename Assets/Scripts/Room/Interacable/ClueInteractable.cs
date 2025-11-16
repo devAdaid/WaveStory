@@ -3,10 +3,11 @@ using UnityEngine;
 public class ClueInteractable : InteractableBase
 {
     [SerializeField]
-    private string clueId;
+    private ClueData clueData;
 
     public override void OnInteract()
     {
-        GM.I.UIHolder.ClueUI.OpenClue(clueId);
+        AudioManager.I.PlaySfxOneShot("Paper");
+        GM.I.UIHolder.ClueUI.OpenClue(clueData);
     }
 }

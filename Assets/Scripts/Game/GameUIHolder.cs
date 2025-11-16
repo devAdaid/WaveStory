@@ -7,6 +7,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public WordInventoryUI WordInventoryUI;
     [field: SerializeField]
+    public WordInputUI WordInputUI;
+    [field: SerializeField]
     public RoomUI RoomUI;
     [field: SerializeField]
     public ClueUI ClueUI;
@@ -15,7 +17,8 @@ public class GameUIHolder : MonoBehaviour
     {
         WaveControlUI.SetPresenter(new WaveControlPresenter(context.InputWave, context.Room, WaveControlUI));
         WordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory, WordInventoryUI));
-        RoomUI.SetPresenter(new RoomPresenter(context.Room, context.SoulMode, RoomUI));
+        WordInputUI.SetPresenter(new WordInputPresenter(context.Room, context.InputWave, context.Unlock, WordInputUI));
+        RoomUI.SetPresenter(new RoomPresenter(context.Room, context.SoulMode, context.Unlock, RoomUI));
         ClueUI.SetPresenter(new CluePresenter(context.WordInventory, ClueUI));
 
         foreach (var ui in gameObject.GetComponentsInChildren<UIBase>(true))

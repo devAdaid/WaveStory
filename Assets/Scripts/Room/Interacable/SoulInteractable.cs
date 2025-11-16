@@ -1,16 +1,30 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SoulInteractable : MonoBehaviour
+public class SoulInteractable : InteractableBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [field: SerializeField]
+    public SoulData SoulData { get; private set; }
+    [SerializeField]
+    private Image image;
+
+    private bool isUnlocked;
+
+    public override void OnInteract()
     {
-        
+        if (isUnlocked)
+        {
+            Debug.Log("Unlocked");
+        }
+        else
+        {
+            Debug.Log("Locked");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Apply(bool isUnlocked)
     {
-        
+        this.isUnlocked = isUnlocked;
+        image.sprite = isUnlocked ? SoulData.UnlockedSprite : SoulData.LockedSprite;
     }
 }

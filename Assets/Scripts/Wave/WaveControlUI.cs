@@ -95,6 +95,8 @@ public class WaveControlUI : UIBase
         {
             OnInput(newParam);
         }
+
+        presenter.UpdateUI();
     }
 
     public void SetChangeBlock(bool isChangeBlock)
