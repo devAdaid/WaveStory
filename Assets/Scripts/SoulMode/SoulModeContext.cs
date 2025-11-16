@@ -4,11 +4,11 @@ public class SoulModeContext
 {
     public bool IsSoulMode { get; private set; }
 
-    public UnityEvent SoulModeChanged = new UnityEvent();
+    public UnityEvent<bool> OnSoulModeChanged = new();
 
     public void SetSoulMode(bool isSoulMode)
     {
         IsSoulMode = isSoulMode;
-        SoulModeChanged.Invoke();
+        OnSoulModeChanged.Invoke(isSoulMode);
     }
 }

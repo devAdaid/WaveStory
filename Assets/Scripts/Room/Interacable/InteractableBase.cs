@@ -1,40 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public abstract class InteractableBase : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite sprite;
 
     [SerializeField]
-    private Sprite highlightSprite;
+    private Button button;
 
-    private SpriteRenderer spriteRender;
-    public SpriteRenderer SpriteRenderer
+    private void Reset()
     {
-        get
-        {
-            if (!spriteRender)
-            {
-                spriteRender = GetComponent<SpriteRenderer>();
-            }
-
-            return spriteRender;
-        }
+        button = GetComponent<Button>();
     }
 
-    private void OnMouseDown()
+    private void Awake()
+    {
+        button.onClick.AddListener(OnClick);
+    }
+
+    private void OnClick()
     {
         OnInteract();
-    }
-
-    private void OnMouseEnter()
-    {
-        SpriteRenderer.sprite = highlightSprite;
-    }
-
-    private void OnMouseExit()
-    {
-        SpriteRenderer.sprite = sprite;
     }
 
     public abstract void OnInteract();

@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class GameUIHolder : MonoBehaviour
 {
-    [SerializeField]
-    private WaveControlUI waveControlUI;
-    [SerializeField]
-    private WordInventoryUI wordInventoryUI;
+    [field: SerializeField]
+    public WaveControlUI WaveControlUI;
+    [field: SerializeField]
+    public WordInventoryUI WordInventoryUI;
+    [field: SerializeField]
+    public RoomUI RoomUI;
 
     public void Initialize(GM context)
     {
-        waveControlUI.SetPresenter(new WaveControlPresenter(context.InputWave, context.Room, waveControlUI));
-        wordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory));
+        WaveControlUI.SetPresenter(new WaveControlPresenter(context.InputWave, context.Room, WaveControlUI));
+        WordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory));
+        RoomUI.SetPresenter(new RoomPresenter(context.Room, context.SoulMode, RoomUI));
 
         foreach (var ui in gameObject.GetComponentsInChildren<UIBase>(true))
         {
