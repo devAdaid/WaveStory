@@ -12,6 +12,8 @@ public class GameUIHolder : MonoBehaviour
     public RoomUI RoomUI;
     [field: SerializeField]
     public ClueUI ClueUI;
+    [field: SerializeField]
+    public DialogueUI DialogueUI;
 
     public void Initialize(GM context)
     {

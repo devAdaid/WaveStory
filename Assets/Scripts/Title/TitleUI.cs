@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
@@ -57,6 +58,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     public void Initialize()
     {
+        startButton.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
     }
 
@@ -204,6 +206,12 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
             AudioManager.I.PlaySfxOneShot("Wrong");
         }
     }
+
+    private void StartGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
     private void QuitGame()
     {
 #if UNITY_EDITOR
