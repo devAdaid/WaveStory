@@ -1,5 +1,3 @@
-using System.Linq;
-
 public class WaveControlPresenter : IPresenter
 {
     public WaveParameter WaveParameter => wave.WaveParameter;
@@ -23,6 +21,6 @@ public class WaveControlPresenter : IPresenter
 
     public void UpdateUI()
     {
-        waveUI.Apply(wave.WaveParameter, room.PreviewWaves.ToList());
+        waveUI.Apply(wave.WaveParameter, room.GetPreviewParameters());
     }
 }

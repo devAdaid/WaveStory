@@ -5309,7 +5309,7 @@ MonoBehaviour:
     FrequencyStep: 4
   previewRenderer: {fileID: 1058960726}
   inputRenderer: {fileID: 440605051}
-  waveControlUI: {fileID: 0}
+  waveControlUI: {fileID: 1627199992}
   buttons:
   - {fileID: 1168284790}
   - {fileID: 65234554}
@@ -5605,6 +5605,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532301664}
   m_CullTransparentMesh: 1
+--- !u!114 &1627199992 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3328656473192971208, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
+  m_PrefabInstance: {fileID: 1998341266167847246}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2dcaf140e04be42be0efe2cf9aba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1677849488
 GameObject:
   m_ObjectHideFlags: 0

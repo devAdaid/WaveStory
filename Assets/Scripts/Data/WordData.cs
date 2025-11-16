@@ -9,7 +9,7 @@ public enum WordType
 [CreateAssetMenu(fileName = "WordData", menuName = "Scriptable Objects/WordData")]
 public class WordData : ScriptableObject
 {
-    public string Id;
+    public string Id => this.name;
     public WordType Type;
     public string DisplayText;
 }

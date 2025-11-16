@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class RoomControl : MonoBehaviour
 {
-    [SerializeField]
-    public string RoomId;
+    [field: SerializeField]
+    public RoomData RoomData { get; private set; }
 
     [SerializeField]
     private Image bgImage;

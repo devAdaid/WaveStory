@@ -14,9 +14,9 @@ public class RoomPresenter : IPresenter
         soulMode.OnSoulModeChanged.AddListener(this.OnSoulModeChanged);
     }
 
-    public string GetCurrentRoomId()
+    public RoomData GetCurrentRoomData()
     {
-        return room.CurrentRoomId;
+        return room.CurrentRoomData;
     }
 
     public bool GetIsSoulMode()
@@ -32,14 +32,14 @@ public class RoomPresenter : IPresenter
         }
     }
 
-    public void ChangeRoom(string roomId)
+    public void ChangeRoom(RoomData roomData)
     {
-        room.SetCurrentRoom(roomId);
+        room.SetCurrentRoom(roomData);
     }
 
-    private void OnRoomChanged(string roomId)
+    private void OnRoomChanged(RoomData roomData)
     {
-        ui.ApplyRoomId(roomId);
+        ui.ApplyRoomData(roomData);
     }
 
     private void OnSoulModeChanged(bool isSoulMode)

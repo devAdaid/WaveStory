@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b8a337301f37842a67eaf0c4ce7b25, type: 3}
-  m_Name: Clue_Room101
+  m_Script: {fileID: 11500000, guid: 380b0702bf7b846409a5ce6523638f54, type: 3}
+  m_Name: Seoyoon
   m_EditorClassIdentifier: 
-  Id: 
-  Text: 
+  Type: 1
+  DisplayText: Seoyoon

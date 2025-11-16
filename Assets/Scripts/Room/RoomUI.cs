@@ -14,13 +14,14 @@ public class RoomUI : UIBase, IView<RoomPresenter>
 
     private RoomPresenter presenter;
 
-    private string currentRoomId;
+    private string currentRoomId => currentRoomData.Id;
+    private RoomData currentRoomData;
     private bool isSoulMode;
 
     public void SetPresenter(RoomPresenter presenter)
     {
         this.presenter = presenter;
-        currentRoomId = presenter.GetCurrentRoomId();
+        currentRoomData = presenter.GetCurrentRoomData();
         isSoulMode = presenter.GetIsSoulMode();
     }
 
@@ -28,7 +29,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     {
         foreach (var room in gameObject.GetComponentsInChildren<RoomControl>(true))
         {
-            roomMap.Add(room.RoomId, room);
+            roomMap.Add(room.RoomData.Id, room);
             room.Initialize();
             room.gameObject.SetActive(false);
         }
@@ -54,17 +55,17 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         soulModeButton.ApplySoulMode(isSoulMode);
     }
 
-    public void ApplyRoomId(string roomId)
+    public void ApplyRoomData(RoomData roomData)
     {
         roomMap[currentRoomId].gameObject.SetActive(false);
-        this.currentRoomId = roomId;
+        currentRoomData = roomData;
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].SetSoulMode(isSoulMode);
-        roomNameText.text = roomId;
+        roomNameText.text = roomData.DisplayName;
     }
 
-    public void ChangeRoomId(string roomId)
+    public void ChangeRoom(RoomData roomData)
     {
-        presenter.ChangeRoom(roomId);
+        presenter.ChangeRoom(roomData);
     }
 }

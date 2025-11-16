@@ -72,7 +72,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         waveControlUI.SetPresenter(new WavePresenter_Title(inputContext, waveControlUI));
         previewRenderer.SetPresenter(new WavePresenter_Title(previewContext, previewRenderer));
         inputRenderer.SetPresenter(new WavePresenter_Title(inputContext, inputRenderer));
-        wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext));
+        wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext, wordInventoryUI));
 
         waveControlUI.Initialize();
         previewRenderer.Initialize();

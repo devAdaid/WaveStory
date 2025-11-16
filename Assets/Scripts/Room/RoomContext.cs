@@ -1,25 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine.Events;
 
 public class RoomContext
 {
-    public string CurrentRoomId { get; private set; }
-
-    public WaveParameter[] PreviewWaves = new WaveParameter[3];
-    public UnityEvent<string> OnRoomChanged = new();
+    public string CurrentRoomId => CurrentRoomData.Id;
+    public RoomData CurrentRoomData { get; private set; }
+    public UnityEvent<RoomData> OnRoomChanged = new();
 
     public RoomContext()
     {
         //TODO
-        CurrentRoomId = "C_1";
-
-        PreviewWaves[0] = new WaveParameter(WaveType.Sin, 5, 5);
-        PreviewWaves[1] = new WaveParameter(WaveType.PingPong, 8, 3);
-        PreviewWaves[2] = WaveParameter.Invalid;
+        if (StaticDataHolder.I.TryGetRoom("C_1", out var roomData))
+        {
+            CurrentRoomData = roomData;
+        }
     }
 
-    public void SetCurrentRoom(string roomId)
+    public void SetCurrentRoom(RoomData roomData)
     {
-        CurrentRoomId = roomId;
-        OnRoomChanged.Invoke(roomId);
+        CurrentRoomData = roomData;
+        OnRoomChanged.Invoke(roomData);
+    }
+
+    public List<WaveParameter> GetPreviewParameters()
+    {
+        var results = new List<WaveParameter>();
+        foreach (var soul in CurrentRoomData.Souls)
+        {
+            results.Add(soul.WaveParameter);
+        }
+        return results;
     }
 }

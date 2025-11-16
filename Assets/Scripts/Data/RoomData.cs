@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
 public class RoomData : ScriptableObject
 {
-    public string Id;
+    public string Id => name;
     public string DisplayName;
+    public List<SoulData> Souls;
 }

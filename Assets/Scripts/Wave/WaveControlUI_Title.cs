@@ -37,6 +37,8 @@ public class WaveControlUI_Title : UIBase, IWaveUI
 
     void Update()
     {
+        if (!isInitialized) return;
+
         float currentTime = Time.time;
 
         var newParam = presenter.WaveParameter;
