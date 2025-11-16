@@ -29,6 +29,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         foreach (var room in gameObject.GetComponentsInChildren<RoomControl>(true))
         {
             roomMap.Add(room.RoomId, room);
+            room.Initialize();
             room.gameObject.SetActive(false);
         }
         roomMap[currentRoomId].gameObject.SetActive(true);
