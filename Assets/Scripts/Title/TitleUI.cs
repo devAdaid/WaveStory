@@ -56,6 +56,8 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     private bool isWordCorrect;
 
+    private static readonly string TITLE_PLAYED_KEY = "Title_Played";
+
     public void Initialize()
     {
         startButton.onClick.AddListener(StartGame);
@@ -63,6 +65,18 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     }
 
     IEnumerator Start()
+    {
+        if (PlayerPrefs.GetInt(TITLE_PLAYED_KEY, 0) == 0)
+        {
+            yield return TutorialWithTitle();
+        }
+        else
+        {
+            yield return Title();
+        }
+    }
+
+    IEnumerator TutorialWithTitle()
     {
         inputContext = new WaveContext(WaveParameter.Min);
         previewContext = new WaveContext(answerParameter);
@@ -181,8 +195,59 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
         ui.gameObject.SetActive(true);
 
+        PlayerPrefs.SetInt(TITLE_PLAYED_KEY, 1);
+        PlayerPrefs.Save();
+
         AudioManager.I.PlayBgm("Title");
 
+        var uiFadeTime = 2f;
+        var uiStep = Time.deltaTime / uiFadeTime;
+        t = 0f;
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(0f, 1f, t);
+            ui.alpha = alpha;
+            yield return null;
+            t += uiStep;
+        }
+        ui.alpha = 1f;
+    }
+
+    IEnumerator Title()
+    {
+        inputContext = new WaveContext(answerParameter);
+
+        waveControlUI.SetPresenter(new WavePresenter_Title(inputContext, waveControlUI));
+        inputRenderer.SetPresenter(new WavePresenter_Title(inputContext, inputRenderer));
+
+        waveControlUI.Initialize();
+        inputRenderer.Initialize();
+        wordInputUI.Initialize();
+        wordInputButton.Initialize();
+
+        wordInventoryUI.Hide();
+        wordInputButton.Hide();
+
+        waveControlUI.SetChangeBlock(true);
+        previewRenderer.LineRenderer.gameObject.SetActive(false);
+        frame.gameObject.SetActive(false);
+
+        AudioManager.I.PlayBgm("Title");
+
+        dimmed.gameObject.SetActive(true);
+        var dimmedFadeTime = 1f;
+        var dimmedStep = Time.deltaTime / dimmedFadeTime;
+        var t = 0f;
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(1f, 0f, t);
+            dimmed.color = new Color(0f, 0f, 0f, alpha);
+            t += dimmedStep;
+            yield return null;
+        }
+        dimmed.gameObject.SetActive(false);
+
+        ui.gameObject.SetActive(true);
         var uiFadeTime = 2f;
         var uiStep = Time.deltaTime / uiFadeTime;
         t = 0f;
@@ -209,6 +274,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     private void StartGame()
     {
+        AudioManager.I.StopBgmFade();
         SceneManager.LoadScene("Main");
     }
 
