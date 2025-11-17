@@ -15048,7 +15048,6 @@ MonoBehaviour:
   RoomUI: {fileID: 1954876164}
   ClueUI: {fileID: 1661159052}
   DialogueUI: {fileID: 897944200}
-  InterferencePuzzlePresenter: {fileID: 0}
 --- !u!1001 &1398040766
 PrefabInstance:
   m_ObjectHideFlags: 0
