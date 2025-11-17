@@ -88,3 +88,10 @@ All game data as ScriptableObjects in `Resources/Data/`:
 - `Assets/Scripts/Wave/WaveLogic.cs` - Core wave mechanic
 - `Assets/Scripts/Common/MonoSingleton.cs` - Singleton base
 - `Assets/Scripts/Room/RoomPresenter.cs` - MVP pattern example
+
+## Code Generation Guidelines
+
+- Omit obvious or self-explanatory comments
+- Define UI elements directly in scene files rather than instantiating them dynamically at runtime
+- Use Unity's Layout Components (LayoutGroup, LayoutElement) for positioning and sizing UI elements instead of hardcoding RectTransform values
+- Do not create C# namespaces based on folder structure
