@@ -1,16 +1,47 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SajaInteractable : MonoBehaviour
+[System.Serializable]
+public class SajaDialogue
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public UnlockCondition Condition;
+    public TextAsset DialogueText;
+}
+
+public class SajaInteractable : InteractableBase
+{
+    [SerializeField]
+    private List<SajaDialogue> dialogues;
+
+    private Dictionary<string, SoulState> soulStates;
+    private HashSet<string> flags;
+
+    public override void OnInteract()
     {
-        
+        if (TryGetSatisfyDialogue(out var dialogueText))
+        {
+            GM.I.UIHolder.DialogueUI.PlayDialogue(dialogueText);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
-        
+        this.soulStates = soulStates;
+        this.flags = flags;
+    }
+
+    private bool TryGetSatisfyDialogue(out TextAsset dialogueText)
+    {
+        foreach (var d in dialogues)
+        {
+            if (d.Condition.SatisfyCondition(soulStates, flags))
+            {
+                dialogueText = d.DialogueText;
+                return true;
+            }
+        }
+
+        dialogueText = null;
+        return false;
     }
 }

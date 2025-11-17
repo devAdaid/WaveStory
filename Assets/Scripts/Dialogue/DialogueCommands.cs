@@ -46,6 +46,7 @@ public class SpeakerCommand : DialogueCommandBase
         r.UI.SetSpeakerName(speakerName);
     }
 }
+
 [DialogueCommand("Clear")]
 public class ClearCommand : DialogueCommandBase
 {
@@ -60,6 +61,23 @@ public class ClearCommand : DialogueCommandBase
     public override void Execute(IDialogueRuntime r)
     {
         r.Unlock.ClearSoul(soulId);
+    }
+}
+
+[DialogueCommand("Flag")]
+public class FlagCommand : DialogueCommandBase
+{
+    private string flagId;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        flagId = parameters[0];
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Unlock.UnlockFlag(flagId);
     }
 }
 

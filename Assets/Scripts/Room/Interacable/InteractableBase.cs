@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,9 @@ public abstract class InteractableBase : MonoBehaviour
     private InteractableType interactableType;
 
     [SerializeField]
+    private UnlockCondition activeCondition;
+
+    [SerializeField]
     private Button button;
 
     private void Reset()
@@ -25,7 +29,10 @@ public abstract class InteractableBase : MonoBehaviour
     private void Awake()
     {
         button.onClick.AddListener(OnClick);
+        Initialize();
     }
+
+    public virtual void Initialize() { }
 
     private void OnClick()
     {
@@ -34,12 +41,12 @@ public abstract class InteractableBase : MonoBehaviour
 
     public abstract void OnInteract();
 
-    public void OnSoulModeChange(bool isSoulMode)
+    public void Apply(bool isSoulMode, Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
         switch (interactableType)
         {
             case InteractableType.Always:
-                return;
+                break;
             case InteractableType.OnlyRealMode:
                 button.interactable = !isSoulMode;
                 break;
@@ -47,5 +54,12 @@ public abstract class InteractableBase : MonoBehaviour
                 gameObject.SetActive(isSoulMode);
                 break;
         }
+
+        var satisfyCondition = activeCondition.SatisfyCondition(soulStates, flags);
+        gameObject.SetActive(satisfyCondition);
+
+        ApplyUnlock(soulStates, flags);
     }
+
+    protected virtual void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags) { }
 }

@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 2
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 2734215246438099436}
   <SoulData>k__BackingField: {fileID: 11400000, guid: 1f39bdd9be9f9e344883d77040aa3ddb, type: 2}
   image: {fileID: 1470237508453381933}
@@ -264,6 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 2
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 1333718605927013211}
   <SoulData>k__BackingField: {fileID: 11400000, guid: 63a7f271cb2971148aca0b4f95b8ecad, type: 2}
   image: {fileID: 7744347583012586397}
@@ -409,6 +415,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 0
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 4298843213830977036}
   targetRoomData: {fileID: 11400000, guid: 19ca051153cd8fe449efbef7e8c45786, type: 2}
 --- !u!114 &7795561912895146016
@@ -537,6 +546,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 1
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 1209085646424163941}
   clueData: {fileID: 11400000, guid: dc507e1506eff7348ae2440175114e73, type: 2}
 --- !u!222 &3611102135361760115
@@ -756,6 +768,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 0
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 5961053951400935031}
   targetRoomData: {fileID: 11400000, guid: 508be1e373ebd634aac1787420c8e47f, type: 2}
 --- !u!114 &3160871331652446131
@@ -892,6 +907,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 0
+  activeCondition:
+    Type: 1
+    Id: Saja_Meet
   button: {fileID: 3233478635518898036}
   targetRoomData: {fileID: 11400000, guid: 508be1e373ebd634aac1787420c8e47f, type: 2}
 --- !u!114 &790420265217134587
@@ -1020,6 +1038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 1
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 945365452346840551}
   clueData: {fileID: 11400000, guid: dc507e1506eff7348ae2440175114e73, type: 2}
 --- !u!222 &8067754865757939228
@@ -1322,6 +1343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103cedd84861ea2419c1464ed6868881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 0
   root: {fileID: 9022846143829382703}
   closeButtons: []
   roomNameText: {fileID: 4203487046949502041}
@@ -1482,6 +1504,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 0
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 804168133525654643}
   targetRoomData: {fileID: 11400000, guid: 76b6ac6509e590c4ebf796d4f3c944f7, type: 2}
 --- !u!114 &6467468918851171936
@@ -1643,12 +1668,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4656837274321333581}
-  - component: {fileID: 4284852880176575750}
+  - component: {fileID: 7564212442288443675}
   - component: {fileID: 5629185702898040025}
   - component: {fileID: 9141596354200252523}
   - component: {fileID: 1562693031730412624}
   m_Layer: 5
-  m_Name: Soul_Han
+  m_Name: Soul_Saja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1673,7 +1698,7 @@ RectTransform:
   m_AnchoredPosition: {x: -145, y: -30}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4284852880176575750
+--- !u!114 &7564212442288443675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1682,13 +1707,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6369054974686657349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7f952e958fa114190665468c6ad26a, type: 3}
+  m_Script: {fileID: 11500000, guid: a4340a16659132c48b61ae3480703d5d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::SajaInteractable
   interactableType: 2
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 1562693031730412624}
-  <SoulData>k__BackingField: {fileID: 11400000, guid: 63a7f271cb2971148aca0b4f95b8ecad, type: 2}
-  image: {fileID: 9141596354200252523}
+  dialogues:
+  - Condition:
+      Type: 2
+      Id: Saja_Meet
+    DialogueText: {fileID: 4900000, guid: e0e555e1c3cea724a8aaefc536a3e16b, type: 3}
 --- !u!222 &5629185702898040025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1717,7 +1748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffc614350c4e49144ab2f6e3d125320e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1823,6 +1854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableType: 1
+  activeCondition:
+    Type: 0
+    Id: 
   button: {fileID: 4277423673720232008}
   clueData: {fileID: 11400000, guid: efdbefb68c4c6f640a188821d04c67f8, type: 2}
 --- !u!222 &7024707710906709895
@@ -2052,7 +2086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1113048459851937573
 RectTransform:
   m_ObjectHideFlags: 0

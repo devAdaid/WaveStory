@@ -38,7 +38,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
             room.gameObject.SetActive(false);
         }
         roomMap[currentRoomId].gameObject.SetActive(true);
-        roomMap[currentRoomId].SetSoulMode(isSoulMode);
+        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
 
         roomNameText.text = roomMap[currentRoomId].RoomData.DisplayName;
 
@@ -53,7 +53,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     public void ApplySoulMode(bool isSoulMode)
     {
         this.isSoulMode = isSoulMode;
-        roomMap[currentRoomId].SetSoulMode(isSoulMode);
+        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
 
         soulModeButton.ApplySoulMode(isSoulMode);
     }
@@ -64,8 +64,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         currentRoomData = roomData;
 
         roomMap[currentRoomId].gameObject.SetActive(true);
-        roomMap[currentRoomId].SetSoulMode(isSoulMode);
-        roomMap[currentRoomId].ApplyUnlocks(unlockedSouls, flags);
+        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
 
         roomNameText.text = roomData.DisplayName;
     }
@@ -73,7 +72,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     public void ApplyUnlocks(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
         this.unlockedSouls = soulStates;
-        roomMap[currentRoomId].ApplyUnlocks(soulStates, flags);
+        roomMap[currentRoomId].Apply(isSoulMode, soulStates, flags);
     }
 
     public void ChangeRoom(RoomData roomData)

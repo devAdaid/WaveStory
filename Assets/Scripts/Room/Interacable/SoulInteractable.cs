@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,9 +32,12 @@ public class SoulInteractable : InteractableBase
         }
     }
 
-    public void Apply(SoulState state)
+    protected override void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
-        this.state = state;
-        image.sprite = (state == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
+        if (soulStates.TryGetValue(SoulData.Id, out var soulState))
+        {
+            this.state = soulState;
+            image.sprite = (state == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
+        }
     }
 }

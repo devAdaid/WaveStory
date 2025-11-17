@@ -68,4 +68,23 @@ public class UnlockContext
 
         return states;
     }
+
+    public bool SatisfyCondition(UnlockCondition condition)
+    {
+        switch (condition.Type)
+        {
+            case UnlockConditionType.None:
+                return true;
+            case UnlockConditionType.HasFlag:
+                return FlagIds.Contains(condition.Id);
+            case UnlockConditionType.HasNoFlag:
+                return !FlagIds.Contains(condition.Id);
+            case UnlockConditionType.UnlockSoul:
+                return unlockedSouls.Contains(condition.Id);
+            case UnlockConditionType.NotUnlockSoul:
+                return !unlockedSouls.Contains(condition.Id);
+        }
+
+        return false;
+    }
 }
