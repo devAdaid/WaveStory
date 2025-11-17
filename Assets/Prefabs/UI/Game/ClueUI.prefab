@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2142e85a35ce1bc43a4330e3f913696b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 1
   root: {fileID: 2830161162026510585}
   closeButtons:
   - {fileID: 2917448017968522723}

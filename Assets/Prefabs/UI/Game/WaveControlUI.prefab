@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888bf2805be302b44a172209d2e4baec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 1
   root: {fileID: 413339116549289037}
   closeButtons:
   - {fileID: 8957319188266026737}
@@ -445,6 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4c9de3573cbbe4aa4724acf37fa8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 0
   root: {fileID: 5265203705382127528}
   closeButtons: []
   button: {fileID: 879549404596428078}

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public abstract class UIBase : MonoBehaviour
 {
     [SerializeField]
+    private bool isPopup;
+
+    [SerializeField]
     private GameObject root;
 
     [SerializeField]
@@ -35,6 +38,11 @@ public abstract class UIBase : MonoBehaviour
 
     public void Show()
     {
+        if (isPopup)
+        {
+            PopupHandler.I.AddPopup(this);
+        }
+
         root.SetActive(true);
         OnShow();
     }
@@ -43,6 +51,11 @@ public abstract class UIBase : MonoBehaviour
 
     public void Hide()
     {
+        if (PopupHandler.I.IsOpened(this))
+        {
+            PopupHandler.I.RemoveTop();
+        }
+
         root.SetActive(false);
         OnHide();
     }
