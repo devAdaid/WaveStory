@@ -110,25 +110,35 @@ namespace WaveStory.Interference
         {
             if (gridContainer == null || cellPrefab == null) return;
 
-            float totalWidth = width * cellSize;
-            float totalHeight = height * cellSize;
+            // GridLayoutGroup 설정
+            var gridLayout = gridContainer.GetComponent<GridLayoutGroup>();
+            if (gridLayout == null)
+            {
+                gridLayout = gridContainer.gameObject.AddComponent<GridLayoutGroup>();
+            }
 
-            gridContainer.sizeDelta = new Vector2(totalWidth, totalHeight);
+            // GridContainer의 현재 크기를 기준으로 셀 크기 계산
+            float containerWidth = gridContainer.rect.width;
+            float containerHeight = gridContainer.rect.height;
 
-            for (int y = 0; y < height; y++)
+            if (containerWidth <= 0) containerWidth = gridContainer.sizeDelta.x;
+            if (containerHeight <= 0) containerHeight = gridContainer.sizeDelta.y;
+
+
+            // GridLayoutGroup 설정
+            gridLayout.spacing = Vector2.zero;
+            gridLayout.startCorner = GridLayoutGroup.Corner.LowerLeft;
+            gridLayout.startAxis = GridLayoutGroup.Axis.Horizontal;
+            gridLayout.childAlignment = TextAnchor.MiddleCenter;
+            gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            gridLayout.constraintCount = width;
+
+            // 셀 생성 (위치/크기는 GridLayoutGroup이 자동 처리)
+            for (int y = height - 1; y >= 0; y--)
             {
                 for (int x = 0; x < width; x++)
                 {
                     var cellObj = Instantiate(cellPrefab, gridContainer);
-                    var rectTransform = cellObj.GetComponent<RectTransform>();
-
-                    rectTransform.anchorMin = Vector2.zero;
-                    rectTransform.anchorMax = Vector2.zero;
-                    rectTransform.sizeDelta = new Vector2(cellSize, cellSize);
-                    rectTransform.anchoredPosition = new Vector2(
-                        x * cellSize + cellSize / 2,
-                        y * cellSize + cellSize / 2
-                    );
 
                     var image = cellObj.GetComponent<Image>();
                     if (image != null)
@@ -178,11 +188,12 @@ namespace WaveStory.Interference
 
             if (maxIntensity < 0.01f) maxIntensity = 1f;
 
-            for (int y = 0; y < height; y++)
+            // GridLayoutGroup이 LowerLeft에서 시작하므로 y를 역순으로 처리
+            for (int y = height - 1; y >= 0; y--)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    int index = y * width + x;
+                    int index = (height - 1 - y) * width + x;
                     if (index < gridCells.Count)
                     {
                         float normalizedIntensity = pattern[x, y] / maxIntensity;
@@ -213,6 +224,12 @@ namespace WaveStory.Interference
 
             currentTargets.AddRange(targets);
 
+            // 그리드 오프셋 계산 (CreateGrid와 동일하게)
+            float containerWidth = gridContainer.rect.width;
+            float containerHeight = gridContainer.rect.height;
+            if (containerWidth <= 0) containerWidth = gridContainer.sizeDelta.x;
+            if (containerHeight <= 0) containerHeight = gridContainer.sizeDelta.y;
+
             foreach (var target in targets)
             {
                 var markerObj = new GameObject("TargetMarker");
@@ -221,11 +238,6 @@ namespace WaveStory.Interference
                 var rectTransform = markerObj.AddComponent<RectTransform>();
                 rectTransform.anchorMin = Vector2.zero;
                 rectTransform.anchorMax = Vector2.zero;
-                rectTransform.sizeDelta = new Vector2(cellSize * 0.6f, cellSize * 0.6f);
-                rectTransform.anchoredPosition = new Vector2(
-                    target.position.x * cellSize + cellSize / 2,
-                    target.position.y * cellSize + cellSize / 2
-                );
 
                 var image = markerObj.AddComponent<Image>();
                 image.color = target.targetType == TargetType.Constructive
@@ -248,16 +260,13 @@ namespace WaveStory.Interference
                 labelRect.anchorMin = Vector2.zero;
                 labelRect.anchorMax = Vector2.zero;
                 labelRect.sizeDelta = new Vector2(60f, 20f);
-                labelRect.anchoredPosition = new Vector2(
-                    target.position.x * cellSize + cellSize / 2,
-                    target.position.y * cellSize + cellSize / 2 + cellSize * 0.7f
-                );
 
                 var labelText = labelObj.AddComponent<TextMeshProUGUI>();
                 labelText.fontSize = 10;
                 labelText.alignment = TextAlignmentOptions.Center;
                 labelText.color = Color.white;
                 labelText.text = target.targetType == TargetType.Constructive ? "강하게!" : "약하게!";
+                labelText.raycastTarget = false;
 
                 var labelOutline = labelObj.AddComponent<Outline>();
                 labelOutline.effectColor = Color.black;
@@ -341,6 +350,12 @@ namespace WaveStory.Interference
 
             if (gridContainer == null) return;
 
+            // 그리드 오프셋 계산 (CreateGrid와 동일하게)
+            float containerWidth = gridContainer.rect.width;
+            float containerHeight = gridContainer.rect.height;
+            if (containerWidth <= 0) containerWidth = gridContainer.sizeDelta.x;
+            if (containerHeight <= 0) containerHeight = gridContainer.sizeDelta.y;
+
             foreach (var source in sources)
             {
                 var markerObj = new GameObject("SourceMarker");
@@ -349,14 +364,10 @@ namespace WaveStory.Interference
                 var rectTransform = markerObj.AddComponent<RectTransform>();
                 rectTransform.anchorMin = Vector2.zero;
                 rectTransform.anchorMax = Vector2.zero;
-                rectTransform.sizeDelta = new Vector2(cellSize * 0.8f, cellSize * 0.8f);
-                rectTransform.anchoredPosition = new Vector2(
-                    source.position.x * cellSize + cellSize / 2,
-                    source.position.y * cellSize + cellSize / 2
-                );
 
                 var image = markerObj.AddComponent<Image>();
                 image.color = sourceColor;
+                image.raycastTarget = false;
 
                 var outline = markerObj.AddComponent<Outline>();
                 outline.effectColor = Color.black;

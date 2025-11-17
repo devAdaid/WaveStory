@@ -483,6 +483,20 @@ namespace WaveStory.Editor
             gridLayoutElement.preferredWidth = 400f;
             gridLayoutElement.preferredHeight = 400f;
 
+            // GridLayoutGroup 추가 (셀 배치를 자동으로 처리)
+            var gridLayoutGroup = gridContainer.GetComponent<GridLayoutGroup>();
+            if (gridLayoutGroup == null)
+            {
+                gridLayoutGroup = Undo.AddComponent<GridLayoutGroup>(gridContainer.gameObject);
+            }
+            gridLayoutGroup.cellSize = new Vector2(40f, 40f);
+            gridLayoutGroup.spacing = Vector2.zero;
+            gridLayoutGroup.startCorner = GridLayoutGroup.Corner.LowerLeft;
+            gridLayoutGroup.startAxis = GridLayoutGroup.Axis.Horizontal;
+            gridLayoutGroup.childAlignment = TextAnchor.MiddleCenter;
+            gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            gridLayoutGroup.constraintCount = 10;
+
             // 5. ButtonPanel 설정
             var buttonPanelRect = buttonPanel.GetComponent<RectTransform>();
             buttonPanelRect.anchorMin = new Vector2(0, 0);

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da5fa1f50d16498ea8452ffda8580a1, type: 3}
   m_Name: InterferencePuzzle
   m_EditorClassIdentifier: Assembly-CSharp::WaveStory.Interference.InterferencePuzzleData
-  puzzleName: "\uBCF4\uAC15 \uAC04\uC12D \uD37C\uC990"
-  gridWidth: 10
-  gridHeight: 10
+  puzzleName: "\uC601\uD63C\uC758 \uC2EC\uC5F0"
+  gridWidth: 16
+  gridHeight: 16
   maxSources: 3
   defaultAmplitude: 1
   defaultFrequency: 1
