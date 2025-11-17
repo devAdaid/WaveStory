@@ -14,6 +14,8 @@ public class GameUIHolder : MonoBehaviour
     public ClueUI ClueUI;
     [field: SerializeField]
     public DialogueUI DialogueUI;
+    [field: SerializeField]
+    public GameObject InputBlocker;
 
     public void Initialize(GM context)
     {

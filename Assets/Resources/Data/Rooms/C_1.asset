@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: C_1
   m_EditorClassIdentifier: 
   DisplayName: "\uBCF5\uB3C4"
-  RealSprite: {fileID: 8727194955407862106, guid: a32514f2837c0b94eb35a1956a0c6324, type: 3}
-  SoulSprite: {fileID: -1417806519495430959, guid: eabb5d6e238331a47ac8260c134767da, type: 3}
+  RealSprite: {fileID: 21300000, guid: d7944e05a2ef403418c144fe519144fa, type: 3}
+  SoulSprite: {fileID: 21300000, guid: 5894220052f6ca648b6ec836a63a829d, type: 3}
   Souls:
   - {fileID: 11400000, guid: 1f39bdd9be9f9e344883d77040aa3ddb, type: 2}

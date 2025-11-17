@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,8 +57,15 @@ public abstract class UIBase : MonoBehaviour
             PopupHandler.I.RemoveTop();
         }
 
+        StartCoroutine(HideProcess());
+    }
+
+    public virtual IEnumerator BeforeHide() { yield break; }
+
+    private IEnumerator HideProcess()
+    {
+        yield return StartCoroutine(BeforeHide());
         root.SetActive(false);
-        OnHide();
     }
 
     public virtual void OnHide() { }

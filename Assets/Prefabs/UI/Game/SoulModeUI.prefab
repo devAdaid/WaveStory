@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: ba9fb0534ed5b954197fc985cda30f36, type: 2}
+  m_Texture: {fileID: 8400000, guid: 421ad81c53a0b4e418ad929726a451dd, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad972dd2fca08484cb121165af683fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 0
   root: {fileID: 2733227689409451359}
   closeButtons: []
   waveButton: {fileID: 1277487517630092581}

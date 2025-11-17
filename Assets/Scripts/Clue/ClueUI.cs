@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -5,6 +6,12 @@ using UnityEngine.UI;
 
 public class ClueUI : UIBase, IView<CluePresenter>
 {
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private GameObject contentObject;
+
     [SerializeField]
     private GameObject listObject;
     [SerializeField]
@@ -34,6 +41,64 @@ public class ClueUI : UIBase, IView<CluePresenter>
         UpdateUI();
     }
 
+    public override void OnShow()
+    {
+        StartCoroutine(ShowAnim());
+    }
+
+    private IEnumerator ShowAnim()
+    {
+        GM.I.UIHolder.InputBlocker.SetActive(true);
+        contentObject.SetActive(false);
+
+        animator.SetTrigger("Show");
+
+        yield return StartCoroutine(WaitForAnimationToStart("Idle"));
+
+        contentObject.SetActive(true);
+        GM.I.UIHolder.InputBlocker.SetActive(false);
+    }
+
+    public override IEnumerator BeforeHide()
+    {
+        AudioManager.I.PlaySfxOneShot("Paper");
+        GM.I.UIHolder.InputBlocker.SetActive(true);
+        contentObject.SetActive(false);
+
+        animator.SetTrigger("Hide");
+
+        yield return null;
+
+        yield return StartCoroutine(WaitForAnimationToStart("Hidden"));
+
+        GM.I.UIHolder.InputBlocker.SetActive(false);
+    }
+
+    public IEnumerator WaitForAnimationToStart(string stateName, int layer = 0)
+    {
+        // 현재 프레임이 끝날 때까지 대기
+        yield return null;
+
+        // 애니메이션 상태가 해당 stateName이 될 때까지 대기
+        while (!animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName))
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator WaitForAnimationToEnd(string stateName, int layer = 0)
+    {
+        // 애니메이션이 시작될 때까지 대기
+        yield return WaitForAnimationToStart(stateName, layer);
+
+        // 애니메이션이 끝날 때까지 대기
+        while (animator.GetCurrentAnimatorStateInfo(layer).IsName(stateName) &&
+               animator.GetCurrentAnimatorStateInfo(layer).normalizedTime < 1.0f)
+        {
+            yield return null;
+        }
+    }
+
     public void OpenClue(ClueData clueData)
     {
         currentClueData = clueData;
@@ -47,12 +112,24 @@ public class ClueUI : UIBase, IView<CluePresenter>
         UpdateUI();
 
         Show();
+
+        AudioManager.I.PlaySfxOneShot("Paper");
+    }
+
+    public void MoveToClue(ClueData clueData)
+    {
+        currentClueData = clueData;
+
+        UpdateUI();
+
+        AudioManager.I.PlaySfxOneShot("Paper");
     }
 
     private void OpenList()
     {
         currentClueData = null;
         UpdateUI();
+        AudioManager.I.PlaySfxOneShot("Paper");
     }
 
     public void UpdateUI()

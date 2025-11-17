@@ -41,6 +41,11 @@ public class PopupHandler : MonoSingleton<PopupHandler>, IMonoSingleton
             return;
         }
 
+        if (GM.I.UIHolder.InputBlocker.activeInHierarchy)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape) && popupStack.Count > 0)
         {
             popupStack.Pop().Hide();

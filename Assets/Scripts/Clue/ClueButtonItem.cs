@@ -29,7 +29,7 @@ public class ClueButtonItem : MonoBehaviour
     {
         if (isUnlocked)
         {
-            GM.I.UIHolder.ClueUI.OpenClue(clueData);
+            GM.I.UIHolder.ClueUI.MoveToClue(clueData);
         }
     }
 }

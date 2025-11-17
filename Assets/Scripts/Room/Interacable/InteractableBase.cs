@@ -43,6 +43,7 @@ public abstract class InteractableBase : MonoBehaviour
 
     public void Apply(bool isSoulMode, Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
+        var isActive = true;
         switch (interactableType)
         {
             case InteractableType.Always:
@@ -51,12 +52,12 @@ public abstract class InteractableBase : MonoBehaviour
                 button.interactable = !isSoulMode;
                 break;
             case InteractableType.OnlySoulMode:
-                gameObject.SetActive(isSoulMode);
+                isActive &= isSoulMode;
                 break;
         }
 
-        var satisfyCondition = activeCondition.SatisfyCondition(soulStates, flags);
-        gameObject.SetActive(satisfyCondition);
+        isActive &= activeCondition.SatisfyCondition(soulStates, flags);
+        gameObject.SetActive(isActive);
 
         ApplyUnlock(soulStates, flags);
     }

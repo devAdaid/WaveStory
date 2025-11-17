@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8727194955407862106, guid: a32514f2837c0b94eb35a1956a0c6324, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7944e05a2ef403418c144fe519144fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1720,6 +1720,10 @@ MonoBehaviour:
       Type: 2
       Id: Saja_Meet
     DialogueText: {fileID: 4900000, guid: e0e555e1c3cea724a8aaefc536a3e16b, type: 3}
+  - Condition:
+      Type: 1
+      Id: Saja_Meet
+    DialogueText: {fileID: 4900000, guid: 39790e12d02603a478d40b7dbe7fb019, type: 3}
 --- !u!222 &5629185702898040025
 CanvasRenderer:
   m_ObjectHideFlags: 0
