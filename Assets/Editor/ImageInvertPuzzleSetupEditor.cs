@@ -11,6 +11,15 @@ namespace WaveStory.Editor
     {
         private ImageInvertPuzzleData defaultPuzzleData;
 
+        // PNG to Stage 변환 필드
+        private Texture2D sourceTexture;
+        private float threshold = 0.5f;
+        private bool[,] previewBitmap;
+        private string stageName = "New Stage";
+        private int maxMovesValue = 10;
+        private float timeLimitValue = 60f;
+        private int initialInvertCountValue = 3;
+
         [MenuItem("WaveStory/Setup ImageInvert Puzzle")]
         public static void ShowWindow()
         {
@@ -53,6 +62,41 @@ namespace WaveStory.Editor
             }
 
             EditorGUILayout.Space();
+            GUILayout.Label("PNG에서 스테이지 생성", EditorStyles.boldLabel);
+
+            sourceTexture = (Texture2D)EditorGUILayout.ObjectField(
+                "소스 PNG 텍스처", sourceTexture, typeof(Texture2D), false);
+
+            if (sourceTexture != null)
+            {
+                EditorGUILayout.LabelField("텍스처 크기", $"{sourceTexture.width} x {sourceTexture.height}");
+
+                threshold = EditorGUILayout.Slider("흑백 임계값", threshold, 0f, 1f);
+
+                stageName = EditorGUILayout.TextField("스테이지 이름", stageName);
+                maxMovesValue = EditorGUILayout.IntSlider("최대 이동 횟수", maxMovesValue, 5, 30);
+                timeLimitValue = EditorGUILayout.FloatField("제한 시간 (초)", timeLimitValue);
+                initialInvertCountValue = EditorGUILayout.IntSlider("초기 인버트 수", initialInvertCountValue, 1, 10);
+
+                if (GUILayout.Button("미리보기", GUILayout.Height(25)))
+                {
+                    previewBitmap = ConvertTextureTobitmap(sourceTexture, threshold);
+                }
+
+                if (previewBitmap != null)
+                {
+                    DrawBitmapPreview(previewBitmap);
+
+                    GUI.backgroundColor = Color.cyan;
+                    if (GUILayout.Button("PNG를 스테이지 데이터로 저장", GUILayout.Height(30)))
+                    {
+                        SavePNGAsStageData(previewBitmap);
+                    }
+                    GUI.backgroundColor = Color.white;
+                }
+            }
+
+            EditorGUILayout.Space();
             EditorGUILayout.HelpBox(
                 "사용법:\n" +
                 "1. Prefab 생성 버튼 클릭\n" +
@@ -61,7 +105,7 @@ namespace WaveStory.Editor
                 "4. 씬의 UI를 프리팹으로 저장 버튼 클릭\n" +
                 "5. 10개 스테이지 데이터 생성 버튼 클릭\n" +
                 "6. Presenter의 Default Puzzle 참조 설정\n\n" +
-                "프리팹으로 저장한 후에는 씬에서 프리팹을 인스턴스화하여 사용하세요.",
+                "PNG to Stage: PNG 텍스처를 선택하여 12x12 비트맵으로 변환 가능",
                 MessageType.Info);
         }
 
@@ -925,6 +969,134 @@ namespace WaveStory.Editor
             tmp.color = Color.white;
 
             return obj;
+        }
+
+        // PNG to ImageInvert 변환 메서드들
+        private bool[,] ConvertTextureTobitmap(Texture2D texture, float threshold)
+        {
+            // 텍스처를 읽을 수 있도록 설정
+            string path = AssetDatabase.GetAssetPath(texture);
+            TextureImporter importer = AssetImporter.GetAtPath(path) as TextureImporter;
+
+            if (importer != null && !importer.isReadable)
+            {
+                importer.isReadable = true;
+                importer.SaveAndReimport();
+            }
+
+            // 12x12 비트맵 생성
+            bool[,] bitmap = new bool[12, 12];
+
+            // 텍스처를 12x12로 리샘플링 (Y축 뒤집기)
+            for (int y = 0; y < 12; y++)
+            {
+                for (int x = 0; x < 12; x++)
+                {
+                    // 원본 텍스처의 대응 좌표 계산 (Y축 뒤집기)
+                    float u = (float)x / 11f;
+                    float v = (float)(11 - y) / 11f;  // Y축을 뒤집어서 계산
+                    int sourceX = Mathf.RoundToInt(u * (texture.width - 1));
+                    int sourceY = Mathf.RoundToInt(v * (texture.height - 1));
+
+                    Color pixel = texture.GetPixel(sourceX, sourceY);
+                    float grayscale = pixel.grayscale; // RGB를 그레이스케일로 변환
+
+                    // 임계값 적용 (밝으면 true, 어두우면 false)
+                    bitmap[x, y] = grayscale > threshold;
+                }
+            }
+
+            return bitmap;
+        }
+
+        private void DrawBitmapPreview(bool[,] bitmap)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("12x12 비트맵 미리보기:", EditorStyles.boldLabel);
+
+            // 미리보기 영역
+            Rect previewRect = GUILayoutUtility.GetRect(240, 240);
+
+            // 배경 그리기
+            EditorGUI.DrawRect(previewRect, new Color(0.2f, 0.2f, 0.2f));
+
+            float cellSize = 20f;
+            float startX = previewRect.x;
+            float startY = previewRect.y;
+
+            for (int y = 0; y < 12; y++)
+            {
+                for (int x = 0; x < 12; x++)
+                {
+                    Rect cellRect = new Rect(
+                        startX + x * cellSize,
+                        startY + y * cellSize,
+                        cellSize - 1,
+                        cellSize - 1
+                    );
+
+                    Color cellColor = bitmap[x, y] ? Color.white : Color.black;
+                    EditorGUI.DrawRect(cellRect, cellColor);
+                }
+            }
+
+            EditorGUILayout.Space();
+        }
+
+        private void SavePNGAsStageData(bool[,] bitmap)
+        {
+            string dataPath = "Assets/Resources/ImageInvertPuzzle";
+            if (!AssetDatabase.IsValidFolder(dataPath))
+            {
+                if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+                {
+                    AssetDatabase.CreateFolder("Assets", "Resources");
+                }
+                AssetDatabase.CreateFolder("Assets/Resources", "ImageInvertPuzzle");
+            }
+
+            var data = ScriptableObject.CreateInstance<ImageInvertPuzzleData>();
+            data.puzzleName = stageName;
+            data.initialInvertCount = initialInvertCountValue;
+            data.maxMoves = maxMovesValue;
+            data.timeLimit = timeLimitValue;
+
+            // 비트맵을 1D 배열로 변환
+            bool[] flatBitmap = new bool[144];
+            for (int y = 0; y < 12; y++)
+            {
+                for (int x = 0; x < 12; x++)
+                {
+                    flatBitmap[y * 12 + x] = bitmap[x, y];
+                }
+            }
+            data.bitmap = flatBitmap;
+
+            // 파일명 생성 (공백과 특수문자 제거)
+            string fileName = stageName.Replace(" ", "_");
+            fileName = System.Text.RegularExpressions.Regex.Replace(fileName, @"[^a-zA-Z0-9_]", "");
+
+            string assetPath = $"{dataPath}/Stage_{fileName}.asset";
+
+            // 중복 파일 체크
+            int counter = 1;
+            string finalPath = assetPath;
+            while (AssetDatabase.LoadAssetAtPath<ImageInvertPuzzleData>(finalPath) != null)
+            {
+                finalPath = $"{dataPath}/Stage_{fileName}_{counter}.asset";
+                counter++;
+            }
+
+            AssetDatabase.CreateAsset(data, finalPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            EditorUtility.DisplayDialog("완료",
+                $"스테이지 데이터가 저장되었습니다.\n{finalPath}",
+                "확인");
+
+            // 생성된 에셋 선택
+            Selection.activeObject = data;
         }
     }
 }
