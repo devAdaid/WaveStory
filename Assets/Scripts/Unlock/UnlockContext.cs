@@ -3,11 +3,13 @@ using UnityEngine.Events;
 
 public class UnlockContext
 {
-    public UnityEvent OnChanged = new UnityEvent();
+    public UnityEvent OnFlagAndSoulChanged = new UnityEvent();
+    public UnityEvent OnClueChanged = new UnityEvent();
 
     public readonly HashSet<string> FlagIds = new HashSet<string>();
     private readonly HashSet<string> unlockedSouls = new HashSet<string>();
     private readonly HashSet<string> clearedSouls = new HashSet<string>();
+    private readonly HashSet<string> unlockedClues = new HashSet<string>();
 
     public void UnlockFlag(string flagId)
     {
@@ -25,7 +27,7 @@ public class UnlockContext
             FlagIds.Remove(flagId);
         }
 
-        OnChanged.Invoke();
+        OnFlagAndSoulChanged.Invoke();
     }
 
     public bool HasFlag(string flagId)
@@ -37,14 +39,14 @@ public class UnlockContext
     {
         unlockedSouls.Add(soulId);
 
-        OnChanged.Invoke();
+        OnFlagAndSoulChanged.Invoke();
     }
 
     public void ClearSoul(string soulId)
     {
         clearedSouls.Add(soulId);
 
-        OnChanged.Invoke();
+        OnFlagAndSoulChanged.Invoke();
     }
 
     public Dictionary<string, SoulState> GetSoulStates()
@@ -69,22 +71,15 @@ public class UnlockContext
         return states;
     }
 
-    public bool SatisfyCondition(UnlockCondition condition)
+    public void UnlockClue(string clueId)
     {
-        switch (condition.Type)
-        {
-            case UnlockConditionType.None:
-                return true;
-            case UnlockConditionType.HasFlag:
-                return FlagIds.Contains(condition.Id);
-            case UnlockConditionType.HasNoFlag:
-                return !FlagIds.Contains(condition.Id);
-            case UnlockConditionType.UnlockSoul:
-                return unlockedSouls.Contains(condition.Id);
-            case UnlockConditionType.NotUnlockSoul:
-                return !unlockedSouls.Contains(condition.Id);
-        }
+        unlockedClues.Add(clueId);
 
-        return false;
+        OnClueChanged.Invoke();
+    }
+
+    public bool IsUnlockedClue(string clueId)
+    {
+        return unlockedClues.Contains(clueId);
     }
 }

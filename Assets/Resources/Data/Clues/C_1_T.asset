@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b8a337301f37842a67eaf0c4ce7b25, type: 3}
   m_Name: C_1_T
   m_EditorClassIdentifier: 
+  Order: 1
+  Title: "\uBCF5\uB3C4 - 1"
   Text: The soul whose name is Han Seoyoon is in other room.
   UnlockWords:
   - {fileID: 11400000, guid: aba89ea0a7737714e9405f37be8bd4d5, type: 2}

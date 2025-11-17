@@ -21,7 +21,7 @@ public class GameUIHolder : MonoBehaviour
         WordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory, WordInventoryUI));
         WordInputUI.SetPresenter(new WordInputPresenter(context.Room, context.InputWave, context.Unlock, WordInputUI));
         RoomUI.SetPresenter(new RoomPresenter(context.Room, context.SoulMode, context.Unlock, RoomUI));
-        ClueUI.SetPresenter(new CluePresenter(context.WordInventory, ClueUI));
+        ClueUI.SetPresenter(new CluePresenter(context.WordInventory, context.Unlock, ClueUI));
 
         foreach (var ui in gameObject.GetComponentsInChildren<UIBase>(true))
         {

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b8a337301f37842a67eaf0c4ce7b25, type: 3}
+  m_Name: Fake 14
+  m_EditorClassIdentifier: 
+  Order: 99
+  Title: "\uAC00\uC9DC \uB2E8\uC11C"
+  Text: "\uD14C\uC2A4\uD2B8\uC6A9 \uAC00\uC9DC \uB2E8\uC11C"
+  UnlockWords:
+  - {fileID: 11400000, guid: aba89ea0a7737714e9405f37be8bd4d5, type: 2}
+  - {fileID: 11400000, guid: 22f6ff7f62cb10e4f8d88f3dd974f507, type: 2}
+  - {fileID: 11400000, guid: b6d4ffa51285c09429f95cb071513e6f, type: 2}
+  - {fileID: 11400000, guid: 7c1b917b70c37144c8a6d23b9a84db30, type: 2}

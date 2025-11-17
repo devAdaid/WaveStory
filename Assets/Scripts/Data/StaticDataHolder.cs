@@ -9,6 +9,7 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
     private Dictionary<string, ClueData> clueMap = new();
     private Dictionary<string, SoulData> soulMap = new();
     private Dictionary<string, RoomData> roomMap = new();
+    public List<ClueData> ClueDataList = new();
 
     public void Initialize()
     {
@@ -25,6 +26,7 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
         {
             clueMap[clue.name] = clue;
         }
+        ClueDataList = clueMap.Values.OrderBy(x => x.Order).ToList();
 
         var souls = Resources.LoadAll<SoulData>("Data/Souls");
         foreach (var soul in souls)

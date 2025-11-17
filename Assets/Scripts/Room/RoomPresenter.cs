@@ -16,7 +16,7 @@ public class RoomPresenter : IPresenter
         this.ui = ui;
         room.OnRoomChanged.AddListener(this.OnRoomChanged);
         soulMode.OnSoulModeChanged.AddListener(this.OnSoulModeChanged);
-        unlock.OnChanged.AddListener(this.OnUnlockChanged);
+        unlock.OnFlagAndSoulChanged.AddListener(this.OnUnlockChanged);
     }
 
     public RoomData GetCurrentRoomData()

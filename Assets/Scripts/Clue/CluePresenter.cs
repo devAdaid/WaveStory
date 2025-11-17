@@ -1,16 +1,30 @@
 public class CluePresenter : IPresenter
 {
     private readonly WordInventoryContext wordInventory;
+    private readonly UnlockContext unlock;
     private ClueUI ui;
 
-    public CluePresenter(WordInventoryContext wordInventory, ClueUI ui)
+    public CluePresenter(WordInventoryContext wordInventory, UnlockContext unlock, ClueUI ui)
     {
         this.wordInventory = wordInventory;
+        this.unlock = unlock;
         this.ui = ui;
+
+        unlock.OnClueChanged.AddListener(ui.UpdateUI);
     }
 
-    public void AdddWord(string wordId)
+    public void AddWord(string wordId)
     {
         wordInventory.Add(wordId);
+    }
+
+    public void UnlockClue(string clueId)
+    {
+        unlock.UnlockClue(clueId);
+    }
+
+    public bool IsUnlocked(string clueId)
+    {
+        return unlock.IsUnlockedClue(clueId);
     }
 }
