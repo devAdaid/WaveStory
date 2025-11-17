@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72748f2644c872d42be6b67b14f3c9fd, type: 3}
-  m_Name: C_1
-  m_EditorClassIdentifier: 
-  DisplayName: "\uBCF5\uB3C4"
-  RealSprite: {fileID: 8727194955407862106, guid: a32514f2837c0b94eb35a1956a0c6324, type: 3}
-  SoulSprite: {fileID: -1417806519495430959, guid: eabb5d6e238331a47ac8260c134767da, type: 3}
-  Souls:
-  - {fileID: 11400000, guid: 1f39bdd9be9f9e344883d77040aa3ddb, type: 2}
+  m_Name: E
+  m_EditorClassIdentifier: Assembly-CSharp::RoomData
+  DisplayName: "\uC785\uAD6C"
+  RealSprite: {fileID: 21300000, guid: 12bcb6a79c33d284f884d2af9286e6e8, type: 3}
+  SoulSprite: {fileID: 21300000, guid: 35eadff7550a0a34095abb9ee54bfb0d, type: 3}
+  Souls: []

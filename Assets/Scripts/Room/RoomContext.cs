@@ -9,8 +9,7 @@ public class RoomContext
 
     public RoomContext()
     {
-        //TODO
-        if (StaticDataHolder.I.TryGetRoom("C_1", out var roomData))
+        if (StaticDataHolder.I.TryGetRoom("E", out var roomData))
         {
             CurrentRoomData = roomData;
         }
