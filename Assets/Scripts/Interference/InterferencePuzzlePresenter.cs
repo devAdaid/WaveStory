@@ -101,6 +101,9 @@ namespace WaveStory.Interference
             puzzleUI.ShowSolvedState(false);
 
             UpdateInterferenceDisplay();
+
+            // 첫 플레이 시 도움말 자동 표시
+            puzzleUI.ShowHelpOnFirstPlay();
         }
 
         private void HandleSourcesChanged()
@@ -133,6 +136,7 @@ namespace WaveStory.Interference
 
             puzzleUI.UpdateInterferencePattern(pattern);
             puzzleUI.ShowSourcePositions(context.PlacedSources);
+            puzzleUI.UpdateTargetStatus(context.PlacedSources);
         }
 
         private void UpdateUI()

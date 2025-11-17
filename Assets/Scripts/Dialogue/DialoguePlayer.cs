@@ -34,12 +34,12 @@ public class DialoguePlayer : IDialogueRuntime
 
         string[] lines = csvFile.text.Split('\n');
 
-        for (int i = 1; i < lines.Length; i++) // Çì´õ ½ºÅµ
+        for (int i = 1; i < lines.Length; i++) // ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ
         {
             if (string.IsNullOrWhiteSpace(lines[i]))
                 continue;
 
-            string[] data = ParseCSVLine(lines[i]); // °³¼±µÈ ÆÄ½Ì
+            string[] data = ParseCSVLine(lines[i]); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä½ï¿½
 
             if (data.Length == 0) continue;
 
@@ -47,7 +47,7 @@ public class DialoguePlayer : IDialogueRuntime
             string[] parameters = new string[data.Length - 1];
             Array.Copy(data, 1, parameters, 0, parameters.Length);
 
-            // LabelÀº ÀÎµ¦½º¸¸ ÀúÀå
+            // Labelï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (commandType == "Label")
             {
                 labels[parameters[0]] = commands.Count;
@@ -60,7 +60,7 @@ public class DialoguePlayer : IDialogueRuntime
         }
     }
 
-    // CSV ÆÄ½Ì ÇïÆÛ (Å«µû¿ÈÇ¥ Ã³¸®)
+    // CSV ï¿½Ä½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Å«ï¿½ï¿½ï¿½ï¿½Ç¥ Ã³ï¿½ï¿½)
     private string[] ParseCSVLine(string line)
     {
         List<string> result = new List<string>();
@@ -98,7 +98,7 @@ public class DialoguePlayer : IDialogueRuntime
         ExecuteNextCommand();
     }
 
-    public void OnPlayerAdvance() // UI Å¬¸¯ ½Ã È£Ãâ
+    public void OnPlayerAdvance() // UI Å¬ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½
     {
         if (!isActive) return;
         ExecuteNextCommand();
@@ -122,7 +122,7 @@ public class DialoguePlayer : IDialogueRuntime
             return;
         }
 
-        // BlockingÀÌ ¾Æ´Ï¸é Áï½Ã ´ÙÀ½ ¸í·É¾î ½ÇÇà
+        // Blockingï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (!cmd.IsWaitingInput)
             ExecuteNextCommand();
     }
@@ -141,5 +141,11 @@ public class DialoguePlayer : IDialogueRuntime
             currentCommandIndex = labels[labelName];
             ExecuteNextCommand();
         }
+    }
+
+    public void ProcessNextCommand()
+    {
+        if (!isActive) return;
+        ExecuteNextCommand();
     }
 }

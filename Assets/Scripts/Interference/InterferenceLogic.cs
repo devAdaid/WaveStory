@@ -13,26 +13,21 @@ namespace WaveStory.Interference
             if (sources == null || sources.Count == 0)
                 return 0f;
 
-            float totalAmplitude = 0f;
+            float totalIntensity = 0f;
 
             foreach (var source in sources)
             {
                 float distance = Vector2Int.Distance(position, source.position);
 
-                // 거리에 따른 감쇠 (1/r 감쇠)
-                float attenuation = distance > 0.1f ? 1f / (1f + distance * 0.5f) : 1f;
+                // 단조 감소 형태: 거리가 멀수록 강도가 줄어듦
+                // frequency를 감쇠 속도로 사용 (높을수록 빨리 감소)
+                float decayRate = source.frequency;
+                float intensity = source.amplitude * Mathf.Exp(-distance * decayRate * 0.3f);
 
-                // 파동 방정식: A * sin(k*r + phase)
-                // k = 2π * frequency
-                float waveNumber = 2f * Mathf.PI * source.frequency;
-                float waveValue = source.amplitude * attenuation * Mathf.Sin(waveNumber * distance + source.phase);
-
-                totalAmplitude += waveValue;
+                totalIntensity += intensity;
             }
 
-            // 강도는 진폭의 제곱에 비례 (물리적으로 정확)
-            // 하지만 게임플레이를 위해 절대값 사용
-            return Mathf.Abs(totalAmplitude);
+            return totalIntensity;
         }
 
         /// <summary>
@@ -43,24 +38,20 @@ namespace WaveStory.Interference
             if (sources == null || sources.Count == 0)
                 return 0f;
 
-            float totalAmplitude = 0f;
+            float totalIntensity = 0f;
 
             foreach (var source in sources)
             {
                 float distance = Vector2Int.Distance(position, source.position);
-                float attenuation = distance > 0.1f ? 1f / (1f + distance * 0.5f) : 1f;
 
-                float waveNumber = 2f * Mathf.PI * source.frequency;
-                float angularFrequency = 2f * Mathf.PI * source.frequency;
+                // 단조 감소 형태: 거리가 멀수록 강도가 줄어듦
+                float decayRate = source.frequency;
+                float intensity = source.amplitude * Mathf.Exp(-distance * decayRate * 0.3f);
 
-                // 시간에 따른 파동: A * sin(k*r - ω*t + phase)
-                float waveValue = source.amplitude * attenuation *
-                    Mathf.Sin(waveNumber * distance - angularFrequency * time + source.phase);
-
-                totalAmplitude += waveValue;
+                totalIntensity += intensity;
             }
 
-            return totalAmplitude;
+            return totalIntensity;
         }
 
         /// <summary>

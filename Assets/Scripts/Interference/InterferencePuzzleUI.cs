@@ -19,6 +19,8 @@ namespace WaveStory.Interference
         [SerializeField] private Button clearButton;
         [SerializeField] private Button closeButton;
         [SerializeField] private GameObject solvedIndicator;
+        [SerializeField] private Button helpButton;
+        [SerializeField] private GameObject helpPanel;
 
         [Header("Colors")]
         [SerializeField] private Color emptyColor = Color.black;
@@ -27,10 +29,13 @@ namespace WaveStory.Interference
         [SerializeField] private Color sourceColor = Color.yellow;
         [SerializeField] private Color constructiveTargetColor = Color.green;
         [SerializeField] private Color destructiveTargetColor = Color.cyan;
+        [SerializeField] private Color cellBorderColor = new Color(0.3f, 0.3f, 0.3f, 1f);
 
         private List<Image> gridCells = new List<Image>();
         private List<Image> targetMarkers = new List<Image>();
         private List<Image> sourceMarkers = new List<Image>();
+        private List<TextMeshProUGUI> targetStatusTexts = new List<TextMeshProUGUI>();
+        private List<TargetPoint> currentTargets = new List<TargetPoint>();
 
         private int currentWidth;
         private int currentHeight;
@@ -46,6 +51,18 @@ namespace WaveStory.Interference
 
             if (closeButton != null)
                 closeButton.onClick.AddListener(() => OnCloseClicked?.Invoke());
+
+            if (helpButton != null)
+                helpButton.onClick.AddListener(ToggleHelp);
+
+            if (helpPanel != null)
+                helpPanel.SetActive(false);
+        }
+
+        private void ToggleHelp()
+        {
+            if (helpPanel != null)
+                helpPanel.SetActive(!helpPanel.activeSelf);
         }
 
         public void Initialize(int width, int height)
@@ -79,6 +96,14 @@ namespace WaveStory.Interference
                     Destroy(marker.gameObject);
             }
             sourceMarkers.Clear();
+
+            foreach (var text in targetStatusTexts)
+            {
+                if (text != null)
+                    Destroy(text.gameObject);
+            }
+            targetStatusTexts.Clear();
+            currentTargets.Clear();
         }
 
         private void CreateGrid(int width, int height)
@@ -111,6 +136,15 @@ namespace WaveStory.Interference
                         image.color = emptyColor;
                         gridCells.Add(image);
                     }
+
+                    // 셀 경계선 추가
+                    var outline = cellObj.GetComponent<Outline>();
+                    if (outline == null)
+                    {
+                        outline = cellObj.AddComponent<Outline>();
+                    }
+                    outline.effectColor = cellBorderColor;
+                    outline.effectDistance = new Vector2(1, 1);
 
                     var button = cellObj.GetComponent<Button>();
                     if (button != null)
@@ -167,7 +201,17 @@ namespace WaveStory.Interference
             }
             targetMarkers.Clear();
 
+            foreach (var text in targetStatusTexts)
+            {
+                if (text != null)
+                    Destroy(text.gameObject);
+            }
+            targetStatusTexts.Clear();
+            currentTargets.Clear();
+
             if (gridContainer == null) return;
+
+            currentTargets.AddRange(targets);
 
             foreach (var target in targets)
             {
@@ -187,6 +231,7 @@ namespace WaveStory.Interference
                 image.color = target.targetType == TargetType.Constructive
                     ? constructiveTargetColor
                     : destructiveTargetColor;
+                image.raycastTarget = false;
 
                 // 테두리 효과를 위해 Outline 추가
                 var outline = markerObj.AddComponent<Outline>();
@@ -194,6 +239,94 @@ namespace WaveStory.Interference
                 outline.effectDistance = new Vector2(2, 2);
 
                 targetMarkers.Add(image);
+
+                // 타겟 타입 라벨 추가
+                var labelObj = new GameObject("TargetLabel");
+                labelObj.transform.SetParent(gridContainer, false);
+
+                var labelRect = labelObj.AddComponent<RectTransform>();
+                labelRect.anchorMin = Vector2.zero;
+                labelRect.anchorMax = Vector2.zero;
+                labelRect.sizeDelta = new Vector2(60f, 20f);
+                labelRect.anchoredPosition = new Vector2(
+                    target.position.x * cellSize + cellSize / 2,
+                    target.position.y * cellSize + cellSize / 2 + cellSize * 0.7f
+                );
+
+                var labelText = labelObj.AddComponent<TextMeshProUGUI>();
+                labelText.fontSize = 10;
+                labelText.alignment = TextAlignmentOptions.Center;
+                labelText.color = Color.white;
+                labelText.text = target.targetType == TargetType.Constructive ? "강하게!" : "약하게!";
+
+                var labelOutline = labelObj.AddComponent<Outline>();
+                labelOutline.effectColor = Color.black;
+                labelOutline.effectDistance = new Vector2(1, 1);
+
+                targetStatusTexts.Add(labelText);
+            }
+        }
+
+        public void UpdateTargetStatus(List<WaveSource> sources)
+        {
+            if (currentTargets.Count != targetStatusTexts.Count) return;
+
+            for (int i = 0; i < currentTargets.Count; i++)
+            {
+                var target = currentTargets[i];
+                float intensity = InterferenceLogic.CalculateIntensityAt(target.position, sources);
+                float accuracy = InterferenceLogic.CalculateTargetAccuracy(target, intensity);
+
+                string statusText;
+                Color statusColor;
+
+                if (accuracy >= 1f)
+                {
+                    statusText = "완벽!";
+                    statusColor = Color.green;
+                }
+                else if (accuracy >= 0.7f)
+                {
+                    statusText = "좋음";
+                    statusColor = Color.yellow;
+                }
+                else if (sources.Count == 0)
+                {
+                    statusText = target.targetType == TargetType.Constructive ? "강하게!" : "약하게!";
+                    statusColor = Color.white;
+                }
+                else
+                {
+                    if (target.targetType == TargetType.Constructive)
+                    {
+                        statusText = $"더 강하게! ({intensity:F1})";
+                    }
+                    else
+                    {
+                        statusText = $"더 약하게! ({intensity:F1})";
+                    }
+                    statusColor = Color.red;
+                }
+
+                targetStatusTexts[i].text = statusText;
+                targetStatusTexts[i].color = statusColor;
+
+                // 타겟 마커 색상도 업데이트
+                if (i < targetMarkers.Count)
+                {
+                    Color baseColor = target.targetType == TargetType.Constructive
+                        ? constructiveTargetColor
+                        : destructiveTargetColor;
+
+                    if (accuracy >= 1f)
+                    {
+                        targetMarkers[i].color = Color.Lerp(baseColor, Color.white, 0.5f);
+                    }
+                    else
+                    {
+                        targetMarkers[i].color = baseColor;
+                    }
+                }
             }
         }
 
@@ -259,6 +392,20 @@ namespace WaveStory.Interference
         public void Hide()
         {
             gameObject.SetActive(false);
+            // 도움말 패널도 닫기
+            if (helpPanel != null)
+                helpPanel.SetActive(false);
+        }
+
+        public void ShowHelpOnFirstPlay()
+        {
+            // 첫 플레이 시 도움말 자동 표시
+            if (helpPanel != null && !PlayerPrefs.HasKey("InterferencePuzzle_HelpShown"))
+            {
+                helpPanel.SetActive(true);
+                PlayerPrefs.SetInt("InterferencePuzzle_HelpShown", 1);
+                PlayerPrefs.Save();
+            }
         }
     }
 }

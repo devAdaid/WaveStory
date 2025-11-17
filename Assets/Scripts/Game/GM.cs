@@ -1,4 +1,5 @@
 using UnityEngine;
+using WaveStory.Interference;
 
 public class GM : MonoSingleton<GM>, IMonoSingleton
 {
@@ -7,6 +8,7 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
     public WordInventoryContext WordInventory { get; private set; }
     public SoulModeContext SoulMode { get; private set; }
     public UnlockContext Unlock { get; private set; }
+    public InterferencePuzzleContext InterferencePuzzle { get; private set; }
 
     [SerializeField]
     private GameUIHolder uiHolder;
@@ -19,6 +21,7 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
         WordInventory = new WordInventoryContext();
         SoulMode = new SoulModeContext();
         Unlock = new UnlockContext();
+        InterferencePuzzle = new InterferencePuzzleContext();
 
         uiHolder.Initialize(this);
     }

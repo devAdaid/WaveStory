@@ -1,4 +1,5 @@
 using UnityEngine;
+using WaveStory.Interference;
 
 public class GameUIHolder : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameUIHolder : MonoBehaviour
     public ClueUI ClueUI;
     [field: SerializeField]
     public DialogueUI DialogueUI;
+    [field: SerializeField]
+    public InterferencePuzzlePresenter InterferencePuzzlePresenter;
 
     public void Initialize(GM context)
     {
