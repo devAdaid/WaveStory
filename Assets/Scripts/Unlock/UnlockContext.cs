@@ -6,7 +6,8 @@ public class UnlockContext
     public UnityEvent OnChanged = new UnityEvent();
 
     public readonly HashSet<string> FlagIds = new HashSet<string>();
-    public readonly HashSet<string> UnlockedSouls = new HashSet<string>();
+    private readonly HashSet<string> unlockedSouls = new HashSet<string>();
+    private readonly HashSet<string> clearedSouls = new HashSet<string>();
 
     public void UnlockFlag(string flagId)
     {
@@ -34,13 +35,37 @@ public class UnlockContext
 
     public void UnlockSoul(string soulId)
     {
-        UnlockedSouls.Add(soulId);
+        unlockedSouls.Add(soulId);
 
         OnChanged.Invoke();
     }
 
-    public bool IsUnlockedSoul(string soulId)
+    public void ClearSoul(string soulId)
     {
-        return UnlockedSouls.Contains(soulId);
+        clearedSouls.Add(soulId);
+
+        OnChanged.Invoke();
+    }
+
+    public Dictionary<string, SoulState> GetSoulStates()
+    {
+        var states = new Dictionary<string, SoulState>();
+
+        foreach (var soulId in StaticDataHolder.I.GetAllSoulIds())
+        {
+            states[soulId] = SoulState.Locked;
+        }
+
+        foreach (var soulId in unlockedSouls)
+        {
+            states[soulId] = SoulState.Unlocked;
+        }
+
+        foreach (var soulId in clearedSouls)
+        {
+            states[soulId] = SoulState.Cleared;
+        }
+
+        return states;
     }
 }

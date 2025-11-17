@@ -37,7 +37,7 @@ public class DialogueCommandFactory
             }
         }
 
-        Debug.Log($"[DialogueCommandFactory] Total registered commands: {commandTypes.Count}");
+        //Debug.Log($"[DialogueCommandFactory] Total registered commands: {commandTypes.Count}");
     }
 
     public IDialogueCommand CreateCommand(string commandName, string[] parameters)

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSingleton
@@ -51,6 +52,11 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
     public bool TryGetSoul(string id, out SoulData soul)
     {
         return soulMap.TryGetValue(id, out soul);
+    }
+
+    public List<string> GetAllSoulIds()
+    {
+        return soulMap.Keys.ToList();
     }
 
     public bool TryGetRoom(string id, out RoomData room)

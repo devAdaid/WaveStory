@@ -17,7 +17,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     private string currentRoomId => currentRoomData.Id;
     private RoomData currentRoomData;
     private bool isSoulMode;
-    private HashSet<string> unlockedSouls;
+    private Dictionary<string, SoulState> unlockedSouls;
     private HashSet<string> flags;
 
     public void SetPresenter(RoomPresenter presenter)
@@ -25,7 +25,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         this.presenter = presenter;
         currentRoomData = presenter.GetCurrentRoomData();
         isSoulMode = presenter.GetIsSoulMode();
-        unlockedSouls = presenter.GetUnlockedSouls();
+        unlockedSouls = presenter.GetSoulStates();
         flags = presenter.GetFlagIds();
     }
 
@@ -70,10 +70,10 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomNameText.text = roomData.DisplayName;
     }
 
-    public void ApplyUnlocks(HashSet<string> unlockedSouls, HashSet<string> flags)
+    public void ApplyUnlocks(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
-        this.unlockedSouls = unlockedSouls;
-        roomMap[currentRoomId].ApplyUnlocks(unlockedSouls, flags);
+        this.unlockedSouls = soulStates;
+        roomMap[currentRoomId].ApplyUnlocks(soulStates, flags);
     }
 
     public void ChangeRoom(RoomData roomData)

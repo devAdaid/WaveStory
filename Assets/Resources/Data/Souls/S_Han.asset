@@ -21,3 +21,5 @@ MonoBehaviour:
   Word2: {fileID: 11400000, guid: 22f6ff7f62cb10e4f8d88f3dd974f507, type: 2}
   LockedSprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
   UnlockedSprite: {fileID: 21300000, guid: a06cce4027f44d9438acef1a4b525250, type: 3}
+  DialogueOnUnlocked: {fileID: 4900000, guid: 5ef8ffc4d5705cc43928b179a40e9bb3, type: 3}
+  DialogueOnCleared: {fileID: 4900000, guid: 021aab6d7da3e8b478e018b89ddbff28, type: 3}

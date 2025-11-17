@@ -10,12 +10,6 @@ public class RoomControl : MonoBehaviour
     [SerializeField]
     private Image bgImage;
 
-    [SerializeField]
-    private Sprite realSprite;
-
-    [SerializeField]
-    private Sprite soulSprite;
-
     private List<InteractableBase> interactables = new();
     private List<SoulInteractable> souls = new();
 
@@ -34,7 +28,7 @@ public class RoomControl : MonoBehaviour
 
     public void SetSoulMode(bool isSoulMode)
     {
-        bgImage.sprite = isSoulMode ? soulSprite : realSprite;
+        bgImage.sprite = isSoulMode ? RoomData.SoulSprite : RoomData.RealSprite;
 
         foreach (var interactable in interactables)
         {
@@ -42,11 +36,11 @@ public class RoomControl : MonoBehaviour
         }
     }
 
-    public void ApplyUnlocks(HashSet<string> unlockedSouls, HashSet<string> flags)
+    public void ApplyUnlocks(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
     {
         foreach (var soul in souls)
         {
-            soul.Apply(unlockedSouls.Contains(soul.SoulData.Id));
+            soul.Apply(soulStates[soul.SoulData.Id]);
         }
     }
 }

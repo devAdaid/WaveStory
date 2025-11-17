@@ -22,6 +22,8 @@ public class DialogueUI : UIBase
     [SerializeField]
     private GameObject dialogueWindow;
     [SerializeField]
+    private Image bgImage;
+    [SerializeField]
     private Image fullscreenImage;
 
     private DialogueCommandFactory commandFactory;
@@ -30,7 +32,7 @@ public class DialogueUI : UIBase
     protected override void InitializeInternal()
     {
         commandFactory = new DialogueCommandFactory();
-        player = new DialoguePlayer(this, commandFactory);
+        player = new DialoguePlayer(this, commandFactory, GM.I.Unlock);
 
         advanceButton.onClick.AddListener(OnAdvance);
 
@@ -69,6 +71,7 @@ public class DialogueUI : UIBase
 
     public void SetSpeakerName(string name)
     {
+        speakerNameText.transform.parent.gameObject.SetActive(!string.IsNullOrEmpty(name));
         speakerNameText.text = name;
     }
 
@@ -99,5 +102,10 @@ public class DialogueUI : UIBase
     {
         fullscreenImage.sprite = sprite;
         fullscreenImage.gameObject.SetActive(true);
+    }
+
+    public void SetBg(Sprite sprite)
+    {
+        bgImage.sprite = sprite;
     }
 }

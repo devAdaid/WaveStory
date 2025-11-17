@@ -29,9 +29,9 @@ public class RoomPresenter : IPresenter
         return soulMode.IsSoulMode;
     }
 
-    public HashSet<string> GetUnlockedSouls()
+    public Dictionary<string, SoulState> GetSoulStates()
     {
-        return unlock.UnlockedSouls;
+        return unlock.GetSoulStates();
     }
 
     public HashSet<string> GetFlagIds()
@@ -59,7 +59,7 @@ public class RoomPresenter : IPresenter
 
     private void OnUnlockChanged()
     {
-        ui.ApplyUnlocks(unlock.UnlockedSouls, unlock.FlagIds);
+        ui.ApplyUnlocks(unlock.GetSoulStates(), unlock.FlagIds);
     }
 
     private void OnSoulModeChanged(bool isSoulMode)

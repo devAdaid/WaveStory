@@ -6,11 +6,13 @@ public class DialoguePlayer : IDialogueRuntime
 {
     public DialogueUI UI => ui;
     public AudioManager Audio => AudioManager.I;
+    public UnlockContext Unlock => unlock;
     public Dictionary<string, int> Labels => labels;
     public int CurrentLineIndex => currentCommandIndex;
 
     private DialogueUI ui;
     private DialogueCommandFactory factory;
+    private UnlockContext unlock;
 
     private List<IDialogueCommand> commands = new List<IDialogueCommand>();
     private Dictionary<string, int> labels = new Dictionary<string, int>();
@@ -18,10 +20,11 @@ public class DialoguePlayer : IDialogueRuntime
     private bool isActive = false;
 
 
-    public DialoguePlayer(DialogueUI ui, DialogueCommandFactory factory)
+    public DialoguePlayer(DialogueUI ui, DialogueCommandFactory factory, UnlockContext unlock)
     {
         this.ui = ui;
         this.factory = factory;
+        this.unlock = unlock;
     }
 
     public void LoadDialogue(TextAsset csvFile)

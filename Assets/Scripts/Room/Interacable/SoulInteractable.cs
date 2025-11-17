@@ -1,6 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum SoulState
+{
+    Locked,
+    Unlocked,
+    Cleared,
+}
+
 public class SoulInteractable : InteractableBase
 {
     [field: SerializeField]
@@ -8,23 +15,25 @@ public class SoulInteractable : InteractableBase
     [SerializeField]
     private Image image;
 
-    private bool isUnlocked;
+    private SoulState state;
 
     public override void OnInteract()
     {
-        if (isUnlocked)
+        Debug.Log(state);
+
+        if (state == SoulState.Unlocked)
         {
-            Debug.Log("Unlocked");
+            GM.I.UIHolder.DialogueUI.PlayDialogue(SoulData.DialogueOnUnlocked);
         }
-        else
+        else if (state == SoulState.Cleared)
         {
-            Debug.Log("Locked");
+            GM.I.UIHolder.DialogueUI.PlayDialogue(SoulData.DialogueOnCleared);
         }
     }
 
-    public void Apply(bool isUnlocked)
+    public void Apply(SoulState state)
     {
-        this.isUnlocked = isUnlocked;
-        image.sprite = isUnlocked ? SoulData.UnlockedSprite : SoulData.LockedSprite;
+        this.state = state;
+        image.sprite = (state == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
     }
 }

@@ -46,6 +46,22 @@ public class SpeakerCommand : DialogueCommandBase
         r.UI.SetSpeakerName(speakerName);
     }
 }
+[DialogueCommand("Clear")]
+public class ClearCommand : DialogueCommandBase
+{
+    private string soulId;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        soulId = parameters[0];
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Unlock.ClearSoul(soulId);
+    }
+}
 
 [DialogueCommand("Choice")]
 public class ChoiceCommand : DialogueCommandBase
@@ -79,6 +95,24 @@ public class ChoiceCommand : DialogueCommandBase
             string label = targetLabels[selectedIndex];
             r.JumpToLabel(label);
         });
+    }
+}
+
+[DialogueCommand("Bg")]
+public class BgCommand : DialogueCommandBase
+{
+    private RoomData roomData;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        var roomId = parameters[0];
+        StaticDataHolder.I.TryGetRoom(roomId, out roomData);
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.SetBg(roomData.SoulSprite);
     }
 }
 
