@@ -14,9 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Order: 99
   Title: "\uAC00\uC9DC \uB2E8\uC11C"
-  Text: "\uD14C\uC2A4\uD2B8\uC6A9 \uAC00\uC9DC \uB2E8\uC11C"
+  Text:
+    m_TableReference:
+      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+    m_TableEntryReference:
+      m_KeyId: 471848284160
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   UnlockWords:
   - {fileID: 11400000, guid: aba89ea0a7737714e9405f37be8bd4d5, type: 2}
   - {fileID: 11400000, guid: 22f6ff7f62cb10e4f8d88f3dd974f507, type: 2}
   - {fileID: 11400000, guid: b6d4ffa51285c09429f95cb071513e6f, type: 2}
   - {fileID: 11400000, guid: 7c1b917b70c37144c8a6d23b9a84db30, type: 2}
+  references:
+    version: 2
+    RefIds: []

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "ClueData", menuName = "Scriptable Objects/ClueData")]
 public class ClueData : ScriptableObject
@@ -8,8 +9,8 @@ public class ClueData : ScriptableObject
     public int Order;
     [TextArea]
     public string Title;
-    [TextArea]
-    public string Text;
+
+    public LocalizedString Text;
 
     public List<WordData> UnlockWords;
 }

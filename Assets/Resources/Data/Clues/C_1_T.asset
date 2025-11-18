@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Order: 1
   Title: "\uBCF5\uB3C4 - 1"
-  Text: "\uB2E4\uB978 \uBC29\uC5D0 \uC788\uB294 \uC601\uD63C\uC758 \uC774\uB984\uC740
-    \uD55C\uC601\uD76C\uC774\uB2E4."
+  Text:
+    m_TableReference:
+      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+    m_TableEntryReference:
+      m_KeyId: 71002845184
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   UnlockWords:
   - {fileID: 11400000, guid: aba89ea0a7737714e9405f37be8bd4d5, type: 2}
   - {fileID: 11400000, guid: 22f6ff7f62cb10e4f8d88f3dd974f507, type: 2}
+  references:
+    version: 2
+    RefIds: []

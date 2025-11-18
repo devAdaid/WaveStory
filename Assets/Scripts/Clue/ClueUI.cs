@@ -139,7 +139,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
             clueObject.SetActive(true);
             listObject.SetActive(false);
             clueTitleText.text = currentClueData.Title;
-            clueText.text = currentClueData.Text;
+            clueText.text = currentClueData.Text.GetLocalizedString();
         }
         else
         {
