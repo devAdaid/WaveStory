@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 3414028641214800243}
   - component: {fileID: 2171191916594022917}
   m_Layer: 5
-  m_Name: Text_Descript
+  m_Name: Text_Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   - {fileID: 4472441129940480870}
   clueObject: {fileID: 4974827581875941868}
   clueTitleText: {fileID: 3065415795267317090}
-  clueText: {fileID: 2171191916594022917}
+  descriptionText: {fileID: 2171191916594022917}
   toListButton: {fileID: 5363618622605404337}
 --- !u!1 &8613945847578954077
 GameObject:

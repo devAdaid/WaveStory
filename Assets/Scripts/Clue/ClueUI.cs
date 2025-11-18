@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class ClueUI : UIBase, IView<CluePresenter>
@@ -22,12 +23,15 @@ public class ClueUI : UIBase, IView<CluePresenter>
     [SerializeField]
     private TMP_Text clueTitleText;
     [SerializeField]
-    private TMP_Text clueText;
+    private TMP_Text descriptionText;
     [SerializeField]
     private Button toListButton;
 
     private ClueData currentClueData;
     private CluePresenter presenter;
+
+    private LocalizeStringEvent titleStringEvent;
+    private LocalizeStringEvent descriptionStringEvent;
 
     public void SetPresenter(CluePresenter presenter)
     {
@@ -37,6 +41,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     protected override void InitializeInternal()
     {
         toListButton.onClick.AddListener(OpenList);
+
+        TextHelper.SetLocalizedText(descriptionText, null, ref descriptionStringEvent);
 
         UpdateUI();
     }
@@ -139,7 +145,9 @@ public class ClueUI : UIBase, IView<CluePresenter>
             clueObject.SetActive(true);
             listObject.SetActive(false);
             clueTitleText.text = currentClueData.Title;
-            clueText.text = currentClueData.Text.GetLocalizedString();
+
+            descriptionStringEvent.StringReference = currentClueData.Text;
+            descriptionStringEvent.RefreshString();
         }
         else
         {
