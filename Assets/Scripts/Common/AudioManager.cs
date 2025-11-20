@@ -118,6 +118,17 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
         PlaySfxOneShot(GetClip(clipName));
     }
 
+    public void PlaySfx(AudioClip audioClip)
+    {
+        sfxSource.clip = audioClip;
+        sfxSource.Play();
+    }
+
+    public void PlaySfx(string clipName)
+    {
+        PlaySfx(GetClip(clipName));
+    }
+
     public AudioClip GetClip(string name)
     {
         if (clipMap.TryGetValue(name, out var clip))

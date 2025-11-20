@@ -1,5 +1,9 @@
+using RedBlueGames.Tools.TextTyper;
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -50,6 +54,15 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     [SerializeField]
     private Button quitButton;
 
+    [SerializeField]
+    private CanvasGroup introObj;
+
+    [SerializeField]
+    private TextTyper introTyper;
+
+    [SerializeField]
+    private List<LocalizedString> introTexts;
+
     private WaveContext inputContext;
     private WaveContext previewContext;
     private WordInventoryContext wordInventoryContext;
@@ -66,6 +79,8 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     IEnumerator Start()
     {
+        introTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
+
         if (PlayerPrefs.GetInt(TITLE_PLAYED_KEY, 0) == 0)
         {
             yield return TutorialWithTitle();
@@ -74,6 +89,16 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         {
             yield return Title();
         }
+    }
+
+    private void HandleCharacterPrinted(string printedCharacter)
+    {
+        if (printedCharacter == " " || printedCharacter == "\n")
+        {
+            return;
+        }
+
+        AudioManager.I.PlaySfx("Type");
     }
 
     IEnumerator TutorialWithTitle()
@@ -274,8 +299,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     private void StartGame()
     {
-        AudioManager.I.StopBgmFade();
-        SceneManager.LoadScene("Main");
+        StartCoroutine(Intro());
     }
 
     private void QuitGame()
@@ -285,5 +309,78 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 #else
         Application.Quit();
 #endif
+    }
+
+
+    IEnumerator Intro()
+    {
+        var introStrings = new List<string>();
+        foreach (var lt in introTexts)
+        {
+            introStrings.Add(lt.GetLocalizedStringAsync().WaitForCompletion());
+        }
+
+        dimmed.gameObject.SetActive(true);
+
+        AudioManager.I.FadeOutBgm(1f);
+
+        var dimmedFadeTime = 0.5f;
+        var dimmedStep = Time.deltaTime / dimmedFadeTime;
+        var t = 0f;
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(0f, 1f, t);
+            dimmed.color = new Color(0f, 0f, 0f, alpha);
+            t += dimmedStep;
+            yield return null;
+        }
+        dimmed.color = new Color(0f, 0f, 0f, 1f);
+
+        introObj.gameObject.SetActive(true);
+
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(1f, 0f, t);
+            dimmed.color = new Color(0f, 0f, 0f, alpha);
+            t += dimmedStep;
+            yield return null;
+        }
+        dimmed.color = new Color(0f, 0f, 0f, 0f);
+
+        yield return new WaitForSeconds(1f);
+
+        foreach (var s in introStrings)
+        {
+            introTyper.TypeText(s);
+
+            while (introTyper.IsTyping)
+            {
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(1.5f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        introTyper.GetComponent<TMP_Text>().text = string.Empty;
+
+        dimmed.color = new Color(0f, 0f, 0f, 1f);
+
+        var uiFadeTime = 2f;
+        var uiStep = Time.deltaTime / uiFadeTime;
+        t = 0f;
+        while (t < 1f)
+        {
+            var alpha = Mathf.Lerp(1f, 0f, t);
+            introObj.alpha = alpha;
+            yield return null;
+            t += uiStep;
+        }
+        introObj.alpha = 0f;
+
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("Main");
     }
 }

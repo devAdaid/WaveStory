@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7676699900945331276, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8621825765921814633, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
       propertyPath: wordInputUI
       value: 
@@ -200,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ca5603e1248064892937695a58a457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 0
   root: {fileID: 4703492564786416412}
   closeButtons:
   - {fileID: 6841487202580784399}
@@ -267,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2dcaf140e04be42be0efe2cf9aba05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPopup: 0
   root: {fileID: 5833914539786836988}
   closeButtons: []
   amplitudeStepButton: {fileID: 2354630014768181706}
