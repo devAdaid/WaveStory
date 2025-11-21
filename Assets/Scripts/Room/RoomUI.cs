@@ -7,9 +7,6 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     [SerializeField]
     private TMP_Text roomNameText;
 
-    [SerializeField]
-    private SoulModeButton soulModeButton;
-
     private Dictionary<string, RoomControl> roomMap = new Dictionary<string, RoomControl>();
 
     private RoomPresenter presenter;
@@ -41,21 +38,12 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
 
         roomNameText.text = roomMap[currentRoomId].RoomData.DisplayName;
-
-        soulModeButton.Button.onClick.AddListener(() =>
-        {
-            presenter.ChangeSoulMode(!isSoulMode);
-        });
-
-        soulModeButton.ApplySoulMode(isSoulMode);
     }
 
     public void ApplySoulMode(bool isSoulMode)
     {
         this.isSoulMode = isSoulMode;
         roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
-
-        soulModeButton.ApplySoulMode(isSoulMode);
     }
 
     public void ApplyRoomData(RoomData roomData)
