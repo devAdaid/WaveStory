@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public interface IDialogueCommand
 {
@@ -131,6 +132,38 @@ public class BgCommand : DialogueCommandBase
     public override void Execute(IDialogueRuntime r)
     {
         r.UI.SetBg(roomData.SoulSprite);
+    }
+}
+
+[DialogueCommand("Char")]
+public class CharCommand : DialogueCommandBase
+{
+    private Sprite sprite;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        sprite = Resources.Load<Sprite>($"Portrait/{parameters[0]}");
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.SetPortriat(sprite);
+    }
+}
+
+[DialogueCommand("HideChar")]
+public class HIdeCharCommand : DialogueCommandBase
+{
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.HidePortrait();
     }
 }
 

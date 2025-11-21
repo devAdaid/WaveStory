@@ -37,6 +37,7 @@ public class DialogueUI : UIBase
         advanceButton.onClick.AddListener(OnAdvance);
 
         choiceRoot.SetActive(false);
+        HidePortrait();
     }
 
     private void Update()
@@ -60,8 +61,15 @@ public class DialogueUI : UIBase
 
     public void PlayDialogue(TextAsset dialogue)
     {
+        ResetBeforePlay();
         player.LoadDialogue(dialogue);
         player.StartDialogue();
+    }
+
+    private void ResetBeforePlay()
+    {
+        HidePortrait();
+        SetSpeakerName(string.Empty);
     }
 
     public void ShowText(string text)
@@ -107,5 +115,16 @@ public class DialogueUI : UIBase
     public void SetBg(Sprite sprite)
     {
         bgImage.sprite = sprite;
+    }
+
+    public void SetPortriat(Sprite sprite)
+    {
+        portraitImage.sprite = sprite;
+        portraitImage.gameObject.SetActive(true);
+    }
+
+    public void HidePortrait()
+    {
+        portraitImage.gameObject.SetActive(false);
     }
 }
