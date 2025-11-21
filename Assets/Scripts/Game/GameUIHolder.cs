@@ -33,4 +33,10 @@ public class GameUIHolder : MonoBehaviour
             ui.Initialize();
         }
     }
+
+    public bool IsShowMainHud()
+    {
+        return !PopupHandler.I.IsAnyPopup()
+            && !DialogueUI.IsActive;
+    }
 }

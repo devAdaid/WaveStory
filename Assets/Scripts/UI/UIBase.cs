@@ -66,6 +66,7 @@ public abstract class UIBase : MonoBehaviour
     {
         yield return StartCoroutine(BeforeHide());
         root.SetActive(false);
+        OnHide();
     }
 
     public virtual void OnHide() { }

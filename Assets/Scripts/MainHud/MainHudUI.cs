@@ -35,19 +35,28 @@ public class MainHudUI : UIBase
 
     private void Update()
     {
-        if (PopupHandler.I.IsAnyPopup())
+        var showMainHud = GM.I.UIHolder.IsShowMainHud();
+
+        if (showMainHud && !IsActive)
         {
-            return;
+            Show();
+        }
+        else if (!showMainHud && IsActive)
+        {
+            Hide();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (IsActive)
         {
-            OpenClueUI();
-        }
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                OpenClueUI();
+            }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ToggleSoulMode();
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ToggleSoulMode();
+            }
         }
     }
 
