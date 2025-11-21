@@ -49,6 +49,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
     public override void OnShow()
     {
+        AudioManager.I.PlaySfxOneShot("Paper");
         StartCoroutine(ShowAnim());
     }
 
@@ -118,8 +119,6 @@ public class ClueUI : UIBase, IView<CluePresenter>
         UpdateUI();
 
         Show();
-
-        AudioManager.I.PlaySfxOneShot("Paper");
     }
 
     public void MoveToClue(ClueData clueData)

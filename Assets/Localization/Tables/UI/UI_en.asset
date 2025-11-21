@@ -30,6 +30,14 @@ MonoBehaviour:
     m_Localized: Quit
     m_Metadata:
       m_Items: []
+  - m_Id: 770315242659840
+    m_Localized: C Clue List
+    m_Metadata:
+      m_Items: []
+  - m_Id: 770518376996864
+    m_Localized: S Toggle Mode
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
