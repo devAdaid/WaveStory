@@ -142,4 +142,9 @@ public class DialoguePlayer : IDialogueRuntime
             ExecuteNextCommand();
         }
     }
+
+    public void OnChoiceSelected()
+    {
+        ui.OnChoiceSelected();
+    }
 }

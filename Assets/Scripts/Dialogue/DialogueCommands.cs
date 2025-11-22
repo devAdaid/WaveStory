@@ -113,6 +113,8 @@ public class ChoiceCommand : DialogueCommandBase
         {
             string label = targetLabels[selectedIndex];
             r.JumpToLabel(label);
+            r.OnChoiceSelected();
+
         });
     }
 }

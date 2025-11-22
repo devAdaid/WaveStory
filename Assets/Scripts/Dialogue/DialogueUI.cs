@@ -29,6 +29,8 @@ public class DialogueUI : UIBase
     private DialogueCommandFactory commandFactory;
     private DialoguePlayer player;
 
+    private bool isWatingChoice;
+
     protected override void InitializeInternal()
     {
         commandFactory = new DialogueCommandFactory();
@@ -53,6 +55,11 @@ public class DialogueUI : UIBase
         if (dialogueTextTyper.IsTyping)
         {
             dialogueTextTyper.Skip();
+            return;
+        }
+
+        if (isWatingChoice)
+        {
             return;
         }
 
@@ -104,6 +111,13 @@ public class DialogueUI : UIBase
                 choiceRoot.SetActive(false);
             });
         }
+
+        isWatingChoice = true;
+    }
+
+    public void OnChoiceSelected()
+    {
+        isWatingChoice = false;
     }
 
     public void ShowFullscreenImage(Sprite sprite)
