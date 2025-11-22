@@ -68,9 +68,19 @@ public class DialogueUI : UIBase
 
     public void PlayDialogue(TextAsset dialogue)
     {
+        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => DoPlayDialogue(dialogue));
+    }
+
+    private void DoPlayDialogue(TextAsset dialogue)
+    {
         ResetBeforePlay();
         player.LoadDialogue(dialogue);
         player.StartDialogue();
+    }
+
+    public void OnEndDialogue()
+    {
+        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(Hide);
     }
 
     private void ResetBeforePlay()

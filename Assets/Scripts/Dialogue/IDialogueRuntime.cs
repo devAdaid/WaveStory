@@ -10,5 +10,5 @@ public interface IDialogueRuntime
 
     public void JumpToLabel(string label);
     public void EndDialogue();
-    public void OnChoiceSelected();
+    public void SelectChoice(string label);
 }

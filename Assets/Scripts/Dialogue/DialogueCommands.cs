@@ -91,30 +91,64 @@ public class ChoiceCommand : DialogueCommandBase
 
     public override void Initialize(string[] parameters)
     {
-        // parameters: [choice1, choice2, label1, label2, ...]
-        int halfIndex = parameters.Length / 2;
+        choices.Clear();
+        targetLabels.Clear();
 
-        for (int i = 0; i < halfIndex; i++)
+        // parameters: [choice1, label1, choice2, label2, choice3, label3, ...]
+        // 짝수 인덱스: 선택지 텍스트
+        // 홀수 인덱스: 라벨
+
+        for (int i = 0; i < parameters.Length; i += 2)
         {
-            if (!string.IsNullOrEmpty(parameters[i]))
-                choices.Add(parameters[i]);
+            // 선택지 텍스트가 비어있으면 중단
+            if (string.IsNullOrEmpty(parameters[i]))
+                break;
+
+            // 다음 파라미터(라벨)가 없으면 경고
+            if (i + 1 >= parameters.Length)
+            {
+                Debug.LogWarning($"[ChoiceCommand] Choice '{parameters[i]}' has no label!");
+                break;
+            }
+
+            string choiceText = parameters[i];
+            string label = parameters[i + 1];
+
+            // 라벨이 비어있으면 경고
+            if (string.IsNullOrEmpty(label))
+            {
+                Debug.LogWarning($"[ChoiceCommand] Choice '{choiceText}' has empty label!");
+                continue;
+            }
+
+            choices.Add(choiceText);
+            targetLabels.Add(label);
         }
 
-        for (int i = halfIndex; i < parameters.Length; i++)
+        // 최소 1개, 최대 3개 검증
+        if (choices.Count == 0)
         {
-            if (!string.IsNullOrEmpty(parameters[i]))
-                targetLabels.Add(parameters[i]);
+            Debug.LogError("[ChoiceCommand] No valid choices found!");
+        }
+        else if (choices.Count > 3)
+        {
+            Debug.LogWarning($"[ChoiceCommand] Too many choices ({choices.Count}). Only first 3 will be used.");
+            choices = choices.GetRange(0, 3);
+            targetLabels = targetLabels.GetRange(0, 3);
         }
     }
 
     public override void Execute(IDialogueRuntime r)
     {
-        r.UI.ShowChoices(choices, (selectedIndex) =>
+        if (choices.Count == 0)
         {
-            string label = targetLabels[selectedIndex];
-            r.JumpToLabel(label);
-            r.OnChoiceSelected();
+            Debug.LogError("[ChoiceCommand] Cannot execute with no choices!");
+            return;
+        }
 
+        r.UI.ShowChoices(choices, (selectedIndex) => {
+            string label = targetLabels[selectedIndex];
+            r.SelectChoice(label);
         });
     }
 }

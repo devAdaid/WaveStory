@@ -131,7 +131,7 @@ public class DialoguePlayer : IDialogueRuntime
     public void EndDialogue()
     {
         isActive = false;
-        ui.Hide();
+        ui.OnEndDialogue();
     }
 
     public void JumpToLabel(string labelName)
@@ -143,8 +143,9 @@ public class DialoguePlayer : IDialogueRuntime
         }
     }
 
-    public void OnChoiceSelected()
+    public void SelectChoice(string labelName)
     {
+        JumpToLabel(labelName);
         ui.OnChoiceSelected();
     }
 }

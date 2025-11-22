@@ -21,5 +21,6 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
         Unlock = new UnlockContext();
 
         uiHolder.Initialize(this);
+        uiHolder.DimmedUI.StartFadeIn(0.5f);
     }
 }

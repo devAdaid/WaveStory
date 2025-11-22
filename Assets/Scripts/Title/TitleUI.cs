@@ -178,6 +178,8 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
         yield return new WaitForSeconds(0.5f);
 
+        dimmed.gameObject.SetActive(false);
+
         var wordFadeTime = 1f;
         var wordStep = Time.deltaTime / wordFadeTime;
         t = 0f;

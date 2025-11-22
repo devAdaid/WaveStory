@@ -17,6 +17,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public DialogueUI DialogueUI;
     [field: SerializeField]
+    public DimmedUI DimmedUI;
+    [field: SerializeField]
     public GameObject InputBlocker;
 
     public void Initialize(GM context)
