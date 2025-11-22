@@ -3337,6 +3337,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1358294626}
     m_Modifications:
+    - target: {fileID: 2968939055650350879, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
+      propertyPath: activeCondition.Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5020020754987231402, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
       propertyPath: m_Name
       value: RoomUI

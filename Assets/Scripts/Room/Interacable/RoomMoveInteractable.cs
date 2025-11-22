@@ -9,6 +9,7 @@ public class RoomMoveInteractable : InteractableBase
 
     public override void OnInteract()
     {
-        GM.I.UIHolder.RoomUI.ChangeRoom(targetRoomData);
+        AudioManager.I.PlaySfxOneShot("Footstep");
+        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => GM.I.UIHolder.RoomUI.ChangeRoom(targetRoomData));
     }
 }
