@@ -19,6 +19,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public DimmedUI DimmedUI;
     [field: SerializeField]
+    public AlarmUI AlarmUI;
+    [field: SerializeField]
     public GameObject InputBlocker;
 
     public void Initialize(GM context)

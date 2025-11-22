@@ -30,6 +30,10 @@ public class SoulInteractable : InteractableBase
         {
             GM.I.UIHolder.DialogueUI.PlayDialogue(SoulData.DialogueOnCleared);
         }
+        else if (state == SoulState.Locked)
+        {
+            GM.I.UIHolder.AlarmUI.ShowAlarm($"이 영혼과 대화하려면 이름을 맞춰야 한다.");
+        }
     }
 
     protected override void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
