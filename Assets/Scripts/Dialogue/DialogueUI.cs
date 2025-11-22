@@ -141,7 +141,7 @@ public class DialogueUI : UIBase
         bgImage.sprite = sprite;
     }
 
-    public void SetPortriat(Sprite sprite)
+    public void SetPortrait(Sprite sprite)
     {
         portraitImage.sprite = sprite;
         portraitImage.gameObject.SetActive(true);

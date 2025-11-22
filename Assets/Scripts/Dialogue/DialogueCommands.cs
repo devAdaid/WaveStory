@@ -146,7 +146,8 @@ public class ChoiceCommand : DialogueCommandBase
             return;
         }
 
-        r.UI.ShowChoices(choices, (selectedIndex) => {
+        r.UI.ShowChoices(choices, (selectedIndex) =>
+        {
             string label = targetLabels[selectedIndex];
             r.SelectChoice(label);
         });
@@ -184,12 +185,12 @@ public class CharCommand : DialogueCommandBase
 
     public override void Execute(IDialogueRuntime r)
     {
-        r.UI.SetPortriat(sprite);
+        r.UI.SetPortrait(sprite);
     }
 }
 
 [DialogueCommand("HideChar")]
-public class HIdeCharCommand : DialogueCommandBase
+public class HideCharCommand : DialogueCommandBase
 {
     public override bool IsWaitingInput => false;
 
