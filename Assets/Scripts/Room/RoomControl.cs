@@ -21,12 +21,12 @@ public class RoomControl : MonoBehaviour
         }
     }
 
-    public void Apply(bool isSoulMode, Dictionary<string, SoulState> soulStates, HashSet<string> flags)
+    public void Apply(bool isSoulMode, UnlockState context)
     {
         bgImage.sprite = isSoulMode ? RoomData.SoulSprite : RoomData.RealSprite;
         foreach (var interactable in interactables)
         {
-            interactable.Apply(isSoulMode, soulStates, flags);
+            interactable.Apply(isSoulMode, context);
         }
     }
 }

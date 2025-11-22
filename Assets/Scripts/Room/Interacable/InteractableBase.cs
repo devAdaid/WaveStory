@@ -41,7 +41,7 @@ public abstract class InteractableBase : MonoBehaviour
 
     public abstract void OnInteract();
 
-    public void Apply(bool isSoulMode, Dictionary<string, SoulState> soulStates, HashSet<string> flags)
+    public void Apply(bool isSoulMode, UnlockState context)
     {
         var isActive = true;
         switch (interactableType)
@@ -56,11 +56,11 @@ public abstract class InteractableBase : MonoBehaviour
                 break;
         }
 
-        isActive &= activeCondition.SatisfyCondition(soulStates, flags);
+        isActive &= activeCondition.IsSatisfiedBy(context);
         gameObject.SetActive(isActive);
 
-        ApplyUnlock(soulStates, flags);
+        ApplyUnlock(context);
     }
 
-    protected virtual void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags) { }
+    protected virtual void ApplyUnlock(UnlockState context) { }
 }

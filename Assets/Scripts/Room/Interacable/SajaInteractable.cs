@@ -11,37 +11,20 @@ public class SajaDialogue
 public class SajaInteractable : InteractableBase
 {
     [SerializeField]
-    private List<SajaDialogue> dialogues;
+    private DialogueTable dialogueTable;
 
-    private Dictionary<string, SoulState> soulStates;
-    private HashSet<string> flags;
+    private UnlockState state;
 
     public override void OnInteract()
     {
-        if (TryGetSatisfyDialogue(out var dialogueText))
+        if (dialogueTable.TryGetDialogue(state, out var dialogue))
         {
-            GM.I.UIHolder.DialogueUI.PlayDialogue(dialogueText);
+            GM.I.UIHolder.DialogueUI.PlayDialogue(dialogue);
         }
     }
 
-    protected override void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
+    protected override void ApplyUnlock(UnlockState state)
     {
-        this.soulStates = soulStates;
-        this.flags = flags;
-    }
-
-    private bool TryGetSatisfyDialogue(out TextAsset dialogueText)
-    {
-        foreach (var d in dialogues)
-        {
-            if (d.Condition.SatisfyCondition(soulStates, flags))
-            {
-                dialogueText = d.DialogueText;
-                return true;
-            }
-        }
-
-        dialogueText = null;
-        return false;
+        this.state = state;
     }
 }

@@ -3337,42 +3337,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1358294626}
     m_Modifications:
-    - target: {fileID: 428979609884173382, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 428979609884173382, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 428979609884173382, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 71
-      objectReference: {fileID: 0}
-    - target: {fileID: 428979609884173382, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050306551993854195, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050306551993854195, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050306551993854195, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050306551993854195, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4201486129996230212, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5020020754987231402, guid: 60d4fba5f7a868241bedcac425518d91, type: 3}
       propertyPath: m_Name
       value: RoomUI

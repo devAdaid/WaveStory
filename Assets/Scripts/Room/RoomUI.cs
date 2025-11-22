@@ -14,16 +14,14 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     private string currentRoomId => currentRoomData.Id;
     private RoomData currentRoomData;
     private bool isSoulMode;
-    private Dictionary<string, SoulState> unlockedSouls;
-    private HashSet<string> flags;
+    private UnlockState state;
 
     public void SetPresenter(RoomPresenter presenter)
     {
         this.presenter = presenter;
         currentRoomData = presenter.GetCurrentRoomData();
         isSoulMode = presenter.GetIsSoulMode();
-        unlockedSouls = presenter.GetSoulStates();
-        flags = presenter.GetFlagIds();
+        state = presenter.GetUnlockState();
     }
 
     protected override void InitializeInternal()
@@ -35,7 +33,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
             room.gameObject.SetActive(false);
         }
         roomMap[currentRoomId].gameObject.SetActive(true);
-        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
+        roomMap[currentRoomId].Apply(isSoulMode, state);
 
         roomNameText.text = roomMap[currentRoomId].RoomData.DisplayName;
     }
@@ -43,7 +41,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     public void ApplySoulMode(bool isSoulMode)
     {
         this.isSoulMode = isSoulMode;
-        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
+        roomMap[currentRoomId].Apply(isSoulMode, state);
     }
 
     public void ApplyRoomData(RoomData roomData)
@@ -52,15 +50,15 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         currentRoomData = roomData;
 
         roomMap[currentRoomId].gameObject.SetActive(true);
-        roomMap[currentRoomId].Apply(isSoulMode, unlockedSouls, flags);
+        roomMap[currentRoomId].Apply(isSoulMode, state);
 
         roomNameText.text = roomData.DisplayName;
     }
 
-    public void ApplyUnlocks(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
+    public void ApplyUnlockState(UnlockState state)
     {
-        this.unlockedSouls = soulStates;
-        roomMap[currentRoomId].Apply(isSoulMode, soulStates, flags);
+        this.state = state;
+        roomMap[currentRoomId].Apply(isSoulMode, state);
     }
 
     public void ChangeRoom(RoomData roomData)

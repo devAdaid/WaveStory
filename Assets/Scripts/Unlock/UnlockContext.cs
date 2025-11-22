@@ -49,7 +49,7 @@ public class UnlockContext
         OnFlagAndSoulChanged.Invoke();
     }
 
-    public Dictionary<string, SoulState> GetSoulStates()
+    public UnlockState GetUnlockState()
     {
         var states = new Dictionary<string, SoulState>();
 
@@ -68,7 +68,7 @@ public class UnlockContext
             states[soulId] = SoulState.Cleared;
         }
 
-        return states;
+        return new UnlockState(states, FlagIds);
     }
 
     public void UnlockClue(string clueId)

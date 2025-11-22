@@ -1714,15 +1714,16 @@ MonoBehaviour:
     Type: 0
     Id: 
   button: {fileID: 1562693031730412624}
-  dialogues:
-  - Condition:
-      Type: 2
-      Id: Saja_Meet
-    DialogueText: {fileID: 4900000, guid: e0e555e1c3cea724a8aaefc536a3e16b, type: 3}
-  - Condition:
-      Type: 1
-      Id: Saja_Meet
-    DialogueText: {fileID: 4900000, guid: 39790e12d02603a478d40b7dbe7fb019, type: 3}
+  dialogueTable:
+    Dialogues:
+    - Condition:
+        Type: 2
+        Id: Saja_Meet
+      Dialogue: {fileID: 4900000, guid: e0e555e1c3cea724a8aaefc536a3e16b, type: 3}
+    - Condition:
+        Type: 0
+        Id: 
+      Dialogue: {fileID: 4900000, guid: 39790e12d02603a478d40b7dbe7fb019, type: 3}
 --- !u!222 &5629185702898040025
 CanvasRenderer:
   m_ObjectHideFlags: 0

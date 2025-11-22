@@ -1,10 +1,10 @@
 ﻿CommandType,Param1,Param2,Param3,Param4
-Bg,C_1,,,
+Bg,R_1,,,
 Speaker,유령,,,
 Text,안녕?,,,
 Text,나는 유령이야.,,,
 Text,내 한을 풀어줘.,,,
-Choice,그래,싫어,choice_ok,choice_no
+Choice,그래,choice_ok,싫어,choice_no
 Label,choice_ok,,,
 Speaker,유령,,,
 Text,고마워. 나의 한은 풀렸어.,,,

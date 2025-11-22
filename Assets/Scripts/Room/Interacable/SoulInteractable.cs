@@ -16,32 +16,29 @@ public class SoulInteractable : InteractableBase
     [SerializeField]
     private Image image;
 
-    private SoulState state;
+    private UnlockState state;
+    private SoulState soulState;
 
     public override void OnInteract()
     {
-        Debug.Log(state);
-
-        if (state == SoulState.Unlocked)
+        if (SoulData.DialogueTable.TryGetDialogue(state, out var dialogue))
         {
-            GM.I.UIHolder.DialogueUI.PlayDialogue(SoulData.DialogueOnUnlocked);
+            GM.I.UIHolder.DialogueUI.PlayDialogue(dialogue);
         }
-        else if (state == SoulState.Cleared)
+        
+        if (soulState == SoulState.Locked)
         {
-            GM.I.UIHolder.DialogueUI.PlayDialogue(SoulData.DialogueOnCleared);
-        }
-        else if (state == SoulState.Locked)
-        {
-            GM.I.UIHolder.AlarmUI.ShowAlarm($"이 영혼과 대화하려면 이름을 맞춰야 한다.");
+            GM.I.UIHolder.AlarmUI.ShowAlarm($"이 영혼과 대화하려면 대응하는 파동 이름을 맞춰야 한다.");
         }
     }
 
-    protected override void ApplyUnlock(Dictionary<string, SoulState> soulStates, HashSet<string> flags)
+    protected override void ApplyUnlock(UnlockState state)
     {
-        if (soulStates.TryGetValue(SoulData.Id, out var soulState))
+        this.state = state;
+        if (state.SoulStates.TryGetValue(SoulData.Id, out var soulState))
         {
-            this.state = soulState;
-            image.sprite = (state == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
+            this.soulState = soulState;
+            image.sprite = (soulState == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
         }
     }
 }

@@ -10,6 +10,5 @@ public class SoulData : ScriptableObject
     public WordData Word2;
     public Sprite LockedSprite;
     public Sprite UnlockedSprite;
-    public TextAsset DialogueOnUnlocked;
-    public TextAsset DialogueOnCleared;
+    public DialogueTable DialogueTable;
 }
