@@ -17,3 +17,4 @@ MonoBehaviour:
   SoulSprite: {fileID: 21300000, guid: e687637e198ad9d498c850d67651940e, type: 3}
   Souls:
   - {fileID: 11400000, guid: 63a7f271cb2971148aca0b4f95b8ecad, type: 2}
+  - {fileID: 11400000, guid: 7e935fd67f9af2e43b9d055492e8746f, type: 2}

@@ -15,4 +15,5 @@ MonoBehaviour:
   DisplayName: "\uC785\uAD6C"
   RealSprite: {fileID: 21300000, guid: 12bcb6a79c33d284f884d2af9286e6e8, type: 3}
   SoulSprite: {fileID: 21300000, guid: 35eadff7550a0a34095abb9ee54bfb0d, type: 3}
-  Souls: []
+  Souls:
+  - {fileID: 11400000, guid: 7e935fd67f9af2e43b9d055492e8746f, type: 2}

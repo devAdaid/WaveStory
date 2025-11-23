@@ -17,6 +17,15 @@ MonoBehaviour:
     WaveType: 0
     AmplitudeStep: 6
     FrequencyStep: 3
+  HearingText:
+    m_TableReference:
+      m_TableCollectionName: GUID:48ec95f81a400d04db3b44feea23352a
+    m_TableEntryReference:
+      m_KeyId: 207134089216
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Word1: {fileID: 11400000, guid: b6d4ffa51285c09429f95cb071513e6f, type: 2}
   Word2: {fileID: 11400000, guid: 7c1b917b70c37144c8a6d23b9a84db30, type: 2}
   LockedSprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
@@ -31,3 +40,6 @@ MonoBehaviour:
         Type: 5
         Id: S_Kim
       Dialogue: {fileID: 4900000, guid: 720c494e842a7d04b868eb7f106e2932, type: 3}
+  references:
+    version: 2
+    RefIds: []

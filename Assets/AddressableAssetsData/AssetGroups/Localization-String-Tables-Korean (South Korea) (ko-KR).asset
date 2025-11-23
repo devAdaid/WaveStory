@@ -21,11 +21,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ko-KR
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8db75d787f09849a4b2396a5cfbce4
+    m_Address: Hearing_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33127225320e33141987b9a41948d9bf
     m_Address: Clue_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b375435adc2bf34aac9dd886562437c
     m_Address: Intro_ko-KR

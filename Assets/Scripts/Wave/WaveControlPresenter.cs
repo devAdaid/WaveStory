@@ -21,6 +21,6 @@ public class WaveControlPresenter : IPresenter
 
     public void UpdateUI()
     {
-        waveUI.Apply(wave.WaveParameter, room.GetPreviewParameters());
+        waveUI.Apply(wave.WaveParameter, room.CurrentRoomData.Souls);
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveControlUI : UIBase
 {
@@ -17,6 +19,10 @@ public class WaveControlUI : UIBase
     private Transform previewRoot;
     [SerializeField]
     private WaveRenderer previewTemplate;
+    [SerializeField]
+    private GameObject inputUI;
+    [SerializeField]
+    private Button waveHearingButton;
 
     // 각 키별 마지막 입력 시간 추적
     private float lastInputTimeA;
@@ -30,6 +36,9 @@ public class WaveControlUI : UIBase
 
     private List<WaveRenderer> previewPool = new List<WaveRenderer>();
 
+    private WaveParameter inputParameter;
+    private List<SoulData> soulDatas;
+
     public void SetPresenter(WaveControlPresenter presenter)
     {
         this.presenter = presenter;
@@ -40,6 +49,7 @@ public class WaveControlUI : UIBase
         var waveParameter = presenter.WaveParameter;
         amplitudeStepButton.Initialize(WaveLogic.MinAmplitudeStep, WaveLogic.MaxAmplitudeStep, waveParameter.AmplitudeStep, OnAmplitudeStepChanged);
         frequencyStepButton.Initialize(WaveLogic.MinFrequencyStep, WaveLogic.MaxFrequencyStep, waveParameter.FrequencyStep, OnFrequencyStepChanged);
+        waveHearingButton.onClick.AddListener(OnHearing);
 
         amplitudeStepButton.SetStep(presenter.WaveParameter.AmplitudeStep);
         frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep);
@@ -127,16 +137,53 @@ public class WaveControlUI : UIBase
             return;
         }
 
+        if (this.inputParameter == waveParameter)
+        {
+            return;
+        }
+
+        this.inputParameter = waveParameter;
         presenter.SetParamter(waveParameter);
+        UpdateInput();
     }
 
-    public void Apply(WaveParameter inputParameter, List<WaveParameter> previewParameters)
+    private void UpdateInput()
     {
+        foreach (var soul in soulDatas)
+        {
+            if (soul.WaveParameter == this.inputParameter)
+            {
+                inputUI.SetActive(true);
+                return;
+            }
+        }
+
+        inputUI.SetActive(false);
+    }
+
+    private void OnHearing()
+    {
+        foreach (var soul in soulDatas)
+        {
+            if (soul.WaveParameter == this.inputParameter)
+            {
+                var text = soul.HearingText.GetLocalizedStringAsync().WaitForCompletion();
+                GM.I.UIHolder.AlarmUI.ShowAlarm($"\"{text}\"");
+                return;
+            }
+        }
+    }
+
+    public void Apply(WaveParameter inputParameter, List<SoulData> soulDatas)
+    {
+        this.inputParameter = inputParameter;
+        this.soulDatas = soulDatas;
+
         inputWaveRenderer.Apply(inputParameter);
         amplitudeStepButton.SetStep(presenter.WaveParameter.AmplitudeStep, true);
         frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep, true);
 
-        ApplyPreview(previewParameters);
+        ApplyPreview(soulDatas.Select(x => x.WaveParameter).ToList());
     }
 
     public void ApplyPreview(List<WaveParameter> previewParameters)

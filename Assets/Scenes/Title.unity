@@ -5629,8 +5629,8 @@ MonoBehaviour:
   dimmed: {fileID: 403204201}
   answerParameter:
     WaveType: 0
-    AmplitudeStep: 8
-    FrequencyStep: 4
+    AmplitudeStep: 9
+    FrequencyStep: 3
   previewRenderer: {fileID: 1058960726}
   inputRenderer: {fileID: 440605051}
   waveControlUI: {fileID: 1627199992}
