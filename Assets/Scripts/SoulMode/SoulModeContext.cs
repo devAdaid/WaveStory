@@ -6,6 +6,11 @@ public class SoulModeContext
 
     public UnityEvent<bool> OnSoulModeChanged = new();
 
+    public SoulModeContext(bool isSoulMode)
+    {
+        IsSoulMode = isSoulMode;
+    }
+
     public void SetSoulMode(bool isSoulMode)
     {
         IsSoulMode = isSoulMode;

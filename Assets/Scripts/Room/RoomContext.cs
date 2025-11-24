@@ -7,9 +7,9 @@ public class RoomContext
     public RoomData CurrentRoomData { get; private set; }
     public UnityEvent<RoomData> OnRoomChanged = new();
 
-    public RoomContext()
+    public RoomContext(string currentRoomId)
     {
-        if (StaticDataHolder.I.TryGetRoom("E", out var roomData))
+        if (StaticDataHolder.I.TryGetRoom(currentRoomId, out var roomData))
         {
             CurrentRoomData = roomData;
         }

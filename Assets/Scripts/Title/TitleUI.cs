@@ -105,7 +105,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     {
         inputContext = new WaveContext(WaveParameter.Min);
         previewContext = new WaveContext(answerParameter);
-        wordInventoryContext = new WordInventoryContext();
+        wordInventoryContext = new WordInventoryContext(new List<string>());
 
         wordInventoryContext.Add("Title_Wave");
         wordInventoryContext.Add("Title_Last");

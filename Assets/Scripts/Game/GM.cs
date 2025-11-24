@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GM : MonoSingleton<GM>, IMonoSingleton
@@ -12,15 +13,20 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
     private GameUIHolder uiHolder;
     public GameUIHolder UIHolder => this.uiHolder;
 
+    [SerializeField]
+    private RoomData defaultRoomData;
+
     public void Initialize()
     {
         InputWave = new WaveContext(WaveParameter.Min);
-        Room = new RoomContext();
-        WordInventory = new WordInventoryContext();
-        SoulMode = new SoulModeContext();
-        Unlock = new UnlockContext();
+        Room = new RoomContext(defaultRoomData.Id);
+        WordInventory = new WordInventoryContext(new List<string>());
+        SoulMode = new SoulModeContext(false);
+        Unlock = new UnlockContext(new HashSet<string>(), new HashSet<string>(), new HashSet<string>(), new HashSet<string>());
 
         uiHolder.Initialize(this);
         uiHolder.DimmedUI.StartFadeIn(0.5f);
+
+        AudioManager.I.PlayBgm("Air");
     }
 }

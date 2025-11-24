@@ -241,6 +241,69 @@ public class JumpCommand : DialogueCommandBase
     }
 }
 
+[DialogueCommand("PauseBgm")]
+public class PauseBgmCommand : DialogueCommandBase
+{
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Audio.Pause();
+    }
+}
+
+
+[DialogueCommand("ResumeBgm")]
+public class ResumeBgmCommand : DialogueCommandBase
+{
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Audio.Resume();
+    }
+}
+
+[DialogueCommand("StopBgm")]
+public class StopBgmCommand : DialogueCommandBase
+{
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Audio.FadeOutBgm(0.5f);
+    }
+}
+
+[DialogueCommand("Bgm")]
+public class BgmCommand : DialogueCommandBase
+{
+    private string clipName;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        clipName = parameters[0];
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Audio.PlayBgm(clipName);
+    }
+}
+
 [DialogueCommand("End")]
 public class EndCommand : DialogueCommandBase
 {

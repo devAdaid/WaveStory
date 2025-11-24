@@ -38,8 +38,20 @@ public class DialogueUI : UIBase
 
         advanceButton.onClick.AddListener(OnAdvance);
 
+        dialogueTextTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
+
         choiceRoot.SetActive(false);
         HidePortrait();
+    }
+
+    private void HandleCharacterPrinted(string printedCharacter)
+    {
+        if (printedCharacter == " " || printedCharacter == "\n")
+        {
+            return;
+        }
+
+        AudioManager.I.PlaySfx("Type");
     }
 
     private void Update()

@@ -6,10 +6,20 @@ public class UnlockContext
     public UnityEvent OnFlagAndSoulChanged = new UnityEvent();
     public UnityEvent OnClueChanged = new UnityEvent();
 
-    public readonly HashSet<string> FlagIds = new HashSet<string>();
+    public HashSet<string> FlagIds => flagIds;
+
+    private readonly HashSet<string> flagIds = new HashSet<string>();
     private readonly HashSet<string> unlockedSouls = new HashSet<string>();
     private readonly HashSet<string> clearedSouls = new HashSet<string>();
     private readonly HashSet<string> unlockedClues = new HashSet<string>();
+
+    public UnlockContext(HashSet<string> flagIds, HashSet<string> unlockedSouls, HashSet<string> clearedSouls, HashSet<string> unlockedClues)
+    {
+        this.flagIds = flagIds;
+        this.unlockedSouls = unlockedSouls;
+        this.clearedSouls = clearedSouls;
+        this.unlockedClues = unlockedClues;
+    }
 
     public void UnlockFlag(string flagId)
     {
@@ -20,11 +30,11 @@ public class UnlockContext
     {
         if (value)
         {
-            FlagIds.Add(flagId);
+            flagIds.Add(flagId);
         }
         else
         {
-            FlagIds.Remove(flagId);
+            flagIds.Remove(flagId);
         }
 
         OnFlagAndSoulChanged.Invoke();
@@ -32,7 +42,7 @@ public class UnlockContext
 
     public bool HasFlag(string flagId)
     {
-        return FlagIds.Contains(flagId);
+        return flagIds.Contains(flagId);
     }
 
     public void UnlockSoul(string soulId)

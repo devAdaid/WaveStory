@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiHolder: {fileID: 1358294627}
+  defaultRoomData: {fileID: 11400000, guid: 76b6ac6509e590c4ebf796d4f3c944f7, type: 2}
 --- !u!4 &507318412
 Transform:
   m_ObjectHideFlags: 0
