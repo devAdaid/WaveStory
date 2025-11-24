@@ -606,6 +606,36 @@ MonoBehaviour:
   wordText2: {fileID: 2589096674719436131}
   confirmButton: {fileID: 6610806938224119493}
   inventoryUI: {fileID: 0}
+  SoulUnlockedMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 10695325011968
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SoulNotMatchedMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 12969921236992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SoulAlreadyUnlockedMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 13016675143680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &7418758996260648403
 GameObject:
   m_ObjectHideFlags: 0

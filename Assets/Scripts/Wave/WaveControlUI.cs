@@ -144,7 +144,8 @@ public class WaveControlUI : UIBase
 
         this.inputParameter = waveParameter;
         presenter.SetParamter(waveParameter);
-        UpdateInput();
+
+        presenter.UpdateUI();
     }
 
     private void UpdateInput()
@@ -184,6 +185,7 @@ public class WaveControlUI : UIBase
         frequencyStepButton.SetStep(presenter.WaveParameter.FrequencyStep, true);
 
         ApplyPreview(soulDatas.Select(x => x.WaveParameter).ToList());
+        UpdateInput();
     }
 
     public void ApplyPreview(List<WaveParameter> previewParameters)

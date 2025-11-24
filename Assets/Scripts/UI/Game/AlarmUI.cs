@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class AlarmUI : UIBase
@@ -29,6 +30,11 @@ public class AlarmUI : UIBase
         alarmGroup.alpha = 0f;
         alarmButton.onClick.AddListener(OnClick);
         Hide();
+    }
+
+    public void ShowAlarm(LocalizedString text)
+    {
+        ShowAlarm(text.GetLocalizedStringAsync().WaitForCompletion());
     }
 
     public void ShowAlarm(string text)

@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: Fake 8
   m_EditorClassIdentifier: 
   Order: 99
-  Title: "\uAC00\uC9DC \uB2E8\uC11C"
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+    m_TableEntryReference:
+      m_KeyId: 471848284160
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Text:
     m_TableReference:
       m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045

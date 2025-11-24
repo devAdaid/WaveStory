@@ -2,7 +2,7 @@
 Bg,E,,,
 Char,Saja,,,
 Speaker,저승사자,,,
-Text,네가 새로 왔다는 저승협력부 인간 신참인가?,,,
+Text,네가 새로 왔다는 <color=#ffff40>저승협력부</color> 인간 신참인가?,,,
 Text,뭘 해야하는지는 알고 있지?,,,
 Choice,알아요,c1_1,몰라요,c1_2
 Label,c1_1,,,

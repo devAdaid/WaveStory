@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Message_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: bdf1a678c546e0248838077ad67af1bb, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 6753636352
+    m_Localized: Not_Unlocked_Soul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 241890512896
+    m_Localized: Should_Talk_Saja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7143835848704
+    m_Localized: Not_Cleared_Floor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8328777060352
+    m_Localized: Cannot_Inspect_Clue_SoulMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10695325011968
+    m_Localized: Soul_Unlocked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12969921236992
+    m_Localized: Soul_NotMatched
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13016675143680
+    m_Localized: Soul_Already_Unlocked
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

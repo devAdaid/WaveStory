@@ -42,6 +42,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
     {
         toListButton.onClick.AddListener(OpenList);
 
+        TextHelper.SetLocalizedText(clueTitleText, null, ref titleStringEvent);
         TextHelper.SetLocalizedText(descriptionText, null, ref descriptionStringEvent);
 
         UpdateUI();
@@ -143,7 +144,9 @@ public class ClueUI : UIBase, IView<CluePresenter>
         {
             clueObject.SetActive(true);
             listObject.SetActive(false);
-            clueTitleText.text = currentClueData.Title;
+
+            titleStringEvent.StringReference = currentClueData.Title;
+            titleStringEvent.RefreshString();
 
             descriptionStringEvent.StringReference = currentClueData.Text;
             descriptionStringEvent.RefreshString();

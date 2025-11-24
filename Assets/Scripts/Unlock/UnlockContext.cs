@@ -82,4 +82,9 @@ public class UnlockContext
     {
         return unlockedClues.Contains(clueId);
     }
+
+    public bool IsUnlockedSoul(string soulId)
+    {
+        return unlockedSouls.Contains(soulId);
+    }
 }

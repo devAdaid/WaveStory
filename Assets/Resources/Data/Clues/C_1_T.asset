@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: C_1_T
   m_EditorClassIdentifier: 
   Order: 1
-  Title: "\uBCF5\uB3C4 - 1"
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+    m_TableEntryReference:
+      m_KeyId: 1995429533995008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Text:
     m_TableReference:
       m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
@@ -24,8 +32,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   UnlockWords:
-  - {fileID: 11400000, guid: aba89ea0a7737714e9405f37be8bd4d5, type: 2}
-  - {fileID: 11400000, guid: 22f6ff7f62cb10e4f8d88f3dd974f507, type: 2}
+  - {fileID: 11400000, guid: b6d4ffa51285c09429f95cb071513e6f, type: 2}
+  - {fileID: 11400000, guid: 7c1b917b70c37144c8a6d23b9a84db30, type: 2}
   references:
     version: 2
     RefIds: []

@@ -15,12 +15,20 @@ MonoBehaviour:
   m_TableCollectionName: Clue
   m_TableCollectionNameGuidString: c214e71754933fb47b8803c661792045
   m_Entries:
+  - m_Id: 1995429533995008
+    m_Key: Clue_1_Title
+    m_Metadata:
+      m_Items: []
   - m_Id: 71002845184
-    m_Key: Clue_1
+    m_Key: Clue_1_Dec
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1995569690857472
+    m_Key: Clue_2_Title
     m_Metadata:
       m_Items: []
   - m_Id: 95078150144
-    m_Key: Clue_2
+    m_Key: Clue_2_Dec
     m_Metadata:
       m_Items: []
   - m_Id: 471848284160

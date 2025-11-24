@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public enum InteractableType
@@ -19,7 +20,15 @@ public abstract class InteractableBase : MonoBehaviour
     private UnlockCondition activeCondition;
 
     [SerializeField]
+    private UnlockCondition interactableCondition;
+
+    [SerializeField]
+    private LocalizedString notInteractableMessage;
+
+    [SerializeField]
     private Button button;
+
+    private bool isInteractable;
 
     private void Reset()
     {
@@ -36,20 +45,28 @@ public abstract class InteractableBase : MonoBehaviour
 
     private void OnClick()
     {
-        OnInteract();
+        if (isInteractable)
+        {
+            OnInteract();
+        }
+        else
+        {
+            GM.I.UIHolder.AlarmUI.ShowAlarm(notInteractableMessage.GetLocalizedStringAsync().WaitForCompletion());
+        }
     }
 
     public abstract void OnInteract();
 
     public void Apply(bool isSoulMode, UnlockState context)
     {
+        var interactable = true;
         var isActive = true;
         switch (interactableType)
         {
             case InteractableType.Always:
                 break;
             case InteractableType.OnlyRealMode:
-                button.interactable = !isSoulMode;
+                interactable &= !isSoulMode;
                 break;
             case InteractableType.OnlySoulMode:
                 isActive &= isSoulMode;
@@ -58,6 +75,9 @@ public abstract class InteractableBase : MonoBehaviour
 
         isActive &= activeCondition.IsSatisfiedBy(context);
         gameObject.SetActive(isActive);
+
+        interactable &= interactableCondition.IsSatisfiedBy(context);
+        isInteractable = interactable;
 
         ApplyUnlock(context);
     }

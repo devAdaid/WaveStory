@@ -1,3 +1,5 @@
+using UnityEngine.Localization;
+
 public class WordInputPresenter : IPresenter
 {
     private RoomContext room;
@@ -13,7 +15,7 @@ public class WordInputPresenter : IPresenter
         this.ui = ui;
     }
 
-    public bool ProcessInput(string wordId1, string wordId2)
+    public void ProcessInput(string wordId1, string wordId2)
     {
         foreach (var soul in room.CurrentRoomData.Souls)
         {
@@ -21,11 +23,26 @@ public class WordInputPresenter : IPresenter
                 && soul.Word1.Id == wordId1
                 && soul.Word2.Id == wordId2)
             {
-                unlock.UnlockSoul(soul.Id);
-                return true;
+                if (soul.IsStaticSoul)
+                {
+                    return;
+                }
+
+                if (unlock.IsUnlockedSoul(soul.Id))
+                {
+                    GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulAlreadyUnlockedMessage);
+                }
+                else
+                {
+                    unlock.UnlockSoul(soul.Id);
+                    AudioManager.I.PlaySfxOneShot("Correct");
+                    GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulUnlockedMessage);
+                }
+                return;
             }
         }
 
-        return false;
+        AudioManager.I.PlaySfxOneShot("Wrong");
+        GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulNotMatchedMessage);
     }
 }

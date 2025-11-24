@@ -19,15 +19,27 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 71002845184
-    m_Localized: Test Clue1
+    m_Localized: According to the police database, an ID card belonging to a person
+      named 'Kim Chul-soo' was found on Body #1.
     m_Metadata:
       m_Items: []
   - m_Id: 95078150144
-    m_Localized: Test Clue 2
+    m_Localized: A diary was found. "I like my mother. I don't have a father, but
+      I'm happy to have my mother. Even if other kids tease me that my last name
+      is the same as my mom's, I'm still happy." The name "Choi Sun-woo" is written
+      on the cover.
     m_Metadata:
       m_Items: []
   - m_Id: 471848284160
     m_Localized: Fake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1995429533995008
+    m_Localized: 1st Floor Hallway
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1995569690857472
+    m_Localized: Room 201 - 1
     m_Metadata:
       m_Items: []
   references:

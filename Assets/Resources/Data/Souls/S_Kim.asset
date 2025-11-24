@@ -16,7 +16,7 @@ MonoBehaviour:
   WaveParameter:
     WaveType: 0
     AmplitudeStep: 6
-    FrequencyStep: 3
+    FrequencyStep: 2
   HearingText:
     m_TableReference:
       m_TableCollectionName: GUID:48ec95f81a400d04db3b44feea23352a

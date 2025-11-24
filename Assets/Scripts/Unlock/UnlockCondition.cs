@@ -8,6 +8,7 @@ public enum UnlockConditionType
     LockedSoul,
     UnlockSoul,
     ClearedSoul,
+    FloorCleared,
 }
 
 public class UnlockState
@@ -44,11 +45,38 @@ public struct UnlockCondition
                 }
             case UnlockConditionType.UnlockSoul:
                 {
-                    return context.SoulStates.TryGetValue(Id, out var soulState) && soulState == SoulState.Unlocked;
+                    return context.SoulStates.TryGetValue(Id, out var soulState) && soulState != SoulState.Locked;
                 }
             case UnlockConditionType.ClearedSoul:
                 {
                     return context.SoulStates.TryGetValue(Id, out var soulState) && soulState == SoulState.Cleared;
+                }
+            case UnlockConditionType.FloorCleared:
+                {
+                    if (!int.TryParse(Id, out var floorValue))
+                    {
+                        return false;
+                    }
+
+                    foreach (var soul in StaticDataHolder.I.GetSoulsInFloor(floorValue))
+                    {
+                        if (!context.SoulStates.TryGetValue(soul.Id, out var soulState))
+                        {
+                            return false;
+                        }
+
+                        if (soul.IsStaticSoul)
+                        {
+                            continue;
+                        }
+
+                        if (soulState != SoulState.Cleared)
+                        {
+                            return false;
+                        }
+                    }
+
+                    return true;
                 }
         }
 

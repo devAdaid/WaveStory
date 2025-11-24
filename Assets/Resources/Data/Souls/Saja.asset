@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Saja
   m_EditorClassIdentifier: Assembly-CSharp::SoulData
   DisplayName: 
+  IsStaticSoul: 1
   WaveParameter:
     WaveType: 0
     AmplitudeStep: 9

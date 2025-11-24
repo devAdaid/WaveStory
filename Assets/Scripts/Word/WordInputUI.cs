@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class WordInputUI : UIBase, IView<WordInputPresenter>
@@ -15,6 +16,13 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
 
     [SerializeField]
     private WordInventoryUI inventoryUI;
+
+    [field: SerializeField]
+    public LocalizedString SoulUnlockedMessage;
+    [field: SerializeField]
+    public LocalizedString SoulNotMatchedMessage;
+    [field: SerializeField]
+    public LocalizedString SoulAlreadyUnlockedMessage;
 
     private string wordId1;
     private string wordId2;
@@ -59,14 +67,7 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
 
     private void OnConfirm()
     {
-        if (presenter.ProcessInput(wordId1, wordId2))
-        {
-            AudioManager.I.PlaySfxOneShot("Correct");
-        }
-        else
-        {
-            AudioManager.I.PlaySfxOneShot("Wrong");
-        }
+        presenter.ProcessInput(wordId1, wordId2);
 
         ClearAllWords();
         Hide();

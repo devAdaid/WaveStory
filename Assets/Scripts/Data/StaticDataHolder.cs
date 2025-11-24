@@ -9,6 +9,7 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
     private Dictionary<string, ClueData> clueMap = new();
     private Dictionary<string, SoulData> soulMap = new();
     private Dictionary<string, RoomData> roomMap = new();
+    private Dictionary<int, List<SoulData>> soulsByFloor = new();
     public List<ClueData> ClueDataList = new();
 
     public void Initialize()
@@ -38,6 +39,16 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
         foreach (var room in rooms)
         {
             roomMap[room.name] = room;
+
+            if (!soulsByFloor.ContainsKey(room.Floor))
+            {
+                soulsByFloor[room.Floor] = new List<SoulData>();
+            }
+
+            foreach (var soul in room.Souls)
+            {
+                soulsByFloor[room.Floor].Add(soul);
+            }
         }
     }
 
@@ -64,5 +75,15 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
     public bool TryGetRoom(string id, out RoomData room)
     {
         return roomMap.TryGetValue(id, out room);
+    }
+
+    public List<SoulData> GetSoulsInFloor(int floor)
+    {
+        if (soulsByFloor.TryGetValue(floor, out var souls))
+        {
+            return souls;
+        }
+
+        return new List<SoulData>();
     }
 }
