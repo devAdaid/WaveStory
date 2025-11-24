@@ -1,0 +1,15 @@
+﻿CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F1_R3,,,,,
+Speaker,이순자,,,,,
+Text,우리 아들 이름이 뭐였지?,,,,,
+Choice,박하윤,wrong,박희재,wrong,박준서,right_1
+Label,wrong,,,,,
+Text,아닌 것 같은데..,,,,,
+End,,,,,,
+Label,right_1,,,,,
+Text,내가 최근에 가려던 꽃집 이름이 뭐였지?,,,,,
+Choice,사랑,right_2,기쁨,wrong,희망,wrong
+Label,right_2,,,,,
+Text,전부 기억났네. 고마우이.,,,,,
+Clear,S03_PJS,,,,,
+Clear,S04_LSJ,,,,,

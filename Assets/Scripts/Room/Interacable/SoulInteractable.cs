@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public enum SoulState
@@ -16,6 +17,9 @@ public class SoulInteractable : InteractableBase
     [SerializeField]
     private Image image;
 
+    protected override InteractableType interactableType => InteractableType.OnlySoulMode;
+    protected override LocalizedString notInteractableMessage => new LocalizedString("Message", "Not_Unlocked_Soul");
+
     private UnlockState state;
     private SoulState soulState;
 
@@ -24,11 +28,6 @@ public class SoulInteractable : InteractableBase
         if (SoulData.DialogueTable.TryGetDialogue(state, out var dialogue))
         {
             GM.I.UIHolder.DialogueUI.PlayDialogue(dialogue);
-        }
-        
-        if (soulState == SoulState.Locked)
-        {
-            GM.I.UIHolder.AlarmUI.ShowAlarm($"이 영혼과 대화하려면 대응하는 파동 이름을 맞춰야 한다.");
         }
     }
 
@@ -40,5 +39,10 @@ public class SoulInteractable : InteractableBase
             this.soulState = soulState;
             image.sprite = (soulState == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
         }
+    }
+
+    protected override bool IsInteractable(bool isSoulMode, UnlockState context)
+    {
+        return base.IsInteractable(isSoulMode, context) && soulState != SoulState.Locked;
     }
 }

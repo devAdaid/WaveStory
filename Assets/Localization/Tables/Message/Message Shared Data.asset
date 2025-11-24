@@ -15,6 +15,10 @@ MonoBehaviour:
   m_TableCollectionName: Message
   m_TableCollectionNameGuidString: bdf1a678c546e0248838077ad67af1bb
   m_Entries:
+  - m_Id: 127714888273920
+    m_Key: Invalid
+    m_Metadata:
+      m_Items: []
   - m_Id: 6753636352
     m_Key: Not_Unlocked_Soul
     m_Metadata:

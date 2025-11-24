@@ -15,6 +15,8 @@ public class SajaInteractable : InteractableBase
 
     private UnlockState state;
 
+    protected override InteractableType interactableType => InteractableType.OnlySoulMode;
+
     public override void OnInteract()
     {
         if (dialogueTable.TryGetDialogue(state, out var dialogue))

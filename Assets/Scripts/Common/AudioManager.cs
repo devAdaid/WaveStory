@@ -12,6 +12,9 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
     private AudioClip currentClip;
     private Coroutine fadeCoroutine;
 
+    private AudioClip reservedClip;
+    private float reservedClipTime;
+
     public void Initialize()
     {
         if (!bgmSource)
@@ -34,7 +37,7 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
         }
     }
 
-    public void PlayBgm(AudioClip clip)
+    public void PlayBgm(AudioClip clip, float time = 0f)
     {
         if (bgmSource.isPlaying && currentClip == clip)
         {
@@ -44,6 +47,7 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
         StopBgmFade();
 
         bgmSource.clip = clip;
+        bgmSource.time = time;
         bgmSource.Play();
         currentClip = clip;
     }
@@ -136,5 +140,21 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
             return clip;
         }
         return null;
+    }
+
+    public void ReserveCurrentBgm()
+    {
+        reservedClip = bgmSource.clip;
+        reservedClipTime = bgmSource.time;
+    }
+
+    public void PlayReservedBgm()
+    {
+        if (!reservedClip)
+        {
+            return;
+        }
+
+        PlayBgm(reservedClip, reservedClipTime);
     }
 }

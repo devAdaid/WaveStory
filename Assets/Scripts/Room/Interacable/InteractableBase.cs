@@ -13,8 +13,6 @@ public enum InteractableType
 [RequireComponent(typeof(Button))]
 public abstract class InteractableBase : MonoBehaviour
 {
-    [SerializeField]
-    private InteractableType interactableType;
 
     [SerializeField]
     private UnlockCondition activeCondition;
@@ -23,10 +21,10 @@ public abstract class InteractableBase : MonoBehaviour
     private UnlockCondition interactableCondition;
 
     [SerializeField]
-    private LocalizedString notInteractableMessage;
-
-    [SerializeField]
     private Button button;
+
+    protected abstract InteractableType interactableType { get; }
+    protected virtual LocalizedString notInteractableMessage => new LocalizedString("Message", "Invalid");
 
     private bool isInteractable;
 
@@ -59,28 +57,32 @@ public abstract class InteractableBase : MonoBehaviour
 
     public void Apply(bool isSoulMode, UnlockState context)
     {
-        var interactable = true;
-        var isActive = true;
-        switch (interactableType)
+        ApplyUnlock(context);
+
+        gameObject.SetActive(IsActive(isSoulMode, context));
+        isInteractable = IsInteractable(isSoulMode, context);
+    }
+
+    protected virtual bool IsActive(bool isSoulMode, UnlockState context)
+    {
+        if (interactableType == InteractableType.OnlySoulMode && !isSoulMode)
         {
-            case InteractableType.Always:
-                break;
-            case InteractableType.OnlyRealMode:
-                interactable &= !isSoulMode;
-                break;
-            case InteractableType.OnlySoulMode:
-                isActive &= isSoulMode;
-                break;
+            return false;
         }
 
-        isActive &= activeCondition.IsSatisfiedBy(context);
-        gameObject.SetActive(isActive);
-
-        interactable &= interactableCondition.IsSatisfiedBy(context);
-        isInteractable = interactable;
-
-        ApplyUnlock(context);
+        return activeCondition.IsSatisfiedBy(context);
     }
+
+    protected virtual bool IsInteractable(bool isSoulMode, UnlockState context)
+    {
+        if (interactableType == InteractableType.OnlyRealMode && isSoulMode)
+        {
+            return false;
+        }
+
+        return interactableCondition.IsSatisfiedBy(context);
+    }
+
 
     protected virtual void ApplyUnlock(UnlockState context) { }
 }

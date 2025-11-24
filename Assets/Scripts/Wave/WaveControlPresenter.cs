@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class WaveControlPresenter : IPresenter
 {
     public WaveParameter WaveParameter => wave.WaveParameter;
@@ -21,6 +23,9 @@ public class WaveControlPresenter : IPresenter
 
     public void UpdateUI()
     {
-        waveUI.Apply(wave.WaveParameter, room.CurrentRoomData.Souls);
+        var currentFloor = room.CurrentRoomData.Floor;
+        var currentFloorSouls =  StaticDataHolder.I.GetSoulsInFloor(currentFloor);
+
+        waveUI.Apply(wave.WaveParameter, currentFloorSouls);
     }
 }

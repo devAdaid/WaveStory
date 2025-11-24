@@ -15,18 +15,18 @@ MonoBehaviour:
   Order: 99
   Title:
     m_TableReference:
-      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 471848284160
+      m_KeyId: 8328777060352
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Text:
     m_TableReference:
-      m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 471848284160
+      m_KeyId: 8328777060352
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

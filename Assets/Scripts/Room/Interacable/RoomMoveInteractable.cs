@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 public class RoomMoveInteractable : InteractableBase
 {
@@ -6,6 +7,11 @@ public class RoomMoveInteractable : InteractableBase
     private RoomData targetRoomData;
 
     [SerializeField]
+    private LocalizedString myNotInteractableMessage;
+
+    protected override LocalizedString notInteractableMessage => myNotInteractableMessage;
+
+    protected override InteractableType interactableType => InteractableType.Always;
 
     public override void OnInteract()
     {

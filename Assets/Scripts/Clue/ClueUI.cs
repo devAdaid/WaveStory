@@ -25,6 +25,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     [SerializeField]
     private TMP_Text descriptionText;
     [SerializeField]
+    private TMP_Text descriptionText2;
+    [SerializeField]
     private Button toListButton;
 
     private ClueData currentClueData;
@@ -32,6 +34,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
     private LocalizeStringEvent titleStringEvent;
     private LocalizeStringEvent descriptionStringEvent;
+    private bool needsOverflowCheck = false;
 
     public void SetPresenter(CluePresenter presenter)
     {
@@ -45,7 +48,26 @@ public class ClueUI : UIBase, IView<CluePresenter>
         TextHelper.SetLocalizedText(clueTitleText, null, ref titleStringEvent);
         TextHelper.SetLocalizedText(descriptionText, null, ref descriptionStringEvent);
 
+        if (descriptionStringEvent != null)
+        {
+            descriptionStringEvent.OnUpdateString.AddListener(OnDescriptionTextChanged);
+        }
+
         UpdateUI();
+    }
+
+    private void OnDescriptionTextChanged(string newText)
+    {
+        needsOverflowCheck = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (needsOverflowCheck)
+        {
+            needsOverflowCheck = false;
+            ApplyTextOverflow();
+        }
     }
 
     public override void OnShow()
@@ -168,6 +190,57 @@ public class ClueUI : UIBase, IView<CluePresenter>
             {
                 listClueButtons[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void ApplyTextOverflow()
+    {
+        string fullText = descriptionText.text;
+
+        if (string.IsNullOrEmpty(fullText))
+        {
+            descriptionText2.text = "";
+            descriptionText2.gameObject.SetActive(false);
+            return;
+        }
+
+        // 강제 메시 업데이트
+        Canvas.ForceUpdateCanvases();
+        descriptionText.ForceMeshUpdate(true, true);
+
+        TMP_TextInfo textInfo = descriptionText.textInfo;
+
+        // 마지막으로 보이는 문자 찾기
+        int lastVisibleCharIndex = -1;
+
+        if (textInfo.characterCount > 0)
+        {
+            for (int i = textInfo.characterCount - 1; i >= 0; i--)
+            {
+                if (textInfo.characterInfo[i].isVisible)
+                {
+                    lastVisibleCharIndex = i;
+                    break;
+                }
+            }
+        }
+
+        // 오버플로우 발생 여부 확인
+        if (lastVisibleCharIndex >= 0 && lastVisibleCharIndex < fullText.Length - 1)
+        {
+            // 오버플로우 발생
+            string firstPart = fullText.Substring(0, lastVisibleCharIndex + 1);
+            string secondPart = fullText.Substring(lastVisibleCharIndex + 1);
+
+            descriptionText.text = firstPart;
+            descriptionText2.text = secondPart;
+            descriptionText2.gameObject.SetActive(true);
+        }
+        else
+        {
+            // 오버플로우 없음
+            descriptionText2.text = "";
+            descriptionText2.gameObject.SetActive(false);
         }
     }
 }

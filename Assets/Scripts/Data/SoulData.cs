@@ -5,7 +5,6 @@ using UnityEngine.Localization;
 public class SoulData : ScriptableObject
 {
     public string Id => name;
-    public string DisplayName;
     public bool IsStaticSoul;
     public WaveParameter WaveParameter;
     public LocalizedString HearingText;

@@ -19,15 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 6747021312
-    m_Localized: Uhh...
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 115236888576
-    m_Localized: Who am I...
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 207134089216
-    m_Localized: Who am I...
+    m_Localized: 
     m_Metadata:
       m_Items: []
   references:

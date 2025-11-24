@@ -157,18 +157,25 @@ public class ChoiceCommand : DialogueCommandBase
 [DialogueCommand("Bg")]
 public class BgCommand : DialogueCommandBase
 {
-    private RoomData roomData;
+    private Sprite bgSprite;
     public override bool IsWaitingInput => false;
 
     public override void Initialize(string[] parameters)
     {
         var roomId = parameters[0];
-        StaticDataHolder.I.TryGetRoom(roomId, out roomData);
+        if (StaticDataHolder.I.TryGetRoom(roomId, out var roomData))
+        {
+            bgSprite = roomData.SoulSprite;
+        }
+        else
+        {
+            bgSprite = null;
+        }
     }
 
     public override void Execute(IDialogueRuntime r)
     {
-        r.UI.SetBg(roomData.SoulSprite);
+        r.UI.SetBg(bgSprite);
     }
 }
 

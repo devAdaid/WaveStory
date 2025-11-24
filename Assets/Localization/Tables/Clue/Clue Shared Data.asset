@@ -15,24 +15,44 @@ MonoBehaviour:
   m_TableCollectionName: Clue
   m_TableCollectionNameGuidString: c214e71754933fb47b8803c661792045
   m_Entries:
-  - m_Id: 1995429533995008
-    m_Key: Clue_1_Title
-    m_Metadata:
-      m_Items: []
-  - m_Id: 71002845184
-    m_Key: Clue_1_Dec
-    m_Metadata:
-      m_Items: []
   - m_Id: 1995569690857472
-    m_Key: Clue_2_Title
+    m_Key: Clue_E_1_Title
     m_Metadata:
       m_Items: []
   - m_Id: 95078150144
-    m_Key: Clue_2_Dec
+    m_Key: Clue_E_1_Desc
     m_Metadata:
       m_Items: []
-  - m_Id: 471848284160
-    m_Key: Fake
+  - m_Id: 1995429533995008
+    m_Key: Clue_F1_1_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71002845184
+    m_Key: Clue_F1_1_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129435055378432
+    m_Key: Clue_F2_1_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129513266565120
+    m_Key: Clue_F2_1_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129531797000192
+    m_Key: Clue_F2_2_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129552202289152
+    m_Key: Clue_F2_2_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129609014136832
+    m_Key: Clue_F2_3_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2129631109730304
+    m_Key: Clue_F2_3_Desc
     m_Metadata:
       m_Items: []
   m_Metadata:

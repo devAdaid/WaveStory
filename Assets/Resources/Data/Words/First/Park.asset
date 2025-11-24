@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Park
   m_EditorClassIdentifier: Assembly-CSharp::WordData
   Type: 0
-  DisplayText: 
+  DisplayText: "\uBC15"

@@ -25,7 +25,7 @@ public class WordInputPresenter : IPresenter
             {
                 if (soul.IsStaticSoul)
                 {
-                    return;
+                    continue;
                 }
 
                 if (unlock.IsUnlockedSoul(soul.Id))

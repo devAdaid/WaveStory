@@ -10,6 +10,9 @@ public class RoomControl : MonoBehaviour
     [SerializeField]
     private Image bgImage;
 
+    [SerializeField]
+    private AudioClip bgmClip;
+
     private List<InteractableBase> interactables = new();
     private List<SoulInteractable> souls = new();
 
@@ -27,6 +30,11 @@ public class RoomControl : MonoBehaviour
         foreach (var interactable in interactables)
         {
             interactable.Apply(isSoulMode, context);
+        }
+
+        if (bgmClip)
+        {
+            AudioManager.I.PlayBgm(bgmClip);
         }
     }
 }

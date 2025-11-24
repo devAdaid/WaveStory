@@ -41,6 +41,7 @@ public class DialogueUI : UIBase
         dialogueTextTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
 
         choiceRoot.SetActive(false);
+        bgImage.gameObject.SetActive(false);
         HidePortrait();
     }
 
@@ -80,6 +81,7 @@ public class DialogueUI : UIBase
 
     public void PlayDialogue(TextAsset dialogue)
     {
+        AudioManager.I.ReserveCurrentBgm();
         GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => DoPlayDialogue(dialogue));
     }
 
@@ -93,6 +95,8 @@ public class DialogueUI : UIBase
     public void OnEndDialogue()
     {
         GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(Hide);
+
+        AudioManager.I.PlayReservedBgm();
     }
 
     private void ResetBeforePlay()
@@ -150,7 +154,15 @@ public class DialogueUI : UIBase
 
     public void SetBg(Sprite sprite)
     {
-        bgImage.sprite = sprite;
+        if (sprite)
+        {
+            bgImage.sprite = sprite;
+            bgImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            bgImage.gameObject.SetActive(false);
+        }
     }
 
     public void SetPortrait(Sprite sprite)

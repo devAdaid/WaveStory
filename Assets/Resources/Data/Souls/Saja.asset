@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45fe439c88424204cae0e4b7afa79fd8, type: 3}
   m_Name: Saja
   m_EditorClassIdentifier: Assembly-CSharp::SoulData
-  DisplayName: 
   IsStaticSoul: 1
   WaveParameter:
     WaveType: 0
@@ -27,8 +26,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Word1: {fileID: 0}
-  Word2: {fileID: 0}
+  Word1: {fileID: 11400000, guid: d4ba66deb4cd5b44ca1f692bfc824fda, type: 2}
+  Word2: {fileID: 11400000, guid: 72e381e60144b4241828710a7f0a3125, type: 2}
   LockedSprite: {fileID: 0}
   UnlockedSprite: {fileID: 0}
   DialogueTable:
