@@ -33,13 +33,13 @@ MonoBehaviour:
   DialogueTable:
     Dialogues:
     - Condition:
-        Type: 4
-        Id: S05_JHG
-      Dialogue: {fileID: 4900000, guid: 25bf0c71dc47267438efb214d1c503fd, type: 3}
-    - Condition:
         Type: 5
         Id: S05_JHG
-      Dialogue: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+      DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+    - Condition:
+        Type: 4
+        Id: S05_JHG
+      DialogueKo: {fileID: 4900000, guid: 25bf0c71dc47267438efb214d1c503fd, type: 3}
   references:
     version: 2
     RefIds: []

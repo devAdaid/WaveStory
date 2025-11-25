@@ -33,13 +33,13 @@ MonoBehaviour:
   DialogueTable:
     Dialogues:
     - Condition:
-        Type: 4
-        Id: S06_SYN
-      Dialogue: {fileID: 4900000, guid: 7e84699e4946c694191590411e720073, type: 3}
-    - Condition:
         Type: 5
         Id: S06_SYN
-      Dialogue: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+      DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+    - Condition:
+        Type: 4
+        Id: S06_SYN
+      DialogueKo: {fileID: 4900000, guid: 7e84699e4946c694191590411e720073, type: 3}
   references:
     version: 2
     RefIds: []

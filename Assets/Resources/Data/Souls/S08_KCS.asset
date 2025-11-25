@@ -33,13 +33,13 @@ MonoBehaviour:
   DialogueTable:
     Dialogues:
     - Condition:
-        Type: 4
-        Id: S08_KCS
-      DialogueKo: {fileID: 4900000, guid: f05d08675eb77b94e82b8910094d1ff4, type: 3}
-    - Condition:
         Type: 5
         Id: S08_KCS
       DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+    - Condition:
+        Type: 4
+        Id: S08_KCS
+      DialogueKo: {fileID: 4900000, guid: f05d08675eb77b94e82b8910094d1ff4, type: 3}
   references:
     version: 2
     RefIds: []
