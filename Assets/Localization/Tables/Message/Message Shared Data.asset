@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: Saja_Want_Talk
     m_Metadata:
       m_Items: []
+  - m_Id: 430808834949120
+    m_Key: Empty_Message
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

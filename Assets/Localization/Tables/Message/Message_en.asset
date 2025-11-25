@@ -54,6 +54,10 @@ MonoBehaviour:
     m_Localized: The Grim Reaper seems to have something to say.
     m_Metadata:
       m_Items: []
+  - m_Id: 430808834949120
+    m_Localized: _________
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -59,6 +59,10 @@ MonoBehaviour:
       \uAC83 \uAC19\uB2E4."
     m_Metadata:
       m_Items: []
+  - m_Id: 430808834949120
+    m_Localized: _________
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

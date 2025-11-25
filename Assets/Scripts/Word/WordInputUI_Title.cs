@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
@@ -19,8 +20,6 @@ public class WordInputUI_Title : UIBase
 
     private string wordId1;
     private string wordId2;
-
-    private static string EMPTY_TEXT = "_________";
 
     private LocalizeStringEvent wordText1LocalizeEvent;
     private LocalizeStringEvent wordText2LocalizeEvent;
@@ -94,10 +93,20 @@ public class WordInputUI_Title : UIBase
             wordText1LocalizeEvent.StringReference = wordData1.DisplayText;
             wordText1LocalizeEvent.RefreshString();
         }
+        else
+        {
+            wordText1LocalizeEvent.StringReference = new LocalizedString("Message", "Empty_Message");
+            wordText1LocalizeEvent.RefreshString();
+        }
         
         if (string.IsNullOrEmpty(wordId2) == false && StaticDataHolder.I.TryGetWord(wordId2, out var wordData2))
         {   
             wordText2LocalizeEvent.StringReference = wordData2.DisplayText;
+            wordText2LocalizeEvent.RefreshString();
+        }
+        else
+        {
+            wordText2LocalizeEvent.StringReference = new LocalizedString("Message", "Empty_Message");
             wordText2LocalizeEvent.RefreshString();
         }
     }
