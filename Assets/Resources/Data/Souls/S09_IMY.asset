@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fe439c88424204cae0e4b7afa79fd8, type: 3}
+  m_Name: S09_IMY
+  m_EditorClassIdentifier: Assembly-CSharp::SoulData
+  IsStaticSoul: 0
+  WaveParameter:
+    WaveType: 0
+    AmplitudeStep: 10
+    FrequencyStep: 7
+  HearingText:
+    m_TableReference:
+      m_TableCollectionName: GUID:48ec95f81a400d04db3b44feea23352a
+    m_TableEntryReference:
+      m_KeyId: 824059341066240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Word1: {fileID: 11400000, guid: fd9135c8b663cbd41af4e906255b5300, type: 2}
+  Word2: {fileID: 11400000, guid: f481f14c1db11f449ab6aeca639c0f33, type: 2}
+  LockedSprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
+  UnlockedSprite: {fileID: 21300000, guid: a06cce4027f44d9438acef1a4b525250, type: 3}
+  DialogueTable:
+    Dialogues:
+    - Condition:
+        Type: 4
+        Id: S09_IMY
+      DialogueKo: {fileID: 4900000, guid: 78ffe87128d7d2a4a9d35dcd687058f1, type: 3}
+    - Condition:
+        Type: 5
+        Id: S09_IMY
+      DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
+  references:
+    version: 2
+    RefIds: []

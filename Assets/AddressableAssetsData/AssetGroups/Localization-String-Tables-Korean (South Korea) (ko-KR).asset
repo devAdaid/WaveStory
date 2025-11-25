@@ -20,12 +20,14 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8db75d787f09849a4b2396a5cfbce4
     m_Address: Hearing_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33127225320e33141987b9a41948d9bf
     m_Address: Clue_ko-KR
@@ -39,24 +41,28 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46258233a466b6a49911455211e8c7af
     m_Address: Message_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c31d4a0d02e09c74392613b8bc03c920
     m_Address: Word_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6846fb0454380042be1270134d0f50e
     m_Address: Room_ko-KR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ko-KR
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c7abe55a7746fa64bbda47ef7bc84983, type: 2}

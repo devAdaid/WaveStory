@@ -59,6 +59,18 @@ MonoBehaviour:
     m_Key: FourthFloorCorridor
     m_Metadata:
       m_Items: []
+  - m_Id: 44121696522240
+    m_Key: Room401
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44151555772416
+    m_Key: Room402
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44153338351616
+    m_Key: Room403
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

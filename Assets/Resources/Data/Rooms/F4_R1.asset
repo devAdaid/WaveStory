@@ -9,29 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b8a337301f37842a67eaf0c4ce7b25, type: 3}
-  m_Name: Fake
+  m_Script: {fileID: 11500000, guid: 72748f2644c872d42be6b67b14f3c9fd, type: 3}
+  m_Name: F4_R1
   m_EditorClassIdentifier: 
-  Order: 99
-  Title:
+  DisplayName:
     m_TableReference:
-      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+      m_TableCollectionName: GUID:8f3852ce503d8bf42b02b381ca00d665
     m_TableEntryReference:
-      m_KeyId: 8328777060352
+      m_KeyId: 44121696522240
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Text:
-    m_TableReference:
-      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
-    m_TableEntryReference:
-      m_KeyId: 8328777060352
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  UnlockWords: []
+  Floor: 4
+  RealSprite: {fileID: 21300000, guid: 930702236f8c8044893a99d3a6ac938c, type: 3}
+  SoulSprite: {fileID: 21300000, guid: e687637e198ad9d498c850d67651940e, type: 3}
+  Souls:
+  - {fileID: 11400000, guid: aa6fd89931d4ff54aa73295f30e0c643, type: 2}
   references:
     version: 2
     RefIds: []

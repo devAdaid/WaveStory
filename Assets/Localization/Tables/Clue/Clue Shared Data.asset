@@ -71,6 +71,38 @@ MonoBehaviour:
     m_Key: Clue_F2_2_Desc
     m_Metadata:
       m_Items: []
+  - m_Id: 2416800135139328
+    m_Key: Clue_F4_1_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417342353788928
+    m_Key: Clue_F4_1_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417426252451840
+    m_Key: Clue_F4_2_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417453960024064
+    m_Key: Clue_F4_2_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417470770794496
+    m_Key: Clue_F4_3_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417483987046400
+    m_Key: Clue_F4_3_Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417525376438272
+    m_Key: Clue_F4_4_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417541755195392
+    m_Key: Clue_F4_4_Desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
