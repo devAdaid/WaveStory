@@ -19,35 +19,39 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 6753636352
-    m_Localized: 
+    m_Localized: You need to match the wave name to talk to this soul.
     m_Metadata:
       m_Items: []
   - m_Id: 241890512896
-    m_Localized: 
+    m_Localized: Let's use the soul detector to talk to the Grim Reaper first.
     m_Metadata:
       m_Items: []
   - m_Id: 7143835848704
-    m_Localized: 
+    m_Localized: There's still something to do on this floor.
     m_Metadata:
       m_Items: []
   - m_Id: 8328777060352
-    m_Localized: 
+    m_Localized: You need to remove the soul detector to inspect clues.
     m_Metadata:
       m_Items: []
   - m_Id: 10695325011968
-    m_Localized: 
+    m_Localized: The soul has regained its identity and can now be talked to.
     m_Metadata:
       m_Items: []
   - m_Id: 12969921236992
-    m_Localized: 
+    m_Localized: No response.
     m_Metadata:
       m_Items: []
   - m_Id: 13016675143680
-    m_Localized: 
+    m_Localized: This soul has already regained its identity.
     m_Metadata:
       m_Items: []
   - m_Id: 127714888273920
-    m_Localized: 
+    m_Localized: Invalid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 284767917199360
+    m_Localized: The Grim Reaper seems to have something to say.
     m_Metadata:
       m_Items: []
   references:
