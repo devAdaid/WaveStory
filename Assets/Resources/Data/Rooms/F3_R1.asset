@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72748f2644c872d42be6b67b14f3c9fd, type: 3}
+  m_Name: F3_R1
+  m_EditorClassIdentifier: 
+  DisplayName:
+    m_TableReference:
+      m_TableCollectionName: GUID:8f3852ce503d8bf42b02b381ca00d665
+    m_TableEntryReference:
+      m_KeyId: 4540808843264
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Floor: 3
+  RealSprite: {fileID: 21300000, guid: 930702236f8c8044893a99d3a6ac938c, type: 3}
+  SoulSprite: {fileID: 21300000, guid: e687637e198ad9d498c850d67651940e, type: 3}
+  Souls:
+  - {fileID: 11400000, guid: bd4c6260a5d93f04492302780f2427d8, type: 2}
+  references:
+    version: 2
+    RefIds: []

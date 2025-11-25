@@ -86,6 +86,14 @@ MonoBehaviour:
     m_Localized: Wave
     m_Metadata:
       m_Items: []
+  - m_Id: 6897185607680
+    m_Localized: "\uD55C\uACB0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6994627678208
+    m_Localized: "\uC724\uC544"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

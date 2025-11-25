@@ -46,6 +46,22 @@ MonoBehaviour:
     m_Localized: 3rd Floor Corridor
     m_Metadata:
       m_Items: []
+  - m_Id: 4540808843264
+    m_Localized: Room 301
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4676842704896
+    m_Localized: Room 302
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4680143622144
+    m_Localized: Room 303
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5308014153728
+    m_Localized: 4th Floor Corridor
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

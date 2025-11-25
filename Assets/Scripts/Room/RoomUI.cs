@@ -37,6 +37,8 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].Apply(isSoulMode, state);
 
+        TextHelper.SetLocalizedText(roomNameText, null, ref roomNameLocalizeEvent);
+
         SetRoomNameText(roomMap[currentRoomId].RoomData);
     }
 
@@ -59,11 +61,8 @@ public class RoomUI : UIBase, IView<RoomPresenter>
 
     private void SetRoomNameText(RoomData roomData)
     {
-        if (roomNameLocalizeEvent != null)
-        {
-            Destroy(roomNameLocalizeEvent);
-        }
-        TextHelper.SetLocalizedText(roomNameText, roomData.DisplayName, ref roomNameLocalizeEvent);
+        roomNameLocalizeEvent.StringReference = roomData.DisplayName;
+        roomNameLocalizeEvent.RefreshString();
     }
 
     public void ApplyUnlockState(UnlockState state)

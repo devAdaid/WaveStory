@@ -43,6 +43,14 @@ MonoBehaviour:
     m_Key: S04_LSJ
     m_Metadata:
       m_Items: []
+  - m_Id: 790317448843264
+    m_Key: S05_JHG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790768462352384
+    m_Key: S06_SYN
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

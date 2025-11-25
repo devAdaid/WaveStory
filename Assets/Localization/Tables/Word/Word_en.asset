@@ -86,6 +86,14 @@ MonoBehaviour:
     m_Localized: Wave
     m_Metadata:
       m_Items: []
+  - m_Id: 6897185607680
+    m_Localized: Hangyeol
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6994627678208
+    m_Localized: Yuna
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

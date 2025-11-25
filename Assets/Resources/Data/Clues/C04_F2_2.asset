@@ -17,7 +17,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
     m_TableEntryReference:
-      m_KeyId: 2129531797000192
+      m_KeyId: 2390576151154688
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -26,14 +26,13 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045
     m_TableEntryReference:
-      m_KeyId: 2129552202289152
+      m_KeyId: 2390592450220032
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   UnlockWords:
-  - {fileID: 11400000, guid: f15b7bfb171e0e44080703c08a1ea2e9, type: 2}
-  - {fileID: 11400000, guid: 26e7c4dc73fcf074d81545a4b0d40dd1, type: 2}
+  - {fileID: 11400000, guid: 2fd9b7905805a4047a6e289065bb5366, type: 2}
   references:
     version: 2
     RefIds: []
