@@ -1,0 +1,9 @@
+﻿CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F2_2,,,,,
+Speaker,정한결,,,,,
+Text,이 펜던트를 주인을 찾아 돌려주실 수 있으실까요?,,,,,
+Choice,받아든다.,ok,,,,
+Label,ok,,,,,
+Flag,F2_LostPendent,,,,,
+Text,감사합니다. 계속 마음에 걸렸는데 이제 한시름 놓을 수 있겠네요.,,,,,
+Clear,S05_JHG,,,,,

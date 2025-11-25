@@ -247,6 +247,61 @@ public class JumpCommand : DialogueCommandBase
         r.JumpToLabel(targetLabel);
     }
 }
+[DialogueCommand("If")]
+public class IfCommand : DialogueCommandBase
+{
+    private string flagName;
+    private string trueLabelName;
+    private string falseLabelName;
+
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        if (parameters.Length < 3)
+        {
+            Debug.LogError($"[JumpIfCommand] Requires 3 parameters: flagName, trueLabel, falseLabel. Got {parameters.Length}");
+            return;
+        }
+
+        flagName = parameters[0];
+        trueLabelName = parameters[1];
+        falseLabelName = parameters[2];
+
+        if (string.IsNullOrEmpty(flagName))
+        {
+            Debug.LogError("[JumpIfCommand] Flag name cannot be empty!");
+        }
+        if (string.IsNullOrEmpty(trueLabelName))
+        {
+            Debug.LogError("[JumpIfCommand] True label name cannot be empty!");
+        }
+        if (string.IsNullOrEmpty(falseLabelName))
+        {
+            Debug.LogError("[JumpIfCommand] False label name cannot be empty!");
+        }
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        if (string.IsNullOrEmpty(flagName))
+        {
+            Debug.LogError("[JumpIfCommand] Cannot execute with empty flag name!");
+            return;
+        }
+
+        bool flagValue = r.Unlock.HasFlag(flagName);
+        string targetLabel = flagValue ? trueLabelName : falseLabelName;
+
+        if (string.IsNullOrEmpty(targetLabel))
+        {
+            Debug.LogError($"[JumpIfCommand] Target label is empty (flag '{flagName}' = {flagValue})");
+            return;
+        }
+
+        r.JumpToLabel(targetLabel);
+    }
+}
 
 [DialogueCommand("PauseBgm")]
 public class PauseBgmCommand : DialogueCommandBase

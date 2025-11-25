@@ -1,0 +1,13 @@
+﻿CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F2_1,,,,,
+Speaker,서윤아,,,,,
+Text,아... 안돼요! 어머니의 유품을 찾아야 갈거에요!,,,,,
+If,F2_LostPendent,ok,no,,,
+Label,no,,,,,
+End,,,,,,
+Label,ok,,,,,
+Speaker,,,,,,
+Text,펜던트를 여자에게 건넸다.,,,,,
+Speaker,서윤아,,,,,
+Text,아아... 감사합니다. 이걸 계속 찾고 있었어요.,,,,,
+Clear,S06_SYN,,,,,

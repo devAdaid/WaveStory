@@ -31,7 +31,15 @@ MonoBehaviour:
   LockedSprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
   UnlockedSprite: {fileID: 21300000, guid: a06cce4027f44d9438acef1a4b525250, type: 3}
   DialogueTable:
-    Dialogues: []
+    Dialogues:
+    - Condition:
+        Type: 4
+        Id: S06_SYN
+      Dialogue: {fileID: 4900000, guid: 7e84699e4946c694191590411e720073, type: 3}
+    - Condition:
+        Type: 5
+        Id: S06_SYN
+      Dialogue: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
   references:
     version: 2
     RefIds: []
