@@ -34,11 +34,11 @@ MonoBehaviour:
     Dialogues:
     - Condition:
         Type: 4
-        Id: S09_IMY
-      DialogueKo: {fileID: 4900000, guid: 7e84699e4946c694191590411e720073, type: 3}
+        Id: S10_CSJ
+      DialogueKo: {fileID: 4900000, guid: 1faba920664f09d47ab9c655aa792846, type: 3}
     - Condition:
         Type: 5
-        Id: S09_IMY
+        Id: S10_CSJ
       DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
   references:
     version: 2
