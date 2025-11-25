@@ -1,22 +1,31 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
-    private static readonly string LANGUAGE_SET_KEY = "Language_Set";
+    private static readonly string LANGUAGE_CODE_KEY = "Language_Code";
 
     [SerializeField] private GameObject languagePanel;
     [SerializeField] private Button koreanButton;
     [SerializeField] private Button englishButton;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        if (PlayerPrefs.GetInt(LANGUAGE_SET_KEY, 0) == 1)
+        yield return LocalizationSettings.InitializationOperation;
+
+        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+
+        if (PlayerPrefs.HasKey(LANGUAGE_CODE_KEY))
         {
+            string savedCode = PlayerPrefs.GetString(LANGUAGE_CODE_KEY);
+            SetLocale(savedCode);
             SceneManager.LoadScene("Title");
-            return;
+            yield break;
         }
 
         languagePanel.SetActive(true);
@@ -25,6 +34,14 @@ public class StartUI : MonoBehaviour
     }
 
     private void SelectLanguage(string localeCode)
+    {
+        SetLocale(localeCode);
+        PlayerPrefs.SetString(LANGUAGE_CODE_KEY, localeCode);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("Title");
+    }
+
+    private void SetLocale(string localeCode)
     {
         var locales = LocalizationSettings.AvailableLocales.Locales;
         foreach (var locale in locales)
@@ -35,10 +52,14 @@ public class StartUI : MonoBehaviour
                 break;
             }
         }
+    }
 
-        PlayerPrefs.SetInt(LANGUAGE_SET_KEY, 1);
-        PlayerPrefs.Save();
-
-        SceneManager.LoadScene("Title");
+    private static void OnLocaleChanged(Locale locale)
+    {
+        if (locale != null)
+        {
+            PlayerPrefs.SetString(LANGUAGE_CODE_KEY, locale.Identifier.Code);
+            PlayerPrefs.Save();
+        }
     }
 }
