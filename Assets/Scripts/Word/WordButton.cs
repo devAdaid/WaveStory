@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class WordButton : MonoBehaviour
@@ -13,6 +14,7 @@ public class WordButton : MonoBehaviour
 
     private string wordId;
     private Action<string> onClick;
+    private LocalizeStringEvent localizeStringEvent;
 
     private void Awake()
     {
@@ -26,7 +28,11 @@ public class WordButton : MonoBehaviour
 
         if (StaticDataHolder.I.TryGetWord(wordId, out var wordData))
         {
-            labelText.text = wordData.DisplayText;
+            if (localizeStringEvent != null)
+            {
+                Destroy(localizeStringEvent);
+            }
+            TextHelper.SetLocalizedText(labelText, wordData.DisplayText, ref localizeStringEvent);
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 
 public class RoomUI : UIBase, IView<RoomPresenter>
 {
@@ -15,6 +16,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
     private RoomData currentRoomData;
     private bool isSoulMode;
     private UnlockState state;
+    private LocalizeStringEvent roomNameLocalizeEvent;
 
     public void SetPresenter(RoomPresenter presenter)
     {
@@ -35,7 +37,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].Apply(isSoulMode, state);
 
-        roomNameText.text = roomMap[currentRoomId].RoomData.DisplayName;
+        SetRoomNameText(roomMap[currentRoomId].RoomData);
     }
 
     public void ApplySoulMode(bool isSoulMode)
@@ -52,7 +54,16 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].Apply(isSoulMode, state);
 
-        roomNameText.text = roomData.DisplayName;
+        SetRoomNameText(roomData);
+    }
+
+    private void SetRoomNameText(RoomData roomData)
+    {
+        if (roomNameLocalizeEvent != null)
+        {
+            Destroy(roomNameLocalizeEvent);
+        }
+        TextHelper.SetLocalizedText(roomNameText, roomData.DisplayName, ref roomNameLocalizeEvent);
     }
 
     public void ApplyUnlockState(UnlockState state)

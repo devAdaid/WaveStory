@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class WordInputUI : UIBase, IView<WordInputPresenter>
@@ -30,6 +31,9 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
     private WordInputPresenter presenter;
 
     private static string EMPTY_TEXT = "_________";
+
+    private LocalizeStringEvent wordText1LocalizeEvent;
+    private LocalizeStringEvent wordText2LocalizeEvent;
 
     public void SetPresenter(WordInputPresenter presenter)
     {
@@ -100,7 +104,25 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
         this.wordId1 = wordId1;
         this.wordId2 = wordId2;
 
-        wordText1.text = string.IsNullOrEmpty(wordId1) ? EMPTY_TEXT : StaticDataHolder.I.TryGetWord(wordId1, out var wordData1) ? wordData1.DisplayText : EMPTY_TEXT;
-        wordText2.text = string.IsNullOrEmpty(wordId2) ? EMPTY_TEXT : StaticDataHolder.I.TryGetWord(wordId2, out var wordData2) ? wordData2.DisplayText : EMPTY_TEXT;
+        ApplyWordText(wordText1, wordId1, ref wordText1LocalizeEvent);
+        ApplyWordText(wordText2, wordId2, ref wordText2LocalizeEvent);
+    }
+
+    private void ApplyWordText(TMP_Text textComponent, string wordId, ref LocalizeStringEvent localizeEvent)
+    {
+        if (localizeEvent != null)
+        {
+            Destroy(localizeEvent);
+            localizeEvent = null;
+        }
+
+        if (string.IsNullOrEmpty(wordId) || !StaticDataHolder.I.TryGetWord(wordId, out var wordData))
+        {
+            textComponent.text = EMPTY_TEXT;
+        }
+        else
+        {
+            TextHelper.SetLocalizedText(textComponent, wordData.DisplayText, ref localizeEvent);
+        }
     }
 }

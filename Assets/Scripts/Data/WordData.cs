@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Localization;
 
 public enum WordType
 {
@@ -11,5 +12,5 @@ public class WordData : ScriptableObject
 {
     public string Id => this.name;
     public WordType Type;
-    public string DisplayText;
+    public LocalizedString DisplayText;
 }
