@@ -27,4 +27,21 @@ public class DialogueTableItem
 {
     public UnlockCondition Condition;
     public TextAsset Dialogue;
+
+    [System.NonSerialized] private TextAsset _dialogueEn;
+    [System.NonSerialized] private bool _dialogueEnLoaded;
+
+    public TextAsset DialogueEn
+    {
+        get
+        {
+            if (!_dialogueEnLoaded && Dialogue != null)
+            {
+                _dialogueEnLoaded = true;
+                string enPath = $"Dialogues_en/{Dialogue.name}";
+                _dialogueEn = Resources.Load<TextAsset>(enPath);
+            }
+            return _dialogueEn;
+        }
+    }
 }
