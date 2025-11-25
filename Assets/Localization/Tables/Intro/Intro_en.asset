@@ -19,15 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 7267115008
-    m_Localized: Test Intro1
+    m_Localized: The perpetrator of the major fire that broke out at Cheongrim Building in Seoul around 8 PM today has been arrested just 2 hours after the crime.
     m_Metadata:
       m_Items: []
   - m_Id: 133410807808
-    m_Localized: Test Intro2
+    m_Localized: The arrested suspect, a man in his 30s surnamed Kim, stated his motive was that 'an acquaintance ignored him and cut off contact, which made him angry.'
     m_Metadata:
       m_Items: []
   - m_Id: 189341851648
-    m_Localized: Test Intro3
+    m_Localized: Fire authorities have completely extinguished the fire and will soon begin recovery operations for the victims.
     m_Metadata:
       m_Items: []
   references:
