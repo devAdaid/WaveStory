@@ -35,6 +35,14 @@ MonoBehaviour:
     m_Key: UI_Main_SoulMode
     m_Metadata:
       m_Items: []
+  - m_Id: 2116142421426176
+    m_Key: QuestionSoulName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2116539940782080
+    m_Key: QuestionGameName
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

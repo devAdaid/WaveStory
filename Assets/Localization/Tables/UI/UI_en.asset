@@ -38,6 +38,14 @@ MonoBehaviour:
     m_Localized: S Toggle Mode
     m_Metadata:
       m_Items: []
+  - m_Id: 2116142421426176
+    m_Localized: What is that soul's name?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2116539940782080
+    m_Localized: What is the name of this game?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

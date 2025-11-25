@@ -38,6 +38,14 @@ MonoBehaviour:
     m_Localized: "S \uBAA8\uB4DC \uC804\uD658"
     m_Metadata:
       m_Items: []
+  - m_Id: 2116142421426176
+    m_Localized: "\uC774 \uC601\uD63C\uC758 \uC774\uB984\uC740 \uBB34\uC5C7\uC785\uB2C8\uAE4C?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2116539940782080
+    m_Localized: "\uC774 \uAC8C\uC784\uC758 \uC774\uB984\uC740 \uBB34\uC5C7\uC785\uB2C8\uAE4C?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
