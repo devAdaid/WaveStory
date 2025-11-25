@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class DialogueTable
@@ -26,22 +28,37 @@ public class DialogueTable
 public class DialogueTableItem
 {
     public UnlockCondition Condition;
-    public TextAsset Dialogue;
+
+    [FormerlySerializedAs("Dialogue")]
+    public TextAsset DialogueKo;
 
     [System.NonSerialized] private TextAsset _dialogueEn;
     [System.NonSerialized] private bool _dialogueEnLoaded;
 
-    public TextAsset DialogueEn
+    private TextAsset DialogueEn
     {
         get
         {
-            if (!_dialogueEnLoaded && Dialogue != null)
+            if (!_dialogueEnLoaded && DialogueKo != null)
             {
                 _dialogueEnLoaded = true;
-                string enPath = $"Dialogues_en/{Dialogue.name}";
+                string enPath = $"Dialogues_en/{DialogueKo.name}";
                 _dialogueEn = Resources.Load<TextAsset>(enPath);
             }
             return _dialogueEn;
+        }
+    }
+
+    public TextAsset Dialogue
+    {
+        get
+        {
+            var locale = LocalizationSettings.SelectedLocale;
+            if (locale != null && locale.Identifier.Code == "ko-KR")
+            {
+                return DialogueKo;
+            }
+            return DialogueEn ?? DialogueKo;
         }
     }
 }
