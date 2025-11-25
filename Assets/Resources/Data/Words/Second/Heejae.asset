@@ -13,4 +13,15 @@ MonoBehaviour:
   m_Name: Heejae
   m_EditorClassIdentifier: Assembly-CSharp::WordData
   Type: 1
-  DisplayText: "\uD76C\uC7AC"
+  DisplayText:
+    m_TableReference:
+      m_TableCollectionName: GUID:d8b22d9ec78e1b845bd94918a81c1ed0
+    m_TableEntryReference:
+      m_KeyId: 100000000011
+      m_Key:
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

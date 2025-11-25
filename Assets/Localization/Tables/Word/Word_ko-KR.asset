@@ -17,7 +17,75 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: d8b22d9ec78e1b845bd94918a81c1ed0, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 100000000001
+    m_Localized: "\uAE40"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000002
+    m_Localized: "\uC774"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000003
+    m_Localized: "\uBC15"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000004
+    m_Localized: "\uCD5C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000005
+    m_Localized: "\uCC28"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000006
+    m_Localized: "\uC815"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000007
+    m_Localized: "\uAC15"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000008
+    m_Localized: "\uC0AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000009
+    m_Localized: "\uC790"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000010
+    m_Localized: "\uD558\uC724"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000011
+    m_Localized: "\uD76C\uC7AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000012
+    m_Localized: "\uC900\uC11C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000013
+    m_Localized: "\uBBFC\uC7AC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000014
+    m_Localized: "\uC218\uC544"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000015
+    m_Localized: "\uC21C\uC790"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000016
+    m_Localized: "\uB9C8\uC9C0\uB9C9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100000000017
+    m_Localized: Wave
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
