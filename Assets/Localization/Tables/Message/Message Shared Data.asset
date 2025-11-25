@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: Soul_Already_Unlocked
     m_Metadata:
       m_Items: []
+  - m_Id: 284767917199360
+    m_Key: Saja_Want_Talk
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

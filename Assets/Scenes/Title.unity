@@ -912,7 +912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Last Wave
+  m_text: "\uB9C8\uC9C0\uB9C9 Wave"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13097675c4bd07d43a1d5d5558565072, type: 2}
   m_sharedMaterial: {fileID: -1707866233656258420, guid: 13097675c4bd07d43a1d5d5558565072, type: 2}

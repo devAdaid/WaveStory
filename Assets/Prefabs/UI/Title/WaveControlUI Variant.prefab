@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveControlUI Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4957074675651918221, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5265203705382127528, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -1444,15 +1444,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_2_Talk
   button: {fileID: 476650742}
   targetRoomData: {fileID: 11400000, guid: 19ca051153cd8fe449efbef7e8c45786, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2696,15 +2696,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_2_Talk
   button: {fileID: 772077686}
   targetRoomData: {fileID: 11400000, guid: eb50f8c4dc8f9e44699bfadc67dda181, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -3689,15 +3689,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_2_Talk
   button: {fileID: 1198126916}
   targetRoomData: {fileID: 11400000, guid: 2aabc33b0235a524bb4b2de5d373a8dd, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -6152,6 +6152,10 @@ MonoBehaviour:
   button: {fileID: 2004078330}
   dialogueTable:
     Dialogues:
+    - Condition:
+        Type: 2
+        Id: 'Saja_Corridor_2_Talk '
+      Dialogue: {fileID: 4900000, guid: 9b4e2127f2dee57499b5ba04c3ace647, type: 3}
     - Condition:
         Type: 0
         Id: 

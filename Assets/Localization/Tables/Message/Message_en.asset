@@ -19,35 +19,35 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 6753636352
-    m_Localized: Not_Unlocked_Soul
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 241890512896
-    m_Localized: Should_Talk_Saja
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 7143835848704
-    m_Localized: Not_Cleared_Floor
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 8328777060352
-    m_Localized: Cannot_Inspect_Clue_SoulMode
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 10695325011968
-    m_Localized: Soul_Unlocked
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 12969921236992
-    m_Localized: Soul_NotMatched
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 13016675143680
-    m_Localized: Soul_Already_Unlocked
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 127714888273920
-    m_Localized: Invalid
+    m_Localized: 
     m_Metadata:
       m_Items: []
   references:
