@@ -1,0 +1,9 @@
+CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F2_2,,,,,
+Speaker,Jung Hangyeol,,,,,
+Text,Could you find the owner of this pendant and return it?,,,,,
+Choice,I'll take it.,ok,,,,
+Label,ok,,,,,
+Flag,F2_LostPendent,,,,,
+Text,Thank you. It's been weighing on my mind. Now I can rest easier.,,,,,
+Clear,S05_JHG,,,,,

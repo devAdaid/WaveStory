@@ -1,0 +1,13 @@
+CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F2_1,,,,,
+Speaker,Seo Yuna,,,,,
+Text,No... I can't go! I have to find my mother's keepsake!,,,,,
+If,F2_LostPendent,ok,no,,,
+Label,no,,,,,
+End,,,,,,
+Label,ok,,,,,
+Speaker,,,,,,
+Text,You handed the pendant to the woman.,,,,,
+Speaker,Seo Yuna,,,,,
+Text,Oh... Thank you so much. I've been looking for this everywhere.,,,,,
+Clear,S06_SYN,,,,,

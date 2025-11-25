@@ -1,0 +1,18 @@
+CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F1_C,,,,,
+Char,Saja,,,,,
+Speaker,Saja,,,,,
+Text,"Alright, you know what to do now, right?",,,,,
+Choice,Yes.,yes,No.,no,You still haven't told me anything?,haha
+Label,yes,,,,,
+Text,Then hurry up and get started!,,,,,
+End,,,,,,
+Label,haha,,,,,
+Text,Ugh... I was about to tell you!,,,,,
+Label,no,,,,,
+Text,"First, investigate the scene to deduce the soul's name.",,,,,
+Text,"Next, put on the soul detector and look at the wave displayed on the screen.",,,,,
+Text,The detector will show the names of all the deceased on this floor.,,,,,
+Text,If you match the wave frequency you can even hear the soul's inner thoughts.,,,,,
+Text,"And by matching the name to the corresponding wave, you can restore that soul's identity.",,,,,
+Text,"You need to be in the same space as the soul to do this, so keep that in mind!",,,,,

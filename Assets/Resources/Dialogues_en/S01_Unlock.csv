@@ -1,0 +1,11 @@
+CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F1_C,,,,,
+Speaker,Kang Minjae,,,,,
+Text,Please choose the reason to resolve my lingering regret.,,,,,
+Choice,Lover,wrong,New Spring Literary Award,right,Family,wrong
+Label,wrong,,,,,
+Text,That's incorrect.,,,,,
+End,,,,,,
+Label,right,,,,,
+Text,That's correct.,,,,,
+Clear,S01_KMJ,,,,,

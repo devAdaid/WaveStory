@@ -1,0 +1,15 @@
+CommandType,Param1,Param2,Param3,Param4,Param5,Param6
+Bg,F1_R3,,,,,
+Speaker,Lee Sunja,,,,,
+Text,What was my son's name again?,,,,,
+Choice,Park Hayun,wrong,Park Heejae,wrong,Park Junseo,right_1
+Label,wrong,,,,,
+Text,I don't think that's it...,,,,,
+End,,,,,,
+Label,right_1,,,,,
+Text,What was the name of the flower shop I was trying to visit recently?,,,,,
+Choice,Sarang,right_2,Gippeum,wrong,Huimang,wrong
+Label,right_2,,,,,
+Text,I remember everything now. Thank you.,,,,,
+Clear,S03_PJS,,,,,
+Clear,S04_LSJ,,,,,
