@@ -29,6 +29,9 @@ public class WordInputUI_Title : UIBase
     {
         confirmButton.onClick.AddListener(OnClick);
         inventoryUI.SetCallback(OnWordClicked);
+        
+        TextHelper.SetLocalizedText(wordText1, null, ref wordText1LocalizeEvent);
+        TextHelper.SetLocalizedText(wordText2, null, ref wordText2LocalizeEvent);
     }
 
     public override void OnShow()
@@ -77,7 +80,7 @@ public class WordInputUI_Title : UIBase
         {
             newWordId2 = wordId;
         }
-
+        
         ApplyWords(newWordId1, newWordId2);
     }
 
@@ -86,25 +89,16 @@ public class WordInputUI_Title : UIBase
         this.wordId1 = wordId1;
         this.wordId2 = wordId2;
 
-        ApplyWordText(wordText1, wordId1, ref wordText1LocalizeEvent);
-        ApplyWordText(wordText2, wordId2, ref wordText2LocalizeEvent);
-    }
-
-    private void ApplyWordText(TMP_Text textComponent, string wordId, ref LocalizeStringEvent localizeEvent)
-    {
-        if (localizeEvent != null)
-        {
-            Destroy(localizeEvent);
-            localizeEvent = null;
+        if (string.IsNullOrEmpty(wordId1) == false && StaticDataHolder.I.TryGetWord(wordId1, out var wordData1))
+        {  
+            wordText1LocalizeEvent.StringReference = wordData1.DisplayText;
+            wordText1LocalizeEvent.RefreshString();
         }
-
-        if (string.IsNullOrEmpty(wordId) || !StaticDataHolder.I.TryGetWord(wordId, out var wordData))
-        {
-            textComponent.text = EMPTY_TEXT;
-        }
-        else
-        {
-            TextHelper.SetLocalizedText(textComponent, wordData.DisplayText, ref localizeEvent);
+        
+        if (string.IsNullOrEmpty(wordId2) == false && StaticDataHolder.I.TryGetWord(wordId2, out var wordData2))
+        {   
+            wordText2LocalizeEvent.StringReference = wordData2.DisplayText;
+            wordText2LocalizeEvent.RefreshString();
         }
     }
 }
