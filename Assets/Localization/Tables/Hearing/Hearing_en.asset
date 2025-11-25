@@ -19,15 +19,39 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 6747021312
-    m_Localized: 
+    m_Localized: The rookie better do well...
     m_Metadata:
       m_Items: []
   - m_Id: 115236888576
-    m_Localized: 
+    m_Localized: Who am I...
     m_Metadata:
       m_Items: []
   - m_Id: 207134089216
-    m_Localized: 
+    m_Localized: Who am I...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576629907410944
+    m_Localized: No... I still have unfinished business...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576841145143296
+    m_Localized: What on earth happened?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 576927501668352
+    m_Localized: I wonder if mother is okay...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577042933108736
+    m_Localized: I can't remember anything clearly...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790317448843264
+    m_Localized: I need to find the owner...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 790768462352384
+    m_Localized: Where could that pendant be...
     m_Metadata:
       m_Items: []
   references:
