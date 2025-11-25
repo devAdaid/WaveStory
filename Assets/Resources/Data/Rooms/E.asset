@@ -12,8 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72748f2644c872d42be6b67b14f3c9fd, type: 3}
   m_Name: E
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
-  DisplayName: "\uC785\uAD6C"
+  DisplayName:
+    m_TableReference:
+      m_TableCollectionName: GUID:8f3852ce503d8bf42b02b381ca00d665
+    m_TableEntryReference:
+      m_KeyId: 878338818048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Floor: 0
   RealSprite: {fileID: 21300000, guid: 12bcb6a79c33d284f884d2af9286e6e8, type: 3}
   SoulSprite: {fileID: 21300000, guid: 35eadff7550a0a34095abb9ee54bfb0d, type: 3}
   Souls:
   - {fileID: 11400000, guid: 7e935fd67f9af2e43b9d055492e8746f, type: 2}
+  references:
+    version: 2
+    RefIds: []

@@ -12,10 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72748f2644c872d42be6b67b14f3c9fd, type: 3}
   m_Name: F1_C
   m_EditorClassIdentifier: 
-  DisplayName: "1\uCE35 \uBCF5\uB3C4"
+  DisplayName:
+    m_TableReference:
+      m_TableCollectionName: GUID:8f3852ce503d8bf42b02b381ca00d665
+    m_TableEntryReference:
+      m_KeyId: 947444170752
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   Floor: 1
   RealSprite: {fileID: 21300000, guid: d7944e05a2ef403418c144fe519144fa, type: 3}
   SoulSprite: {fileID: 21300000, guid: 5894220052f6ca648b6ec836a63a829d, type: 3}
   Souls:
   - {fileID: 11400000, guid: ee3d98bbfc07f064aa5e5052ff2f231c, type: 2}
   - {fileID: 11400000, guid: 7e935fd67f9af2e43b9d055492e8746f, type: 2}
+  references:
+    version: 2
+    RefIds: []
