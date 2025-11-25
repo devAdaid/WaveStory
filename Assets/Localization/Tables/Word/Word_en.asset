@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 100000000011
-    m_Localized: Heejae
+    m_Localized: Huijae
     m_Metadata:
       m_Items: []
   - m_Id: 100000000012
@@ -92,6 +92,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 6994627678208
     m_Localized: Yuna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23116366237696
+    m_Localized: Chulsu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23137195151360
+    m_Localized: Yeonghui
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23883424747520
+    m_Localized: Miyeon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23818903769088
+    m_Localized: Yohan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23610664964096
+    m_Localized: Sejin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23590200954880
+    m_Localized: Ujin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32703567908864
+    m_Localized: Naeun
     m_Metadata:
       m_Items: []
   references:
