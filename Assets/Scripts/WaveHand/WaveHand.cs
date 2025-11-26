@@ -136,8 +136,8 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         wasAtMin = false;
         wasAtMax = false;
         successTriggered = false;
-        currentAngle = 0f;
-        rectTransform.localEulerAngles = Vector3.zero;
+        //currentAngle = 0f;
+        //rectTransform.localEulerAngles = Vector3.zero;
     }
 
     public float GetCurrentAngle() => currentAngle;

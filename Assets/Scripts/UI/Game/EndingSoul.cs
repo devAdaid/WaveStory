@@ -29,7 +29,6 @@ public class EndingSoul : MonoBehaviour
 
         await Appear(targetX);
         await WaitForSuccessAsync();
-        await Disappear();
     }
 
     public void SetSprite(Sprite sprite)
@@ -58,19 +57,31 @@ public class EndingSoul : MonoBehaviour
     {
         if (isAnimating) return;
 
-        float offScreenX = CalculateOffScreenX();
+        float offScreenX = CalculateOffScreenRightX();
         await AnimateAsync(offScreenX, targetX, 0f, 1f);
     }
 
     /// <summary>
     /// 현재 위치에서 화면 오른쪽 끝으로 슬라이드 아웃 애니메이션
     /// </summary>
-    public async Awaitable Disappear()
+    public async Awaitable DisappearRight()
     {
         if (isAnimating) return;
 
         float currentX = rectTransform.anchoredPosition.x;
-        float offScreenX = CalculateOffScreenX();
+        float offScreenX = CalculateOffScreenRightX();
+        await AnimateAsync(currentX, offScreenX, 1f, 0f);
+    }
+
+    /// <summary>
+    /// 현재 위치에서 화면 왼쪽 끝으로 슬라이드 아웃 애니메이션
+    /// </summary>
+    public async Awaitable DisappearLeft()
+    {
+        if (isAnimating) return;
+
+        float currentX = rectTransform.anchoredPosition.x;
+        float offScreenX = CalculateOffScreenLeftX();
         await AnimateAsync(currentX, offScreenX, 1f, 0f);
     }
 
@@ -117,9 +128,9 @@ public class EndingSoul : MonoBehaviour
     }
 
     /// <summary>
-    /// 이미지가 완전히 화면 밖으로 나가는 X 좌표 계산 (앵커/피벗 무관)
+    /// 이미지가 완전히 화면 오른쪽 밖으로 나가는 X 좌표 계산 (앵커/피벗 무관)
     /// </summary>
-    private float CalculateOffScreenX()
+    private float CalculateOffScreenRightX()
     {
         // Canvas의 월드 좌표 모서리
         Vector3[] canvasCorners = new Vector3[4];
@@ -135,6 +146,33 @@ public class EndingSoul : MonoBehaviour
         // 이미지의 왼쪽 끝이 화면 오른쪽 끝에 딱 붙는 위치
         float currentX = rectTransform.anchoredPosition.x;
         float distanceToEdge = canvasRightWorld - myLeftWorld;
+
+        // Canvas 스케일 고려
+        float canvasScale = canvasRect.lossyScale.x;
+        float offsetNeeded = distanceToEdge / canvasScale;
+
+        return currentX + offsetNeeded;
+    }
+
+    /// <summary>
+    /// 이미지가 완전히 화면 왼쪽 밖으로 나가는 X 좌표 계산 (앵커/피벗 무관)
+    /// </summary>
+    private float CalculateOffScreenLeftX()
+    {
+        // Canvas의 월드 좌표 모서리
+        Vector3[] canvasCorners = new Vector3[4];
+        canvasRect.GetWorldCorners(canvasCorners);
+        float canvasLeftWorld = canvasCorners[0].x;
+
+        // 이미지의 월드 좌표 모서리
+        Vector3[] myCorners = new Vector3[4];
+        rectTransform.GetWorldCorners(myCorners);
+        float myRightWorld = myCorners[2].x;
+
+        // 현재 위치에서 얼마나 더 이동해야 화면 밖인지 계산
+        // 이미지의 오른쪽 끝이 화면 왼쪽 끝에 딱 붙는 위치
+        float currentX = rectTransform.anchoredPosition.x;
+        float distanceToEdge = canvasLeftWorld - myRightWorld;
 
         // Canvas 스케일 고려
         float canvasScale = canvasRect.lossyScale.x;

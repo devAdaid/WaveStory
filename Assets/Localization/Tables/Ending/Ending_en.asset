@@ -31,11 +31,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5807212859392
-    m_Localized: Wave to bid farewell to the spirits who have found peace.
+    m_Localized: Wave to bid farewell to the spirits.
     m_Metadata:
       m_Items: []
   - m_Id: 6087593693184
-    m_Localized: Use drag or left/right arrow keysRetry
+    m_Localized: Use drag or left/right arrow keys
     m_Metadata:
       m_Items: []
   references:
