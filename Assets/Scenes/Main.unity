@@ -4920,7 +4920,7 @@ MonoBehaviour:
     Type: 0
     Id: 
   button: {fileID: 1046257893}
-  targetRoomData: {fileID: 11400000, guid: 508be1e373ebd634aac1787420c8e47f, type: 2}
+  targetRoomData: {fileID: 11400000, guid: 9d5a63a17e2d18a4698f7a9c34d5675f, type: 2}
   myNotInteractableMessage:
     m_TableReference:
       m_TableCollectionName: 
@@ -8362,6 +8362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WordInventoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2673486210519283752, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5190932747941127163, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8476,7 +8480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211588999903356349, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

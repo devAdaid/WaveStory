@@ -24,9 +24,7 @@ MonoBehaviour:
   Floor: 2
   RealSprite: {fileID: 21300000, guid: 930702236f8c8044893a99d3a6ac938c, type: 3}
   SoulSprite: {fileID: 21300000, guid: e687637e198ad9d498c850d67651940e, type: 3}
-  Souls:
-  - {fileID: 11400000, guid: 0c3766a4e0e266549b10a22543eefaef, type: 2}
-  - {fileID: 11400000, guid: 8b8eb682737cb144c8705416cfb60abb, type: 2}
+  Souls: []
   references:
     version: 2
     RefIds: []
