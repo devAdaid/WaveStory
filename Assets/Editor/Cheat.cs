@@ -46,5 +46,42 @@ public static class Cheat
         }
         GM.I.UIHolder.AlarmUI.ShowAlarm("¸ðµç ¿µÈ¥ Å¬¸®¾î Ä¡Æ® ¿Ï·á");
     }
+
+    [MenuItem("Cheat/1Ãþ Å¬¸®¾î")]
+    private static void ClearFloor1() => ClearFloor(1);
+
+    [MenuItem("Cheat/2Ãþ Å¬¸®¾î")]
+    private static void ClearFloor2() => ClearFloor(2);
+
+    [MenuItem("Cheat/3Ãþ Å¬¸®¾î")]
+    private static void ClearFloor3() => ClearFloor(3);
+
+    [MenuItem("Cheat/4Ãþ Å¬¸®¾î")]
+    private static void ClearFloor4() => ClearFloor(4);
+
+
+    private static void ClearFloor(int maxFloor)
+    {
+        for (int floor = 1; floor <= maxFloor; floor++)
+        {
+            foreach (var room in StaticDataHolder.I.GetRoomsInFloor(floor))
+            {
+                foreach (var soul in room.Souls)
+                {
+                    GM.I.Unlock.ClearSoul(soul.Id);
+                }
+            }
+
+            foreach (var clue in StaticDataHolder.I.ClueDataList)
+            {
+                if (clue.Floor == floor)
+                {
+                    GM.I.Unlock.UnlockClue(clue.Id);
+                }
+            }
+        }
+
+        GM.I.UIHolder.AlarmUI.ShowAlarm($"{maxFloor}Ãþ Ä¡Æ® ¿Ï·á");
+    }
 }
 #endif

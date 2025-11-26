@@ -133,7 +133,7 @@ public class DialoguePlayer : IDialogueRuntime
     }
 
     /// <summary>
-    /// 다음 선택지(ChoiceCommand)가 나올 때까지 대화를 스킵합니다.
+    /// 다음 선택지까지 스킵하며 마지막 Text는 표시합니다.
     /// </summary>
     public void SkipToNextChoice()
     {
@@ -145,30 +145,45 @@ public class DialoguePlayer : IDialogueRuntime
 
         isSkipping = true;
 
-        // 현재 위치부터 다음 선택지 찾기
-        while (currentCommandIndex < commands.Count && isSkipping)
-        {
-            IDialogueCommand cmd = commands[currentCommandIndex];
+        // 선택지 직전까지 스킵
+        IDialogueCommand lastTextCommand = null;
+        int targetIndex = currentCommandIndex;
 
-            // 선택지를 만나면 스킵 중단
+        for (int i = currentCommandIndex; i < commands.Count; i++)
+        {
+            IDialogueCommand cmd = commands[i];
+
+            // 선택지를 찾으면 중단
             if (cmd is ChoiceCommand)
             {
-                isSkipping = false;
-                ExecuteNextCommand();
-                return;
+                targetIndex = i;
+                break;
             }
 
-            currentCommandIndex++;
+            // Text가 아닌 커맨드는 실행 (Flag, Clear, Speaker, Bg, Char 등)
+            if (!(cmd is TextCommand))
+            {
+                cmd.Execute(this);
+            }
+            else
+            {
+                // 마지막 Text 커맨드 기억
+                lastTextCommand = cmd;
+            }
         }
 
-        // 선택지를 못 찾고 끝까지 간 경우
+        // 인덱스 이동
+        currentCommandIndex = targetIndex;
         isSkipping = false;
 
-        if (currentCommandIndex >= commands.Count)
+        // 선택지 직전 텍스트가 있으면 표시
+        if (lastTextCommand != null && currentCommandIndex < commands.Count)
         {
-            Debug.Log("[DialoguePlayer] No choice found - reached end of dialogue");
-            EndDialogue();
+            lastTextCommand.Execute(this);
         }
+
+        // 다음 커맨드 실행 (선택지 또는 대화 종료)
+        ExecuteNextCommand();
     }
 
     private void ExecuteNextCommand()

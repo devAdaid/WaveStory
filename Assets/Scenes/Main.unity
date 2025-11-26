@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 3406b8c9a61a2d04aaefd8c888b769f4, type: 2}
   bgImage: {fileID: 169971543}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 15cb97ac1b5ed584abd7cd055cad7b82, type: 3}
 --- !u!1 &115542097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 1897e67e1547a004392b45634fe2afa6, type: 2}
   bgImage: {fileID: 276964661}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 23be0508b62ab1340a62a2056f5fc775, type: 3}
 --- !u!1 &298966176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,10 +1272,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 677407973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 70.835, y: -16.67}
+  m_SizeDelta: {x: 101.67, y: 23.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &298966178
 CanvasRenderer:
@@ -1333,7 +1333,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 20
-  m_fontSizeBase: 36
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 8
@@ -3338,7 +3338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: eb50f8c4dc8f9e44699bfadc67dda181, type: 2}
   bgImage: {fileID: 742370256}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 15cb97ac1b5ed584abd7cd055cad7b82, type: 3}
 --- !u!1 &613734206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,7 +3705,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 36}
+  m_SizeDelta: {x: 141.67, y: 33.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677407974
 MonoBehaviour:
@@ -3776,7 +3776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
-  m_VerticalFit: 0
+  m_VerticalFit: 2
 --- !u!114 &677407977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,7 +4503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &773222742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6746,7 +6746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 2aabc33b0235a524bb4b2de5d373a8dd, type: 2}
   bgImage: {fileID: 1916174063}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 15cb97ac1b5ed584abd7cd055cad7b82, type: 3}
 --- !u!1 &1297500938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,7 +6862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 18d8d3f8840ff8441a18099e3fe801f6, type: 2}
   bgImage: {fileID: 1757793147}
-  bgmClip: {fileID: 8300000, guid: 15cb97ac1b5ed584abd7cd055cad7b82, type: 3}
+  bgmClip: {fileID: 8300000, guid: 23be0508b62ab1340a62a2056f5fc775, type: 3}
 --- !u!1 &1334355745
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,7 +6917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: c26ee6a424e8821479684588d3de6975, type: 2}
   bgImage: {fileID: 1641157803}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 23be0508b62ab1340a62a2056f5fc775, type: 3}
 --- !u!1 &1358294622
 GameObject:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
+    Type: 6
     Id: 2
   button: {fileID: 1869145964}
   targetRoomData: {fileID: 11400000, guid: 3406b8c9a61a2d04aaefd8c888b769f4, type: 2}
@@ -10489,7 +10489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 3237beb3e86b4f24b84641d3ef28aaa6, type: 2}
   bgImage: {fileID: 2112115941}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 23be0508b62ab1340a62a2056f5fc775, type: 3}
 --- !u!1 &2066054814
 GameObject:
   m_ObjectHideFlags: 0
@@ -10731,7 +10731,7 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
+    Type: 6
     Id: 3
   button: {fileID: 2083348068}
   targetRoomData: {fileID: 11400000, guid: 18d8d3f8840ff8441a18099e3fe801f6, type: 2}
@@ -12162,7 +12162,7 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
+    Type: 6
     Id: 1
   button: {fileID: 1090603270512743409}
   targetRoomData: {fileID: 11400000, guid: 9d5a63a17e2d18a4698f7a9c34d5675f, type: 2}
@@ -12665,7 +12665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RoomData>k__BackingField: {fileID: 11400000, guid: 19ca051153cd8fe449efbef7e8c45786, type: 2}
   bgImage: {fileID: 8770007665988145408}
-  bgmClip: {fileID: 8300000, guid: e47de7acf45bd644fb4c46240062a14b, type: 3}
+  bgmClip: {fileID: 8300000, guid: 15cb97ac1b5ed584abd7cd055cad7b82, type: 3}
 --- !u!222 &5477564510066763744
 CanvasRenderer:
   m_ObjectHideFlags: 0

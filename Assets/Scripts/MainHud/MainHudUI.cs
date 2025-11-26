@@ -93,6 +93,6 @@ public class MainHudUI : UIBase
 
     private void ToggleSoulMode()
     {
-        presenter.SetSoulMode(!isSoulMode);
+        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => presenter.SetSoulMode(!isSoulMode));
     }
 }

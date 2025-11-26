@@ -86,4 +86,17 @@ public class StaticDataHolder : PersistentSingleton<StaticDataHolder>, IMonoSing
 
         return new List<SoulData>();
     }
+
+    public List<RoomData> GetRoomsInFloor(int floor)
+    {
+        var result = new List<RoomData>();
+        foreach (var room in roomMap.Values)
+        {
+            if (room.Floor == floor)
+            {
+                result.Add(room);
+            }
+        }
+        return result;
+    }
 }

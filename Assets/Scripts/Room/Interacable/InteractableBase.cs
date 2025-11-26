@@ -102,6 +102,9 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
 
     public void OnDisable()
     {
-        GM.I.UIHolder.TooltilUI.HideTooltip(this);
+        if (GM.IsInitialized)
+        {
+            GM.I.UIHolder.TooltilUI.HideTooltip(this);
+        }
     }
 }
