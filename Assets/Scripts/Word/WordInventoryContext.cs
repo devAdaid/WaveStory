@@ -3,23 +3,39 @@ using UnityEngine.Events;
 
 public class WordInventoryContext
 {
-    public readonly List<string> WordIds = new();
+    private readonly Dictionary<int, List<string>> wordsByFloor;
     public UnityEvent<string> OnWordAdded = new();
 
-    public WordInventoryContext(List<string> wordIds)
+    public WordInventoryContext(Dictionary<int, List<string>> wordsByFloor)
     {
-        WordIds = wordIds;
+        this.wordsByFloor = wordsByFloor;
     }
 
-    public bool Add(string wordId)
+    public bool Add(string wordId, int floor)
     {
-        if (WordIds.Contains(wordId))
+        if (!wordsByFloor.TryGetValue(floor, out var wordIds))
+        {
+            wordIds = new List<string>();
+            wordsByFloor.Add(floor, wordIds);
+        }
+
+        if (wordIds.Contains(wordId))
         {
             return false;
         }
 
-        WordIds.Add(wordId);
+        wordIds.Add(wordId);
         OnWordAdded.Invoke(wordId);
         return true;
+    }
+
+    public List<string> GetWords(int floor)
+    {
+        if (wordsByFloor.TryGetValue(floor, out var words))
+        {
+            return words;
+        }
+
+        return new List<string>();
     }
 }

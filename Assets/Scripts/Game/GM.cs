@@ -20,7 +20,7 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
     {
         InputWave = new WaveContext(WaveParameter.Min);
         Room = new RoomContext(defaultRoomData.Id);
-        WordInventory = new WordInventoryContext(new List<string>());
+        WordInventory = new WordInventoryContext(new ());
         SoulMode = new SoulModeContext(false);
         Unlock = new UnlockContext(new HashSet<string>(), new HashSet<string>(), new HashSet<string>(), new HashSet<string>());
 

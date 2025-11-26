@@ -135,7 +135,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
         foreach (var wordData in clueData.UnlockWords)
         {
-            presenter.AddWord(wordData.Id);
+            presenter.AddWord(wordData.Id, clueData.Floor);
         }
         presenter.UnlockClue(clueData.Id);
 

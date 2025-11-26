@@ -27,7 +27,7 @@ public class GameUIHolder : MonoBehaviour
     {
         MainHudUI.SetPresenter(new MainHudPresenter(context.SoulMode, MainHudUI));
         WaveControlUI.SetPresenter(new WaveControlPresenter(context.InputWave, context.Room, context.Unlock, WaveControlUI));
-        WordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory, WordInventoryUI));
+        WordInventoryUI.SetPresenter(new WordInventoryPresenter(context.WordInventory, context.Unlock, WordInventoryUI));
         WordInputUI.SetPresenter(new WordInputPresenter(context.Room, context.InputWave, context.Unlock, WordInputUI));
         RoomUI.SetPresenter(new RoomPresenter(context.Room, context.SoulMode, context.Unlock, RoomUI));
         ClueUI.SetPresenter(new CluePresenter(context.WordInventory, context.Unlock, ClueUI));

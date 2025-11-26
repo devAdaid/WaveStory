@@ -13,9 +13,9 @@ public class CluePresenter : IPresenter
         unlock.OnClueChanged.AddListener(ui.UpdateUI);
     }
 
-    public void AddWord(string wordId)
+    public void AddWord(string wordId, int floor)
     {
-        wordInventory.Add(wordId);
+        wordInventory.Add(wordId, floor);
     }
 
     public void UnlockClue(string clueId)

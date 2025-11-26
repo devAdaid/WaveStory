@@ -13,6 +13,8 @@ public class UnlockContext
     private readonly HashSet<string> clearedSouls = new HashSet<string>();
     private readonly HashSet<string> unlockedClues = new HashSet<string>();
 
+    private static int MAX_FLOOR = 5;
+
     public UnlockContext(HashSet<string> flagIds, HashSet<string> unlockedSouls, HashSet<string> clearedSouls, HashSet<string> unlockedClues)
     {
         this.flagIds = flagIds;
@@ -101,5 +103,27 @@ public class UnlockContext
     public bool IsClearedSoul(string soulId)
     {
         return clearedSouls.Contains(soulId);
+    }
+
+    public int GetCurrentProgressFloor()
+    {
+        for (int floor = 1; floor <= MAX_FLOOR; floor++)
+        {
+            var soulsInFloor = StaticDataHolder.I.GetSoulsInFloor(floor);
+            foreach(var soul in soulsInFloor)
+            {
+                if (soul.IsStaticSoul)
+                {
+                    continue;
+                }
+
+                if (!clearedSouls.Contains(soul.Id))
+                {
+                    return floor;
+                }
+            }
+        }
+
+        return MAX_FLOOR;
     }
 }

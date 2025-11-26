@@ -33,7 +33,7 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
         // 템플릿은 비활성화
         buttonTemplate.gameObject.SetActive(false);
 
-        Apply(presenter.GetWordIds());
+        Apply(presenter.GetCurrentFloorWordIds());
     }
 
     public void SetCallback(Action<string> wordButtonCallback)

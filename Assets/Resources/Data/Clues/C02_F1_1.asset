@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: C02_F1_1
   m_EditorClassIdentifier: 
   Order: 2
+  Floor: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:c214e71754933fb47b8803c661792045

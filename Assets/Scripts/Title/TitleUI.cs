@@ -105,15 +105,16 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     {
         inputContext = new WaveContext(WaveParameter.Min);
         previewContext = new WaveContext(answerParameter);
-        wordInventoryContext = new WordInventoryContext(new List<string>());
+        var unlockContext = new UnlockContext(new(), new(), new(), new());
+        wordInventoryContext = new WordInventoryContext(new ());
 
-        wordInventoryContext.Add("Title_Wave");
-        wordInventoryContext.Add("Title_Last");
+        wordInventoryContext.Add("Title_Wave", 1);
+        wordInventoryContext.Add("Title_Last", 1);
 
         waveControlUI.SetPresenter(new WavePresenter_Title(inputContext, waveControlUI));
         previewRenderer.SetPresenter(new WavePresenter_Title(previewContext, previewRenderer));
         inputRenderer.SetPresenter(new WavePresenter_Title(inputContext, inputRenderer));
-        wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext, wordInventoryUI));
+        wordInventoryUI.SetPresenter(new WordInventoryPresenter(wordInventoryContext, unlockContext, wordInventoryUI));
 
         waveControlUI.Initialize();
         previewRenderer.Initialize();
