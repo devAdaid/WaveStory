@@ -7,6 +7,7 @@ public class ClueData : ScriptableObject
 {
     public string Id => this.name;
     public int Order;
+    public int Floor;
     public LocalizedString Title;
 
     public LocalizedString Text;
