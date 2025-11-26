@@ -18,4 +18,9 @@ public class RoomMoveInteractable : InteractableBase
         AudioManager.I.PlaySfxOneShot("Footstep");
         GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => GM.I.UIHolder.RoomUI.ChangeRoom(targetRoomData));
     }
+
+    protected override string GetTooltipText()
+    {
+        return targetRoomData.DisplayName.GetLocalizedStringAsync().WaitForCompletion();
+    }
 }

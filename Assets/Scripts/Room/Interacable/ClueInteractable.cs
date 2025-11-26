@@ -14,4 +14,9 @@ public class ClueInteractable : InteractableBase
         AudioManager.I.PlaySfxOneShot("Paper");
         GM.I.UIHolder.ClueUI.OpenClue(clueData);
     }
+
+    protected override string GetTooltipText()
+    {
+        return clueData.Title.GetLocalizedStringAsync().WaitForCompletion();
+    }
 }

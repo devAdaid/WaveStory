@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
@@ -11,7 +13,7 @@ public enum InteractableType
 }
 
 [RequireComponent(typeof(Button))]
-public abstract class InteractableBase : MonoBehaviour
+public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField]
@@ -24,6 +26,7 @@ public abstract class InteractableBase : MonoBehaviour
     private Button button;
 
     protected abstract InteractableType interactableType { get; }
+    protected abstract string GetTooltipText();
     protected virtual LocalizedString notInteractableMessage => new LocalizedString("Message", "Invalid");
 
     private bool isInteractable;
@@ -85,4 +88,15 @@ public abstract class InteractableBase : MonoBehaviour
 
 
     protected virtual void ApplyUnlock(UnlockState context) { }
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        GM.I.UIHolder.TooltilUI.ShowTooltip(GetTooltipText(), this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        GM.I.UIHolder.TooltilUI.HideTooltip(this);
+    }
 }

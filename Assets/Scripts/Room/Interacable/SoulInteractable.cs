@@ -45,4 +45,9 @@ public class SoulInteractable : InteractableBase
     {
         return base.IsInteractable(isSoulMode, context) && soulState != SoulState.Locked;
     }
+
+    protected override string GetTooltipText()
+    {
+        return soulState == SoulState.Locked ? "???" : SoulData.GetLocalizedDisplayName();
+    }
 }

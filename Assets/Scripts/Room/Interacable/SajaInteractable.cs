@@ -29,4 +29,9 @@ public class SajaInteractable : InteractableBase
     {
         this.state = state;
     }
+
+    protected override string GetTooltipText()
+    {
+        return "Àú½Â»çÀÚ";
+    }
 }

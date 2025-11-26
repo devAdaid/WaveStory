@@ -17,6 +17,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public DialogueUI DialogueUI;
     [field: SerializeField]
+    public TooltipUI TooltilUI;
+    [field: SerializeField]
     public DimmedUI DimmedUI;
     [field: SerializeField]
     public AlarmUI AlarmUI;
