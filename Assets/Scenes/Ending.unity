@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 279277286}
   - component: {fileID: 279277288}
   - component: {fileID: 279277287}
+  - component: {fileID: 279277289}
   m_Layer: 5
   m_Name: EndingSoul
   m_TagString: Untagged
@@ -226,6 +227,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279277285}
   m_CullTransparentMesh: 1
+--- !u!114 &279277289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279277285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e598f659c806f241af7935f8f3af48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndingSoul
+  duration: 3
 --- !u!1 &410069634
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,10 +555,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.007276507
     y: 0
-    width: 1
-    height: 0.9989919
+    width: 0.984985
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
