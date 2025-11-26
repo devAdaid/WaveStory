@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Ending_ko-KR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: ko-KR
+  m_SharedData: {fileID: 11400000, guid: 97ec4982dbb56d74580f5dbbabb69f9b, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 11808804864
+    m_Localized: "\uAC1C\uBC1C adaid & gasbank 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 98601537536
+    m_Localized: "\uAC1C\uBC1C adaid & gasbank 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131099004928
+    m_Localized: "\uAC1C\uBC1C adaid & gasbank 3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5807212859392
+    m_Localized: "\uC190\uC744 \uD754\uB4E4\uC5B4 \uD55C\uC744 \uD47C \uC0AC\uC790\uB4E4\uC744
+      \uBC30\uC6C5\uD558\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6087593693184
+    m_Localized: "\uB4DC\uB798\uADF8 \uB610\uB294 \uC88C\uC6B0 \uBC29\uD5A5\uD0A4
+      \uC0AC\uC6A9"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

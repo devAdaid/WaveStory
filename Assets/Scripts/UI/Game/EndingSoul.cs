@@ -5,10 +5,12 @@ using UnityEngine.UI;
 public class EndingSoul : MonoBehaviour
 {
     [SerializeField] private float duration = 0.5f;
+    [SerializeField] private WaveHand waveHand;
 
     private RectTransform rectTransform;
     private Image image;
     private bool isAnimating = false;
+    private bool successReceived = false;
     private Canvas rootCanvas;
     private RectTransform canvasRect;
 
@@ -18,12 +20,34 @@ public class EndingSoul : MonoBehaviour
         image = GetComponent<Image>();
         rootCanvas = GetComponentInParent<Canvas>().rootCanvas;
         canvasRect = rootCanvas.GetComponent<RectTransform>();
+        waveHand.OnSuccess.AddListener(OnWaveHandSuccess);
     }
 
-    private async void Start()
+    public async Awaitable StartElement(float targetX)
     {
-        await Appear(100);
+        successReceived = false;
+
+        await Appear(targetX);
+        await WaitForSuccessAsync();
         await Disappear();
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        image.sprite = sprite;
+    }
+
+    private void OnWaveHandSuccess()
+    {
+        successReceived = true;
+    }
+
+    private async Awaitable WaitForSuccessAsync()
+    {
+        while (!successReceived)
+        {
+            await Awaitable.NextFrameAsync();
+        }
     }
 
     /// <summary>
