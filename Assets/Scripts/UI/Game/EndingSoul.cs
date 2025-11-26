@@ -20,15 +20,21 @@ public class EndingSoul : MonoBehaviour
         image = GetComponent<Image>();
         rootCanvas = GetComponentInParent<Canvas>().rootCanvas;
         canvasRect = rootCanvas.GetComponent<RectTransform>();
+        waveHand.OnSuccess.AddListener(OnWaveHandSuccess);
     }
 
-    private async void Start()
+    public async Awaitable StartElement(float targetX)
     {
-        waveHand.OnSuccess.AddListener(OnWaveHandSuccess);
+        successReceived = false;
 
-        await Appear(100);
+        await Appear(targetX);
         await WaitForSuccessAsync();
         await Disappear();
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        image.sprite = sprite;
     }
 
     private void OnWaveHandSuccess()

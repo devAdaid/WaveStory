@@ -22,6 +22,12 @@ MonoBehaviour:
     - Locale-ko-KR
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12f569d1e672c9b458e9527cfdf94d91
+    m_Address: Ending_ko-KR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8db75d787f09849a4b2396a5cfbce4
     m_Address: Hearing_ko-KR
     m_ReadOnly: 1
