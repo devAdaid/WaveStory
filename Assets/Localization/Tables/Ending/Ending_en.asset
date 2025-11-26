@@ -30,6 +30,14 @@ MonoBehaviour:
     m_Localized: Development adaid & gasbank 3
     m_Metadata:
       m_Items: []
+  - m_Id: 5807212859392
+    m_Localized: Wave to bid farewell to the spirits who have found peace.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6087593693184
+    m_Localized: Use drag or left/right arrow keysRetry
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -30,6 +30,16 @@ MonoBehaviour:
     m_Localized: "\uAC1C\uBC1C adaid & gasbank 3"
     m_Metadata:
       m_Items: []
+  - m_Id: 5807212859392
+    m_Localized: "\uC190\uC744 \uD754\uB4E4\uC5B4 \uD55C\uC744 \uD47C \uC0AC\uC790\uB4E4\uC744
+      \uBC30\uC6C5\uD558\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6087593693184
+    m_Localized: "\uB4DC\uB798\uADF8 \uB610\uB294 \uC88C\uC6B0 \uBC29\uD5A5\uD0A4
+      \uC0AC\uC6A9"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
