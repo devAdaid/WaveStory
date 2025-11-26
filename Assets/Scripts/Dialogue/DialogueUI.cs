@@ -1,5 +1,5 @@
 using RedBlueGames.Tools.TextTyper;
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,11 +27,16 @@ public class DialogueUI : UIBase
     private Image fullscreenImage;
     [SerializeField]
     private Button clueButton;
+    [SerializeField]
+    private RectTransform shakeTarget; // 흔들 대상 (dialogueWindow 또는 Canvas 전체)
 
     private DialogueCommandFactory commandFactory;
     private DialoguePlayer player;
 
     private bool isWatingChoice;
+
+    private Vector3 originalPosition;
+    private Coroutine shakeCoroutine;
 
     protected override void InitializeInternal()
     {
@@ -46,6 +51,12 @@ public class DialogueUI : UIBase
         choiceRoot.SetActive(false);
         bgImage.gameObject.SetActive(false);
         HidePortrait();
+
+        // 원본 위치 저장
+        if (shakeTarget != null)
+        {
+            originalPosition = shakeTarget.localPosition;
+        }
     }
 
     private void HandleCharacterPrinted(string printedCharacter)
@@ -141,7 +152,7 @@ public class DialogueUI : UIBase
         speakerNameText.text = name;
     }
 
-    public void ShowChoices(List<string> choices, Action<int> onSelected)
+    public void ShowChoices(List<string> choices, System.Action<int> onSelected)
     {
         choiceRoot.SetActive(true);
 
@@ -205,7 +216,6 @@ public class DialogueUI : UIBase
     {
         if (isWatingChoice)
         {
-            Debug.Log("[DialogueUI] Already at a choice");
             return;
         }
 
@@ -216,5 +226,43 @@ public class DialogueUI : UIBase
         }
 
         player.SkipToNextChoice();
+    }
+
+    public void ShakeScreen(float duration, float intensity)
+    {
+        if (shakeTarget == null)
+        {
+            Debug.LogWarning("[DialogueUI] Shake target is not assigned!");
+            return;
+        }
+
+        // 이미 흔들리는 중이면 중단하고 새로 시작
+        if (shakeCoroutine != null)
+        {
+            StopCoroutine(shakeCoroutine);
+        }
+
+        shakeCoroutine = StartCoroutine(ShakeCoroutine(duration, intensity));
+    }
+
+    private IEnumerator ShakeCoroutine(float duration, float intensity)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            // 랜덤 오프셋 생성
+            float offsetX = Random.Range(-1f, 1f) * intensity;
+            float offsetY = Random.Range(-1f, 1f) * intensity;
+
+            shakeTarget.localPosition = originalPosition + new Vector3(offsetX, offsetY, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // 원래 위치로 복귀
+        shakeTarget.localPosition = originalPosition;
+        shakeCoroutine = null;
     }
 }

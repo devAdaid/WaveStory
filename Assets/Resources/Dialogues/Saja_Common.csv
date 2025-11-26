@@ -5,6 +5,8 @@ Speaker,저승사자,,,,,
 Text,"자, 이제 뭘해야 할지 알지?",,,,,
 Choice,네.,yes,아니요.,no,아직도 안 알려주고 뭐하시는거에요?,haha
 Label,yes,,,,,
+Sfx,Shake,,,,,
+Shake,,,,,,
 Text,그럼 빨리 시작하지 뭐하는 거야!,,,,,
 End,,,,,,
 Label,haha,,,,,

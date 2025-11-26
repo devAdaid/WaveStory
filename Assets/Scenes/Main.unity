@@ -11142,15 +11142,15 @@ MonoBehaviour:
     Type: 0
     Id: Saja_Meet
   interactableCondition:
-    Type: 0
+    Type: 1
     Id: Saja_Meet
   button: {fileID: 1753458722356578953}
   targetRoomData: {fileID: 11400000, guid: 508be1e373ebd634aac1787420c8e47f, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 241890512896
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

@@ -366,6 +366,62 @@ public class BgmCommand : DialogueCommandBase
     }
 }
 
+[DialogueCommand("Sfx")]
+public class SfxCommand : DialogueCommandBase
+{
+    private string clipName;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        clipName = parameters[0];
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.Audio.PlaySfxOneShot(clipName);
+    }
+}
+
+[DialogueCommand("Shake")]
+public class ShakeCommand : DialogueCommandBase
+{
+    private float duration;
+    private float intensity;
+
+    public override bool IsWaitingInput => false; // 흔들림 동안 대기하려면 true
+
+    public override void Initialize(string[] parameters)
+    {
+        // Param1: duration (초), Param2: intensity (강도)
+        // 기본값: 0.5초, 강도 0.3
+        duration = parameters.Length > 0 && !string.IsNullOrEmpty(parameters[0])
+            ? float.Parse(parameters[0])
+            : 0.3f;
+
+        intensity = parameters.Length > 1 && !string.IsNullOrEmpty(parameters[1])
+            ? float.Parse(parameters[1])
+            : 5f;
+
+        if (duration <= 0)
+        {
+            Debug.LogWarning("[ShakeCommand] Duration must be positive. Using default 0.5s");
+            duration = 0.3f;
+        }
+
+        if (intensity <= 0)
+        {
+            Debug.LogWarning("[ShakeCommand] Intensity must be positive. Using default 0.3");
+            intensity = 5f;
+        }
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.ShakeScreen(duration, intensity);
+    }
+}
+
 [DialogueCommand("End")]
 public class EndCommand : DialogueCommandBase
 {
