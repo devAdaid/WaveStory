@@ -25,6 +25,8 @@ public class DialogueUI : UIBase
     private Image bgImage;
     [SerializeField]
     private Image fullscreenImage;
+    [SerializeField]
+    private Button clueButton;
 
     private DialogueCommandFactory commandFactory;
     private DialoguePlayer player;
@@ -37,6 +39,7 @@ public class DialogueUI : UIBase
         player = new DialoguePlayer(this, commandFactory, GM.I.Unlock);
 
         advanceButton.onClick.AddListener(OnAdvance);
+        clueButton.onClick.AddListener(GM.I.UIHolder.ClueUI.Show);
 
         dialogueTextTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
 
@@ -57,9 +60,19 @@ public class DialogueUI : UIBase
 
     private void Update()
     {
-        if (IsActive && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+        if (!IsActive)
+        {
+            return;
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
             OnAdvance();
+        }
+
+        if (isWatingChoice && Input.GetKeyDown(KeyCode.C))
+        {
+            GM.I.UIHolder.ClueUI.Show();
         }
     }
 
