@@ -32,7 +32,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 770518376996864
-    m_Key: UI_Main_SoulMode
+    m_Key: UI_Main_SoulMode_Real
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2492242221355008
+    m_Key: UI_Main_SoulMode_Soul
     m_Metadata:
       m_Items: []
   - m_Id: 2116142421426176

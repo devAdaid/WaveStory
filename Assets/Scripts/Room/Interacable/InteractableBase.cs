@@ -29,7 +29,7 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
     protected abstract string GetTooltipText();
     protected virtual LocalizedString notInteractableMessage => new LocalizedString("Message", "Invalid");
 
-    private bool isInteractable;
+    private bool isInteractable = true;
 
     private void Reset()
     {
@@ -96,6 +96,11 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        GM.I.UIHolder.TooltilUI.HideTooltip(this);
+    }
+
+    public void OnDisable()
     {
         GM.I.UIHolder.TooltilUI.HideTooltip(this);
     }

@@ -35,6 +35,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
     private LocalizeStringEvent titleStringEvent;
     private LocalizeStringEvent descriptionStringEvent;
     private bool needsOverflowCheck = false;
+    private bool isShowingAnim = false;
 
     public void SetPresenter(CluePresenter presenter)
     {
@@ -61,6 +62,14 @@ public class ClueUI : UIBase, IView<CluePresenter>
         needsOverflowCheck = true;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C) && IsActive && !isShowingAnim)
+        {
+            Hide();
+        }
+    }
+
     private void LateUpdate()
     {
         if (needsOverflowCheck)
@@ -78,6 +87,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
     private IEnumerator ShowAnim()
     {
+        isShowingAnim = true;
         GM.I.UIHolder.InputBlocker.SetActive(true);
         contentObject.SetActive(false);
 
@@ -87,6 +97,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
         contentObject.SetActive(true);
         GM.I.UIHolder.InputBlocker.SetActive(false);
+        isShowingAnim = false;
     }
 
     public override IEnumerator BeforeHide()

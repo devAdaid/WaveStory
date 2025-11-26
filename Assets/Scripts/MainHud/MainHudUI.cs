@@ -1,4 +1,7 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class MainHudUI : UIBase
@@ -18,8 +21,18 @@ public class MainHudUI : UIBase
     [SerializeField]
     private Sprite soulModeSprite;
 
+    [SerializeField]
+    private TMP_Text soulModeText;
+
+    [SerializeField]
+    private LocalizedString realModeStr;
+
+    [SerializeField]
+    private LocalizedString soulModeStr;
+
     private MainHudPresenter presenter;
     private bool isSoulMode;
+    private LocalizeStringEvent soulModeTextEvent;
 
     public void SetPresenter(MainHudPresenter presenter)
     {
@@ -31,6 +44,7 @@ public class MainHudUI : UIBase
     {
         clueButton.onClick.AddListener(OpenClueUI);
         soulModeButton.onClick.AddListener(ToggleSoulMode);
+        TextHelper.SetLocalizedText(soulModeText, realModeStr, ref soulModeTextEvent);
     }
 
     private void Update()
@@ -64,6 +78,12 @@ public class MainHudUI : UIBase
     {
         soulModeButtonImg.sprite = isSoulMode ? soulModeSprite : realModeSprite;
         this.isSoulMode = isSoulMode;
+
+        if (soulModeTextEvent)
+        {
+            soulModeTextEvent.StringReference = isSoulMode ? soulModeStr : realModeStr;
+            soulModeTextEvent.RefreshString();
+        }
     }
 
     private void OpenClueUI()
