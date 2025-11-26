@@ -97,4 +97,9 @@ public class UnlockContext
     {
         return unlockedSouls.Contains(soulId);
     }
+
+    public bool IsClearedSoul(string soulId)
+    {
+        return clearedSouls.Contains(soulId);
+    }
 }
