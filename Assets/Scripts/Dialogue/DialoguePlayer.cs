@@ -8,6 +8,7 @@ public class DialoguePlayer : IDialogueRuntime
     public UnlockContext Unlock => unlock;
     public Dictionary<string, int> Labels => labels;
     public int CurrentLineIndex => currentCommandIndex;
+    public bool IsActive => this.isActive;
 
     private DialogueUI ui;
     private DialogueCommandFactory factory;
@@ -17,6 +18,7 @@ public class DialoguePlayer : IDialogueRuntime
     private Dictionary<string, int> labels = new Dictionary<string, int>();
     private int currentCommandIndex = 0;
     private bool isActive = false;
+    private bool isSkipping = false;
 
 
     public DialoguePlayer(DialogueUI ui, DialogueCommandFactory factory, UnlockContext unlock)
@@ -130,6 +132,45 @@ public class DialoguePlayer : IDialogueRuntime
         ExecuteNextCommand();
     }
 
+    /// <summary>
+    /// 다음 선택지(ChoiceCommand)가 나올 때까지 대화를 스킵합니다.
+    /// </summary>
+    public void SkipToNextChoice()
+    {
+        if (!isActive)
+        {
+            Debug.LogWarning("[DialoguePlayer] Cannot skip - dialogue is not active");
+            return;
+        }
+
+        isSkipping = true;
+
+        // 현재 위치부터 다음 선택지 찾기
+        while (currentCommandIndex < commands.Count && isSkipping)
+        {
+            IDialogueCommand cmd = commands[currentCommandIndex];
+
+            // 선택지를 만나면 스킵 중단
+            if (cmd is ChoiceCommand)
+            {
+                isSkipping = false;
+                ExecuteNextCommand();
+                return;
+            }
+
+            currentCommandIndex++;
+        }
+
+        // 선택지를 못 찾고 끝까지 간 경우
+        isSkipping = false;
+
+        if (currentCommandIndex >= commands.Count)
+        {
+            Debug.Log("[DialoguePlayer] No choice found - reached end of dialogue");
+            EndDialogue();
+        }
+    }
+
     private void ExecuteNextCommand()
     {
         if (currentCommandIndex >= commands.Count)
@@ -148,8 +189,8 @@ public class DialoguePlayer : IDialogueRuntime
             return;
         }
 
-        // Blocking이 아니면 즉시 다음 명령어 실행
-        if (!cmd.IsWaitingInput)
+        // 스킵 중이면 Blocking 커맨드도 무시하고 계속 진행
+        if (isSkipping || !cmd.IsWaitingInput)
             ExecuteNextCommand();
     }
 

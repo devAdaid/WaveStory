@@ -38,7 +38,7 @@ public class DialogueUI : UIBase
         commandFactory = new DialogueCommandFactory();
         player = new DialoguePlayer(this, commandFactory, GM.I.Unlock);
 
-        advanceButton.onClick.AddListener(OnAdvance);
+        advanceButton.onClick.AddListener(AdvanceDialogue);
         clueButton.onClick.AddListener(GM.I.UIHolder.ClueUI.Show);
 
         dialogueTextTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
@@ -67,16 +67,23 @@ public class DialogueUI : UIBase
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
-            OnAdvance();
+            AdvanceDialogue();
         }
 
+        // Ctrl 키를 누르고 있으면 스킵
+#if UNITY_EDITOR
+        if (player.IsActive && Input.GetKey(KeyCode.LeftControl))
+        {
+            SkipToNextChoice();
+        }
+#endif
         if (isWatingChoice && Input.GetKeyDown(KeyCode.C))
         {
             GM.I.UIHolder.ClueUI.Show();
         }
     }
 
-    private void OnAdvance()
+    private void AdvanceDialogue()
     {
         if (dialogueTextTyper.IsTyping)
         {
@@ -103,6 +110,11 @@ public class DialogueUI : UIBase
         ResetBeforePlay();
         player.LoadDialogue(dialogue);
         player.StartDialogue();
+    }
+
+    public void ForceEndDialogue()
+    {
+
     }
 
     public void OnEndDialogue()
@@ -187,5 +199,22 @@ public class DialogueUI : UIBase
     public void HidePortrait()
     {
         portraitImage.gameObject.SetActive(false);
+    }
+
+    public void SkipToNextChoice()
+    {
+        if (isWatingChoice)
+        {
+            Debug.Log("[DialogueUI] Already at a choice");
+            return;
+        }
+
+        // 타이핑 중이면 먼저 스킵
+        if (dialogueTextTyper.IsTyping)
+        {
+            dialogueTextTyper.Skip();
+        }
+
+        player.SkipToNextChoice();
     }
 }
