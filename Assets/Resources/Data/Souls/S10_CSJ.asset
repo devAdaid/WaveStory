@@ -28,8 +28,8 @@ MonoBehaviour:
     m_LocalVariables: []
   Word1: {fileID: 11400000, guid: dbb31b9dd690e1e40b06ceca0eaffbc8, type: 2}
   Word2: {fileID: 11400000, guid: 2b0d4855725d7ae46b68d315aeff06e1, type: 2}
-  LockedSprite: {fileID: 21300000, guid: 5878f3828cac5ea4dbe9e6a087d91a6d, type: 3}
-  UnlockedSprite: {fileID: 21300000, guid: a06cce4027f44d9438acef1a4b525250, type: 3}
+  LockedSprite: {fileID: 21300000, guid: 7368b2b5e48518c48b0e0ffdb3a20c9e, type: 3}
+  UnlockedSprite: {fileID: 21300000, guid: 6e03ebda787577146ada810cce9fc293, type: 3}
   DialogueTable:
     Dialogues:
     - Condition:

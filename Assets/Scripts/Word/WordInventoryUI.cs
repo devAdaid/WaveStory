@@ -55,8 +55,8 @@ public class WordInventoryUI : UIBase, IView<WordInventoryPresenter>
         // wordIds에 해당하는 button들을 Apply하고 활성화
         for (int i = 0; i < wordIds.Count; i++)
         {
-            buttonPool[i].Apply(wordIds[i], OnClickButton);
             buttonPool[i].gameObject.SetActive(true);
+            buttonPool[i].Apply(wordIds[i], OnClickButton);
         }
 
         // 나머지 버튼은 setactive false한다

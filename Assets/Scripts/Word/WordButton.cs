@@ -28,11 +28,13 @@ public class WordButton : MonoBehaviour
 
         if (StaticDataHolder.I.TryGetWord(wordId, out var wordData))
         {
-            if (localizeStringEvent != null)
+            if (!localizeStringEvent)
             {
-                Destroy(localizeStringEvent);
+                TextHelper.SetLocalizedText(labelText, wordData.DisplayText, ref localizeStringEvent);
             }
-            TextHelper.SetLocalizedText(labelText, wordData.DisplayText, ref localizeStringEvent);
+
+            localizeStringEvent.StringReference = wordData.DisplayText;
+            localizeStringEvent.RefreshString();
         }
     }
 
