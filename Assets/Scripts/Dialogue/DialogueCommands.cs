@@ -290,7 +290,7 @@ public class IfCommand : DialogueCommandBase
             return;
         }
 
-        bool flagValue = r.Unlock.HasFlag(flagName) || r.Unlock.IsUnlockedSoul(flagName);
+        bool flagValue = r.Unlock.HasFlag(flagName) || r.Unlock.IsClearedSoul(flagName);
         string targetLabel = flagValue ? trueLabelName : falseLabelName;
 
         if (string.IsNullOrEmpty(targetLabel))

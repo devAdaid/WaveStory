@@ -1,6 +1,4 @@
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEditor;
-using UnityEngine;
 
 #if UNITY_EDITOR
 public static class Cheat
@@ -78,6 +76,16 @@ public static class Cheat
                 {
                     GM.I.Unlock.UnlockClue(clue.Id);
                 }
+            }
+
+            if (floor == 1)
+            {
+                GM.I.Unlock.UnlockFlag("Saja_Meet");
+            }
+
+            if (floor == 2)
+            {
+                GM.I.Unlock.UnlockFlag("Saja_Corridor_2_Talk");
             }
         }
 

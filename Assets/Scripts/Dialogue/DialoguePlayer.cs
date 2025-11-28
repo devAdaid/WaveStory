@@ -85,7 +85,7 @@ public class DialoguePlayer : IDialogueRuntime
                 commands.Add(cmd);
         }
 
-        Debug.Log($"[DialoguePlayer] Loaded {commands.Count} commands and {labels.Count} labels");
+        //Debug.Log($"[DialoguePlayer] Loaded {commands.Count} commands and {labels.Count} labels");
     }
 
     // CSV 파싱 헬퍼 (큰따옴표 처리)
@@ -147,43 +147,57 @@ public class DialoguePlayer : IDialogueRuntime
 
         // 선택지 직전까지 스킵
         IDialogueCommand lastTextCommand = null;
-        int targetIndex = currentCommandIndex;
 
-        for (int i = currentCommandIndex; i < commands.Count; i++)
+        while (currentCommandIndex < commands.Count && isSkipping)
         {
-            IDialogueCommand cmd = commands[i];
+            IDialogueCommand cmd = commands[currentCommandIndex];
 
             // 선택지를 찾으면 중단
             if (cmd is ChoiceCommand)
             {
-                targetIndex = i;
-                break;
+                isSkipping = false;
+                ExecuteNextCommand();
+                return;
             }
 
-            // Text가 아닌 커맨드는 실행 (Flag, Clear, Speaker, Bg, Char 등)
-            if (!(cmd is TextCommand))
+            currentCommandIndex++;
+
+            // Text 커맨드만 스킵, 나머지는 모두 실행
+            if (cmd is TextCommand)
             {
-                cmd.Execute(this);
+                lastTextCommand = cmd;
             }
             else
             {
-                // 마지막 Text 커맨드 기억
-                lastTextCommand = cmd;
+                // Flag, Clear, Speaker, Bg, Char, Jump, JumpIf 등 모두 실행
+                cmd.Execute(this);
+
+                // Jump 계열 커맨드 실행 시 인덱스가 변경될 수 있으므로
+                // isActive 체크 (EndDialogue 호출 가능)
+                if (!isActive)
+                {
+                    isSkipping = false;
+                    return;
+                }
             }
         }
 
-        // 인덱스 이동
-        currentCommandIndex = targetIndex;
         isSkipping = false;
 
-        // 선택지 직전 텍스트가 있으면 표시
-        if (lastTextCommand != null && currentCommandIndex < commands.Count)
+        // 선택지를 못 찾고 끝까지 간 경우
+        if (currentCommandIndex >= commands.Count)
         {
-            lastTextCommand.Execute(this);
+            // 마지막 텍스트가 있으면 표시
+            if (lastTextCommand != null)
+            {
+                lastTextCommand.Execute(this);
+            }
+            else
+            {
+                Debug.Log("[DialoguePlayer] No choice found - reached end of dialogue");
+                EndDialogue();
+            }
         }
-
-        // 다음 커맨드 실행 (선택지 또는 대화 종료)
-        ExecuteNextCommand();
     }
 
     private void ExecuteNextCommand()

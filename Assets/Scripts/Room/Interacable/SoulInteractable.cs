@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
@@ -39,6 +38,11 @@ public class SoulInteractable : InteractableBase
             this.soulState = soulState;
             image.sprite = (soulState == SoulState.Locked ? SoulData.LockedSprite : SoulData.UnlockedSprite);
         }
+    }
+
+    protected override bool IsActive(bool isSoulMode, UnlockState context)
+    {
+        return base.IsActive(isSoulMode, context) && soulState != SoulState.Cleared;
     }
 
     protected override bool IsInteractable(bool isSoulMode, UnlockState context)
