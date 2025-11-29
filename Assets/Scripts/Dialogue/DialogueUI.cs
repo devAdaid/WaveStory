@@ -37,13 +37,14 @@ public class DialogueUI : UIBase
 
     private Vector3 originalPosition;
     private Coroutine shakeCoroutine;
+    private Coroutine waitCoroutine;
 
     protected override void InitializeInternal()
     {
         commandFactory = new DialogueCommandFactory();
         player = new DialoguePlayer(this, commandFactory, GM.I.Unlock);
 
-        advanceButton.onClick.AddListener(AdvanceDialogue);
+        advanceButton.onClick.AddListener(OnDialogueInput);
         clueButton.onClick.AddListener(GM.I.UIHolder.ClueUI.Show);
 
         dialogueTextTyper.CharacterPrinted.AddListener(HandleCharacterPrinted);
@@ -78,7 +79,7 @@ public class DialogueUI : UIBase
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
-            AdvanceDialogue();
+            OnDialogueInput();
         }
 
         // Ctrl 키를 누르고 있으면 스킵
@@ -94,7 +95,7 @@ public class DialogueUI : UIBase
         }
     }
 
-    private void AdvanceDialogue()
+    private void OnDialogueInput()
     {
         if (dialogueTextTyper.IsTyping)
         {
@@ -103,6 +104,11 @@ public class DialogueUI : UIBase
         }
 
         if (isWatingChoice)
+        {
+            return;
+        }
+
+        if (waitCoroutine != null)
         {
             return;
         }
@@ -264,5 +270,28 @@ public class DialogueUI : UIBase
         // 원래 위치로 복귀
         shakeTarget.localPosition = originalPosition;
         shakeCoroutine = null;
+    }
+    public void StopWait()
+    {
+        if (waitCoroutine != null)
+        {
+            StopCoroutine(waitCoroutine);
+            waitCoroutine = null;
+        }
+    }
+    public void WaitAndContinue(float duration)
+    {
+        if (waitCoroutine != null)
+        {
+            StopCoroutine(waitCoroutine);
+        }
+        waitCoroutine = StartCoroutine(WaitCoroutine(duration));
+    }
+
+    private IEnumerator WaitCoroutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        waitCoroutine = null;
+        player.ContinueDialogue();
     }
 }

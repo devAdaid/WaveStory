@@ -131,6 +131,11 @@ public class DialoguePlayer : IDialogueRuntime
         if (!isActive) return;
         ExecuteNextCommand();
     }
+    public void ContinueDialogue()
+    {
+        if (!isActive) return;
+        ExecuteNextCommand();
+    }
 
     /// <summary>
     /// 다음 선택지까지 스킵하며 마지막 Text는 표시합니다.
@@ -142,6 +147,9 @@ public class DialoguePlayer : IDialogueRuntime
             Debug.LogWarning("[DialoguePlayer] Cannot skip - dialogue is not active");
             return;
         }
+
+        // Wait 코루틴 중단
+        ui.StopWait();
 
         isSkipping = true;
 

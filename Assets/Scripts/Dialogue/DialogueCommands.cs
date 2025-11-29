@@ -421,6 +421,39 @@ public class ShakeCommand : DialogueCommandBase
         r.UI.ShakeScreen(duration, intensity);
     }
 }
+[DialogueCommand("Wait")]
+public class WaitCommand : DialogueCommandBase
+{
+    private float duration;
+    public override bool IsWaitingInput => true;
+
+    public override void Initialize(string[] parameters)
+    {
+        if (parameters.Length == 0 || string.IsNullOrEmpty(parameters[0]))
+        {
+            Debug.LogWarning("[WaitCommand] Duration parameter missing, using default 1.0 seconds");
+            duration = 1f;
+            return;
+        }
+
+        if (!float.TryParse(parameters[0], out duration))
+        {
+            Debug.LogError($"[WaitCommand] Invalid duration '{parameters[0]}', using default 1.0 seconds");
+            duration = 1f;
+        }
+
+        if (duration < 0)
+        {
+            Debug.LogWarning($"[WaitCommand] Negative duration {duration}, using absolute value");
+            duration = Mathf.Abs(duration);
+        }
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.WaitAndContinue(duration);
+    }
+}
 
 [DialogueCommand("End")]
 public class EndCommand : DialogueCommandBase
