@@ -44,11 +44,11 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         float input = 0f;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             input = 1f;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             input = -1f;
         }
