@@ -65,6 +65,18 @@ MonoBehaviour:
         Type: 0
         Id: 
       DialogueKo: {fileID: 4900000, guid: 9d91102fa062ef4449c3527127523590, type: 3}
+  tooltipText:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 1813206610698240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!222 &1157769613948976510
 CanvasRenderer:
   m_ObjectHideFlags: 0

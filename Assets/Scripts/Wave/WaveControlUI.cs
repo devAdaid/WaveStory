@@ -168,7 +168,7 @@ public class WaveControlUI : UIBase
         {
             if (soul.WaveParameter == this.inputParameter)
             {
-                var text = soul.HearingText.GetLocalizedStringAsync().WaitForCompletion();
+                var text = soul.HearingText.GetLocalizedString();
                 GM.I.UIHolder.AlarmUI.ShowAlarm($"\"{text}\"");
                 return;
             }

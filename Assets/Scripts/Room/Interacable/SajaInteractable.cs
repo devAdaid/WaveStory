@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [System.Serializable]
 public class SajaDialogue
@@ -12,6 +13,9 @@ public class SajaInteractable : InteractableBase
 {
     [SerializeField]
     private DialogueTable dialogueTable;
+
+    [SerializeField]
+    private LocalizedString tooltipText;
 
     private UnlockState state;
 
@@ -30,8 +34,8 @@ public class SajaInteractable : InteractableBase
         this.state = state;
     }
 
-    protected override string GetTooltipText()
+    protected override LocalizedString GetTooltipText()
     {
-        return "Àú½Â»çÀÚ";
+        return tooltipText;
     }
 }

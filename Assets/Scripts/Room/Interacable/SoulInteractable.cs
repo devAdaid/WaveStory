@@ -50,8 +50,8 @@ public class SoulInteractable : InteractableBase
         return base.IsInteractable(isSoulMode, context) && soulState != SoulState.Locked;
     }
 
-    protected override string GetTooltipText()
+    protected override LocalizedString GetTooltipText()
     {
-        return soulState == SoulState.Locked ? "???" : SoulData.GetLocalizedDisplayName();
+        return soulState == SoulState.Locked ? new LocalizedString("Message", "Hidden_Interactable_Tooltip") : SoulData.GetDisplayName();
     }
 }
