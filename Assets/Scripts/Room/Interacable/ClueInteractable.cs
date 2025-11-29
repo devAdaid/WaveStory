@@ -15,8 +15,8 @@ public class ClueInteractable : InteractableBase
         GM.I.UIHolder.ClueUI.OpenClue(clueData);
     }
 
-    protected override string GetTooltipText()
+    protected override LocalizedString GetTooltipText()
     {
-        return clueData.Title.GetLocalizedStringAsync().WaitForCompletion();
+        return clueData.Title;
     }
 }

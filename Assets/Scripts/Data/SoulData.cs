@@ -17,8 +17,8 @@ public class SoulData : ScriptableObject
 
     public string GetLocalizedDisplayName()
     {
-        var word1String = Word1.DisplayText.GetLocalizedStringAsync().WaitForCompletion();
-        var word2String = Word2.DisplayText.GetLocalizedStringAsync().WaitForCompletion();
+        var word1String = Word1.DisplayText.GetLocalizedString();
+        var word2String = Word2.DisplayText.GetLocalizedString();
 
         if (LocalizationSettings.SelectedLocale.Identifier.Code == "ko-KR")
         {
@@ -28,5 +28,21 @@ public class SoulData : ScriptableObject
         {
             return $"{word1String} {word2String}";
         }
+    }
+
+    public LocalizedString GetDisplayName()
+    {
+        var word1String = Word1.DisplayText.GetLocalizedString();
+        var word2String = Word2.DisplayText.GetLocalizedString();
+
+        var displayNameString = new LocalizedString("Message", "People_Display_Name_Format");
+
+        displayNameString.Arguments = new object[]
+        {
+            word1String,
+            word2String,
+        };
+
+        return displayNameString;
     }
 }

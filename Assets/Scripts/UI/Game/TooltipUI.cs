@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class TooltipUI : UIBase
@@ -29,14 +30,14 @@ public class TooltipUI : UIBase
         }
     }
 
-    public void ShowTooltip(string text, InteractableBase trigger)
+    public void ShowTooltip(LocalizedString text, InteractableBase trigger)
     {
-        if (string.IsNullOrEmpty(text)) return;
+        if (string.IsNullOrEmpty(text.GetLocalizedString())) return;
 
         this.Show();
 
         currentTrigger = trigger;
-        tooltipText.text = text;
+        tooltipText.text = text.GetLocalizedString();
         tooltipPanel.SetActive(true);
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipRect);
@@ -72,42 +73,45 @@ public class TooltipUI : UIBase
 
         // 캔버스 영역
         RectTransform canvasRect = canvas.transform as RectTransform;
-        Vector2 canvasSize = canvasRect.sizeDelta;
+        if (canvasRect != null)
+        {
+            Vector2 canvasSize = canvasRect.sizeDelta;
 
-        // 툴팁이 화면을 벗어나지 않도록 조정
-        float tooltipWidth = tooltipRect.sizeDelta.x;
-        float tooltipHeight = tooltipRect.sizeDelta.y;
+            // 툴팁이 화면을 벗어나지 않도록 조정
+            float tooltipWidth = tooltipRect.sizeDelta.x;
+            float tooltipHeight = tooltipRect.sizeDelta.y;
 
-        // 오른쪽 경계 체크
-        if (tooltipPosition.x + tooltipWidth / 2 > canvasSize.x / 2)
-        {
-            tooltipPosition.x = localPoint.x - tooltipWidth / 2 - offset.x - padding;
-        }
-        else
-        {
-            tooltipPosition.x += tooltipWidth / 2;
-        }
+            // 오른쪽 경계 체크
+            if (tooltipPosition.x + tooltipWidth / 2 > canvasSize.x / 2)
+            {
+                tooltipPosition.x = localPoint.x - tooltipWidth / 2 - offset.x - padding;
+            }
+            else
+            {
+                tooltipPosition.x += tooltipWidth / 2;
+            }
 
-        // 왼쪽 경계 체크
-        if (tooltipPosition.x - tooltipWidth / 2 < -canvasSize.x / 2)
-        {
-            tooltipPosition.x = -canvasSize.x / 2 + tooltipWidth / 2 + padding;
-        }
+            // 왼쪽 경계 체크
+            if (tooltipPosition.x - tooltipWidth / 2 < -canvasSize.x / 2)
+            {
+                tooltipPosition.x = -canvasSize.x / 2 + tooltipWidth / 2 + padding;
+            }
 
-        // 아래쪽 경계 체크
-        if (tooltipPosition.y - tooltipHeight / 2 < -canvasSize.y / 2)
-        {
-            tooltipPosition.y = localPoint.y + tooltipHeight / 2 - offset.y + padding;
-        }
-        else
-        {
-            tooltipPosition.y -= tooltipHeight / 2;
-        }
+            // 아래쪽 경계 체크
+            if (tooltipPosition.y - tooltipHeight / 2 < -canvasSize.y / 2)
+            {
+                tooltipPosition.y = localPoint.y + tooltipHeight / 2 - offset.y + padding;
+            }
+            else
+            {
+                tooltipPosition.y -= tooltipHeight / 2;
+            }
 
-        // 위쪽 경계 체크
-        if (tooltipPosition.y + tooltipHeight / 2 > canvasSize.y / 2)
-        {
-            tooltipPosition.y = canvasSize.y / 2 - tooltipHeight / 2 - padding;
+            // 위쪽 경계 체크
+            if (tooltipPosition.y + tooltipHeight / 2 > canvasSize.y / 2)
+            {
+                tooltipPosition.y = canvasSize.y / 2 - tooltipHeight / 2 - padding;
+            }
         }
 
         tooltipRect.localPosition = tooltipPosition;

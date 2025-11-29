@@ -26,7 +26,7 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
     private Button button;
 
     protected abstract InteractableType interactableType { get; }
-    protected abstract string GetTooltipText();
+    protected abstract LocalizedString GetTooltipText();
     protected virtual LocalizedString notInteractableMessage => new LocalizedString("Message", "Invalid");
 
     private bool isInteractable = true;

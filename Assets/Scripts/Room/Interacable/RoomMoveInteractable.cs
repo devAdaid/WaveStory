@@ -19,8 +19,8 @@ public class RoomMoveInteractable : InteractableBase
         GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => GM.I.UIHolder.RoomUI.ChangeRoom(targetRoomData));
     }
 
-    protected override string GetTooltipText()
+    protected override LocalizedString GetTooltipText()
     {
-        return targetRoomData.DisplayName.GetLocalizedStringAsync().WaitForCompletion();
+        return targetRoomData.DisplayName;
     }
 }

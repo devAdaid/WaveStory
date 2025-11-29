@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 241890512896
-    m_Localized: Let's use the soul detector to talk to the Grim Reaper first.
+    m_Localized: Let's use the soul detector to talk to Saja first.
     m_Metadata:
       m_Items: []
   - m_Id: 7143835848704
@@ -51,11 +51,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 284767917199360
-    m_Localized: The Grim Reaper seems to have something to say.
+    m_Localized: Saja seems to have something to say.
     m_Metadata:
       m_Items: []
   - m_Id: 430808834949120
     m_Localized: _________
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1812866268094464
+    m_Localized: ???
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1812769027350528
+    m_Localized: '{0} {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1813206610698240
+    m_Localized: Saja
     m_Metadata:
       m_Items: []
   references:
