@@ -98,7 +98,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
             return;
         }
 
-        AudioManager.I.PlaySfx("Type");
+        AudioManager.I.PlaySfx("TypeLoweredVolume");
     }
 
     IEnumerator TutorialWithTitle()

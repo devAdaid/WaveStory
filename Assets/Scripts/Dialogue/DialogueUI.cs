@@ -66,7 +66,7 @@ public class DialogueUI : UIBase
             return;
         }
 
-        AudioManager.I.PlaySfx("Type");
+        AudioManager.I.PlaySfx("TypeLoweredVolume");
     }
 
     private void Update()
