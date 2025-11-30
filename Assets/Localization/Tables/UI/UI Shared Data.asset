@@ -47,6 +47,10 @@ MonoBehaviour:
     m_Key: QuestionGameName
     m_Metadata:
       m_Items: []
+  - m_Id: 4002727316373504
+    m_Key: UI_Settings_Button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

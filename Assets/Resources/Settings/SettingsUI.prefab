@@ -578,14 +578,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SettingsUI
   isPopup: 1
   root: {fileID: 413339116549289037}
-  closeButtons: []
+  closeButtons:
+  - {fileID: 8877163077514922746}
   audioMixer: {fileID: 24100000, guid: 9b7ee655729ea9649a810d8fcb7e0410, type: 2}
   bgmVolumeParameter: BgmVolume
   sfxVolumeParameter: SfxVolume
   bgmSlider: {fileID: 1136308187949840076}
   bgmValueText: {fileID: 0}
+  bgmMixerGroup: {fileID: -2753891114767698393, guid: 9b7ee655729ea9649a810d8fcb7e0410, type: 2}
   sfxSlider: {fileID: 3293215928124295236}
   sfxValueText: {fileID: 0}
+  sfxMixerGroup: {fileID: -2977029709162548024, guid: 9b7ee655729ea9649a810d8fcb7e0410, type: 2}
 --- !u!1 &4759545045482247881
 GameObject:
   m_ObjectHideFlags: 0

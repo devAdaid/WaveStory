@@ -14,6 +14,9 @@ public class MainHudUI : UIBase
 
     [SerializeField]
     private Image soulModeButtonImg;
+    
+    [SerializeField]
+    private Button settingsButton;
 
     [SerializeField]
     private Sprite realModeSprite;
@@ -44,6 +47,7 @@ public class MainHudUI : UIBase
     {
         clueButton.onClick.AddListener(OpenClueUI);
         soulModeButton.onClick.AddListener(ToggleSoulMode);
+        settingsButton.onClick.AddListener(OpenSettingsUI);
         TextHelper.SetLocalizedTextEvent(soulModeText, realModeStr, ref soulModeTextEvent);
     }
 
@@ -94,5 +98,10 @@ public class MainHudUI : UIBase
     private void ToggleSoulMode()
     {
         GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => presenter.SetSoulMode(!isSoulMode));
+    }
+    
+    private void OpenSettingsUI()
+    {
+        GM.I.UIHolder.SettingsUI.Show();
     }
 }

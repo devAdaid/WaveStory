@@ -15,6 +15,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public ClueUI ClueUI;
     [field: SerializeField]
+    public SettingsUI SettingsUI;
+    [field: SerializeField]
     public DialogueUI DialogueUI;
     [field: SerializeField]
     public TooltipUI TooltilUI;

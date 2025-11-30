@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -17,13 +18,24 @@ public class SettingsUI : UIBase
     [Header("BGM")]
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private TMP_Text bgmValueText;
+    [SerializeField] private AudioMixerGroup bgmMixerGroup;
 
     [Header("SFX")]
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private TMP_Text sfxValueText;
+    [SerializeField] private AudioMixerGroup sfxMixerGroup;
 
     protected override void InitializeInternal()
     {
+        AudioManager.I.SetMixerGroup(bgmMixerGroup, sfxMixerGroup);
+
+        StartCoroutine(InitializeInternalCoroutine());
+    }
+
+    private IEnumerator InitializeInternalCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
+        
         bgmSlider.minValue = 0.0001f;
         bgmSlider.maxValue = 1f;
         sfxSlider.minValue = 0.0001f;

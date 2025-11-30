@@ -6,9 +6,9 @@ public static class SettingsLoader
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void OnAfterSceneLoad()
     {
-        InstantiateSettings(SceneManager.GetActiveScene());
+        //InstantiateSettings(SceneManager.GetActiveScene());
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private static void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)

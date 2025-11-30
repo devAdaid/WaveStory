@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
 {
@@ -156,5 +157,11 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
         }
 
         PlayBgm(reservedClip, reservedClipTime);
+    }
+
+    public void SetMixerGroup(AudioMixerGroup bgmMixerGroup, AudioMixerGroup sfxMixerGroup)
+    {
+        bgmSource.outputAudioMixerGroup = bgmMixerGroup;
+        sfxSource.outputAudioMixerGroup = sfxMixerGroup;
     }
 }
