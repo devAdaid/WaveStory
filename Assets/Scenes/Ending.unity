@@ -2259,6 +2259,8 @@ MonoBehaviour:
   maxAngle: 20
   rotationSensitivity: 2
   keyboardRotationSpeed: 100
+  minX: -25
+  maxX: 25
   requiredCycles: 3
   OnSuccess:
     m_PersistentCalls:

@@ -10,6 +10,10 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private float rotationSensitivity = 0.5f;
     [SerializeField] private float keyboardRotationSpeed = 100f;
 
+    [Header("Position Settings")]
+    [SerializeField] private float minX = -50f;
+    [SerializeField] private float maxX = 50f;
+
     [Header("Success Condition")]
     [SerializeField] private int requiredCycles = 3;
 
@@ -19,6 +23,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private RectTransform rectTransform;
     private float currentAngle;
     private bool isDragging;
+    private float initialX;
 
     // 각도 기반 드래그를 위한 변수
     private float dragStartAngle;
@@ -35,6 +40,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         rectTransform = GetComponent<RectTransform>();
         currentAngle = rectTransform.localEulerAngles.z;
         if (currentAngle > 180f) currentAngle -= 360f;
+        initialX = rectTransform.anchoredPosition.x;
     }
 
     private void Update()
@@ -96,6 +102,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         float targetAngle = dragStartRotation + (accumulatedAngle * rotationSensitivity);
         currentAngle = Mathf.Clamp(targetAngle, minAngle, maxAngle);
         rectTransform.localEulerAngles = new Vector3(0f, 0f, currentAngle);
+        UpdatePosition();
 
         CheckCycle(previousAngle);
     }
@@ -111,8 +118,19 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         currentAngle = Mathf.Clamp(currentAngle + delta, minAngle, maxAngle);
 
         rectTransform.localEulerAngles = new Vector3(0f, 0f, currentAngle);
+        UpdatePosition();
 
         CheckCycle(previousAngle);
+    }
+
+    private void UpdatePosition()
+    {
+        float t = Mathf.InverseLerp(minAngle, maxAngle, currentAngle);
+        float targetX = Mathf.Lerp(minX, maxX, t);
+
+        Vector2 pos = rectTransform.anchoredPosition;
+        pos.x = initialX - targetX;
+        rectTransform.anchoredPosition = pos;
     }
 
     private void CheckCycle(float previousAngle)
