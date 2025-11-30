@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class SettingsUI : UIBase
@@ -24,6 +25,10 @@ public class SettingsUI : UIBase
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private TMP_Text sfxValueText;
     [SerializeField] private AudioMixerGroup sfxMixerGroup;
+
+    [Header("Language")]
+    [SerializeField] private Toggle koreanToggle;
+    [SerializeField] private Toggle englishToggle;
 
     protected override void InitializeInternal()
     {
@@ -55,6 +60,14 @@ public class SettingsUI : UIBase
 
         bgmSlider.onValueChanged.AddListener(OnBgmSliderChanged);
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChanged);
+
+        // Language
+        string languageCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey, "ko-KR");
+        koreanToggle.isOn = (languageCode == "ko-KR");
+        englishToggle.isOn = (languageCode == "en");
+
+        koreanToggle.onValueChanged.AddListener(OnKoreanToggleChanged);
+        englishToggle.onValueChanged.AddListener(OnEnglishToggleChanged);
     }
 
     private void OnBgmSliderChanged(float value)
@@ -111,5 +124,27 @@ public class SettingsUI : UIBase
 
         audioMixer.SetFloat(bgmParam, bgmDb);
         audioMixer.SetFloat(sfxParam, sfxDb);
+    }
+
+    private void OnKoreanToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            englishToggle.isOn = false;
+            StartUI.SetLocale("ko-KR");
+            PlayerPrefs.SetString(StartUI.LanguageCodeKey, "ko-KR");
+            PlayerPrefs.Save();
+        }
+    }
+
+    private void OnEnglishToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            koreanToggle.isOn = false;
+            StartUI.SetLocale("en");
+            PlayerPrefs.SetString(StartUI.LanguageCodeKey, "en");
+            PlayerPrefs.Save();
+        }
     }
 }
