@@ -54,6 +54,18 @@ MonoBehaviour:
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 4013934853177344
+    m_Localized: BGM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4014112943325184
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4014219310874624
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

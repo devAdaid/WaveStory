@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class MainHudUI : UIBase
@@ -41,6 +42,20 @@ public class MainHudUI : UIBase
     {
         this.presenter = presenter;
         isSoulMode = presenter.IsSoulMode;
+    }
+
+    private async void Start()
+    {
+        await LocalizationSettings.InitializationOperation.Task;
+
+        LocalizationSettings.SelectedLocaleChanged -= StartUI.OnLocaleChanged;
+        LocalizationSettings.SelectedLocaleChanged += StartUI.OnLocaleChanged;
+
+        if (PlayerPrefs.HasKey(StartUI.LanguageCodeKey))
+        {
+            string savedCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey);
+            StartUI.SetLocale(savedCode);
+        }
     }
 
     protected override void InitializeInternal()
