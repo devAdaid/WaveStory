@@ -7,7 +7,10 @@ public static class Cheat
     private static void ClearSajaDialogue()
     {
         GM.I.Unlock.UnlockFlag("Saja_Meet");
+        GM.I.Unlock.UnlockFlag("Saja_Corridor_1_Talk");
         GM.I.Unlock.UnlockFlag("Saja_Corridor_2_Talk");
+        GM.I.Unlock.UnlockFlag("Saja_Corridor_3_Talk");
+        GM.I.Unlock.UnlockFlag("Saja_Corridor_4_Talk");
         GM.I.UIHolder.AlarmUI.ShowAlarm("층별 저승사자 대화 스킵 치트 완료");
     }
 

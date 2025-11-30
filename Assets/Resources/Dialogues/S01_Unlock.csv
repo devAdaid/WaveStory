@@ -20,9 +20,12 @@ Text,"아, 아니... 잠깐. 이렇게 떠날 순 없어요!",,,,,
 Speaker,사자,,,,,
 Text,"으음, 귀찮게 되었군......",,,,,
 Text,"가랏, 신참아.",,,,,
-Choice,네?,pardon,어딜 가죠?,pardon,사자님이 모범을 보이셔야...,haha
+Choice,네?,pardon,어딜 가죠?,pardon,사자님이 시범을 보이셔야...,haha
 Label,haha,,,,,
+Text,으음…...,,,,,
 Text,으으으으음......,,,,,
+Sfx,Shake,,,,,
+Shake,,,,,,
 Text,이렇게 해야 네가 잘 배우지! 절대 내가 곤란해서 그런게 아니다!,,,,,
 Label,pardon,,,,,
 Text,네가 저 영혼의 '한'을 풀어주는 거다.,,,,,
@@ -31,7 +34,7 @@ Char,Minjae,,,,,
 Text,이렇게 노력해왔는데... 아무것도 이뤄낸 것이 없이 떠날 수는 없어요.,,,,,
 Speaker,,,,,,
 Text,영혼이 어떤 것을 해냈는지 알려주자.,,,,,
-Choice,고백 성공,wrong,신춘 문예상,right,면접 합격,wrong
+ChoiceWithClue,고백 성공,wrong,신춘 문예상,right,면접 합격,wrong
 Label,wrong,,,,,
 Speaker,민재,,,,,
 Char,Minjae,,,,,

@@ -6260,7 +6260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Type
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5265424153197031856, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: m_Name

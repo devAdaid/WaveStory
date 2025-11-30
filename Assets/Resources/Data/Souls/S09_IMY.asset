@@ -33,10 +33,6 @@ MonoBehaviour:
   DialogueTable:
     Dialogues:
     - Condition:
-        Type: 5
-        Id: S09_IMY
-      DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
-    - Condition:
         Type: 4
         Id: S09_IMY
       DialogueKo: {fileID: 4900000, guid: 78ffe87128d7d2a4a9d35dcd687058f1, type: 3}

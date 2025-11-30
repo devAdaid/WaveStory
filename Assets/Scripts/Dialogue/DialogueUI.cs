@@ -158,7 +158,7 @@ public class DialogueUI : UIBase
         speakerNameText.text = name;
     }
 
-    public void ShowChoices(List<string> choices, System.Action<int> onSelected)
+    public void ShowChoices(List<string> choices, System.Action<int> onSelected, bool showClue = false)
     {
         choiceRoot.SetActive(true);
 
@@ -179,6 +179,8 @@ public class DialogueUI : UIBase
                 choiceRoot.SetActive(false);
             });
         }
+
+        clueButton.gameObject.SetActive(showClue);
 
         isWatingChoice = true;
     }

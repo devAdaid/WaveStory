@@ -85,8 +85,8 @@ public class FlagCommand : DialogueCommandBase
 [DialogueCommand("Choice")]
 public class ChoiceCommand : DialogueCommandBase
 {
-    private List<string> choices = new List<string>();
-    private List<string> targetLabels = new List<string>();
+    protected List<string> choices = new List<string>();
+    protected List<string> targetLabels = new List<string>();
     public override bool IsWaitingInput => true;
 
     public override void Initialize(string[] parameters)
@@ -151,6 +151,26 @@ public class ChoiceCommand : DialogueCommandBase
             string label = targetLabels[selectedIndex];
             r.SelectChoice(label);
         });
+    }
+}
+
+[DialogueCommand("ChoiceWithClue")]
+public class ChoiceWithClueCommand : ChoiceCommand
+{
+    public override void Execute(IDialogueRuntime r)
+    {
+        if (choices.Count == 0)
+        {
+            Debug.LogError("[ChoiceCommand] Cannot execute with no choices!");
+            return;
+        }
+
+        r.UI.ShowChoices(choices, (selectedIndex) =>
+        {
+            string label = targetLabels[selectedIndex];
+            r.SelectChoice(label);
+        },
+        true);
     }
 }
 
