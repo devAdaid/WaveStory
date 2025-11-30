@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
-    private static readonly string LANGUAGE_CODE_KEY = "Language_Code";
+    public static readonly string LanguageCodeKey = "Language_Code";
 
     [SerializeField] private GameObject languagePanel;
     [SerializeField] private Button koreanButton;
@@ -20,9 +21,9 @@ public class StartUI : MonoBehaviour
         LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
 
-        if (PlayerPrefs.HasKey(LANGUAGE_CODE_KEY))
+        if (PlayerPrefs.HasKey(LanguageCodeKey))
         {
-            string savedCode = PlayerPrefs.GetString(LANGUAGE_CODE_KEY);
+            string savedCode = PlayerPrefs.GetString(LanguageCodeKey);
             SetLocale(savedCode);
             SceneManager.LoadScene("Title");
             yield break;
@@ -33,32 +34,29 @@ public class StartUI : MonoBehaviour
         englishButton.onClick.AddListener(() => SelectLanguage("en"));
     }
 
-    private void SelectLanguage(string localeCode)
+    private static void SelectLanguage(string localeCode)
     {
         SetLocale(localeCode);
-        PlayerPrefs.SetString(LANGUAGE_CODE_KEY, localeCode);
+        PlayerPrefs.SetString(LanguageCodeKey, localeCode);
         PlayerPrefs.Save();
         SceneManager.LoadScene("Title");
     }
 
-    private void SetLocale(string localeCode)
+    public static void SetLocale(string localeCode)
     {
         var locales = LocalizationSettings.AvailableLocales.Locales;
-        foreach (var locale in locales)
+        foreach (var locale in locales.Where(locale => locale.Identifier.Code == localeCode))
         {
-            if (locale.Identifier.Code == localeCode)
-            {
-                LocalizationSettings.SelectedLocale = locale;
-                break;
-            }
+            LocalizationSettings.SelectedLocale = locale;
+            break;
         }
     }
 
-    private static void OnLocaleChanged(Locale locale)
+    public static void OnLocaleChanged(Locale locale)
     {
         if (locale != null)
         {
-            PlayerPrefs.SetString(LANGUAGE_CODE_KEY, locale.Identifier.Code);
+            PlayerPrefs.SetString(LanguageCodeKey, locale.Identifier.Code);
             PlayerPrefs.Save();
         }
     }

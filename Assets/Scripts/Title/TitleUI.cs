@@ -163,7 +163,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
             yield return null;
         }
 
-        AudioManager.I.PlaySfxOneShot("Correct");
+        AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
 
         waveControlUI.SetChangeBlock(true);
         wordInputButton.Show();
@@ -173,7 +173,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
             yield return null;
         }
 
-        AudioManager.I.PlaySfxOneShot("Correct");
+        AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
 
         dimmed.gameObject.SetActive(true);
 
@@ -296,7 +296,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         if (!isWordCorrect)
         {
             wordInputUI.ClearAllWords();
-            AudioManager.I.PlaySfxOneShot("Wrong");
+            AudioManager.I.PlaySfxOneShot("WrongLoweredVolume");
         }
     }
 

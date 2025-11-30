@@ -35,14 +35,14 @@ public class WordInputPresenter : IPresenter
                 else
                 {
                     unlock.UnlockSoul(soul.Id);
-                    AudioManager.I.PlaySfxOneShot("Correct");
+                    AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
                     GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulUnlockedMessage);
                 }
                 return;
             }
         }
 
-        AudioManager.I.PlaySfxOneShot("Wrong");
+        AudioManager.I.PlaySfxOneShot("WrongLoweredVolume");
         GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulNotMatchedMessage);
     }
 }
