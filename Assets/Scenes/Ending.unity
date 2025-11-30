@@ -1117,7 +1117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1008884281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1265619380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1376,6 +1376,7 @@ RectTransform:
   - {fileID: 1890783822}
   - {fileID: 1265619380}
   - {fileID: 1008884281}
+  - {fileID: 1604725286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1396,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndingUI
   introDelay: 1
-  introTypeWaitDelay: 2
+  introTypeWaitDelay: 3.5
   intro: {fileID: 1265619379}
   dimmed: {fileID: 1008884282}
   introTextTyper: {fileID: 893672836}
@@ -1413,6 +1414,30 @@ MonoBehaviour:
       m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
     m_TableEntryReference:
       m_KeyId: 1381920874786816
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+    m_TableEntryReference:
+      m_KeyId: 1613870973677568
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+    m_TableEntryReference:
+      m_KeyId: 1614218085888000
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+    m_TableEntryReference:
+      m_KeyId: 1614379981828096
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -1519,6 +1544,16 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: c6a3dce7c2028994dbf5f99106294610, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423431217397760
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   endingSoul: {fileID: 279277289}
   waveHand: {fileID: 7005448592242249842}
   creditText: {fileID: 880607353}
@@ -1530,6 +1565,10 @@ MonoBehaviour:
   creditTextFadeDuration: 0.5
   guideArrow: {fileID: 4617591575863785989}
   guideArrowFadeDuration: 0.5
+  volume: {fileID: 410069636}
+  bloomDuration: 3
+  whiteImage: {fileID: 1604725289}
+  skipUntilLastSoul: 0
   references:
     version: 2
     RefIds: []
@@ -1710,6 +1749,94 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!1 &1604725285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604725286}
+  - component: {fileID: 1604725288}
+  - component: {fileID: 1604725287}
+  - component: {fileID: 1604725289}
+  m_Layer: 5
+  m_Name: White
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1604725286
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604725285}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1358294626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1604725287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604725285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1604725288
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604725285}
+  m_CullTransparentMesh: 1
+--- !u!225 &1604725289
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604725285}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1843618409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,14 +2315,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3068f6de3490039419093ba720f52efd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2222,7 +2349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &7005448592242249841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2388,8 @@ MonoBehaviour:
   keyboardRotationSpeed: 100
   minX: -25
   maxX: 25
+  defaultAngle: 0
+  returnSpeed: 90
   requiredCycles: 3
   OnSuccess:
     m_PersistentCalls:

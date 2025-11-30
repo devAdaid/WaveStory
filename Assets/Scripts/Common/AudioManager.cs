@@ -53,6 +53,11 @@ public class AudioManager : PersistentSingleton<AudioManager>, IMonoSingleton
         currentClip = clip;
     }
 
+    public void SetBgmLoop(bool flag)
+    {
+        bgmSource.loop = flag;
+    }
+
     public void PlayBgm(string clipName)
     {
         PlayBgm(GetClip(clipName));

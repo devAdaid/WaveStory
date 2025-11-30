@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public interface IDialogueCommand
 {
@@ -488,5 +489,22 @@ public class EndCommand : DialogueCommandBase
     public override void Execute(IDialogueRuntime r)
     {
         r.EndDialogue();
+    }
+}
+
+
+[DialogueCommand("Credit")]
+public class CreditCommand : DialogueCommandBase
+{
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        // 파라미터 필요 없음
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        SceneManager.LoadScene("Ending");
     }
 }

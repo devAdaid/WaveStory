@@ -71,6 +71,18 @@ MonoBehaviour:
     m_Key: Ending_Intro_2
     m_Metadata:
       m_Items: []
+  - m_Id: 1613870973677568
+    m_Key: Ending_Intro_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1614218085888000
+    m_Key: Ending_Intro_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1614379981828096
+    m_Key: Ending_Intro_5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

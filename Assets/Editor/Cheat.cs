@@ -66,6 +66,18 @@ public static class Cheat
     [MenuItem("Cheat/4Ãþ Å¬¸®¾î")]
     private static void ClearFloor4() => ClearFloor(4);
 
+    [MenuItem("Cheat/1Ãþ ÀÌµ¿")]
+    private static void MoveFloor1() => MoveRoom("F1_C");
+
+    [MenuItem("Cheat/2Ãþ ÀÌµ¿")]
+    private static void MoveFloor2() => MoveRoom("F2_C");
+
+    [MenuItem("Cheat/3Ãþ ÀÌµ¿")]
+    private static void MoveFloor3() => MoveRoom("F3_C");
+
+    [MenuItem("Cheat/4Ãþ ÀÌµ¿")]
+    private static void MoveFloor4() => MoveRoom("F4_C");
+
 
     private static void ClearFloor(int maxFloor)
     {
@@ -110,6 +122,14 @@ public static class Cheat
         }
 
         GM.I.UIHolder.AlarmUI.ShowAlarm($"{maxFloor}Ãþ Ä¡Æ® ¿Ï·á");
+    }
+
+    private static void MoveRoom(string roomId)
+    {
+        if (StaticDataHolder.I.TryGetRoom(roomId, out var roomData))
+        {
+            GM.I.Room.SetCurrentRoom(roomData);
+        }
     }
 }
 #endif
