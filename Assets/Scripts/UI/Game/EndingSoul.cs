@@ -28,7 +28,6 @@ public class EndingSoul : MonoBehaviour
         successReceived = false;
 
         await Appear(targetX);
-        await WaitForSuccessAsync();
     }
 
     public void SetSprite(Sprite sprite)
@@ -41,7 +40,7 @@ public class EndingSoul : MonoBehaviour
         successReceived = true;
     }
 
-    private async Awaitable WaitForSuccessAsync()
+    public async Awaitable WaitForSuccessAsync()
     {
         while (!successReceived)
         {

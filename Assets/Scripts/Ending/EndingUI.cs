@@ -75,6 +75,9 @@ public class EndingUI : MonoBehaviour
 
             await FadeCreditTextAsync(0f, 1f);
             await endingSoul.StartElement(targetX);
+            waveHand.SetInputEnabled(true);
+            
+            await endingSoul.WaitForSuccessAsync();
 
             // 첫 번째 요소 완료 후 guideArrow 페이드아웃
             if (isFirstElement)

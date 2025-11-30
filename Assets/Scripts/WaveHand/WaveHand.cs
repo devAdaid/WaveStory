@@ -34,6 +34,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private bool wasAtMax;
     private int cycleCount;
     private bool successTriggered;
+    private bool isInputEnabled = false;
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private void Update()
     {
-        if (successTriggered) return;
+        if (!isInputEnabled || successTriggered) return;
 
         HandleKeyboardInput();
     }
@@ -72,7 +73,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (successTriggered) return;
+        if (!isInputEnabled || successTriggered) return;
 
         isDragging = true;
 
@@ -86,7 +87,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (successTriggered || !isDragging) return;
+        if (!isInputEnabled || successTriggered || !isDragging) return;
 
         // 현재 마우스 위치의 각도 계산
         Vector2 center = rectTransform.position;
@@ -175,8 +176,14 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         wasAtMin = false;
         wasAtMax = false;
         successTriggered = false;
+        isInputEnabled = false;
         //currentAngle = 0f;
         //rectTransform.localEulerAngles = Vector3.zero;
+    }
+
+    public void SetInputEnabled(bool enabled)
+    {
+        isInputEnabled = enabled;
     }
 
     public float GetCurrentAngle() => currentAngle;
