@@ -41,6 +41,6 @@ public class WordButton : MonoBehaviour
     public void OnClick()
     {
         onClick?.Invoke(wordId);
-        AudioManager.I.PlaySfxOneShot("Select");
+        AudioManager.I.PlaySfxOneShot("SelectLoweredVolume");
     }
 }

@@ -12,6 +12,6 @@ public class WordInputButton : UIBase
     protected override void InitializeInternal()
     {
         button.onClick.AddListener(wordInputUI.Show);
-        button.onClick.AddListener(() => AudioManager.I.PlaySfxOneShot("Select"));
+        button.onClick.AddListener(() => AudioManager.I.PlaySfxOneShot("SelectLoweredVolume"));
     }
 }
