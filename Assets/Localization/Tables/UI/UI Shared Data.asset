@@ -51,6 +51,18 @@ MonoBehaviour:
     m_Key: UI_Settings_Button
     m_Metadata:
       m_Items: []
+  - m_Id: 4013934853177344
+    m_Key: BGM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4014112943325184
+    m_Key: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4014219310874624
+    m_Key: Close
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
