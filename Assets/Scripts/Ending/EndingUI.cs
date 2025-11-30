@@ -53,6 +53,8 @@ public class EndingUI : MonoBehaviour
         {
             await TypeText(str, introTypeWaitDelay);
         }
+        
+        _ = FadeGuideArrowAsync(0f, 0f);
 
         await FadeDimmedAsync(0f, 1f);
 
@@ -76,6 +78,10 @@ public class EndingUI : MonoBehaviour
             await FadeCreditTextAsync(0f, 1f);
             await endingSoul.StartElement(targetX);
             waveHand.SetInputEnabled(true);
+            if (isFirstElement)
+            {
+                _ = FadeGuideArrowAsync(0f, 1f);
+            }
             
             await endingSoul.WaitForSuccessAsync();
 
@@ -87,6 +93,9 @@ public class EndingUI : MonoBehaviour
             }
 
             var disappearTask = endingSoul.DisappearLeft();
+            
+            AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
+            
             var fadeOutTask = FadeCreditTextAsync(1f, 0f);
             await disappearTask;
             await fadeOutTask;
