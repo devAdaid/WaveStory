@@ -14,6 +14,10 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private float minX = -50f;
     [SerializeField] private float maxX = 50f;
 
+    [Header("Return Settings")]
+    [SerializeField] private float defaultAngle = 0f;
+    [SerializeField] private float returnSpeed = 90f;
+
     [Header("Success Condition")]
     [SerializeField] private int requiredCycles = 3;
 
@@ -46,12 +50,22 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private void Update()
     {
-        if (!isInputEnabled || successTriggered) return;
+        bool hasInput = false;
 
-        HandleKeyboardInput();
+        // 입력 처리는 isInputEnabled가 true이고 successTriggered가 false일 때만
+        if (isInputEnabled && !successTriggered)
+        {
+            hasInput = HandleKeyboardInput();
+        }
+
+        // 복귀는 입력 상태와 무관하게 작동 (드래그 중이 아니고 입력이 없을 때)
+        if (!isDragging && !hasInput && !successTriggered)
+        {
+            ReturnToDefault();
+        }
     }
 
-    private void HandleKeyboardInput()
+    private bool HandleKeyboardInput()
     {
         float input = 0f;
 
@@ -68,7 +82,10 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             float delta = input * keyboardRotationSpeed * Time.deltaTime;
             ApplyRotation(delta);
+            return true;
         }
+
+        return false;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -132,6 +149,16 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         Vector2 pos = rectTransform.anchoredPosition;
         pos.x = initialX - targetX;
         rectTransform.anchoredPosition = pos;
+    }
+
+    private void ReturnToDefault()
+    {
+        if (Mathf.Approximately(currentAngle, defaultAngle)) return;
+
+        currentAngle = Mathf.MoveTowards(currentAngle, defaultAngle, returnSpeed * Time.deltaTime);
+
+        rectTransform.localEulerAngles = new Vector3(0f, 0f, currentAngle);
+        UpdatePosition();
     }
 
     private void CheckCycle(float previousAngle)
