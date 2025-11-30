@@ -633,6 +633,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  SoulInOtherRoomMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 2226687514460160
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   references:
     version: 2
     RefIds: []

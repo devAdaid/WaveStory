@@ -70,6 +70,10 @@ MonoBehaviour:
     m_Localized: Saja
     m_Metadata:
       m_Items: []
+  - m_Id: 2226687514460160
+    m_Localized: Try again in other rooms.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

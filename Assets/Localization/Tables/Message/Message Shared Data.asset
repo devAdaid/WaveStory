@@ -67,6 +67,10 @@ MonoBehaviour:
     m_Key: Saja
     m_Metadata:
       m_Items: []
+  - m_Id: 2226687514460160
+    m_Key: Soul_In_Other_Room
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

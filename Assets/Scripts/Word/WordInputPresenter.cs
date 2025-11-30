@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.Localization;
 
 public class WordInputPresenter : IPresenter
@@ -43,6 +44,41 @@ public class WordInputPresenter : IPresenter
         }
 
         AudioManager.I.PlaySfxOneShot("WrongLoweredVolume");
-        GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulNotMatchedMessage);
+
+        if (CheckOtherRoomsForMatch(wordId1, wordId2))
+        {
+            GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulInOtherRoomMessage);
+        }
+        else
+        {
+            GM.I.UIHolder.AlarmUI.ShowAlarm(ui.SoulNotMatchedMessage);
+        }
+    }
+
+    private bool CheckOtherRoomsForMatch(string wordId1, string wordId2)
+    {
+        var roomMoveInteractables = Object.FindObjectsByType<RoomMoveInteractable>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID);
+
+        foreach (var interactable in roomMoveInteractables)
+        {
+            var targetRoom = interactable.TargetRoomData;
+            if (targetRoom == null || targetRoom == room.CurrentRoomData)
+                continue;
+
+            foreach (var soul in targetRoom.Souls)
+            {
+                if (soul.WaveParameter == wave.WaveParameter
+                    && soul.Word1.Id == wordId1
+                    && soul.Word2.Id == wordId2)
+                {
+                    if (!soul.IsStaticSoul && !unlock.IsUnlockedSoul(soul.Id))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }

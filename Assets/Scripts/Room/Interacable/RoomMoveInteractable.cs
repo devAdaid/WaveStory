@@ -6,6 +6,8 @@ public class RoomMoveInteractable : InteractableBase
     [SerializeField]
     private RoomData targetRoomData;
 
+    public RoomData TargetRoomData => targetRoomData;
+
     [SerializeField]
     private LocalizedString myNotInteractableMessage;
 

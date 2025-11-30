@@ -24,6 +24,8 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
     public LocalizedString SoulNotMatchedMessage;
     [field: SerializeField]
     public LocalizedString SoulAlreadyUnlockedMessage;
+    [field: SerializeField]
+    public LocalizedString SoulInOtherRoomMessage;
 
     private string wordId1;
     private string wordId2;
