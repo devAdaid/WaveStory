@@ -19,11 +19,32 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 71002845184
-    m_Localized: "I checked a recent text message on someone's smartphone in the 1st floor corridor.\n[Text Message]\nHello, Writer Kang Minjae.\nThis is the Neulbom New Spring Literary Award Committee.\nWe are pleased to inform you that your work 'But the Dawn Comes' has been selected for the 2025 Neulbom New Spring Literary Award.\nCongratulations on your achievement.\nWe will contact you with further details."
+    m_Localized: 'I checked a recent text message on someone''s smartphone in the
+      1st floor corridor.
+
+      [Text Message]
+
+      Hello, Writer Kang Minjae.
+
+      This
+      is the Neulbom New Spring Literary Award Committee.
+
+      We are pleased to
+      inform you that your work ''But the Dawn Comes'' has been selected for the
+      2025 Neulbom New Spring Literary Award.
+
+      Congratulations on your achievement.
+
+      We
+      will contact you with further details.'
     m_Metadata:
       m_Items: []
   - m_Id: 95078150144
-    m_Localized: "The incident occurred on November 30, 2025.\nAccording to police press materials, of the 24 total residents in the building, 14 are estimated to have died."
+    m_Localized: 'The incident occurred on November 30, 2025.
+
+      According to
+      police press materials, of the 24 total residents in the building, 14 are estimated
+      to have died.'
     m_Metadata:
       m_Items: []
   - m_Id: 2129435055378432
@@ -47,15 +68,27 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2129513266565120
-    m_Localized: "People living on the 2nd floor: Kim Heejae, Park Junseo, Park Hayun, Lee Sunja, Cha Sua"
+    m_Localized: 'People living on the 2nd floor: Kim Heejae, Park Junseo, Park Hayun,
+      Lee Sunja, Choi Sua'
     m_Metadata:
       m_Items: []
   - m_Id: 2129552202289152
-    m_Localized: "Away on trip from 11/28 to 12/7. For urgent matters, please contact 010-XXXX-XXXX.\n- Heejae & Hayun"
+    m_Localized: 'Away on trip from 11/28 to 12/7. For urgent matters, please contact
+      010-XXXX-XXXX.
+
+      - Heejae & Hayun'
     m_Metadata:
       m_Items: []
   - m_Id: 2129631109730304
-    m_Localized: "I found Mr. Junseo's mother in front of the Sarang Flower Shop,\nso I brought her home.\nJust wanted to let you know so you wouldn't worry.\n- Sua"
+    m_Localized: 'I found Mr. Junseo''s mother in front of the Sarang Flower Shop,
+
+      so
+      I brought her home.
+
+      Just wanted to let you know so you wouldn''t worry.
+
+      -
+      Sua'
     m_Metadata:
       m_Items: []
   - m_Id: 2390516923387904
@@ -67,11 +100,35 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2390554961530880
-    m_Localized: "Found someone's diary in Room 202. The cover has the name 'Jung Hangyeol' written on it.\n[Diary Entry]\nNovember 29: Another tough day. I picked up a small pendant in the corridor. Could it belong to Ms. Sua from Room 202? I should ask her if I see her later."
+    m_Localized: 'Found someone''s diary in Room 202. The cover has the name ''Jung
+      Hangyeol'' written on it.
+
+      [Diary Entry]
+
+      November 29: Another
+      tough day. I picked up a small pendant in the corridor. Could it belong to
+      Ms. Sua from Room 202? I should ask her if I see her later.'
     m_Metadata:
       m_Items: []
   - m_Id: 2390592450220032
-    m_Localized: "Found someone's smartphone in Room 201. I checked the recent messenger records.\n(A: Phone owner, B: Another person)\n[Messenger Records]\nB: Manager Seo, you didn't look well today. Are you okay?\nA: Oh, thank you for your concern. I lost a pendant...\nB: The one you said was your mother's keepsake? I'll check with the building management team.\nA: Yes, thank you. I'm so distracted..."
+    m_Localized: 'Found someone''s smartphone in Room 201. I checked the recent messenger
+      records.
+
+      (A: Phone owner, B: Another person)
+
+      [Messenger Records]
+
+      B:
+      Manager Seo, you didn''t look well today. Are you okay?
+
+      A: Oh, thank
+      you for your concern. I lost a pendant...
+
+      B: The one you said was your
+      mother''s keepsake? I''ll check with the building management team.
+
+      A:
+      Yes, thank you. I''m so distracted...'
     m_Metadata:
       m_Items: []
   references:

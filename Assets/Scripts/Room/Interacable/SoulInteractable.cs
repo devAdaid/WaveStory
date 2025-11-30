@@ -17,6 +17,7 @@ public class SoulInteractable : InteractableBase
     private Image image;
 
     protected override InteractableType interactableType => InteractableType.OnlySoulMode;
+    protected override TooltipType TooltipType => TooltipType.Talk;
     protected override LocalizedString notInteractableMessage => new LocalizedString("Message", "Not_Unlocked_Soul");
 
     private UnlockState state;

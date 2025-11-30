@@ -8,6 +8,7 @@ public class ClueInteractable : InteractableBase
     [SerializeField]
     private ClueData clueData;
     protected override InteractableType interactableType => InteractableType.OnlyRealMode;
+    protected override TooltipType TooltipType => TooltipType.Search;
 
     public override void OnInteract()
     {

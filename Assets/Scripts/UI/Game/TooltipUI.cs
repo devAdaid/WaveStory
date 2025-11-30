@@ -3,6 +3,13 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
+public enum TooltipType
+{
+    Talk,
+    Move,
+    Search,
+}
+
 public class TooltipUI : UIBase
 {
     [Header("UI References")]
@@ -14,6 +21,11 @@ public class TooltipUI : UIBase
     [Header("Settings")]
     [SerializeField] private Vector2 offset = new Vector2(10, -10);
     [SerializeField] private float padding = 10f;
+
+    [SerializeField] private Image iconImage;
+    [SerializeField] private Sprite talkIcon;
+    [SerializeField] private Sprite moveIcon;
+    [SerializeField] private Sprite searchIcon;
 
     private InteractableBase currentTrigger;
 
@@ -30,13 +42,28 @@ public class TooltipUI : UIBase
         }
     }
 
-    public void ShowTooltip(LocalizedString text, InteractableBase trigger)
+    public void ShowTooltip(TooltipType type, LocalizedString text, InteractableBase trigger)
     {
         if (string.IsNullOrEmpty(text.GetLocalizedString())) return;
 
         this.Show();
 
         currentTrigger = trigger;
+
+        switch (type)
+        {
+            case TooltipType.Talk:
+                iconImage.sprite = talkIcon;
+                break;
+            case TooltipType.Move:
+                iconImage.sprite = moveIcon;
+                break;
+            case TooltipType.Search:
+                iconImage.sprite = searchIcon;
+                break;
+        }
+
+
         tooltipText.text = text.GetLocalizedString();
         tooltipPanel.SetActive(true);
 

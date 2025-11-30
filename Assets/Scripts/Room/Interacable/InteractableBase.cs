@@ -26,6 +26,7 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
     private Button button;
 
     protected abstract InteractableType interactableType { get; }
+    protected abstract TooltipType TooltipType { get; }
     protected abstract LocalizedString GetTooltipText();
     protected virtual LocalizedString notInteractableMessage => new LocalizedString("Message", "Invalid");
 
@@ -92,7 +93,7 @@ public abstract class InteractableBase : MonoBehaviour, IPointerEnterHandler, IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GM.I.UIHolder.TooltilUI.ShowTooltip(GetTooltipText(), this);
+        GM.I.UIHolder.TooltilUI.ShowTooltip(TooltipType, GetTooltipText(), this);
     }
 
     public void OnPointerExit(PointerEventData eventData)

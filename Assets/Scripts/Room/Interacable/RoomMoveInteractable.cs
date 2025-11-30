@@ -13,6 +13,8 @@ public class RoomMoveInteractable : InteractableBase
 
     protected override InteractableType interactableType => InteractableType.Always;
 
+    protected override TooltipType TooltipType => TooltipType.Move;
+
     public override void OnInteract()
     {
         AudioManager.I.PlaySfxOneShot("Footstep");

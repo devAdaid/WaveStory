@@ -20,6 +20,7 @@ public class SajaInteractable : InteractableBase
     private UnlockState state;
 
     protected override InteractableType interactableType => InteractableType.OnlySoulMode;
+    protected override TooltipType TooltipType => TooltipType.Talk;
 
     public override void OnInteract()
     {
