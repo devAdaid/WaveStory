@@ -190,7 +190,7 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         cycleCount++;
         
-        AudioManager.I.PlaySfxOneShot(Random.Range(0, 2) == 0 ? "Knob_1" : "Knob_2");
+        AudioManager.I.PlaySfxOneShot("WaveSingleCycleSuccess");
 
         if (cycleCount >= requiredCycles && !successTriggered)
         {

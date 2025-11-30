@@ -94,7 +94,7 @@ public class EndingUI : MonoBehaviour
 
             var disappearTask = endingSoul.DisappearLeft();
             
-            AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
+            AudioManager.I.PlaySfxOneShot("WaveFullCycleSuccess");
             
             var fadeOutTask = FadeCreditTextAsync(1f, 0f);
             await disappearTask;
