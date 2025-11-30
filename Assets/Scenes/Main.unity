@@ -5211,6 +5211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveControlUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4774120426975875027, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6228,6 +6232,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3276537883227068517}
     m_Modifications:
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].DialogueKo
+      value: 
+      objectReference: {fileID: 4900000, guid: f34c123e92045ce48ba66ea9407b5634, type: 3}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[1].DialogueKo
+      value: 
+      objectReference: {fileID: 4900000, guid: 9d91102fa062ef4449c3527127523590, type: 3}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Id
+      value: Saja_Corridor_1_Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5265424153197031856, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: m_Name
       value: Soul_Saja
@@ -11345,7 +11369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &121730758610716648
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12246,7 +12270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC548\uB155\uD558\uC138\uC694.\n\uD760... \uADF8\uCABD\uC758 \uC774\uB984\uC740
+  m_text: "\uC548\uB155\uD558\uC138\uC694.\n\uD760... \uADF8\uCABD\uC758 <color=#26EEFF>\uC774\uB984</color>\uC740
     \uBB34\uC5C7\uC774\uC8E0?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f69435e5bd579d0469e2c8fc2bc8dbb8, type: 2}
@@ -13100,7 +13124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -180
+      value: -179.99998
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14142,7 +14166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -240
+      value: -239.99998
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16845,7 +16869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -120
+      value: -119.999985
       objectReference: {fileID: 0}
     - target: {fileID: 2463519947464014338, guid: 391b1acb7ca55cc4187f206f008efa9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
