@@ -1505,15 +1505,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 307836594}
   targetRoomData: {fileID: 11400000, guid: 1897e67e1547a004392b45634fe2afa6, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -3636,15 +3636,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 660606205}
   targetRoomData: {fileID: 11400000, guid: c26ee6a424e8821479684588d3de6975, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -5347,7 +5347,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 9d91102fa062ef4449c3527127523590, type: 3}
     - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Id
-      value: 'Saja_Corridor_3_Talk '
+      value: Saja_Corridor_3_Talk
       objectReference: {fileID: 0}
     - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Type
@@ -8637,15 +8637,15 @@ MonoBehaviour:
     Type: 0
     Id: 
   interactableCondition:
-    Type: 0
-    Id: 
+    Type: 1
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 1679723306}
   targetRoomData: {fileID: 11400000, guid: 3237beb3e86b4f24b84641d3ef28aaa6, type: 2}
   myNotInteractableMessage:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 284767917199360
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -17076,6 +17076,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1332020559}
     m_Modifications:
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].DialogueKo
+      value: 
+      objectReference: {fileID: 4900000, guid: 7291e76ea9ff1b74590a0b87d5277b95, type: 3}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[1].DialogueKo
+      value: 
+      objectReference: {fileID: 4900000, guid: 9d91102fa062ef4449c3527127523590, type: 3}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Id
+      value: Saja_Corridor_4_Talk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5265424153197031856, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: m_Name
       value: Soul_Saja

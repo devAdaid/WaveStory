@@ -30,7 +30,10 @@ public static class Cheat
     {
         foreach (var soulId in StaticDataHolder.I.GetAllSoulIds())
         {
-            GM.I.Unlock.UnlockSoul(soulId);
+            if (StaticDataHolder.I.TryGetSoul(soulId, out var soulData) && !soulData.IsStaticSoul)
+            {
+                GM.I.Unlock.UnlockSoul(soulId);
+            }
         }
         GM.I.UIHolder.AlarmUI.ShowAlarm("모든 영혼 해금 치트 완료");
     }
@@ -40,7 +43,10 @@ public static class Cheat
     {
         foreach (var soulId in StaticDataHolder.I.GetAllSoulIds())
         {
-            GM.I.Unlock.ClearSoul(soulId);
+            if (StaticDataHolder.I.TryGetSoul(soulId, out var soulData) && !soulData.IsStaticSoul)
+            {
+                GM.I.Unlock.ClearSoul(soulId);
+            }
         }
         GM.I.UIHolder.AlarmUI.ShowAlarm("모든 영혼 클리어 치트 완료");
     }
@@ -81,11 +87,22 @@ public static class Cheat
             if (floor == 1)
             {
                 GM.I.Unlock.UnlockFlag("Saja_Meet");
+                GM.I.Unlock.UnlockFlag("Saja_Corridor_1_Talk");
             }
 
             if (floor == 2)
             {
                 GM.I.Unlock.UnlockFlag("Saja_Corridor_2_Talk");
+            }
+
+            if (floor == 3)
+            {
+                GM.I.Unlock.UnlockFlag("Saja_Corridor_3_Talk");
+            }
+
+            if (floor == 4)
+            {
+                GM.I.Unlock.UnlockFlag("Saja_Corridor_4_Talk");
             }
         }
 

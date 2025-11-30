@@ -6,6 +6,7 @@ Char,Saja,,,,,
 Text,궁금한 게 있나?,,,,,
 Label,cho,,,,,
 Choice,없다.,no,해야할 일에 관해,work,한국에서의 이름에 관해,name
+Label,no,,,,,
 Shake,,,,,,
 Sfx,Shake,,,,,
 Text,그럼 빨리 시작하지 뭐하는 거야!,,,,,
