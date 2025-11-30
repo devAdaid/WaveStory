@@ -74,6 +74,10 @@ MonoBehaviour:
     m_Localized: Try again in other rooms.
     m_Metadata:
       m_Items: []
+  - m_Id: 2229847809277952
+    m_Localized: New word added.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

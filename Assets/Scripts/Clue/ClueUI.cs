@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
@@ -29,6 +30,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     [SerializeField]
     private Button toListButton;
 
+    [SerializeField] private LocalizedString newWordAddedMessage;
+
     private ClueData currentClueData;
     private CluePresenter presenter;
 
@@ -36,7 +39,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     private LocalizeStringEvent descriptionStringEvent;
     private bool needsOverflowCheck = false;
     private bool isShowingAnim = false;
-
+    private bool newWordAdded = false;
+    
     public void SetPresenter(CluePresenter presenter)
     {
         this.presenter = presenter;
@@ -113,6 +117,13 @@ public class ClueUI : UIBase, IView<CluePresenter>
         yield return StartCoroutine(WaitForAnimationToStart("Hidden"));
 
         GM.I.UIHolder.InputBlocker.SetActive(false);
+        
+        if (newWordAdded)
+        {
+            newWordAdded = false;
+            GM.I.UIHolder.AlarmUI.ShowAlarm(newWordAddedMessage);
+            AudioManager.I.PlaySfxOneShot("NewWord");
+        }
     }
 
     public IEnumerator WaitForAnimationToStart(string stateName, int layer = 0)
@@ -144,10 +155,12 @@ public class ClueUI : UIBase, IView<CluePresenter>
     {
         currentClueData = clueData;
 
+        newWordAdded = false;
         foreach (var wordData in clueData.UnlockWords)
         {
-            presenter.AddWord(wordData.Id, clueData.Floor);
+            newWordAdded |= presenter.AddWord(wordData.Id, clueData.Floor);
         }
+
         presenter.UnlockClue(clueData.Id);
 
         UpdateUI();

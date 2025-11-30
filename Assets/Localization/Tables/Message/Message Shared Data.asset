@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: Soul_In_Other_Room
     m_Metadata:
       m_Items: []
+  - m_Id: 2229847809277952
+    m_Key: New_Word_Added
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

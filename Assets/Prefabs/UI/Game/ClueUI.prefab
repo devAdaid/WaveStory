@@ -1326,6 +1326,18 @@ MonoBehaviour:
   descriptionText: {fileID: 2171191916594022917}
   descriptionText2: {fileID: 1469831058613388335}
   toListButton: {fileID: 5363618622605404337}
+  newWordAddedMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
+    m_TableEntryReference:
+      m_KeyId: 2229847809277952
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8613945847578954077
 GameObject:
   m_ObjectHideFlags: 0
