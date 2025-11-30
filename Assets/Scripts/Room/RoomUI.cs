@@ -37,7 +37,7 @@ public class RoomUI : UIBase, IView<RoomPresenter>
         roomMap[currentRoomId].gameObject.SetActive(true);
         roomMap[currentRoomId].Apply(isSoulMode, state);
 
-        TextHelper.SetLocalizedText(roomNameText, null, ref roomNameLocalizeEvent);
+        TextHelper.SetLocalizedTextEvent(roomNameText, null, ref roomNameLocalizeEvent);
 
         SetRoomNameText(roomMap[currentRoomId].RoomData);
     }

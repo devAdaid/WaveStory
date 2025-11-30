@@ -40,6 +40,14 @@ MonoBehaviour:
       \uC0AC\uC6A9"
     m_Metadata:
       m_Items: []
+  - m_Id: 1381815107022848
+    m_Localized: "\uC790\uC544."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1381920874786816
+    m_Localized: "\uC774\uC81C \uC791\uBCC4\uD560 \uC2DC\uAC04\uC774\uAD6C\uB098."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

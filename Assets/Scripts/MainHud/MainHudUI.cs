@@ -44,7 +44,7 @@ public class MainHudUI : UIBase
     {
         clueButton.onClick.AddListener(OpenClueUI);
         soulModeButton.onClick.AddListener(ToggleSoulMode);
-        TextHelper.SetLocalizedText(soulModeText, realModeStr, ref soulModeTextEvent);
+        TextHelper.SetLocalizedTextEvent(soulModeText, realModeStr, ref soulModeTextEvent);
     }
 
     private void Update()

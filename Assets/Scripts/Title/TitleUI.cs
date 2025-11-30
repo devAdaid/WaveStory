@@ -106,7 +106,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         inputContext = new WaveContext(WaveParameter.Min);
         previewContext = new WaveContext(answerParameter);
         var unlockContext = new UnlockContext(new(), new(), new(), new());
-        wordInventoryContext = new WordInventoryContext(new ());
+        wordInventoryContext = new WordInventoryContext(new());
 
         wordInventoryContext.Add("Title_Wave", 1);
         wordInventoryContext.Add("Title_Last", 1);
@@ -262,18 +262,18 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
         AudioManager.I.PlayBgm("Title");
 
-        dimmed.gameObject.SetActive(true);
-        var dimmedFadeTime = 1f;
+        var dimmedFadeTime = 2f;
         var dimmedStep = Time.deltaTime / dimmedFadeTime;
         var t = 0f;
         while (t < 1f)
         {
-            var alpha = Mathf.Lerp(1f, 0f, t);
-            dimmed.color = new Color(0f, 0f, 0f, alpha);
+            var alpha = Mathf.Lerp(0f, 1f, t);
+            var c = inputRenderer.LineRenderer.material.color;
+            c.a = alpha;
+            inputRenderer.LineRenderer.material.SetColor("_Color", c);
             t += dimmedStep;
             yield return null;
         }
-        dimmed.gameObject.SetActive(false);
 
         ui.gameObject.SetActive(true);
         var uiFadeTime = 2f;

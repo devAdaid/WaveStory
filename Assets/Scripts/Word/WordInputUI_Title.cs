@@ -29,8 +29,8 @@ public class WordInputUI_Title : UIBase
         confirmButton.onClick.AddListener(OnClick);
         inventoryUI.SetCallback(OnWordClicked);
         
-        TextHelper.SetLocalizedText(wordText1, null, ref wordText1LocalizeEvent);
-        TextHelper.SetLocalizedText(wordText2, null, ref wordText2LocalizeEvent);
+        TextHelper.SetLocalizedTextEvent(wordText1, null, ref wordText1LocalizeEvent);
+        TextHelper.SetLocalizedTextEvent(wordText2, null, ref wordText2LocalizeEvent);
     }
 
     public override void OnShow()

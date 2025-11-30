@@ -38,6 +38,14 @@ MonoBehaviour:
     m_Localized: Use drag or left/right arrow keys
     m_Metadata:
       m_Items: []
+  - m_Id: 1381815107022848
+    m_Localized: Now...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1381920874786816
+    m_Localized: It's time to say goodbye.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

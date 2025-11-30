@@ -46,8 +46,8 @@ public class ClueUI : UIBase, IView<CluePresenter>
     {
         toListButton.onClick.AddListener(OpenList);
 
-        TextHelper.SetLocalizedText(clueTitleText, null, ref titleStringEvent);
-        TextHelper.SetLocalizedText(descriptionText, null, ref descriptionStringEvent);
+        TextHelper.SetLocalizedTextEvent(clueTitleText, null, ref titleStringEvent);
+        TextHelper.SetLocalizedTextEvent(descriptionText, null, ref descriptionStringEvent);
 
         if (descriptionStringEvent != null)
         {

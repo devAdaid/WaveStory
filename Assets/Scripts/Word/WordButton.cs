@@ -30,7 +30,7 @@ public class WordButton : MonoBehaviour
         {
             if (!localizeStringEvent)
             {
-                TextHelper.SetLocalizedText(labelText, wordData.DisplayText, ref localizeStringEvent);
+                TextHelper.SetLocalizedTextEvent(labelText, wordData.DisplayText, ref localizeStringEvent);
             }
 
             localizeStringEvent.StringReference = wordData.DisplayText;
