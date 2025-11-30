@@ -62,7 +62,7 @@ public class SettingsUI : UIBase
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChanged);
 
         // Language
-        string languageCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey, "ko-KR");
+        string languageCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey, LocalizationSettings.SelectedLocale.Identifier.Code);
         koreanToggle.isOn = (languageCode == "ko-KR");
         englishToggle.isOn = (languageCode == "en");
 
