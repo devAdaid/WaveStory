@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -39,8 +40,9 @@ public class ClueUI : UIBase, IView<CluePresenter>
     private LocalizeStringEvent descriptionStringEvent;
     private bool needsOverflowCheck = false;
     private bool isShowingAnim = false;
-    private bool newWordAdded = false;
-    
+
+    private string newWordAlarmMessage = string.Empty;
+
     public void SetPresenter(CluePresenter presenter)
     {
         this.presenter = presenter;
@@ -117,11 +119,10 @@ public class ClueUI : UIBase, IView<CluePresenter>
         yield return StartCoroutine(WaitForAnimationToStart("Hidden"));
 
         GM.I.UIHolder.InputBlocker.SetActive(false);
-        
-        if (newWordAdded)
+
+        if (!string.IsNullOrEmpty(newWordAlarmMessage))
         {
-            newWordAdded = false;
-            GM.I.UIHolder.AlarmUI.ShowAlarm(newWordAddedMessage);
+            GM.I.UIHolder.AlarmUI.ShowAlarm(newWordAlarmMessage);
             AudioManager.I.PlaySfxOneShot("NewWord");
         }
     }
@@ -155,10 +156,23 @@ public class ClueUI : UIBase, IView<CluePresenter>
     {
         currentClueData = clueData;
 
-        newWordAdded = false;
+        var addedWords = new List<WordData>();
+
         foreach (var wordData in clueData.UnlockWords)
         {
-            newWordAdded |= presenter.AddWord(wordData.Id, clueData.Floor);
+            var isWordAdded = presenter.AddWord(wordData.Id, clueData.Floor);
+
+            if (isWordAdded)
+            {
+                addedWords.Add(wordData);
+            }
+        }
+
+        newWordAlarmMessage = string.Empty;
+        if (addedWords.Count > 0)
+        {
+            var wordStr = string.Join(", ", addedWords.Select(x => $"'{x.DisplayText.GetLocalizedStringAsync().WaitForCompletion()}'"));
+            newWordAlarmMessage = $"{newWordAddedMessage.GetLocalizedStringAsync().WaitForCompletion()}" + wordStr;
         }
 
         presenter.UnlockClue(clueData.Id);
