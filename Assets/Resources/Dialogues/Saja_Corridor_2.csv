@@ -2,8 +2,8 @@
 Bg,F2_C,,,,,
 Char,Saja,,,,,
 Speaker,사자,,,,,
-Text,"휴... 처음 해보는거라 긴장했는데, 다행히 잘 끝났군.",,,,,
-Choice,네?,pardon,사자님도 신입?,newbie,저승사자가 아니라 뻥쟁이가 왔네...,newbie
+Text,"휴... <color=#26EEFF>처음</color> 해보는거라 긴장했는데, 다행히 잘 끝났군.",,,,,
+Choice,네?,pardon,사자님도 신입?,newbie,저승사자가 아니라 뻥쟁이였네...,newbie
 Label,pardon,,,,,
 Shake,,,,,,
 Sfx,Shake,,,,,

@@ -2430,7 +2430,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_2_Talk
+    Id: Saja_Corridor_3_Talk
   button: {fileID: 476650742}
   targetRoomData: {fileID: 11400000, guid: 19ca051153cd8fe449efbef7e8c45786, type: 2}
   myNotInteractableMessage:
@@ -4459,7 +4459,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_2_Talk
+    Id: Saja_Corridor_3_Talk
   button: {fileID: 772077686}
   targetRoomData: {fileID: 11400000, guid: eb50f8c4dc8f9e44699bfadc67dda181, type: 2}
   myNotInteractableMessage:
@@ -5338,11 +5338,19 @@ PrefabInstance:
     - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: dialogueTable.Dialogues.Array.data[0].DialogueKo
       value: 
-      objectReference: {fileID: 4900000, guid: 9b4e2127f2dee57499b5ba04c3ace647, type: 3}
+      objectReference: {fileID: 4900000, guid: 6edd3303ff6ef444080c1b3ccb177b88, type: 3}
     - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: dialogueTable.Dialogues.Array.data[1].DialogueKo
       value: 
       objectReference: {fileID: 4900000, guid: 9d91102fa062ef4449c3527127523590, type: 3}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Id
+      value: 'Saja_Corridor_3_Talk '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983619525742455081, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
+      propertyPath: dialogueTable.Dialogues.Array.data[0].Condition.Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5265424153197031856, guid: 2bb0955671345f64da088f51ab9fcc37, type: 3}
       propertyPath: m_Name
       value: Soul_Saja
@@ -6763,7 +6771,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_2_Talk
+    Id: Saja_Corridor_3_Talk
   button: {fileID: 1198126916}
   targetRoomData: {fileID: 11400000, guid: 2aabc33b0235a524bb4b2de5d373a8dd, type: 2}
   myNotInteractableMessage:
@@ -14718,7 +14726,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_SizeDelta: {x: -40, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &6052558842441911988
 RectTransform:
