@@ -229,8 +229,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 654, y: -44}
-  m_SizeDelta: {x: 200, y: 340}
+  m_AnchoredPosition: {x: 700, y: 130}
+  m_SizeDelta: {x: 174, y: 202}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &279277287
 MonoBehaviour:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f1a096fea69af4045aefa1fc103c69d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1419,7 +1419,7 @@ MonoBehaviour:
     m_LocalVariables: []
   dimmedFadeDuration: 1
   endingWaveElements:
-  - sprite: {fileID: 21300000, guid: 9f5e0076a842a4640a3987e5b59bff5e, type: 3}
+  - sprite: {fileID: 21300000, guid: 7e81b62159a85cf42b05f7077a0d26cb, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1429,7 +1429,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-  - sprite: {fileID: 21300000, guid: f931cd644fc2da941843703e834b2ddc, type: 3}
+  - sprite: {fileID: 21300000, guid: f1a096fea69af4045aefa1fc103c69d7, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1439,12 +1439,82 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-  - sprite: {fileID: 21300000, guid: 82b9b7dbfbecdc44ba8767f1e8fd56c0, type: 3}
+  - sprite: {fileID: 21300000, guid: ea770d67052e97741b9dd407306c41fc, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423116283887616
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: 790fb14a6dbb3db4e95d134f969315f4, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423177470394368
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: 4283f96cbd61a1749a835607b6bd1201, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
       m_TableEntryReference:
         m_KeyId: 131099004928
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: 95788ab19b4b59646baa6d78b9d6c239, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423368319614976
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: f1ec22c4b848bfb459fc06c184145dc4, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423383901454336
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: 5bb05ecbd9a494941898bd24c1a3ab74, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423407242756096
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: 4679c124258c49a43847dc61acaedf5e, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423419188133888
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - sprite: {fileID: 21300000, guid: ea7b87b1db98aa94eb23b3aa5cb5f410, type: 3}
+    creditText:
+      m_TableReference:
+        m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
+      m_TableEntryReference:
+        m_KeyId: 1423431217397760
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -2172,7 +2242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveHand
   minAngle: -20
   maxAngle: 20
-  rotationSensitivity: 0.5
+  rotationSensitivity: 2
   keyboardRotationSpeed: 100
   requiredCycles: 3
   OnSuccess:

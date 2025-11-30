@@ -23,8 +23,36 @@ MonoBehaviour:
     m_Key: Ending_02
     m_Metadata:
       m_Items: []
-  - m_Id: 131099004928
+  - m_Id: 1423116283887616
     m_Key: Ending_03
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423177470394368
+    m_Key: Ending_04
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131099004928
+    m_Key: Ending_05
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423368319614976
+    m_Key: Ending_06
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423383901454336
+    m_Key: Ending_07
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423407242756096
+    m_Key: Ending_08
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423419188133888
+    m_Key: Ending_09
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423431217397760
+    m_Key: Ending_10
     m_Metadata:
       m_Items: []
   - m_Id: 5807212859392

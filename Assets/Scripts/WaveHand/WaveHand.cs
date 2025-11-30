@@ -19,7 +19,11 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private RectTransform rectTransform;
     private float currentAngle;
     private bool isDragging;
-    private Vector2 lastDragPosition;
+
+    // 각도 기반 드래그를 위한 변수
+    private float dragStartAngle;
+    private float accumulatedAngle;
+    private float dragStartRotation;
 
     private bool wasAtMin;
     private bool wasAtMax;
@@ -65,18 +69,35 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (successTriggered) return;
 
         isDragging = true;
-        lastDragPosition = eventData.position;
+
+        // 중심점에서 마우스 위치까지의 각도 계산
+        Vector2 center = rectTransform.position;
+        Vector2 direction = eventData.position - center;
+        dragStartAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        accumulatedAngle = 0f;
+        dragStartRotation = currentAngle;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (successTriggered || !isDragging) return;
 
-        float deltaX = eventData.position.x - lastDragPosition.x;
-        lastDragPosition = eventData.position;
+        // 현재 마우스 위치의 각도 계산
+        Vector2 center = rectTransform.position;
+        Vector2 direction = eventData.position - center;
+        float currentMouseAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        float delta = deltaX * rotationSensitivity;
-        ApplyRotation(delta);
+        // 각도 변화량 계산 (180도 경계 안전 처리)
+        float angleDelta = Mathf.DeltaAngle(dragStartAngle + accumulatedAngle, currentMouseAngle);
+        accumulatedAngle += angleDelta;
+
+        // 회전 적용
+        float previousAngle = currentAngle;
+        float targetAngle = dragStartRotation + (accumulatedAngle * rotationSensitivity);
+        currentAngle = Mathf.Clamp(targetAngle, minAngle, maxAngle);
+        rectTransform.localEulerAngles = new Vector3(0f, 0f, currentAngle);
+
+        CheckCycle(previousAngle);
     }
 
     public void OnEndDrag(PointerEventData eventData)
