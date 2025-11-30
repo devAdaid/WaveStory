@@ -2,6 +2,7 @@ using RedBlueGames.Tools.TextTyper;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class EndingUI : MonoBehaviour
 {
@@ -26,6 +27,17 @@ public class EndingUI : MonoBehaviour
 
     private async void Start()
     {
+        await LocalizationSettings.InitializationOperation.Task;
+        
+        LocalizationSettings.SelectedLocaleChanged -= StartUI.OnLocaleChanged;
+        LocalizationSettings.SelectedLocaleChanged += StartUI.OnLocaleChanged;
+        
+        if (PlayerPrefs.HasKey(StartUI.LanguageCodeKey))
+        {
+            string savedCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey);
+            StartUI.SetLocale(savedCode);
+        }
+        
         creditText.text = " ";
         creditText.color = new Color(creditText.color.r, creditText.color.g, creditText.color.b, 0f);
         foreground.alpha = 0f;
