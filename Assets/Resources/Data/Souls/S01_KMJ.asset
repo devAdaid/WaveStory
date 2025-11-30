@@ -33,6 +33,10 @@ MonoBehaviour:
   DialogueTable:
     Dialogues:
     - Condition:
+        Type: 2
+        Id: Saja_Corridor_1_Talk
+      DialogueKo: {fileID: 0}
+    - Condition:
         Type: 5
         Id: S01_KMJ
       DialogueKo: {fileID: 4900000, guid: 97659fc70e1c12348bed00c72d27b52b, type: 3}
