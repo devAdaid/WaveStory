@@ -1528,6 +1528,8 @@ MonoBehaviour:
   foregroundDelay: 1
   foregroundFadeDuration: 1
   creditTextFadeDuration: 0.5
+  guideArrow: {fileID: 4617591575863785989}
+  guideArrowFadeDuration: 0.5
   references:
     version: 2
     RefIds: []
@@ -1990,6 +1992,7 @@ GameObject:
   - component: {fileID: 4617591575863785988}
   - component: {fileID: 666711505030079704}
   - component: {fileID: 1840827406679006649}
+  - component: {fileID: 4617591575863785989}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -2114,6 +2117,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205299213521182681}
   m_CullTransparentMesh: 1
+--- !u!225 &4617591575863785989
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205299213521182681}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &4755517283538775074
 MonoBehaviour:
   m_ObjectHideFlags: 0

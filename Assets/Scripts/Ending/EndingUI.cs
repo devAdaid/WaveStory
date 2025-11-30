@@ -24,6 +24,8 @@ public class EndingUI : MonoBehaviour
     [SerializeField] private float foregroundDelay = 1f;
     [SerializeField] private float foregroundFadeDuration = 1f;
     [SerializeField] private float creditTextFadeDuration = 0.5f;
+    [SerializeField] private CanvasGroup guideArrow;
+    [SerializeField] private float guideArrowFadeDuration = 0.5f;
 
     private async void Start()
     {
@@ -61,6 +63,8 @@ public class EndingUI : MonoBehaviour
         await Awaitable.WaitForSecondsAsync(foregroundDelay);
         await FadeForegroundAsync(0f, 1f);
 
+        bool isFirstElement = true;
+
         foreach (var element in endingWaveElements)
         {
             waveHand.ResetState();
@@ -71,6 +75,13 @@ public class EndingUI : MonoBehaviour
 
             await FadeCreditTextAsync(0f, 1f);
             await endingSoul.StartElement(targetX);
+
+            // 첫 번째 요소 완료 후 guideArrow 페이드아웃
+            if (isFirstElement)
+            {
+                isFirstElement = false;
+                _ = FadeGuideArrowAsync(1f, 0f);
+            }
 
             var disappearTask = endingSoul.DisappearLeft();
             var fadeOutTask = FadeCreditTextAsync(1f, 0f);
@@ -140,5 +151,22 @@ public class EndingUI : MonoBehaviour
 
         color.a = endAlpha;
         creditText.color = color;
+    }
+
+    private async Awaitable FadeGuideArrowAsync(float startAlpha, float endAlpha)
+    {
+        if (guideArrow == null) return;
+
+        float elapsed = 0f;
+
+        while (elapsed < guideArrowFadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / guideArrowFadeDuration);
+            guideArrow.alpha = Mathf.SmoothStep(startAlpha, endAlpha, t);
+            await Awaitable.NextFrameAsync();
+        }
+
+        guideArrow.alpha = endAlpha;
     }
 }
