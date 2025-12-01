@@ -5665,14 +5665,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  - m_TableReference:
-      m_TableCollectionName: GUID:d54e9fceb31fc2546b062a6f79987a20
-    m_TableEntryReference:
-      m_KeyId: 189341851648
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
   references:
     version: 2
     RefIds: []
@@ -7052,15 +7044,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.b
-      value: 0.65230787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.g
-      value: 0.9882353
+      value: 0.93333334
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.r
-      value: 0.35686275
+      value: 0.14901961
       objectReference: {fileID: 0}
     - target: {fileID: 8458120713659451183, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Pivot.x
