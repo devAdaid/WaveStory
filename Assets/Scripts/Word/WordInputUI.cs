@@ -57,6 +57,7 @@ public class WordInputUI : UIBase, IView<WordInputPresenter>
     public override void OnHide()
     {
         inventoryUI.Hide();
+        AudioManager.I.PlaySfxOneShot("Click");
     }
 
     public void ClearAllWords()
