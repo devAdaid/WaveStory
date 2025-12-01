@@ -17,7 +17,15 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: d54e9fceb31fc2546b062a6f79987a20, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 7267115008
+    m_Localized: "\u672C\u65E520\u6642\u9803\u3001\u30BD\u30A6\u30EB\u25CB\u25CB\u533A\u30C1\u30E7\u30F3\u30EA\u30E0\u30D3\u30EB\u3067\u767A\u751F\u3057\u305F\u5927\u898F\u6A21\u706B\u707D\u4E8B\u4EF6\u306E\u72AF\u4EBA\u304C\u3001\u72AF\u884C\u304B\u30892\u6642\u9593\u3067\u902E\u6355\u3055\u308C\u307E\u3057\u305F\u3002"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133410807808
+    m_Localized: "\u6D88\u9632\u5F53\u5C40\u306F\u73FE\u5728\u3001\u706B\u707D\u3092\u5B8C\u5168\u306B\u93AE\u706B\u3057\u3066\u304A\u308A\u3001\u9593\u3082\u306A\u304F\u907A\u4F53\u53CE\u5BB9\u4F5C\u696D\u306B\u7740\u624B\u3059\u308B\u4E88\u5B9A\u3067\u3059\u3002"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
