@@ -189,8 +189,8 @@ public class WaveHand : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private void IncrementCycle()
     {
         cycleCount++;
-        
-        AudioManager.I.PlaySfxOneShot("WaveSingleCycleSuccess");
+
+        AudioManager.I.PlaySfxOneShot("Click");
 
         if (cycleCount >= requiredCycles && !successTriggered)
         {

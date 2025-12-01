@@ -83,6 +83,10 @@ MonoBehaviour:
     m_Key: Ending_Intro_5
     m_Metadata:
       m_Items: []
+  - m_Id: 1937284837167104
+    m_Key: Ending_11
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

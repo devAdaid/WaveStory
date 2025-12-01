@@ -872,9 +872,9 @@ MonoBehaviour:
   m_fontSize: 20
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   dimmedFadeDuration: 1
   endingWaveElements:
   - sprite: {fileID: 21300000, guid: 7e81b62159a85cf42b05f7077a0d26cb, type: 3}
+    spriteSmile: {fileID: 21300000, guid: d9af4d82840d92343b13d89d3bd5d506, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1455,6 +1456,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: f1a096fea69af4045aefa1fc103c69d7, type: 3}
+    spriteSmile: {fileID: 21300000, guid: 0fbacfbe0dfe9934e8fe758330b2333e, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1465,6 +1467,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: ea770d67052e97741b9dd407306c41fc, type: 3}
+    spriteSmile: {fileID: 21300000, guid: 9e23e1ae67e9ee34fa3ae6f2aef2892b, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1475,6 +1478,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: 790fb14a6dbb3db4e95d134f969315f4, type: 3}
+    spriteSmile: {fileID: 21300000, guid: d6028b0dfe5b6e5409e0b2fa67fd5cdd, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1485,6 +1489,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: 4283f96cbd61a1749a835607b6bd1201, type: 3}
+    spriteSmile: {fileID: 21300000, guid: 6f385c82b2db3924da12bd508c9f8028, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1495,6 +1500,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: 95788ab19b4b59646baa6d78b9d6c239, type: 3}
+    spriteSmile: {fileID: 21300000, guid: a021b87e8a538274f9b0fb26ad04ffec, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1505,6 +1511,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: f1ec22c4b848bfb459fc06c184145dc4, type: 3}
+    spriteSmile: {fileID: 21300000, guid: 59b4f256528d2b34b96ced0a1f4cd4f3, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1515,6 +1522,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: 5bb05ecbd9a494941898bd24c1a3ab74, type: 3}
+    spriteSmile: {fileID: 21300000, guid: 99ab2a18140d2ee44b3a3985f6ef3523, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1525,6 +1533,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: 4679c124258c49a43847dc61acaedf5e, type: 3}
+    spriteSmile: {fileID: 21300000, guid: f18f6663a7942da4a8962fd20e4cd995, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1535,6 +1544,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: ea7b87b1db98aa94eb23b3aa5cb5f410, type: 3}
+    spriteSmile: {fileID: 21300000, guid: dad27b58c22867f46a31c47ca382f97b, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
@@ -1545,11 +1555,12 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - sprite: {fileID: 21300000, guid: c6a3dce7c2028994dbf5f99106294610, type: 3}
+    spriteSmile: {fileID: 21300000, guid: c6a3dce7c2028994dbf5f99106294610, type: 3}
     creditText:
       m_TableReference:
         m_TableCollectionName: GUID:97ec4982dbb56d74580f5dbbabb69f9b
       m_TableEntryReference:
-        m_KeyId: 1423431217397760
+        m_KeyId: 1937284837167104
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -1568,6 +1579,7 @@ MonoBehaviour:
   volume: {fileID: 410069636}
   bloomDuration: 3
   whiteImage: {fileID: 1604725289}
+  skipIntro: 0
   skipUntilLastSoul: 0
   references:
     version: 2

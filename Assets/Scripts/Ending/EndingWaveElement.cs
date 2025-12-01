@@ -5,5 +5,6 @@ using UnityEngine.Localization;
 public class EndingWaveElement
 {
     public Sprite sprite;
+    public Sprite spriteSmile;
     public LocalizedString creditText;
 }

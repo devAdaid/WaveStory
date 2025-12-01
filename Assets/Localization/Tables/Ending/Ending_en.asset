@@ -19,19 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 11808804864
-    m_Localized: Development adaid & gasbank 1
+    m_Localized: adaid | Leading, Design, Graphic, Programming
     m_Metadata:
       m_Items: []
   - m_Id: 98601537536
-    m_Localized: Development adaid & gasbank 2
+    m_Localized: gasbank | Programming
     m_Metadata:
       m_Items: []
   - m_Id: 131099004928
-    m_Localized: Development adaid & gasbank 5
+    m_Localized: 'Sounds from: DOVA-SYNDROME'
     m_Metadata:
       m_Items: []
   - m_Id: 5807212859392
-    m_Localized: Wave goodbye to see off the souls who have found peace.
+    m_Localized: Wave goodbye to see off the souls who resolved han.
     m_Metadata:
       m_Items: []
   - m_Id: 6087593693184
@@ -47,31 +47,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1423116283887616
-    m_Localized: Development adaid & gasbank 3
+    m_Localized: 'Images from: pixabay'
     m_Metadata:
       m_Items: []
   - m_Id: 1423177470394368
-    m_Localized: Development adaid & gasbank 4
+    m_Localized: 'Icons from: ICOOON MONO, iconmonstr'
     m_Metadata:
       m_Items: []
   - m_Id: 1423368319614976
-    m_Localized: Development adaid & gasbank 6
+    m_Localized: 'Sounds from: MusMus'
     m_Metadata:
       m_Items: []
   - m_Id: 1423383901454336
-    m_Localized: Development adaid & gasbank 7
+    m_Localized: 'Sounds from: Peritune'
     m_Metadata:
       m_Items: []
   - m_Id: 1423407242756096
-    m_Localized: Development adaid & gasbank 8
+    m_Localized: 'Sounds from: Tim beek, Kevin MacLeod'
     m_Metadata:
       m_Items: []
   - m_Id: 1423419188133888
-    m_Localized: Development adaid & gasbank 9
+    m_Localized: 'Sounds from: Freesound'
     m_Metadata:
       m_Items: []
   - m_Id: 1423431217397760
-    m_Localized: Development adaid & gasbank 10
+    m_Localized: 'Sounds from: Springin'' Sound Stock, soundeffect lab'
     m_Metadata:
       m_Items: []
   - m_Id: 1613870973677568
@@ -83,7 +83,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1614379981828096
-    m_Localized: Let's at least say one last goodbye before we part.
+    m_Localized: Let's at least say one last goodbye.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1937284837167104
+    m_Localized: ' '
     m_Metadata:
       m_Items: []
   references:

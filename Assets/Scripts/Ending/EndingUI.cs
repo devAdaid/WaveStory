@@ -133,6 +133,8 @@ public class EndingUI : MonoBehaviour
 
             await endingSoul.WaitForSuccessAsync();
 
+            endingSoul.SetSprite(element.spriteSmile);
+
             // 첫 번째 요소 완료 후 guideArrow 페이드아웃
             if (isFirstElement)
             {
