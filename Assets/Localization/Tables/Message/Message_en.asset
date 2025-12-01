@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 241890512896
-    m_Localized: Let's use the soul detector to talk to Saja first.
+    m_Localized: Let's use the soul visor to talk to Saja first.
     m_Metadata:
       m_Items: []
   - m_Id: 7143835848704
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8328777060352
-    m_Localized: You need to remove the soul detector to inspect clues.
+    m_Localized: You need to unequip the soul visor to inspect clues.
     m_Metadata:
       m_Items: []
   - m_Id: 10695325011968
@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2226687514460160
-    m_Localized: Try again in another room.
+    m_Localized: It seems like I need to try again in another room.
     m_Metadata:
       m_Items: []
   - m_Id: 2229847809277952
