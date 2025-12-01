@@ -47,4 +47,4 @@ MonoBehaviour:
   m_StyleSheetsResourcePath: 
   m_leadingCharacters: {fileID: 4900000, guid: d82c1b31c7e74239bff1220585707d2b, type: 3}
   m_followingCharacters: {fileID: 4900000, guid: fade42e8bc714b018fac513c043d323b, type: 3}
-  m_UseModernHangulLineBreakingRules: 0
+  m_UseModernHangulLineBreakingRules: 1
