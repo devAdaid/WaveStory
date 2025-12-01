@@ -13,6 +13,9 @@ public class StartUI : MonoBehaviour
     [SerializeField] private GameObject languagePanel;
     [SerializeField] private Button koreanButton;
     [SerializeField] private Button englishButton;
+    [SerializeField] private Image fadeImage;
+
+    private const float FadeDuration = .5f;
 
     private IEnumerator Start()
     {
@@ -34,11 +37,32 @@ public class StartUI : MonoBehaviour
         englishButton.onClick.AddListener(() => SelectLanguage("en"));
     }
 
-    private static void SelectLanguage(string localeCode)
+    private void SelectLanguage(string localeCode)
+    {
+        koreanButton.interactable = false;
+        englishButton.interactable = false;
+        StartCoroutine(FadeOutAndLoadTitle(localeCode));
+    }
+
+    private IEnumerator FadeOutAndLoadTitle(string localeCode)
     {
         SetLocale(localeCode);
         PlayerPrefs.SetString(LanguageCodeKey, localeCode);
         PlayerPrefs.Save();
+
+        fadeImage.gameObject.SetActive(true);
+        float elapsed = 0f;
+        Color color = fadeImage.color;
+        while (elapsed < FadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            color.a = Mathf.Lerp(0f, 1f, elapsed / FadeDuration);
+            fadeImage.color = color;
+            yield return null;
+        }
+        color.a = 1f;
+        fadeImage.color = color;
+
         SceneManager.LoadScene("Title");
     }
 
