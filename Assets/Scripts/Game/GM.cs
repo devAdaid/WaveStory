@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GM : MonoSingleton<GM>, IMonoSingleton
 {
@@ -18,6 +19,13 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
 
     public void Initialize()
     {
+        // Title 씬에서 Settings UI때문에 GM이 생성되는데, 그것 이외에는 쓸모가 없다.
+        // 바로 리턴한다.
+        if (SceneManager.GetActiveScene().name == "Title")
+        {
+            return;
+        }
+        
         InputWave = new WaveContext(WaveParameter.Min);
         Room = new RoomContext(defaultRoomData.Id);
         WordInventory = new WordInventoryContext(new ());

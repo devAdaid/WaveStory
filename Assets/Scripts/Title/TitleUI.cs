@@ -44,6 +44,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     [SerializeField]
     private CanvasGroup wordInventoryRoot;
+    
+    [SerializeField]
+    private SettingsUI settingsUI;
 
     [SerializeField]
     private CanvasGroup ui;
@@ -53,6 +56,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     [SerializeField]
     private Button quitButton;
+    
+    [SerializeField]
+    private Button settingsButton;
 
     [SerializeField]
     private GameObject guideText;
@@ -78,6 +84,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     {
         startButton.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
+        settingsButton.onClick.AddListener(OpenSettingsUI);
+        
+        settingsUI.Initialize();
     }
 
     IEnumerator Start()
@@ -322,6 +331,10 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 #endif
     }
 
+    private void OpenSettingsUI()
+    {
+        settingsUI.Show();
+    }
 
     IEnumerator Intro()
     {
