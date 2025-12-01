@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5807212859392
-    m_Localized: Wave to bid farewell to the spirits.
+    m_Localized: Wave goodbye to see off the souls who have found peace.
     m_Metadata:
       m_Items: []
   - m_Id: 6087593693184
@@ -72,6 +72,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1423431217397760
     m_Localized: Development adaid & gasbank 10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1613870973677568
+    m_Localized: The other souls are waiting for you too.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1614218085888000
+    m_Localized: Hoping we may meet again someday...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1614379981828096
+    m_Localized: Let's at least say one last goodbye before we part.
     m_Metadata:
       m_Items: []
   references:

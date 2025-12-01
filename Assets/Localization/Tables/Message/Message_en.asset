@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2229847809277952
-    m_Localized: New word added.
+    m_Localized: "New name info has been added: "
     m_Metadata:
       m_Items: []
   references:

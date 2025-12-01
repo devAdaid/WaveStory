@@ -54,6 +54,22 @@ MonoBehaviour:
     m_Localized: Where could that pendant be...
     m_Metadata:
       m_Items: []
+  - m_Id: 823946900164608
+    m_Localized: Cheolsu! Cheolsu! Where did you go?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824000952160256
+    m_Localized: Woof! Woof woof!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824059341066240
+    m_Localized: I need to find our... Sejin.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 824171979100160
+    m_Localized: If I hide here, no one will find me, right? Right, Cheolsu!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

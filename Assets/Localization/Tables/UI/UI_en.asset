@@ -66,6 +66,10 @@ MonoBehaviour:
     m_Localized: Close
     m_Metadata:
       m_Items: []
+  - m_Id: 4306586487771136
+    m_Localized: Drag the buttons or use the arrow keys to adjust the wave.
+    m_Metadata:
+      m_Items: []
   - m_Id: 4307137246023680
     m_Localized: S. W. Detector
     m_Metadata:

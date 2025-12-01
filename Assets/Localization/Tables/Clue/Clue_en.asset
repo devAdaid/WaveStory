@@ -19,40 +19,19 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 71002845184
-    m_Localized: 'I checked a recent text message on someone''s smartphone in the
-      1st floor corridor.
-
-      [Text Message]
-
-      Hello, Writer Kang Minjae.
-
-      This
-      is the Neulbom New Spring Literary Award Committee.
-
-      We are pleased to
-      inform you that your work ''But the Dawn Comes'' has been selected for the
-      2025 Neulbom New Spring Literary Award.
-
-      Congratulations on your achievement.
-
-      We
-      will contact you with further details.'
+    m_Localized: "Found someone's smartphone in the 1st floor hallway and checked a recent text message. The message was still unread.\n\n[Text Message]\nHello, Writer Kang Minjae.\nThis is the Neulbom New Spring Literary Award Committee.\nWe are pleased to inform you that your work 'But the Dawn Comes' has been selected for the 2025 Neulbom New Spring Literary Award.\nCongratulations on your achievement.\nWe will contact you with further details."
     m_Metadata:
       m_Items: []
   - m_Id: 95078150144
-    m_Localized: 'The incident occurred on November 30, 2025.
-
-      According to
-      police press materials, of the 24 total residents in the building, 14 are estimated
-      to have died.'
+    m_Localized: "[What to Do]\nWearing the Soul Detector allows you to see the dead souls. Make contact with the person who came from the afterlife.\n\n[About the Incident]\nThe incident occurred on November 29, 20XX.\nAccording to police press materials, out of 24 total residents in the building, 14 survivors have been confirmed, meaning the estimated death toll is 10.\n\n[Resident Information]\n1st Floor: 5 people\n2nd Floor: 5 people\n3rd Floor: 6 people\n4th Floor: 7 people\nRooftop: 1 person"
     m_Metadata:
       m_Items: []
   - m_Id: 2129435055378432
-    m_Localized: Temporary Title
+    m_Localized: Room 302 - Landlord's Notice
     m_Metadata:
       m_Items: []
   - m_Id: 1995429533995008
-    m_Localized: Text Records
+    m_Localized: 1F Hallway - Text Message Record
     m_Metadata:
       m_Items: []
   - m_Id: 1995569690857472
@@ -60,75 +39,71 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2129531797000192
-    m_Localized: Temporary Title
+    m_Localized: Room 301 - Absence Memo
     m_Metadata:
       m_Items: []
   - m_Id: 2129609014136832
-    m_Localized: Temporary Title
+    m_Localized: Room 303 - Memo
     m_Metadata:
       m_Items: []
   - m_Id: 2129513266565120
-    m_Localized: 'People living on the 2nd floor: Kim Heejae, Park Junseo, Park Hayun,
-      Lee Sunja, Choi Sua'
+    m_Localized: "Found a notice from the landlord in Room 302.\n\n[Noise-Related Notice]\nRecently, nighttime noise complaints have been filed from the 3rd floor.\nResidents on the 3rd floor, please keep quiet after midnight.\nAffected households: Kim Heejae, Park Junseo, Park Hayun, Lee Sunja, Choi Sua"
     m_Metadata:
       m_Items: []
   - m_Id: 2129552202289152
-    m_Localized: 'Away on trip from 11/28 to 12/7. For urgent matters, please contact
-      010-XXXX-XXXX.
-
-      - Heejae & Hayun'
+    m_Localized: "Found a memo notifying an absence schedule.\n\n[Memo]\nTo Sua,\nWe'll be away on a trip from 11/28 to 12/7. If any packages arrive at our place, please contact 010-XXXX-XXXX.\n- Heejae & Hayun"
     m_Metadata:
       m_Items: []
   - m_Id: 2129631109730304
-    m_Localized: 'I found Mr. Junseo''s mother in front of the Sarang Flower Shop,
-
-      so
-      I brought her home.
-
-      Just wanted to let you know so you wouldn''t worry.
-
-      -
-      Sua'
+    m_Localized: "Found a memo someone wrote in Room 303.\n\n[Memo]\nI found Mr. Junseo's mother wandering in front of the Sarang Flower Shop,\nso I brought her home.\nIt seems her dementia symptoms have returned...\nJust wanted to let you know in case you were worried!!\n- Sua"
     m_Metadata:
       m_Items: []
   - m_Id: 2390516923387904
-    m_Localized: Temporary Title
+    m_Localized: Room 202 - Diary
     m_Metadata:
       m_Items: []
   - m_Id: 2390576151154688
-    m_Localized: Temporary Title
+    m_Localized: Room 201 - Messenger Record
     m_Metadata:
       m_Items: []
   - m_Id: 2390554961530880
-    m_Localized: 'Found someone''s diary in Room 202. The cover has the name ''Jung
-      Hangyeol'' written on it.
-
-      [Diary Entry]
-
-      November 29: Another
-      tough day. I picked up a small pendant in the corridor. Could it belong to
-      Ms. Sua from Room 202? I should ask her if I see her later.'
+    m_Localized: "Found someone's diary in Room 202. The cover has 'Jeong Hangyeol' written in neat handwriting.\n\n[November 29 Diary Entry]\nI picked up a small pendant in the hallway. Could it belong to Ms. Yuna from Room 201? I should ask her if I run into her later."
     m_Metadata:
       m_Items: []
   - m_Id: 2390592450220032
-    m_Localized: 'Found someone''s smartphone in Room 201. I checked the recent messenger
-      records.
-
-      (A: Phone owner, B: Another person)
-
-      [Messenger Records]
-
-      B:
-      Manager Seo, you didn''t look well today. Are you okay?
-
-      A: Oh, thank
-      you for your concern. I lost a pendant...
-
-      B: The one you said was your
-      mother''s keepsake? I''ll check with the building management team.
-
-      A:
-      Yes, thank you. I''m so distracted...'
+    m_Localized: "Found someone's smartphone in Room 201. Checked the recent messenger records.\n\n[Messenger Record]\n(A: Phone owner, B: Another person)\nB: Ms. Seo, you didn't look well at work today. Are you okay?\nA: Thank you for your concern ㅠㅠ I lost a pendant I always carried in my bag...\nB: Oh really? I'll check with the building management team.\nA: Hehe, thank you so much! :D"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2416800135139328
+    m_Localized: Room 401 - Diary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417426252451840
+    m_Localized: Room 401 - Landlord's Note
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417470770794496
+    m_Localized: Room 402 - Drawing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417525376438272
+    m_Localized: Room 402 - Diary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417342353788928
+    m_Localized: "Found someone's diary in Room 401. The cover has 'Kim ㅇㅎ' written in round, cute handwriting.\n\n[Diary Entry]\nToday I brought a lovely child home. I gave her my last name. Now we're family!\nMs. Arin upstairs invited us to come play later. We should definitely go~\nIf all three of us with the same last name gather, it'll feel like we're siblings lolol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417453960024064
+    m_Localized: "Found a note from the landlord.\n\n[Note]\nJust so you know, it seems like your puppy and the youngest child from Room 402 often go into Room 403. That room is empty, but please make sure they don't go in there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417483987046400
+    m_Localized: "Found a drawing that looks like it was drawn by a child in Room 402. It appears to be a family portrait. I noted down the labels written on the drawing.\n\n[Drawing Labels]\nDad: Choi Yohan\nMom: Jeong Naeun (This figure has wings drawn on it.)\nBig Brother: Choi Woojin\nAnd me!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2417541755195392
+    m_Localized: "Found someone's diary in Room 402. The cover has 'Lee Miyeon' written in firmly pressed handwriting.\n\n[Diary Entry]\nSejin likes Cheolsu from Room 401 way too much. I feel bad for Ms. Younghee... But I think it's better than awkwardly being alone with her as her new stepmother. Still, I should tell her not to go to Room 403 too often.\n* Memo: Mr. Yohan's business trip 11/25~31, Woojin's retreat 11/28~30"
     m_Metadata:
       m_Items: []
   references:

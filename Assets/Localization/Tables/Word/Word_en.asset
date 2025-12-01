@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 100000000006
-    m_Localized: Jung
+    m_Localized: Jeong
     m_Metadata:
       m_Items: []
   - m_Id: 100000000007
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 100000000011
-    m_Localized: Huijae
+    m_Localized: Heejae
     m_Metadata:
       m_Items: []
   - m_Id: 100000000012
@@ -95,11 +95,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23116366237696
-    m_Localized: Chulsu
+    m_Localized: Cheolsu
     m_Metadata:
       m_Items: []
   - m_Id: 23137195151360
-    m_Localized: Yeonghui
+    m_Localized: Younghee
     m_Metadata:
       m_Items: []
   - m_Id: 23883424747520
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23590200954880
-    m_Localized: Ujin
+    m_Localized: Woojin
     m_Metadata:
       m_Items: []
   - m_Id: 32703567908864
