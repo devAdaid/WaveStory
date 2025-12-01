@@ -9,15 +9,10 @@ public class LastEndingUI : MonoBehaviour
 
     IEnumerator Start()
     {
-        AudioManager.I.PlayBgm("Ending2");
+        AudioManager.I.PlayBgm("EndingLast");
+        AudioManager.I.SetBgmLoop(false);
         Wave.Apply(SoulData.WaveParameter);
         yield return null;
-    }
-
-    public void PlayEnding3()
-    {
-        AudioManager.I.SetBgmLoop(false);
-        AudioManager.I.PlayBgm("Ending3");
     }
 
     public void StartFadeLine()

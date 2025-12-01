@@ -262,7 +262,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
         AudioManager.I.PlayBgm("Title");
 
-        var dimmedFadeTime = 2f;
+        var dimmedFadeTime = 3f;
         var dimmedStep = Time.deltaTime / dimmedFadeTime;
         var t = 0f;
         while (t < 1f)

@@ -33,6 +33,7 @@ public class EndingUI : MonoBehaviour
     [SerializeField] private float bloomDuration = 3f;
     [SerializeField] private CanvasGroup whiteImage;
 
+    [SerializeField] private bool skipIntro;
     [SerializeField] private bool skipUntilLastSoul;
 
     private async void Start()
@@ -59,10 +60,13 @@ public class EndingUI : MonoBehaviour
         dimmed.gameObject.SetActive(true);
         dimmed.alpha = 0f;
 
-        await Awaitable.WaitForSecondsAsync(introDelay);
-        foreach (var str in introStrings)
+        if (!skipIntro)
         {
-            await TypeText(str, introTypeWaitDelay);
+            await Awaitable.WaitForSecondsAsync(introDelay);
+            foreach (var str in introStrings)
+            {
+                await TypeText(str, introTypeWaitDelay);
+            }
         }
 
         _ = FadeGuideArrowAsync(0f, 0f);
@@ -105,7 +109,7 @@ public class EndingUI : MonoBehaviour
                 _ = FadeGuideArrowAsync(1f, 0f);
             }
 
-            AudioManager.I.PlayBgm("Ending2");
+            AudioManager.I.PlayBgm("EndingLast");
             await FadeUsingBloom();
             SceneManager.LoadScene("Ending_2");
             return;
@@ -138,7 +142,7 @@ public class EndingUI : MonoBehaviour
 
             if (endingWaveElements[^1] == element)
             {
-                AudioManager.I.PlayBgm("Ending2");
+                AudioManager.I.PlayBgm("EndingLast");
                 await FadeUsingBloom();
                 SceneManager.LoadScene("Ending_2");
                 await FadeUsingBloom();
