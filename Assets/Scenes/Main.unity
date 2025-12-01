@@ -7278,7 +7278,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 1386931908}
   targetRoomData: {fileID: 11400000, guid: c26ee6a424e8821479684588d3de6975, type: 2}
   myNotInteractableMessage:
@@ -8046,7 +8046,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 413339116549289037, guid: cef85fd07e7416d43a6e8795501d8a41, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1412932200473542510, guid: cef85fd07e7416d43a6e8795501d8a41, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8151,6 +8151,10 @@ PrefabInstance:
     - target: {fileID: 2659031525007079539, guid: cef85fd07e7416d43a6e8795501d8a41, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2887521487356135338, guid: cef85fd07e7416d43a6e8795501d8a41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3664484713302210280, guid: cef85fd07e7416d43a6e8795501d8a41, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9094,7 +9098,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 1725679849}
   targetRoomData: {fileID: 11400000, guid: 3237beb3e86b4f24b84641d3ef28aaa6, type: 2}
   myNotInteractableMessage:
@@ -11682,7 +11686,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 2139730744}
   targetRoomData: {fileID: 11400000, guid: 1897e67e1547a004392b45634fe2afa6, type: 2}
   myNotInteractableMessage:
@@ -12950,6 +12954,7 @@ GameObject:
   - component: {fileID: 2776812083356434047}
   - component: {fileID: 2227426802843151771}
   - component: {fileID: 5928474826712492661}
+  - component: {fileID: 5928474826712492662}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -15153,6 +15158,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5928474826712492662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113340692614672937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Components.LocalizeStringEvent
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:335c6c04ce633eb4b9b910377d49cf56
+    m_TableEntryReference:
+      m_KeyId: 4307137246023680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5928474826712492661}
+        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &5937415423270336976
 MonoBehaviour:
   m_ObjectHideFlags: 0

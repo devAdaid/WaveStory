@@ -108,7 +108,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
 
     public override IEnumerator BeforeHide()
     {
-        AudioManager.I.PlaySfxOneShot("Paper");
+        AudioManager.I.PlaySfxOneShot("PaperClose");
         GM.I.UIHolder.InputBlocker.SetActive(true);
         contentObject.SetActive(false);
 

@@ -37,6 +37,18 @@ public class SettingsUI : UIBase
         StartCoroutine(InitializeInternalCoroutine());
     }
 
+    public override void OnShow()
+    {
+        base.OnShow();
+        AudioManager.I.PlaySfxOneShot("Click");
+    }
+
+    public override void OnHide()
+    {
+        base.OnHide();
+        AudioManager.I.PlaySfxOneShot("Click");
+    }
+
     private IEnumerator InitializeInternalCoroutine()
     {
         yield return new WaitForEndOfFrame();
@@ -145,6 +157,7 @@ public class SettingsUI : UIBase
             StartUI.SetLocale("en");
             PlayerPrefs.SetString(StartUI.LanguageCodeKey, "en");
             PlayerPrefs.Save();
+            AudioManager.I.PlaySfxOneShot("Click");
         }
     }
 }

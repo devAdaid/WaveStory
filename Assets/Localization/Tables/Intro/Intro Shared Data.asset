@@ -23,10 +23,6 @@ MonoBehaviour:
     m_Key: Intro_2
     m_Metadata:
       m_Items: []
-  - m_Id: 189341851648
-    m_Key: Intro_3
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

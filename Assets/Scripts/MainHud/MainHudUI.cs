@@ -112,7 +112,17 @@ public class MainHudUI : UIBase
 
     private void ToggleSoulMode()
     {
-        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => presenter.SetSoulMode(!isSoulMode));
+        var newSoulMode = !isSoulMode;
+        if (newSoulMode)
+        {
+            AudioManager.I.PlaySfxOneShot("Vision");
+        }
+        else
+        {
+            AudioManager.I.PlaySfxOneShot("VisionOff");
+        }
+
+        GM.I.UIHolder.DimmedUI.StartFadeOutInSequence(() => presenter.SetSoulMode(newSoulMode));
     }
     
     private void OpenSettingsUI()

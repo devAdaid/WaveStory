@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: Close
     m_Metadata:
       m_Items: []
+  - m_Id: 4306586487771136
+    m_Key: Tutorial_Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4307137246023680
+    m_Key: UI_Main_SoulWaveDetector
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -68,6 +68,18 @@ public class WaveControlUI : UIBase
         presenter.UpdateUI();
     }
 
+    public override void OnShow()
+    {
+        base.OnShow();
+        AudioManager.I.PlaySfxOneShot("Click");
+    }
+
+    public override void OnHide()
+    {
+        base.OnHide();
+        AudioManager.I.PlaySfxOneShot("Click");
+    }
+
     void Update()
     {
         if (!isInitialized) return;

@@ -5646,6 +5646,7 @@ MonoBehaviour:
   ui: {fileID: 521293234}
   startButton: {fileID: 1015949205}
   quitButton: {fileID: 2045733031}
+  guideText: {fileID: 1998341266167847248}
   introObj: {fileID: 218776123}
   introTyper: {fileID: 1982354879}
   introTexts:
@@ -5661,14 +5662,6 @@ MonoBehaviour:
       m_TableCollectionName: GUID:d54e9fceb31fc2546b062a6f79987a20
     m_TableEntryReference:
       m_KeyId: 133410807808
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  - m_TableReference:
-      m_TableCollectionName: GUID:d54e9fceb31fc2546b062a6f79987a20
-    m_TableEntryReference:
-      m_KeyId: 189341851648
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -7052,15 +7045,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.b
-      value: 0.65230787
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.g
-      value: 0.9882353
+      value: 0.93333334
       objectReference: {fileID: 0}
     - target: {fileID: 8436299106307379792, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Color.r
-      value: 0.35686275
+      value: 0.14901961
       objectReference: {fileID: 0}
     - target: {fileID: 8458120713659451183, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
       propertyPath: m_Pivot.x
@@ -7152,6 +7145,11 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7808576296924226494, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
   m_PrefabInstance: {fileID: 1998341266167847246}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1998341266167847248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5468532711074601756, guid: af70d3d610ff3774580ec2bf5f0824c5, type: 3}
+  m_PrefabInstance: {fileID: 1998341266167847246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3152501112308861572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7163,6 +7161,10 @@ PrefabInstance:
     - target: {fileID: 1033304481893885647, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
       propertyPath: m_Name
       value: WordInventoryUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673486210519283752, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5190932747941127163, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
       propertyPath: m_Pivot.x
@@ -7270,7 +7272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9211588999903356349, guid: 1ea26e763cc03fb439e1146863bae7f0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
