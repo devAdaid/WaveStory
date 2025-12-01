@@ -23,11 +23,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 947444170752
-    m_Localized: 1F Corridor
+    m_Localized: 1F Hallway
     m_Metadata:
       m_Items: []
   - m_Id: 1176704827392
-    m_Localized: 2F Corridor
+    m_Localized: 2F Hallway
     m_Metadata:
       m_Items: []
   - m_Id: 1918303911936
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2497637957632
-    m_Localized: 3F Corridor
+    m_Localized: 3F Hallway
     m_Metadata:
       m_Items: []
   - m_Id: 4540808843264
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5308014153728
-    m_Localized: 4F Corridor
+    m_Localized: 4F Hallway
     m_Metadata:
       m_Items: []
   - m_Id: 44121696522240
