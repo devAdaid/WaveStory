@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_GUID: d44e0e38ae6eb404ca0d67449a935679
   m_SerializeEntries:
+  - m_GUID: 4737cf36989a8436398ca9cf4baa74e7
+    m_Address: Japanese (ja)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5eaec5f594114c4c9232ebc714a7a9b
     m_Address: Korean (South Korea) (ko-KR)
     m_ReadOnly: 1
