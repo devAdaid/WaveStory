@@ -124,6 +124,7 @@ public class ClueUI : UIBase, IView<CluePresenter>
         {
             GM.I.UIHolder.AlarmUI.ShowAlarm(newWordAlarmMessage);
             AudioManager.I.PlaySfxOneShot("NewWord");
+            newWordAlarmMessage = string.Empty;
         }
     }
 
