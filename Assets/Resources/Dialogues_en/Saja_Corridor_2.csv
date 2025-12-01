@@ -4,7 +4,7 @@ Bg,F2_C,,,,,
 Char,Saja_What,,,,,
 Speaker,Saja,,,,,
 Text,"Phew... I was nervous since it was my <color=#26EEFF>first time</color>, but thankfully it went well.",,,,,
-Choice,Pardon?,pardon,You're a newbie too?,newbie,Liar not Saja...,newbie
+Choice,Pardon?,pardon,You're a newbie too?,newbie,Turns out Saja was just full of it...,newbie
 Label,pardon,,,,,
 Shake,,,,,,
 Sfx,Shake,,,,,
