@@ -213,7 +213,7 @@ public class CutsceneCommand : DialogueCommandBase
 
     public override void Execute(IDialogueRuntime r)
     {
-        r.UI.SetPortrait(sprite);
+        r.UI.SetCutscene(sprite);
     }
 }
 
