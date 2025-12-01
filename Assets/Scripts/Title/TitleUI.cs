@@ -55,6 +55,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     private Button quitButton;
 
     [SerializeField]
+    private GameObject guideText;
+
+    [SerializeField]
     private CanvasGroup introObj;
 
     [SerializeField]
@@ -129,6 +132,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         dimmed.gameObject.SetActive(true);
         ui.gameObject.SetActive(false);
         frame.gameObject.SetActive(true);
+        guideText.SetActive(true);
 
         foreach (var button in buttons)
         {
@@ -162,6 +166,8 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         {
             yield return null;
         }
+
+        guideText.SetActive(false);
 
         AudioManager.I.PlaySfxOneShot("CorrectLoweredVolume");
 
@@ -259,6 +265,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         waveControlUI.SetChangeBlock(true);
         previewRenderer.LineRenderer.gameObject.SetActive(false);
         frame.gameObject.SetActive(false);
+        guideText.SetActive(false);
 
         AudioManager.I.PlayBgm("Title");
 

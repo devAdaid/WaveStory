@@ -66,6 +66,10 @@ MonoBehaviour:
     m_Localized: Close
     m_Metadata:
       m_Items: []
+  - m_Id: 4307137246023680
+    m_Localized: S. W. Detector
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
