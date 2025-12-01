@@ -220,6 +220,19 @@ public class DialogueUI : UIBase
         portraitImage.gameObject.SetActive(false);
     }
 
+    public void SetCutscene(Sprite sprite)
+    {
+        if (sprite)
+        {
+            fullscreenImage.sprite = sprite;
+            fullscreenImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            fullscreenImage.gameObject.SetActive(false);
+        }
+    }
+
     public void SkipToNextChoice()
     {
         if (isWatingChoice)

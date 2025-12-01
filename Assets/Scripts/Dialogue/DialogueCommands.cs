@@ -200,6 +200,23 @@ public class BgCommand : DialogueCommandBase
     }
 }
 
+[DialogueCommand("Cutscene")]
+public class CutsceneCommand : DialogueCommandBase
+{
+    private Sprite sprite;
+    public override bool IsWaitingInput => false;
+
+    public override void Initialize(string[] parameters)
+    {
+        sprite = Resources.Load<Sprite>($"Cutscenes/{parameters[0]}");
+    }
+
+    public override void Execute(IDialogueRuntime r)
+    {
+        r.UI.SetPortrait(sprite);
+    }
+}
+
 [DialogueCommand("Char")]
 public class CharCommand : DialogueCommandBase
 {
