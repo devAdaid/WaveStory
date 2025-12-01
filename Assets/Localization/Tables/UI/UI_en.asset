@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 770518376996864
-    m_Localized: S To Soul Mode
+    m_Localized: S Soul Detector
     m_Metadata:
       m_Items: []
   - m_Id: 2116142421426176
@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2492242221355008
-    m_Localized: S To Real Mode
+    m_Localized: S Unequip
     m_Metadata:
       m_Items: []
   - m_Id: 4002727316373504

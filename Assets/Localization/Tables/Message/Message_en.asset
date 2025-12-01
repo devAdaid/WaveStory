@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 6753636352
-    m_Localized: You need to match the wave name to talk to this soul.
+    m_Localized: You need to match the wave and soul's name to talk to this soul.
     m_Metadata:
       m_Items: []
   - m_Id: 241890512896
@@ -71,11 +71,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2226687514460160
-    m_Localized: Try again in other rooms.
+    m_Localized: Try again in another room.
     m_Metadata:
       m_Items: []
   - m_Id: 2229847809277952
-    m_Localized: "New name info has been added: "
+    m_Localized: 'New name info has been added: '
     m_Metadata:
       m_Items: []
   references:
