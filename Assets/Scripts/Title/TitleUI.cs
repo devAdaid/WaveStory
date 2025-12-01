@@ -266,6 +266,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         previewRenderer.LineRenderer.gameObject.SetActive(false);
         frame.gameObject.SetActive(false);
         guideText.SetActive(false);
+        wordInputButton.gameObject.SetActive(false);
 
         AudioManager.I.PlayBgm("Title");
 

@@ -7509,7 +7509,7 @@ MonoBehaviour:
     Type: 6
     Id: 2
   button: {fileID: 1494087228}
-  targetRoomData: {fileID: 11400000, guid: 9d5a63a17e2d18a4698f7a9c34d5675f, type: 2}
+  targetRoomData: {fileID: 11400000, guid: 3406b8c9a61a2d04aaefd8c888b769f4, type: 2}
   myNotInteractableMessage:
     m_TableReference:
       m_TableCollectionName: GUID:bdf1a678c546e0248838077ad67af1bb
