@@ -250,14 +250,24 @@ public class EndingUI : MonoBehaviour
                 float t = elapsed / bloomDuration;
 
                 bloom.intensity.value = Mathf.Lerp(startIntensity, targetIntensity, t);
-                whiteImage.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+                if (whiteImage)
+                {
+                    whiteImage.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+                }
+                else
+                {
+                    break;
+                }
 
                 await Awaitable.NextFrameAsync();
             }
 
             // 정확한 최종 값 보장
             bloom.intensity.value = targetIntensity;
-            whiteImage.alpha = targetAlpha;
+            if (whiteImage)
+            {
+                whiteImage.alpha = targetAlpha;
+            }
         }
     }
 }
