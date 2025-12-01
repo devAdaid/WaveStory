@@ -19,6 +19,7 @@ Label,talk,,,,,
 Speaker,,,,,,
 Text,영혼이 기억을 되찾도록 도움을 주자.,,,,,
 Speaker,순자,,,,,
+Char,Sunja,,,,,
 Text,얼마전에 꽃집을 갔었는데... 어떤 이름의 꽃집이었더라?,,,,,
 ChoiceWithClue,사랑 꽃집,right_1,기쁨 꽃집,wrong,희망 꽃집,wrong
 Label,right_1,,,,,
