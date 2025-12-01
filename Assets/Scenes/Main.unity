@@ -7278,7 +7278,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 1386931908}
   targetRoomData: {fileID: 11400000, guid: c26ee6a424e8821479684588d3de6975, type: 2}
   myNotInteractableMessage:
@@ -9094,7 +9094,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 1725679849}
   targetRoomData: {fileID: 11400000, guid: 3237beb3e86b4f24b84641d3ef28aaa6, type: 2}
   myNotInteractableMessage:
@@ -11682,7 +11682,7 @@ MonoBehaviour:
     Id: 
   interactableCondition:
     Type: 1
-    Id: Saja_Corridor_3_Talk
+    Id: Saja_Corridor_4_Talk
   button: {fileID: 2139730744}
   targetRoomData: {fileID: 11400000, guid: 1897e67e1547a004392b45634fe2afa6, type: 2}
   myNotInteractableMessage:
