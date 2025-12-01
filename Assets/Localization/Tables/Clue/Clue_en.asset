@@ -189,11 +189,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2417342353788928
-    m_Localized: "Found someone's diary in Room 401. The cover has 'Kim \u3147\u314E'
-      written in round, cute handwriting.\n\n[Diary Entry]\nToday I brought a lovely
-      child home. I gave her my last name. Now we're family!\nMs. Arin upstairs invited
-      us to come play later. We should definitely go~\nIf all three of us with the
-      same last name gather, it'll feel like we're siblings lolol"
+    m_Localized: 'Found someone''s diary in Room 401. The cover has ''Kim Y. H.''
+      written in round, cute handwriting.
+
+
+      [Diary Entry]
+
+      Today I brought
+      a lovely child home. I gave her my last name. Now we''re family!
+
+      Ms.
+      Arin upstairs invited us to come play later. We should definitely go~
+
+      If
+      all three of us with the same last name gather, it''ll feel like we''re siblings
+      lolol'
     m_Metadata:
       m_Items: []
   - m_Id: 2417453960024064
