@@ -22,8 +22,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Floor: 2
-  RealSprite: {fileID: 21300000, guid: 930702236f8c8044893a99d3a6ac938c, type: 3}
-  SoulSprite: {fileID: 21300000, guid: e687637e198ad9d498c850d67651940e, type: 3}
+  RealSprite: {fileID: 21300000, guid: 0df706e6a037582458d385e8f7bf8a93, type: 3}
+  SoulSprite: {fileID: 21300000, guid: 889467c922b5d9c4780dda0dee61517b, type: 3}
   Souls:
   - {fileID: 11400000, guid: 5fbd45f470d300d4ab32ebf08068b3d5, type: 2}
   references:
