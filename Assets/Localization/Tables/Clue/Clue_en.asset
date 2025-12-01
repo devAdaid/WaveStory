@@ -159,7 +159,7 @@ MonoBehaviour:
       [November 29 Diary Entry]
 
       I picked
-      up a small pendant in the hallway. Could it belong to Ms. Yuna from Room 201?
+      up a small keyring in the hallway. Could it belong to Ms. Yuna from Room 201?
       I should ask her if I run into her later.'
     m_Metadata:
       m_Items: []
@@ -167,7 +167,7 @@ MonoBehaviour:
     m_Localized: "Found someone's smartphone in Room 201. Checked the recent messenger
       records.\n\n[Messenger Record]\n(A: Phone owner, B: Another person)\nB: Ms.
       Seo, you didn't look well at work today. Are you okay?\nA: Thank you for your
-      concern \u3160\u3160 I lost a pendant I always carried in my bag...\nB: Oh
+      concern \u3160\u3160 I lost a keyring I always carried in my bag...\nB: Oh
       really? I'll check with the building management team.\nA: Hehe, thank you so
       much! :D"
     m_Metadata:
