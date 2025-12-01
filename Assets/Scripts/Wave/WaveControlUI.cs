@@ -89,25 +89,25 @@ public class WaveControlUI : UIBase
         var newParam = presenter.WaveParameter;
 
         // A 키: 주파수 감소 (꾹 눌러도 딜레이 적용)
-        if (Input.GetKey(KeyCode.A) && currentTime - lastInputTimeA >= inputDelay)
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && currentTime - lastInputTimeA >= inputDelay)
         {
             newParam.FrequencyStep = WaveLogic.GetClampedFrequenctStep(newParam.FrequencyStep - 1);
             lastInputTimeA = currentTime;
         }
         // D 키: 주파수 증가
-        else if (Input.GetKey(KeyCode.D) && currentTime - lastInputTimeD >= inputDelay)
+        else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && currentTime - lastInputTimeD >= inputDelay)
         {
             newParam.FrequencyStep = WaveLogic.GetClampedFrequenctStep(newParam.FrequencyStep + 1);
             lastInputTimeD = currentTime;
         }
         // S 키: 진폭 감소
-        else if (Input.GetKey(KeyCode.S) && currentTime - lastInputTimeS >= inputDelay)
+        else if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && currentTime - lastInputTimeS >= inputDelay)
         {
             newParam.AmplitudeStep = WaveLogic.GetClampedAmplitudeStep(newParam.AmplitudeStep - 1);
             lastInputTimeS = currentTime;
         }
         // W 키: 진폭 증가
-        else if (Input.GetKey(KeyCode.W) && currentTime - lastInputTimeW >= inputDelay)
+        else if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && currentTime - lastInputTimeW >= inputDelay)
         {
             newParam.AmplitudeStep = WaveLogic.GetClampedAmplitudeStep(newParam.AmplitudeStep + 1);
             lastInputTimeW = currentTime;
