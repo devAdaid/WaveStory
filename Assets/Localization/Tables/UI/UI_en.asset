@@ -74,6 +74,14 @@ MonoBehaviour:
     m_Localized: S. W. Detector
     m_Metadata:
       m_Items: []
+  - m_Id: 4377332752863232
+    m_Localized: Select language.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4377424834613248
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

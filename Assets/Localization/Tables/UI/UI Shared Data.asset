@@ -71,6 +71,14 @@ MonoBehaviour:
     m_Key: UI_Main_SoulWaveDetector
     m_Metadata:
       m_Items: []
+  - m_Id: 4377332752863232
+    m_Key: Start_SelectLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4377424834613248
+    m_Key: Start_Confirm
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
