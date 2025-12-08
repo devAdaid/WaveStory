@@ -20,7 +20,9 @@ public class WaveControlUI : UIBase
     [SerializeField]
     private WaveRenderer previewTemplate;
     [SerializeField]
-    private GameObject inputUI;
+    private GameObject wordButtonRoot;
+    [SerializeField]
+    private WordInputUI inputUI;
     [SerializeField]
     private Button waveHearingButton;
 
@@ -78,6 +80,7 @@ public class WaveControlUI : UIBase
     {
         base.OnHide();
         AudioManager.I.PlaySfxOneShot("Click");
+        inputUI.Hide();
     }
 
     void Update()
@@ -166,12 +169,12 @@ public class WaveControlUI : UIBase
         {
             if (soul.WaveParameter == this.inputParameter)
             {
-                inputUI.SetActive(true);
+                wordButtonRoot.SetActive(true);
                 return;
             }
         }
 
-        inputUI.SetActive(false);
+        wordButtonRoot.SetActive(false);
     }
 
     private void OnHearing()

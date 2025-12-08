@@ -1376,6 +1376,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &347659639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8899303151257651428, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+  m_PrefabInstance: {fileID: 856097686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &353475617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,9 +4813,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1865264751576016135, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+      propertyPath: inputUI
+      value: 
+      objectReference: {fileID: 856097688}
+    - target: {fileID: 1865264751576016135, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
       propertyPath: previewRoot
       value: 
       objectReference: {fileID: 31535924}
+    - target: {fileID: 1865264751576016135, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
+      propertyPath: wordButtonRoot
+      value: 
+      objectReference: {fileID: 347659639}
     - target: {fileID: 1865264751576016135, guid: f4119a52f566a5048a6bd06ea3a3cd32, type: 3}
       propertyPath: previewTemplate
       value: 

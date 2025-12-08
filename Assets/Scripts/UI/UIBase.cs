@@ -39,6 +39,11 @@ public abstract class UIBase : MonoBehaviour
 
     public void Show()
     {
+        if (IsActive)
+        {
+            return;
+        }
+
         if (isPopup)
         {
             PopupHandler.I.AddPopup(this);
@@ -52,12 +57,25 @@ public abstract class UIBase : MonoBehaviour
 
     public void Hide()
     {
+        if (!IsActive)
+        {
+            return;
+        }
+
         if (PopupHandler.I.IsOpened(this))
         {
             PopupHandler.I.RemoveTop();
         }
 
-        StartCoroutine(HideProcess());
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(HideProcess());
+        }
+        else
+        {
+            root.SetActive(false);
+            OnHide();
+        }
     }
 
     public virtual IEnumerator BeforeHide() { yield break; }
