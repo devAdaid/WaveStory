@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d11b841358871e94bae664262502da1a
+guid: 531917797396dd444b7390e757bef1cc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Nosutaru-dot (M+)
+  - DotGothic16
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

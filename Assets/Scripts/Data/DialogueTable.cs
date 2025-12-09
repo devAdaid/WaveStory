@@ -18,7 +18,6 @@ public class DialogueTable
                 return true;
             }
         }
-
         dialogue = null;
         return false;
     }
@@ -35,6 +34,9 @@ public class DialogueTableItem
     [System.NonSerialized] private TextAsset _dialogueEn;
     [System.NonSerialized] private bool _dialogueEnLoaded;
 
+    [System.NonSerialized] private TextAsset _dialogueJa;
+    [System.NonSerialized] private bool _dialogueJaLoaded;
+
     private TextAsset DialogueEn
     {
         get
@@ -49,15 +51,39 @@ public class DialogueTableItem
         }
     }
 
+    private TextAsset DialogueJa
+    {
+        get
+        {
+            if (!_dialogueJaLoaded && DialogueKo != null)
+            {
+                _dialogueJaLoaded = true;
+                string jaPath = $"Dialogues_ja/{DialogueKo.name}";
+                _dialogueJa = Resources.Load<TextAsset>(jaPath);
+            }
+            return _dialogueJa;
+        }
+    }
+
     public TextAsset Dialogue
     {
         get
         {
             var locale = LocalizationSettings.SelectedLocale;
-            if (locale != null && locale.Identifier.Code == "ko-KR")
+            if (locale != null)
             {
-                return DialogueKo;
+                string localeCode = locale.Identifier.Code;
+
+                if (localeCode == "ko-KR")
+                {
+                    return DialogueKo;
+                }
+                else if (localeCode == "ja")
+                {
+                    return DialogueJa ?? DialogueKo;
+                }
             }
+
             return DialogueEn ?? DialogueKo;
         }
     }
