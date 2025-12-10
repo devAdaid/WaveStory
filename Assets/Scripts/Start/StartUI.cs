@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
-    public static readonly string LanguageCodeKey = "Language_Code";
-
     [SerializeField] private GameObject languagePanel;
     [SerializeField] private List<LanguageToggleButton> languageButtons;
     [SerializeField] private Button confirmButton;
@@ -21,25 +15,12 @@ public class StartUI : MonoBehaviour
 
     private string localeCode;
 
-    private IEnumerator Start()
+    private void Start()
     {
-        yield return LocalizationSettings.InitializationOperation;
-
-        LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
-        LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
-
-        if (PlayerPrefs.HasKey(LanguageCodeKey))
-        {
-            string savedCode = PlayerPrefs.GetString(LanguageCodeKey);
-            SetLocale(savedCode);
-            SceneManager.LoadScene("Title");
-            yield break;
-        }
-
         languagePanel.SetActive(true);
 
-        localeCode = GetDefaultLocale();
-        SetLocale(localeCode);
+        localeCode = Bootstrap.GetDefaultLocale();
+        Bootstrap.SetLocale(localeCode);
 
         confirmButton.onClick.AddListener(Confirm);
 
@@ -50,14 +31,15 @@ public class StartUI : MonoBehaviour
         }
     }
 
-    private void SelectLanguage(string localeCode)
+    private void SelectLanguage(string inLocaleCode)
     {
-        this.localeCode = localeCode;
+        localeCode = inLocaleCode;
+        
         foreach (var languageButton in languageButtons)
         {
-            languageButton.Apply(localeCode);
+            languageButton.Apply(inLocaleCode);
         }
-        SetLocale(localeCode);
+        Bootstrap.SetLocale(inLocaleCode);
     }
 
     private void Confirm()
@@ -71,8 +53,8 @@ public class StartUI : MonoBehaviour
 
     private IEnumerator FadeOutAndLoadTitle(string localeCode)
     {
-        SetLocale(localeCode);
-        PlayerPrefs.SetString(LanguageCodeKey, localeCode);
+        Bootstrap.SetLocale(localeCode);
+        PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, localeCode);
         PlayerPrefs.Save();
 
         fadeImage.gameObject.SetActive(true);
@@ -89,38 +71,5 @@ public class StartUI : MonoBehaviour
         fadeImage.color = color;
 
         SceneManager.LoadScene("Title");
-    }
-
-    public static void SetLocale(string localeCode)
-    {
-        var locales = LocalizationSettings.AvailableLocales.Locales;
-        foreach (var locale in locales.Where(locale => locale.Identifier.Code == localeCode))
-        {
-            LocalizationSettings.SelectedLocale = locale;
-            break;
-        }
-    }
-
-    public static void OnLocaleChanged(Locale locale)
-    {
-        if (locale != null)
-        {
-            PlayerPrefs.SetString(LanguageCodeKey, locale.Identifier.Code);
-            PlayerPrefs.Save();
-        }
-    }
-
-    private static string GetDefaultLocale()
-    {
-        var locales = LocalizationSettings.AvailableLocales.Locales;
-        foreach (var locale in locales)
-        {
-            if (locale.Identifier.CultureInfo.Name== CultureInfo.CurrentCulture.Name)
-            {
-                return locale.Identifier.CultureInfo.Name;
-            }
-        }
-
-        return "en";
     }
 }

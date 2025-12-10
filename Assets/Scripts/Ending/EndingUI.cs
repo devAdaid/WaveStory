@@ -40,13 +40,13 @@ public class EndingUI : MonoBehaviour
     {
         await LocalizationSettings.InitializationOperation.Task;
 
-        LocalizationSettings.SelectedLocaleChanged -= StartUI.OnLocaleChanged;
-        LocalizationSettings.SelectedLocaleChanged += StartUI.OnLocaleChanged;
+        LocalizationSettings.SelectedLocaleChanged -= Bootstrap.OnLocaleChanged;
+        LocalizationSettings.SelectedLocaleChanged += Bootstrap.OnLocaleChanged;
 
-        if (PlayerPrefs.HasKey(StartUI.LanguageCodeKey))
+        if (PlayerPrefs.HasKey(Bootstrap.LanguageCodeKey))
         {
-            string savedCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey);
-            StartUI.SetLocale(savedCode);
+            string savedCode = PlayerPrefs.GetString(Bootstrap.LanguageCodeKey);
+            Bootstrap.SetLocale(savedCode);
         }
 
         intro.gameObject.SetActive(true);

@@ -74,7 +74,7 @@ public class SettingsUI : UIBase
         sfxSlider.onValueChanged.AddListener(OnSfxSliderChanged);
 
         // Language
-        string languageCode = PlayerPrefs.GetString(StartUI.LanguageCodeKey, LocalizationSettings.SelectedLocale.Identifier.Code);
+        string languageCode = PlayerPrefs.GetString(Bootstrap.LanguageCodeKey, LocalizationSettings.SelectedLocale.Identifier.Code);
         koreanToggle.isOn = (languageCode == "ko-KR");
         englishToggle.isOn = (languageCode == "en");
 
@@ -143,8 +143,8 @@ public class SettingsUI : UIBase
         if (isOn)
         {
             englishToggle.isOn = false;
-            StartUI.SetLocale("ko-KR");
-            PlayerPrefs.SetString(StartUI.LanguageCodeKey, "ko-KR");
+            Bootstrap.SetLocale("ko-KR");
+            PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, "ko-KR");
             PlayerPrefs.Save();
         }
     }
@@ -154,8 +154,8 @@ public class SettingsUI : UIBase
         if (isOn)
         {
             koreanToggle.isOn = false;
-            StartUI.SetLocale("en");
-            PlayerPrefs.SetString(StartUI.LanguageCodeKey, "en");
+            Bootstrap.SetLocale("en");
+            PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, "en");
             PlayerPrefs.Save();
             AudioManager.I.PlaySfxOneShot("Click");
         }
