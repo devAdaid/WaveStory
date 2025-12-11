@@ -29,6 +29,7 @@ public class SettingsUI : UIBase
     [Header("Language")]
     [SerializeField] private Toggle koreanToggle;
     [SerializeField] private Toggle englishToggle;
+    [SerializeField] private Toggle japaneseToggle;
 
     protected override void InitializeInternal()
     {
@@ -77,9 +78,11 @@ public class SettingsUI : UIBase
         string languageCode = PlayerPrefs.GetString(Bootstrap.LanguageCodeKey, LocalizationSettings.SelectedLocale.Identifier.Code);
         koreanToggle.isOn = (languageCode == "ko-KR");
         englishToggle.isOn = (languageCode == "en");
+        japaneseToggle.isOn = (languageCode == "ja");
 
         koreanToggle.onValueChanged.AddListener(OnKoreanToggleChanged);
         englishToggle.onValueChanged.AddListener(OnEnglishToggleChanged);
+        japaneseToggle.onValueChanged.AddListener(OnJapaneseToggleChanged);
     }
 
     private void OnBgmSliderChanged(float value)
@@ -143,6 +146,7 @@ public class SettingsUI : UIBase
         if (isOn)
         {
             englishToggle.isOn = false;
+            japaneseToggle.isOn = false;
             Bootstrap.SetLocale("ko-KR");
             PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, "ko-KR");
             PlayerPrefs.Save();
@@ -154,8 +158,22 @@ public class SettingsUI : UIBase
         if (isOn)
         {
             koreanToggle.isOn = false;
+            japaneseToggle.isOn = false;
             Bootstrap.SetLocale("en");
             PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, "en");
+            PlayerPrefs.Save();
+            AudioManager.I.PlaySfxOneShot("Click");
+        }
+    }
+
+    private void OnJapaneseToggleChanged(bool isOn)
+    {
+        if (isOn)
+        {
+            englishToggle.isOn = false;
+            koreanToggle.isOn = false;
+            Bootstrap.SetLocale("ja");
+            PlayerPrefs.SetString(Bootstrap.LanguageCodeKey, "ja");
             PlayerPrefs.Save();
             AudioManager.I.PlaySfxOneShot("Click");
         }
