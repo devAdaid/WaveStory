@@ -7,6 +7,9 @@ public class UnlockContext
     public UnityEvent OnClueChanged = new UnityEvent();
 
     public HashSet<string> FlagIds => flagIds;
+    public HashSet<string> UnlockedSouls => unlockedSouls;
+    public HashSet<string> ClearedSouls => clearedSouls;
+    public HashSet<string> UnlockedClues => unlockedClues;
 
     private readonly HashSet<string> flagIds = new HashSet<string>();
     private readonly HashSet<string> unlockedSouls = new HashSet<string>();

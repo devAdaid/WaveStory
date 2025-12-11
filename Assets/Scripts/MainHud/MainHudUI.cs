@@ -20,6 +20,9 @@ public class MainHudUI : UIBase
     private Button settingsButton;
 
     [SerializeField]
+    private Button saveButton;
+
+    [SerializeField]
     private Sprite realModeSprite;
 
     [SerializeField]
@@ -63,6 +66,7 @@ public class MainHudUI : UIBase
         clueButton.onClick.AddListener(OpenClueUI);
         soulModeButton.onClick.AddListener(ToggleSoulMode);
         settingsButton.onClick.AddListener(OpenSettingsUI);
+        saveButton.onClick.AddListener(GM.I.SaveCurrentData);
         TextHelper.SetLocalizedTextEvent(soulModeText, realModeStr, ref soulModeTextEvent);
     }
 

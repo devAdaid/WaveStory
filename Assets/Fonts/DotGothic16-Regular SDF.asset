@@ -46,8 +46,8 @@ MonoBehaviour:
     padding: 9
     paddingMode: 2
     packingMode: 0
-    atlasWidth: 8192
-    atlasHeight: 8192
+    atlasWidth: 4096
+    atlasHeight: 4096
     characterSetSelectionMode: 7
     characterSequence: 
     referencedFontAssetGUID: 
@@ -68,39 +68,19 @@ MonoBehaviour:
   m_IsMultiAtlasTexturesEnabled: 0
   m_GetFontFeatures: 1
   m_ClearDynamicDataOnBuild: 1
-  m_AtlasWidth: 8192
-  m_AtlasHeight: 8192
+  m_AtlasWidth: 4096
+  m_AtlasHeight: 4096
   m_AtlasPadding: 9
   m_AtlasRenderMode: 4165
   m_UsedGlyphRects: []
   m_FreeGlyphRects:
   - m_X: 0
     m_Y: 0
-    m_Width: 8191
-    m_Height: 8191
+    m_Width: 4095
+    m_Height: 4095
   m_FontFeatureTable:
     m_MultipleSubstitutionRecords: []
-    m_LigatureSubstitutionRecords:
-    - m_ComponentGlyphIDs: a9030000e9030000dd03000094020000c4030000e7030000
-      m_LigatureGlyphID: 8039
-    - m_ComponentGlyphIDs: a9030000e9030000ac030000e5030000dc030000
-      m_LigatureGlyphID: 8041
-    - m_ComponentGlyphIDs: a9030000e9030000
-      m_LigatureGlyphID: 7586
-    - m_ComponentGlyphIDs: ac030000e5030000dc030000
-      m_LigatureGlyphID: 8040
-    - m_ComponentGlyphIDs: c4030000ef030000
-      m_LigatureGlyphID: 7590
-    - m_ComponentGlyphIDs: c5030000e7030000
-      m_LigatureGlyphID: 7596
-    - m_ComponentGlyphIDs: cf030000e7030000
-      m_LigatureGlyphID: 8049
-    - m_ComponentGlyphIDs: e6030000bf030000c4030000e7030000
-      m_LigatureGlyphID: 7593
-    - m_ComponentGlyphIDs: 470b0000590a0000
-      m_LigatureGlyphID: 7622
-    - m_ComponentGlyphIDs: cb030000a0030000c0030000
-      m_LigatureGlyphID: 8052
+    m_LigatureSubstitutionRecords: []
     m_GlyphPairAdjustmentRecords: []
     m_MarkToBaseAdjustmentRecords: []
     m_MarkToMarkAdjustmentRecords: []
@@ -247,8 +227,8 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _TextureHeight: 8192
-    - _TextureWidth: 8192
+    - _TextureHeight: 4096
+    - _TextureWidth: 4096
     - _UnderlayDilate: 0
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0

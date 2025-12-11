@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 
 public class GM : MonoSingleton<GM>, IMonoSingleton
@@ -15,7 +16,9 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
     public GameUIHolder UIHolder => this.uiHolder;
 
     [SerializeField]
-    private RoomData defaultRoomData;
+    private LocalizedString saveMessage;
+
+    public static PlayerSaveData LoadedData = null;
 
     public void Initialize()
     {
@@ -25,16 +28,39 @@ public class GM : MonoSingleton<GM>, IMonoSingleton
         {
             return;
         }
+
+        if (LoadedData == null)
+        {
+            LoadedData = new();
+            uiHolder.FirstBagUI.Show();
+        }
         
-        InputWave = new WaveContext(WaveParameter.Min);
-        Room = new RoomContext(defaultRoomData.Id);
-        WordInventory = new WordInventoryContext(new ());
-        SoulMode = new SoulModeContext(false);
-        Unlock = new UnlockContext(new HashSet<string>(), new HashSet<string>(), new HashSet<string>(), new HashSet<string>());
+        InputWave = new WaveContext(LoadedData.InputWave);
+        Room = new RoomContext(LoadedData.CurrentRoomId);
+        WordInventory = new WordInventoryContext(LoadedData.WordsByFloor);
+        SoulMode = new SoulModeContext(LoadedData.IsSoulMode);
+        Unlock = new UnlockContext(LoadedData.FlagIds, LoadedData.UnlockedSouls, LoadedData.ClearedSouls, LoadedData.UnlockedClues);
 
         uiHolder.Initialize(this);
         uiHolder.DimmedUI.StartFadeIn(0.5f);
 
         AudioManager.I.PlayBgm("Air");
+    }
+
+    public void SaveCurrentData()
+    {
+        var playerData = new PlayerSaveData
+        {
+            InputWave = InputWave.WaveParameter,
+            CurrentRoomId = Room.CurrentRoomId,
+            WordsByFloor = WordInventory.WordsByFloor,
+            IsSoulMode = SoulMode.IsSoulMode,
+            FlagIds = Unlock.FlagIds,
+            UnlockedSouls = Unlock.UnlockedSouls,
+            ClearedSouls = Unlock.ClearedSouls,
+            UnlockedClues = Unlock.UnlockedClues
+        };
+        SaveDataUtility.SavePlayerData(playerData);
+        uiHolder.AlarmUI.ShowAlarm(saveMessage);
     }
 }

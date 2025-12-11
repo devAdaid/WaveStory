@@ -15,76 +15,56 @@ MonoBehaviour:
   m_TableCollectionName: Hearing
   m_TableCollectionNameGuidString: 48ec95f81a400d04db3b44feea23352a
   m_Entries:
-  - m_Id: 11808804864
-    m_Key: Ending_01
+  - m_Id: 6747021312
+    m_Key: Saja
     m_Metadata:
       m_Items: []
-  - m_Id: 98601537536
-    m_Key: Ending_02
+  - m_Id: 115236888576
+    m_Key: Han
     m_Metadata:
       m_Items: []
-  - m_Id: 1423116283887616
-    m_Key: Ending_03
+  - m_Id: 207134089216
+    m_Key: Kim
     m_Metadata:
       m_Items: []
-  - m_Id: 1423177470394368
-    m_Key: Ending_04
+  - m_Id: 576629907410944
+    m_Key: S01_KMJ
     m_Metadata:
       m_Items: []
-  - m_Id: 131099004928
-    m_Key: Ending_05
+  - m_Id: 576841145143296
+    m_Key: S02_CSA
     m_Metadata:
       m_Items: []
-  - m_Id: 1423368319614976
-    m_Key: Ending_06
+  - m_Id: 576927501668352
+    m_Key: S03_PJS
     m_Metadata:
       m_Items: []
-  - m_Id: 1423383901454336
-    m_Key: Ending_07
+  - m_Id: 577042933108736
+    m_Key: S04_LSJ
     m_Metadata:
       m_Items: []
-  - m_Id: 1423407242756096
-    m_Key: Ending_08
+  - m_Id: 790317448843264
+    m_Key: S05_JHG
     m_Metadata:
       m_Items: []
-  - m_Id: 1423419188133888
-    m_Key: Ending_09
+  - m_Id: 790768462352384
+    m_Key: S06_SYN
     m_Metadata:
       m_Items: []
-  - m_Id: 1423431217397760
-    m_Key: Ending_10
+  - m_Id: 823946900164608
+    m_Key: S07_KYH
     m_Metadata:
       m_Items: []
-  - m_Id: 5807212859392
-    m_Key: Ending_Guide_1
+  - m_Id: 824000952160256
+    m_Key: S08_KCS
     m_Metadata:
       m_Items: []
-  - m_Id: 6087593693184
-    m_Key: Ending_Guide_2
+  - m_Id: 824059341066240
+    m_Key: S09_IMY
     m_Metadata:
       m_Items: []
-  - m_Id: 1381815107022848
-    m_Key: Ending_Intro_1
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1381920874786816
-    m_Key: Ending_Intro_2
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1613870973677568
-    m_Key: Ending_Intro_3
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1614218085888000
-    m_Key: Ending_Intro_4
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1614379981828096
-    m_Key: Ending_Intro_5
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1937284837167104
-    m_Key: Ending_11
+  - m_Id: 824171979100160
+    m_Key: S10_CSJ
     m_Metadata:
       m_Items: []
   m_Metadata:

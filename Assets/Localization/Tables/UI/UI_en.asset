@@ -82,6 +82,10 @@ MonoBehaviour:
     m_Localized: Confirm
     m_Metadata:
       m_Items: []
+  - m_Id: 8010399916773376
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

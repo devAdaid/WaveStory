@@ -78,6 +78,10 @@ MonoBehaviour:
     m_Localized: 'New name info has been added: '
     m_Metadata:
       m_Items: []
+  - m_Id: 6284714957361152
+    m_Localized: Progress has been saved.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

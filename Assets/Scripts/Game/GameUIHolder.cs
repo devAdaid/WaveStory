@@ -25,6 +25,8 @@ public class GameUIHolder : MonoBehaviour
     [field: SerializeField]
     public AlarmUI AlarmUI;
     [field: SerializeField]
+    public FirstBagUI FirstBagUI;
+    [field: SerializeField]
     public GameObject InputBlocker;
 
     public void Initialize(GM context)

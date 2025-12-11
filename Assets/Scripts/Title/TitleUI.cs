@@ -1,6 +1,7 @@
 using RedBlueGames.Tools.TextTyper;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -55,6 +56,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     private Button startButton;
 
     [SerializeField]
+    private Button loadButton;
+
+    [SerializeField]
     private Button quitButton;
     
     [SerializeField]
@@ -83,9 +87,16 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     public void Initialize()
     {
         startButton.onClick.AddListener(StartGame);
+        loadButton.onClick.AddListener(LoadGame);
         quitButton.onClick.AddListener(QuitGame);
         settingsButton.onClick.AddListener(OpenSettingsUI);
-        
+
+        loadButton.gameObject.SetActive(File.Exists(SaveDataUtility.SaveFilePath));
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        quitButton.gameObject.SetActive(false);
+#endif
+
         settingsUI.Initialize();
     }
 
@@ -320,6 +331,12 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
     private void StartGame()
     {
         StartCoroutine(Intro());
+    }
+
+    private void LoadGame()
+    {
+        GM.LoadedData = SaveDataUtility.LoadPlayerData();
+        SceneManager.LoadScene("Main");
     }
 
     private void QuitGame()

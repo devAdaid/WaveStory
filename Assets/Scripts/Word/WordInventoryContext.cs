@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class WordInventoryContext
 {
+    public Dictionary<int, List<string>> WordsByFloor => wordsByFloor;
     private readonly Dictionary<int, List<string>> wordsByFloor;
     public UnityEvent<string> OnWordAdded = new();
 
