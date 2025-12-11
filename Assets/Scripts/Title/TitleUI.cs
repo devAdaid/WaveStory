@@ -91,7 +91,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
         quitButton.onClick.AddListener(QuitGame);
         settingsButton.onClick.AddListener(OpenSettingsUI);
 
-        loadButton.gameObject.SetActive(File.Exists(SaveDataUtility.SaveFilePath));
+        loadButton.gameObject.SetActive(SaveDataUtility.HasSaveData());
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         quitButton.gameObject.SetActive(false);
