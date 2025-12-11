@@ -19,12 +19,13 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 7267115008
-    m_Localized: The perpetrator of the major fire that broke out at Cheongrim Building
+    m_Localized: The perpetrator of the major fire that broke out at XXX Building
       in Seoul around 8 PM today has been arrested just 2 hours after the crime.
     m_Metadata:
       m_Items: []
   - m_Id: 133410807808
-    m_Localized: Fire authorities have completely extinguished the fire and will soon begin body recovery operations.
+    m_Localized: Fire authorities have completely extinguished the fire and will
+      soon begin body recovery operations.
     m_Metadata:
       m_Items: []
   references:
