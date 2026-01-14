@@ -1,7 +1,7 @@
 using RedBlueGames.Tools.TextTyper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -45,7 +45,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     [SerializeField]
     private CanvasGroup wordInventoryRoot;
-    
+
     [SerializeField]
     private SettingsUI settingsUI;
 
@@ -60,7 +60,7 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     [SerializeField]
     private Button quitButton;
-    
+
     [SerializeField]
     private Button settingsButton;
 
@@ -75,6 +75,9 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     [SerializeField]
     private List<LocalizedString> introTexts;
+
+    [SerializeField]
+    private TMP_Text errorText;
 
     private WaveContext inputContext;
     private WaveContext previewContext;
@@ -335,8 +338,15 @@ public class TitleUI : MonoSingleton<TitleUI>, IMonoSingleton
 
     private void LoadGame()
     {
-        GM.LoadedData = SaveDataUtility.LoadPlayerData();
-        SceneManager.LoadScene("Main");
+        try
+        {
+            GM.LoadedData = SaveDataUtility.LoadPlayerData();
+            SceneManager.LoadScene("Main");
+        }
+        catch (Exception ex)
+        {
+            errorText.text = ex.ToString();
+        }
     }
 
     private void QuitGame()
